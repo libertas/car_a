@@ -134,6 +134,7 @@ void PendSV_Handler(void)
 {
 }
 
+#include "usart.h"
 /**
   * @brief  This function handles SysTick Handler.
   * @param  None
@@ -141,7 +142,12 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
- 
+	static int t;
+	t++;
+	if(t == 0)
+	{
+		uprintf(USART1, "Tick\n");
+	}
 }
 
 void USART1_IRQHandler(void)

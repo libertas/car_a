@@ -617,6 +617,18 @@
         </Group>
         <Group>
           <GroupName>SYSTEM</GroupName>
+          <Files>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\clock.c</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>

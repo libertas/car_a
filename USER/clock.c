@@ -12,7 +12,7 @@ void systick_config()
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
 
-	SysTick_Config(168000);
+	SysTick_Config(SystemCoreClock / 1000);
 	SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk;
 	SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
 }

@@ -146,7 +146,10 @@ void SysTick_Handler(void)
 
 void USART1_IRQHandler(void)
 {
-	USART_SendData(USART1, USART_ReceiveData(USART1));
+	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
+	{
+		USART_SendData(USART1, USART_ReceiveData(USART1));
+	}
 }
 
 /******************************************************************************/

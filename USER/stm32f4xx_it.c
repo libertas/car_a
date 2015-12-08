@@ -140,12 +140,8 @@ void PendSV_Handler(void)
   * @param  None
   * @retval None
   */
-char toggle = 0;
-
 void SysTick_Handler(void)
 {
-	GPIO_WriteBit(GPIOC, GPIO_Pin_4, toggle);
-	toggle = !toggle;
 }
 
 void USART1_IRQHandler(void)

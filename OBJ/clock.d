@@ -2,7 +2,7 @@
 ..\obj\clock.o: ..\FWLIB\inc\misc.h
 ..\obj\clock.o: ..\USER\stm32f4xx.h
 ..\obj\clock.o: ..\CORE\core_cm4.h
-..\obj\clock.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\clock.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\clock.o: ..\CORE\core_cmInstr.h
 ..\obj\clock.o: ..\CORE\core_cmFunc.h
 ..\obj\clock.o: ..\CORE\core_cm4_simd.h

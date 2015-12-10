@@ -12,6 +12,7 @@ int main(void)
 	
 	while(1)
 	{
+		printf("you stupid xuedi");
 	}
 	
 	return 0;

@@ -73,7 +73,7 @@ void uprintf(USART_TypeDef* USARTx, char *fmt, ...)
 	
 	va_end(arg_ptr);
 }
-
+#if 0
 /*
 WARNING: NOT USABLE NOW!
 */
@@ -93,5 +93,14 @@ int fgetc(FILE *fp)
 
 	ch = (int)USART1->DR & 0xFF;
 
+	return ch;
+}
+#endif
+
+//重定义fputc函数 
+int fputc(int ch, FILE *f)
+{ 	
+	while((USART1->SR&0X40)==0);//循环发送,直到发送完毕   
+	USART1->DR = (u8) ch;      
 	return ch;
 }

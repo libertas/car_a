@@ -15,7 +15,10 @@ int main(void)
 	
 	while(1)
 	{
-		
+		GPIO_ResetBits(GPIOA,GPIO_Pin_12); 
+		delay_us(1);
+		GPIO_SetBits(GPIOA,GPIO_Pin_12);
+		delay_us(1);
 	}
 	
 	return 0;

@@ -423,6 +423,11 @@
               <FileType>1</FileType>
               <FilePath>.\system_stm32f4xx.c</FilePath>
             </File>
+            <File>
+              <FileName>gyroscope.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\gyroscope.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

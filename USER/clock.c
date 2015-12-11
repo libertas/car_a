@@ -5,6 +5,12 @@
 static uint8_t  fac_us=0;							//us延时倍乘数			   
 static uint16_t fac_ms=0;							//ms延时倍乘数
 
+void delay_init(u8 SYSCLK)
+{
+ 	SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8); 
+	fac_us=SYSCLK / 8;						
+	fac_ms=(u16)fac_us * 1000;				
+}		
 
 void systick_config()
 {

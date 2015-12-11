@@ -9,6 +9,7 @@ void tmp_config(void);
 
 int main(void)
 {
+	delay_init(168);
 	systick_config();
 	usart1_config(115200);
 	tmp_config();

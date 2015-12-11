@@ -2,6 +2,10 @@
 
 #include "clock.h"
 
+static uint8_t  fac_us=0;							//us延时倍乘数			   
+static uint16_t fac_ms=0;							//ms延时倍乘数
+
+
 void systick_config()
 {
 	NVIC_InitTypeDef NVIC_InitStructure;
@@ -18,13 +22,29 @@ void systick_config()
 	NVIC_Init(&NVIC_InitStructure);
 }
 
-void delay_us(unsigned long us)
+#if 0 
+void delay_us(uint32_t us)
 {
-	unsigned long old_time = SysTick->VAL;
-	unsigned long now_time;
+	uint32_t old_time = SysTick->VAL;
+	uint32_t now_time;
 	while(us) {
 		now_time = SysTick->VAL;
 		us -= old_time - now_time;
 		old_time = now_time;
 	}
+}
+#endif
+
+void delay_us(uint32_t nus)
+{		
+	u32 temp;	    	 
+	SysTick->LOAD = nus * fac_us; 					//时间加载	  		 
+	SysTick->VAL = 0x00;        							//清空计数器
+	SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk ;	//开始倒数	  
+	do
+	{
+		temp = SysTick->CTRL;
+	}while((temp & 0x01) && !(temp & (1<<16)));		//等待时间到达   
+	SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;	//关闭计数器
+	SysTick->VAL = 0X00;      							 //清空计数器	 
 }

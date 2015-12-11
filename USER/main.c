@@ -5,7 +5,7 @@
 #include "clock.h"
 #include "usart.h"
 
-void tmp_config();
+void tmp_config(void);
 
 int main(void)
 {
@@ -16,15 +16,15 @@ int main(void)
 	while(1)
 	{
 		GPIO_ResetBits(GPIOA,GPIO_Pin_12); 
-		delay_us(1);
+		delay_us(1000);
 		GPIO_SetBits(GPIOA,GPIO_Pin_12);
-		delay_us(1);
+		delay_us(1000);
 	}
 	
 	return 0;
 }
 
-void tmp_config()
+void tmp_config(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 	

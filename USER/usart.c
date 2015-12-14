@@ -115,25 +115,3 @@ void uprintf(USART_TypeDef* USARTx, char *fmt, ...)
 	va_end(arg_ptr);
 }
 
-
-/*
-WARNING: NOT USABLE NOW!
-*/
-int fputc(int c, FILE *f)
-{
-	while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
-	
-	USART_SendData(USART1, (uint8_t) c);
-	
-	return c;
-}
-
-int fgetc(FILE *fp)
-{
-	int ch = 0;
-	while(USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET);
-
-	ch = (int)USART1->DR & 0xFF;
-
-	return ch;
-}

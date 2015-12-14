@@ -5,6 +5,8 @@
 #include "clock.h"
 #include "usart.h"
 
+void tmp_config(void);
+
 int main(void)
 {
 	systick_config();
@@ -13,6 +15,7 @@ int main(void)
 	while(1)
 	{
 	}
-	
+
 	return 0;
 }
+

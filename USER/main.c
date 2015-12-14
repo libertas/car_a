@@ -5,6 +5,8 @@
 #include "clock.h"
 #include "usart.h"
 
+//test delay
+#if 0
 void tmp_config(void);
 
 int main(void)
@@ -37,3 +39,18 @@ void tmp_config(void)
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_Init(GPIOA,&GPIO_InitStructure);
 }
+#endif
+
+//test printf
+#if 1
+int main(void)
+{
+	systick_config();
+	usart1_config(115200);
+	
+	while(1){
+		printf("BUPT ROBOCON 2016\r\n");
+	}
+	return 0;
+}
+#endif

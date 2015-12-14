@@ -115,3 +115,23 @@ void uprintf(USART_TypeDef* USARTx, char *fmt, ...)
 	va_end(arg_ptr);
 }
 
+
+struct __FILE 
+{ 
+	int handle; 
+};
+
+FILE __stdout;   
+ 
+int _sys_exit(int x)
+{
+	x = x;
+	return x;
+}
+
+int fputc(int ch, FILE *f)
+{
+	while((USART1->SR&0X40)==0);
+	USART1->DR = (uint8_t) ch;
+	return ch;
+}

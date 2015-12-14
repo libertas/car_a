@@ -9,7 +9,6 @@ void tmp_config(void);
 
 int main(void)
 {
-	delay_init(168);
 	systick_config();
 	usart1_config(115200);
 	tmp_config();
@@ -17,11 +16,11 @@ int main(void)
 	while(1)
 	{
 		GPIO_ResetBits(GPIOA,GPIO_Pin_12); 
-		delay_us(1000);
+		delay_ms(1);
 		GPIO_SetBits(GPIOA,GPIO_Pin_12);
-		delay_us(1000);
+		delay_ms(1);
 	}
-	
+
 	return 0;
 }
 

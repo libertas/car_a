@@ -2,36 +2,38 @@
 
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_rcc.h"
+#include "stm32f4xx_tim.h"
 
 #include "pwm.h"
 
-uint8_t PWMState;
-uint32_t PWMHighTime;
-uint32_t PWMLowTime;
-uint32_t PWMTotal;
+uint8_t PWMState = 0;
+uint32_t PWMHighTime = 0;
+uint32_t PWMLowTime = 0;
+uint32_t PWMTotal = 0;
 
-void timer2_config(void)
+inline void timer2_config(void)
 {
-	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
+	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
 	TIM_OCInitTypeDef TIM_OCInitStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
 	
-	TIM_TimeBaseStructure.TIM_Period = 65535;
-	TIM_TimeBaseStructure.TIM_Prescaler = PWM_PRESCALE;
-	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);
+	
+  TIM_TimeBaseInitStructure.TIM_Period = 65535;
+	TIM_TimeBaseInitStructure.TIM_Prescaler = PWM_PRESCALE;
+	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	
+	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseInitStructure);
 	
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Timing;
 	TIM_OC1Init(TIM2, &TIM_OCInitStructure);
-
+	
 	TIM_ITConfig(TIM2, TIM_IT_CC1, ENABLE);
 	TIM_Cmd(TIM2, ENABLE);
 	
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
-	
-	// Set up timer2 interrupt
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
 	NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
@@ -46,7 +48,7 @@ void pwm_config(void)
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
-	
+
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA,ENABLE);
 
 	PWMState = 0;
@@ -55,7 +57,8 @@ void pwm_config(void)
 	PWMLowTime = 5000;
 	set_freq(56);
 	set_duty(0.08);
-	
+	printf("%lf\n", (double)PWMHighTime / PWMTotal);
+
 	timer2_config();
 }
 

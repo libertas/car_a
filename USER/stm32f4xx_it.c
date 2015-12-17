@@ -153,8 +153,18 @@ void USART1_IRQHandler(void)
 	}
 }
 
-/*
+
 #include "pwm.h"
+/*
+void TIM2_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM2, TIM_IT_CC1) == SET)
+	{
+		GPIO_WriteBit(GPIOA, GPIO_Pin_4, Bit_SET);
+	}
+	TIM_ClearITPendingBit(TIM2,TIM_IT_CC1);
+}
+*/
 void TIM2_IRQHandler(void)
 {
 	vu16 capture;
@@ -194,7 +204,6 @@ void TIM2_IRQHandler(void)
 		TIM_ClearITPendingBit(TIM2, TIM_IT_CC1);
 	}
 }
-*/
 
 /******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */

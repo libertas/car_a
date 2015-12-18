@@ -155,20 +155,10 @@ void USART1_IRQHandler(void)
 
 
 #include "pwm.h"
-/*
-void TIM2_IRQHandler(void)
-{
-	if(TIM_GetITStatus(TIM2, TIM_IT_CC1) == SET)
-	{
-		GPIO_WriteBit(GPIOA, GPIO_Pin_4, Bit_SET);
-	}
-	TIM_ClearITPendingBit(TIM2,TIM_IT_CC1);
-}
-*/
-void TIM2_IRQHandler(void)
+void TIM1_BRK_TIM9_IRQHandler(void)
 {
 	static uint16_t t;
-	if(TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET)
+	if(TIM_GetITStatus(TIM9, TIM_IT_Update) != RESET)
 	{
 		t++;
 		if(t > PWMHighTime) {
@@ -179,7 +169,7 @@ void TIM2_IRQHandler(void)
 				t = 0;
 			}
 		}
-		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+		TIM_ClearITPendingBit(TIM9, TIM_IT_Update);
 	}
 }
 

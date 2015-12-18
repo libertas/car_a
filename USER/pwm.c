@@ -6,30 +6,24 @@
 
 #include "pwm.h"
 
-uint8_t PWMState = 0;
 uint32_t PWMHighTime = 0;
-uint32_t PWMLowTime = 0;
 uint32_t PWMTotal = 0;
 
 inline void timer2_config(void)
 {
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
-	TIM_OCInitTypeDef TIM_OCInitStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
 	
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);
 	
-  TIM_TimeBaseInitStructure.TIM_Period = 65535;
+  TIM_TimeBaseInitStructure.TIM_Period = 9;
 	TIM_TimeBaseInitStructure.TIM_Prescaler = PWM_PRESCALE;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	
 	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseInitStructure);
 	
-	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Timing;
-	TIM_OC1Init(TIM2, &TIM_OCInitStructure);
-	
-	TIM_ITConfig(TIM2, TIM_IT_CC1, ENABLE);
+	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
 	TIM_Cmd(TIM2, ENABLE);
 	
 	NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
@@ -51,10 +45,8 @@ void pwm_config(void)
 
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA,ENABLE);
 
-	PWMState = 0;
 	PWMTotal = 10000;
 	PWMHighTime = 5000;
-	PWMLowTime = 5000;
 	set_freq(56);
 	set_duty(0.08);
 	printf("%lf\n", (double)PWMHighTime / PWMTotal);
@@ -67,7 +59,6 @@ void set_duty(double duty)
 	if(duty >= 0 && duty <= 1)
 	{
 		PWMHighTime = PWMTotal * duty;
-		PWMLowTime = PWMTotal - PWMHighTime;
 	}
 	else
 	{
@@ -81,5 +72,4 @@ void set_freq(unsigned long freq)
 	duty = (double) PWMHighTime / PWMTotal;
 	PWMTotal = PWM_FREQ / freq;
 	PWMHighTime = PWMTotal * duty;
-	PWMLowTime = PWMTotal - PWMHighTime;
 }

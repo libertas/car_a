@@ -167,41 +167,19 @@ void TIM2_IRQHandler(void)
 */
 void TIM2_IRQHandler(void)
 {
-	vu16 capture;
-	capture = TIM_GetCapture1(TIM2);
-	
-	if(TIM_GetITStatus(TIM2, TIM_IT_CC1) != RESET)
+	static uint16_t t;
+	if(TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET)
 	{
-		if(PWMHighTime == PWMTotal)
-		{
-			GPIO_WriteBit(GPIOA, GPIO_Pin_4, Bit_SET);
-			TIM_SetCompare1(TIM2, capture - 1);
-			PWMState = 1;
-			goto end;
+		t++;
+		if(t > PWMHighTime) {
+			if(t < PWMTotal) {
+				GPIO_WriteBit(GPIOA, GPIO_Pin_4, Bit_RESET);
+			} else {
+				GPIO_WriteBit(GPIOA, GPIO_Pin_4, Bit_SET);
+				t = 0;
+			}
 		}
-		
-		if(PWMLowTime == PWMTotal)
-		{
-			GPIO_WriteBit(GPIOA, GPIO_Pin_4, Bit_RESET);
-			TIM_SetCompare1(TIM2, capture - 1);
-			PWMState = 0;
-			goto end;
-		}
-		
-		if(PWMState)
-		{
-			GPIO_WriteBit(GPIOA, GPIO_Pin_4, Bit_SET);
-			TIM_SetCompare1(TIM2, capture + PWMHighTime);
-		}
-		else
-		{
-			GPIO_WriteBit(GPIOA, GPIO_Pin_4, Bit_RESET);
-			TIM_SetCompare1(TIM2, capture + PWMLowTime);
-		}
-		
-		PWMState = !PWMState;
-		end:
-		TIM_ClearITPendingBit(TIM2, TIM_IT_CC1);
+		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 	}
 }
 

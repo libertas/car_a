@@ -1,12 +1,8 @@
 #include <stdint.h>
 
-/*
-	It makes pwm freq is available
-	from 10 Hz to 15 kHz.
-*/
-#define PWM_PRESCALE (168 - 1)
+#define PWM_PRESCALE (84 - 1)
 
-#define PWM_FREQ 500000UL
+#define PWM_FREQ 100000UL
 
 extern uint8_t PWMState;
 extern uint32_t PWMHighTime;

@@ -6,8 +6,11 @@
 
 #include "pwm.h"
 
-uint32_t PWMHighTime = 0;
-uint32_t PWMTotal = 0;
+uint32_t PWMHighTime[PWM_CHANNEL_NUM];
+uint32_t PWMTotal[PWM_CHANNEL_NUM];
+
+uint16_t PWMPins[PWM_CHANNEL_NUM] = {GPIO_Pin_1, GPIO_Pin_2, GPIO_Pin_3, GPIO_Pin_4, GPIO_Pin_5};
+GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {GPIOA, GPIOA, GPIOA, GPIOA, GPIOA};
 
 inline void timer9_config(void)
 {
@@ -35,8 +38,13 @@ inline void timer9_config(void)
 
 void pwm_config(void)
 {
+	double duties[PWM_CHANNEL_NUM] = {0.08, 0.09, 0.8, 0.9, 0.5};
+	unsigned long freqs[PWM_CHANNEL_NUM] = {56, 50, 20, 8, 100};
+	
+	uint8_t i;
 	GPIO_InitTypeDef GPIO_InitStructure;
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
+	
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -45,31 +53,48 @@ void pwm_config(void)
 
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA,ENABLE);
 
-	PWMTotal = 10000;
-	PWMHighTime = 5000;
-	set_freq(50);
-	set_duty(0.077);
+	for(i = 0; i < PWM_CHANNEL_NUM; i++) {
+		PWMTotal[i] = 10000;
+		PWMHighTime[i] = 5000;
+	}
+	
+	set_duty(duties);
+	set_freq(freqs);
 
 	timer9_config();
 }
 
-void set_duty(double duty)
+void set_duty(double duty[PWM_CHANNEL_NUM])
 {
-	if(duty >= 0 && duty <= 1)
-	{
-		PWMHighTime = PWMTotal * duty;
-	}
-	else
-	{
-		printf("Wrong Duty!\n");
+	uint8_t i;
+	for(i = 0; i < PWM_CHANNEL_NUM; i++) {
+		if(duty[i] >= 0 && duty[i] <= 1)
+		{
+			PWMHighTime[i] = PWMTotal[i] * duty[i];
+		}
+		else
+		{
+			printf("Wrong Duty!\n");
+		}
 	}
 }
 
-void set_freq(unsigned long freq)
+void set_freq(unsigned long freq[PWM_CHANNEL_NUM])
 {
 	double duty;
-	duty = (double) PWMHighTime / PWMTotal;
-	PWMTotal = PWM_FREQ / freq;
-	PWMHighTime = PWMTotal * duty;
-	printf("%ld\n", PWMTotal);
+	uint8_t i;
+	for(i = 0; i < PWM_CHANNEL_NUM; i++) {
+		duty = (double) PWMHighTime[i] / PWMTotal[i];
+		PWMTotal[i] = PWM_FREQ / freq[i];
+		PWMHighTime[i] = PWMTotal[i] * duty;
+		printf("%ld\n", PWMTotal[i]);
+	}
+}
+
+void set_all_duty(double d)
+{
+}
+
+void set_all_freq(unsigned long f)
+{
 }

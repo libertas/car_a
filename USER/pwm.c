@@ -48,7 +48,7 @@ void pwm_config(void)
 	PWMTotal = 10000;
 	PWMHighTime = 5000;
 	set_freq(50);
-	set_duty(0.08);
+	set_duty(0.077);
 
 	timer9_config();
 }

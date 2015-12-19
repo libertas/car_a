@@ -9,11 +9,13 @@
 int main(void)
 {
 	systick_config();
+
 	uart1_config(115200);
 	uart2_config(115200);
 	uart3_config(115200);
 	uart4_config(115200);
-	// pwm_config();
+
+	pwm_config();
 
 	printf("Entering main loop\n\n");
 	while(1)

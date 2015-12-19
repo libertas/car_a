@@ -5,6 +5,7 @@
 #include "clock.h"
 #include "pwm.h"
 #include "usart.h"
+#include "movement.h"
 
 int main(void)
 {

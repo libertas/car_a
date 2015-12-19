@@ -1,4 +1,7 @@
+#include <math.h>
 #include <stdint.h>
+
+#include "usart.h"
 
 /*
 The world view:
@@ -10,12 +13,25 @@ The world view:
 	down = -z
 */
 
+#define ZERO (1E-3)
+#define PI 3.141592653589793
+
 #define USE_THREE_WHEEL
 
 #ifdef USE_THREE_WHEEL
 
-#include "three_wheel.h"
+
+#define VECT_W1 (+1)  // the wheel on the left or right side
+#define VECT_W2 (+1)  // the front wheel
+#define VECT_W3 (+1)  // the back wheel
+
+void t_move_y(uint32_t y);
 
 #endif
+
+extern double position[2];
+
+extern uint32_t speeds[3];
+
 
 void move_y(uint32_t y);

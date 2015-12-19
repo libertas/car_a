@@ -153,6 +153,22 @@ void USART1_IRQHandler(void)
 	}
 }
 
+void USART2_IRQHandler(void)
+{
+	if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)
+	{
+		USART_SendData(USART2, USART_ReceiveData(USART2));
+	}
+}
+
+void USART3_IRQHandler(void)
+{
+	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
+	{
+		USART_SendData(USART3, USART_ReceiveData(USART3));
+	}
+}
+
 
 #include "pwm.h"
 void TIM1_BRK_TIM9_IRQHandler(void)

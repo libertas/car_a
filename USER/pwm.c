@@ -48,8 +48,8 @@ void pwm_config(void)
 		PWMHighTime[i] = 5000;
 	}
 	
-	set_duty(duties);
-	set_freq(freqs);
+	set_duties(duties);
+	set_freqs(freqs);
 
 
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
@@ -74,13 +74,28 @@ void pwm_config(void)
 	NVIC_Init(&NVIC_InitStructure);
 }
 
-void set_duty(double duty[PWM_CHANNEL_NUM])
+
+void set_duty(uint8_t channel, double duty)
+{
+	PWMHighTime[channel] = PWMTotal[channel] * duty;
+}
+
+void set_freq(uint8_t channel, unsigned long freq)
+{
+	double duty;
+
+	duty = (double) PWMHighTime[channel] / PWMTotal[channel];
+	PWMTotal[channel] = PWM_FREQ / freq;
+	PWMHighTime[channel] = PWMTotal[channel] * duty;
+}
+
+void set_duties(double duties[PWM_CHANNEL_NUM])
 {
 	uint8_t i;
 	for(i = 0; i < PWM_CHANNEL_NUM; i++) {
-		if(duty[i] >= 0 && duty[i] <= 1)
+		if(duties[i] >= 0 && duties[i] <= 1)
 		{
-			PWMHighTime[i] = PWMTotal[i] * duty[i];
+			set_duty(i, duties[i]);
 		}
 		else
 		{
@@ -89,21 +104,10 @@ void set_duty(double duty[PWM_CHANNEL_NUM])
 	}
 }
 
-void set_freq(unsigned long freq[PWM_CHANNEL_NUM])
+void set_freqs(unsigned long freqs[PWM_CHANNEL_NUM])
 {
-	double duty;
 	uint8_t i;
 	for(i = 0; i < PWM_CHANNEL_NUM; i++) {
-		duty = (double) PWMHighTime[i] / PWMTotal[i];
-		PWMTotal[i] = PWM_FREQ / freq[i];
-		PWMHighTime[i] = PWMTotal[i] * duty;
+		set_freq(i, freqs[i]);
 	}
-}
-
-void set_all_duty(double d)
-{
-}
-
-void set_all_freq(unsigned long f)
-{
 }

@@ -13,8 +13,8 @@ extern GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM];
 
 void pwm_config(void);
 
-void set_all_duty(double d);
-void set_all_freq(unsigned long f);
+void set_duty(uint8_t channel, double duty);
+void set_freq(uint8_t channel, unsigned long freq);
 
-void set_duty(double duty[PWM_CHANNEL_NUM]);
-void set_freq(unsigned long freq[PWM_CHANNEL_NUM]);
+void set_duties(double duties[PWM_CHANNEL_NUM]);
+void set_freqs(unsigned long freqs[PWM_CHANNEL_NUM]);

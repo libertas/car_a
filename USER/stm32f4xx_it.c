@@ -169,6 +169,14 @@ void USART3_IRQHandler(void)
 	}
 }
 
+void UART4_IRQHandler(void)
+{
+	if(USART_GetITStatus(UART4, USART_IT_RXNE) != RESET)
+	{
+		USART_SendData(UART4, USART_ReceiveData(UART4));
+	}
+}
+
 
 #include "pwm.h"
 void TIM1_BRK_TIM9_IRQHandler(void)

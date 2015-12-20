@@ -16,6 +16,7 @@ The world view:
 #define ZERO (1E-3)
 #define PI 3.141592653589793
 
+#define W_DIAMETER 120  // millimeter
 #define USE_THREE_WHEEL
 
 #ifdef USE_THREE_WHEEL
@@ -28,8 +29,6 @@ The world view:
 void t_move_y(uint32_t y);
 
 #endif
-
-extern double position[2];
 
 extern uint32_t speeds[3];
 

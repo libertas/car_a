@@ -1,12 +1,24 @@
+#include <math.h>
+
 #include "stm32f4xx_gpio.h"
 
 #include "encoder.h"
+#include "movement.h"
 
 
-int g_rotary_0;
-float g_sycles_0;
-int g_rotary_1;
-float g_sycles_1;
+int32_t g_rotary_0 = 0;
+int32_t g_rotary_1 = 0;
+
+
+float get_pos_x(void)
+{
+	return (float)((double) g_rotary_0 / 2000 * W_DIAMETER * PI);
+}
+
+float get_pos_y(void)
+{
+	return (float)((double)g_rotary_1 / 2000 * W_DIAMETER * PI);
+}
 
 
 void timer2_config(void)

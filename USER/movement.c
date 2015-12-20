@@ -1,11 +1,8 @@
+#include "encoder.h"
 #include "movement.h"
 
 
-// (x, y)
-double position[2] = {0};
-
 uint32_t speeds[3] = {0};
-
 
 uint32_t get_speed(uint8_t wheel)
 {

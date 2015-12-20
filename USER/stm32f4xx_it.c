@@ -201,6 +201,22 @@ void TIM1_BRK_TIM9_IRQHandler(void)
 	}
 }
 
+#include "encoder.h"
+void TIM2_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM2 ,TIM_IT_Update) != RESET) {
+		TIM_ClearITPendingBit(TIM2, TIM_FLAG_Update);
+		TIM_ClearITPendingBit(TIM9, TIM_IT_Update);
+
+		g_rotary += (TIM_GetCounter(TIM4)-4000);
+		TIM4->CNT = 4000;
+		g_sycles = ((float)g_rotary)/(float)2000;
+
+		printf("%d  %f\n", g_rotary, g_sycles);
+	} 
+}
+
+
 /******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */

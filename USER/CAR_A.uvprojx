@@ -443,6 +443,11 @@
               <FileType>1</FileType>
               <FilePath>.\three_wheel.c</FilePath>
             </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\encoder.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

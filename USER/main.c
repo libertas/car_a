@@ -3,9 +3,10 @@
 #include "stm32f4xx.h"
 
 #include "clock.h"
+#include "encoder.h"
+#include "movement.h"
 #include "pwm.h"
 #include "usart.h"
-#include "movement.h"
 
 int main(void)
 {
@@ -16,6 +17,7 @@ int main(void)
 	uart3_config(115200);
 	uart4_config(115200);
 
+	encoder_config();
 	pwm_config();
 
 	printf("Entering main loop\n\n");

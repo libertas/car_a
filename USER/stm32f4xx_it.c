@@ -215,8 +215,11 @@ void TIM2_IRQHandler(void)
 		TIM5->CNT = 4000;
 		g_sycles_1 = ((float)g_rotary_1)/(float)2000;
 
+		/*
+		// for test
 		printf("%d  %f\n", g_rotary_0, g_sycles_0);
 		printf("	%d  %f\n", g_rotary_1, g_sycles_1);
+		*/
 	} 
 }
 

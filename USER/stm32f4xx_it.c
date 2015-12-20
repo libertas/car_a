@@ -206,13 +206,17 @@ void TIM2_IRQHandler(void)
 {
 	if(TIM_GetITStatus(TIM2 ,TIM_IT_Update) != RESET) {
 		TIM_ClearITPendingBit(TIM2, TIM_FLAG_Update);
-		TIM_ClearITPendingBit(TIM9, TIM_IT_Update);
 
-		g_rotary += (TIM_GetCounter(TIM4)-4000);
+		g_rotary_0 += (TIM_GetCounter(TIM4)-4000);
 		TIM4->CNT = 4000;
-		g_sycles = ((float)g_rotary)/(float)2000;
+		g_sycles_0 = ((float)g_rotary_0)/(float)2000;
+		
+		g_rotary_1 += (TIM_GetCounter(TIM5)-4000);
+		TIM5->CNT = 4000;
+		g_sycles_1 = ((float)g_rotary_1)/(float)2000;
 
-		printf("%d  %f\n", g_rotary, g_sycles);
+		printf("%d  %f\n", g_rotary_0, g_sycles_0);
+		printf("	%d  %f\n", g_rotary_1, g_sycles_1);
 	} 
 }
 

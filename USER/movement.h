@@ -33,4 +33,5 @@ void t_move_y(uint32_t y);
 extern uint32_t speeds[3];
 
 
+void move_up(void);
 void move_y(uint32_t y);

@@ -1,3 +1,4 @@
+#include "clock.h"
 #include "encoder.h"
 #include "movement.h"
 
@@ -14,4 +15,10 @@ void move_y(uint32_t y)
 	#ifdef USE_THREE_WHEEL
 	t_move_y(y);
 	#endif
+}
+
+void move_up(void)
+{
+	uprintf(USART1, "3v10000\r4v10000\r");
+	delay_ms(10);
 }

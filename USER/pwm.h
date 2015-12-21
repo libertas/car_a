@@ -2,7 +2,7 @@
 
 #include "stm32f4xx_gpio.h"
 
-#define PWM_PRESCALE (168 - 1)
+#define PWM_PRESCALE (84 - 1)
 #define PWM_FREQ 50000UL
 #define PWM_CHANNEL_NUM 5
 

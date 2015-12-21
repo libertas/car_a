@@ -179,12 +179,12 @@ void UART4_IRQHandler(void)
 
 
 #include "pwm.h"
-void TIM1_BRK_TIM9_IRQHandler(void)
+void TIM6_DAC_IRQHandler(void)
 {
 	static uint16_t t[PWM_CHANNEL_NUM] = {0};
 	uint8_t i;
 	
-	if(TIM_GetITStatus(TIM9, TIM_IT_Update) != RESET)
+	if(TIM_GetITStatus(TIM6, TIM_IT_Update) != RESET)
 	{
 		for(i = 0; i < PWM_CHANNEL_NUM; i++) {
 			t[i]++;
@@ -197,7 +197,7 @@ void TIM1_BRK_TIM9_IRQHandler(void)
 				}
 			}
 		}
-		TIM_ClearITPendingBit(TIM9, TIM_IT_Update);
+		TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
 	}
 }
 

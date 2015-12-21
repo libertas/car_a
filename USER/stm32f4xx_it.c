@@ -202,10 +202,10 @@ void TIM1_BRK_TIM9_IRQHandler(void)
 }
 
 #include "encoder.h"
-void TIM2_IRQHandler(void)
+void TIM7_IRQHandler(void)
 {
-	if(TIM_GetITStatus(TIM2 ,TIM_IT_Update) != RESET) {
-		TIM_ClearITPendingBit(TIM2, TIM_FLAG_Update);
+	if(TIM_GetITStatus(TIM7, TIM_IT_Update) != RESET) {
+		TIM_ClearITPendingBit(TIM7, TIM_FLAG_Update);
 
 		g_rotary_fan += (TIM_GetCounter(TIM3)-4000);
 		TIM3->CNT = 4000;

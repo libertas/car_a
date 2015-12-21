@@ -23,7 +23,6 @@ int main(void)
 	printf("Entering main loop\n\n");
 	while(1)
 	{
-		printf("%f\n", get_pos_fan());
 	}
 
 	return 0;

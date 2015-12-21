@@ -207,12 +207,14 @@ void TIM2_IRQHandler(void)
 	if(TIM_GetITStatus(TIM2 ,TIM_IT_Update) != RESET) {
 		TIM_ClearITPendingBit(TIM2, TIM_FLAG_Update);
 
-		g_rotary_0 += (TIM_GetCounter(TIM4)-4000);
+		g_rotary_fan += (TIM_GetCounter(TIM3)-4000);
+		TIM3->CNT = 4000;
+		
+		g_rotary_x += (TIM_GetCounter(TIM4)-4000);
 		TIM4->CNT = 4000;
 		
-		g_rotary_1 += (TIM_GetCounter(TIM5)-4000);
+		g_rotary_y += (TIM_GetCounter(TIM5)-4000);
 		TIM5->CNT = 4000;
-
 	} 
 }
 

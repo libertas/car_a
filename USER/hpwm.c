@@ -8,8 +8,6 @@
 //psc：时钟预分频数+1
 void TIM9_PWM_Init(uint32_t arr,uint32_t psc)
 {		 					 
-	//此部分需手动修改IO口设置
-	
 	GPIO_InitTypeDef GPIO_InitStructure;
 	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 	TIM_OCInitTypeDef  TIM_OCInitStructure;

@@ -6,6 +6,7 @@
 #include "encoder.h"
 #include "movement.h"
 #include "pwm.h"
+#include "switch.h"
 #include "usart.h"
 
 int main(void)
@@ -18,11 +19,13 @@ int main(void)
 	uart4_config(115200);
 
 	encoder_config();
+	switch_config();
 	pwm_config();
 
 	printf("Entering main loop\n\n");
 	while(1)
 	{
+		move_up();
 	}
 
 	return 0;

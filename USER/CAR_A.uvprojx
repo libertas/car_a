@@ -448,6 +448,11 @@
               <FileType>1</FileType>
               <FilePath>.\encoder.c</FilePath>
             </File>
+            <File>
+              <FileName>switch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\switch.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

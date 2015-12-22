@@ -29,6 +29,10 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
+
+#include "clock.h"
+#include "pwm.h"
+#include "usart.h"
  
 
 /** @addtogroup Template_Project
@@ -134,7 +138,7 @@ void PendSV_Handler(void)
 {
 }
 
-#include "usart.h"
+
 /**
   * @brief  This function handles SysTick Handler.
   * @param  None
@@ -178,7 +182,6 @@ void UART4_IRQHandler(void)
 }
 
 
-#include "pwm.h"
 void TIM6_DAC_IRQHandler(void)
 {
 	static uint16_t t[PWM_CHANNEL_NUM] = {0};
@@ -216,6 +219,16 @@ void TIM7_IRQHandler(void)
 		g_rotary_y += (TIM_GetCounter(TIM5)-4000);
 		TIM5->CNT = 4000;
 	} 
+}
+
+
+void EXTI2_IRQHandler(void)
+{
+	delay_ms(10);
+	if(0 == GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_2)) {
+		printf("exti2\n");
+	}
+	EXTI_ClearITPendingBit(EXTI_Line2);
 }
 
 

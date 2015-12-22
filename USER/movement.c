@@ -19,6 +19,6 @@ void move_y(uint32_t y)
 
 void move_up(void)
 {
-	uprintf(USART1, "3v10000\r4v10000\r");
+	uprintf(USART1, "3v10000\n\r4v10000\r\n");
 	delay_ms(10);
 }

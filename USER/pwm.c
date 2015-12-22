@@ -23,8 +23,8 @@ void rcc_io_config(void)
 
 void pwm_config(void)
 {
-	double duties[PWM_CHANNEL_NUM] = {0.08, 0.09, 0.8, 0, 1};
-	unsigned long freqs[PWM_CHANNEL_NUM] = {56, 50, 20, 800, 100};
+	double duties[PWM_CHANNEL_NUM] = {0.077, 0.077, 0.077, 0.077, 0.077};
+	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 50, 50, 50, 50};
 	
 	uint8_t i;
 	GPIO_InitTypeDef GPIO_InitStructure;

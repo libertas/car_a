@@ -37,7 +37,7 @@ void move_up(void)
 	uprintf(USART1, "4V-8000\r3V8000\r");
 	delay_ms(1);
 	
-	set_duty(0, 0.08);
+	set_duty(0, 0.06);
 }
 
 void stop_move_up(void)

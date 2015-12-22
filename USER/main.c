@@ -23,11 +23,8 @@ int main(void)
 	pwm_config();
 	
 	move_up();
-	delay_ms(1000);
-	stop_move_up();
-	delay_ms(1000);
 
-	printf("Entering main loop\n\n");
+	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
 	}

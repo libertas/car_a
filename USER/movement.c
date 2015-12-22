@@ -31,7 +31,7 @@ void stop(void)
 
 void move_up(void)
 {
-	uprintf(USART1, "3V1000\r4V1000\r");
+	uprintf(USART1, "4V-8000\r3V8000\r");
 	delay_ms(10);
 }
 

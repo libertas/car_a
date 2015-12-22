@@ -153,7 +153,7 @@ void USART1_IRQHandler(void)
 {
 	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
 	{
-		USART_SendData(USART1, USART_ReceiveData(USART1));
+		USART_SendData(USART3, USART_ReceiveData(USART1));
 	}
 }
 
@@ -161,7 +161,7 @@ void USART2_IRQHandler(void)
 {
 	if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)
 	{
-		USART_SendData(USART2, USART_ReceiveData(USART2));
+		USART_SendData(USART3, USART_ReceiveData(USART2));
 	}
 }
 

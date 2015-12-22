@@ -36,5 +36,7 @@ extern uint32_t speeds[3];
 void move_up(void);
 void move_y(uint32_t y);
 
-
+void stop(void);
+void stop_all(void);
 void stop_move_up(void);
+

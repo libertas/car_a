@@ -14,10 +14,10 @@ void t_move_y(uint32_t y)
 	speeds[1] = VECT_W3 * speeds[0] * cos(PI / 2);
 	
 	uprintf(USART1,\
-		"1V%lf\r2V%lf\r3V%lf\r",\
-		speeds[0],\
-		speeds[1],\
-		speeds[2]\
+		"1V%d\r2V%d\r3V%d\r",\
+		(uint16_t) speeds[0],\
+		(uint16_t) speeds[1],\
+		(uint16_t) speeds[2]\
 		);
 	
 	while(get_pos_y() - old_pos[1] > (float)ZERO);
@@ -27,10 +27,10 @@ void t_move_y(uint32_t y)
 	speeds[2] = 0;
 	
 	uprintf(USART1,\
-		"1V%lf\r2V%lf\r3V%lf\r",\
-		speeds[0],\
-		speeds[1],\
-		speeds[2]\
+		"1V%d\r2V%d\r3V%d\r",\
+		(uint16_t) speeds[0],\
+		(uint16_t) speeds[1],\
+		(uint16_t) speeds[2]\
 		);
 }
 

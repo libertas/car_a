@@ -4,36 +4,22 @@
 
 #include "clock.h"
 #include "usart.h"
-
-void tmp_config(void);
+#include "hpwm.h"
 
 int main(void)
 {
 	systick_config();
 	usart1_config(115200);
-	tmp_config();
+	
+	TIM9_PWM_Init(500,84);		//84M/84=1Mhz的计数频率,重装载值500，所以PWM频率为 1M/500=2Khz.
+
+	TIM_SetCompare1(TIM9,200);//修改比较值，修改占空比
 	
 	while(1)
 	{
-		GPIO_ResetBits(GPIOA,GPIO_Pin_12); 
-		delay_ms(1);
-		GPIO_SetBits(GPIOA,GPIO_Pin_12);
-		delay_ms(1);
+		
 	}
 
 	return 0;
 }
 
-void tmp_config(void)
-{
-	GPIO_InitTypeDef GPIO_InitStructure;
-	
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA,ENABLE);
-	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_Init(GPIOA,&GPIO_InitStructure);
-}

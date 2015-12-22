@@ -15,7 +15,10 @@ void TIM9_PWM_Init(uint32_t arr,uint32_t psc)
 	RCC_APB1PeriphClockCmd(RCC_APB2Periph_TIM9,ENABLE); 
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE | RCC_AHB1Periph_GPIOA, ENABLE);
 	
-	GPIO_PinAFConfig(GPIOF,GPIO_PinSource9,GPIO_AF_TIM9);
+	GPIO_PinAFConfig(GPIOE,GPIO_PinSource5,GPIO_AF_TIM9);
+	GPIO_PinAFConfig(GPIOE,GPIO_PinSource6,GPIO_AF_TIM9);
+	GPIO_PinAFConfig(GPIOA,GPIO_PinSource2,GPIO_AF_TIM9);
+	GPIO_PinAFConfig(GPIOA,GPIO_PinSource3,GPIO_AF_TIM9);
 	
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
@@ -23,7 +26,7 @@ void TIM9_PWM_Init(uint32_t arr,uint32_t psc)
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_Init(GPIOE,&GPIO_InitStructure);
-#if 0
+
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
@@ -44,7 +47,7 @@ void TIM9_PWM_Init(uint32_t arr,uint32_t psc)
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_Init(GPIOA,&GPIO_InitStructure);
-#endif
+
 	
 	TIM_TimeBaseStructure.TIM_Prescaler=psc - 1;  //定时器分频
 	TIM_TimeBaseStructure.TIM_CounterMode=TIM_CounterMode_Up; //向上计数模式

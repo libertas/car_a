@@ -20,6 +20,7 @@ int main(void)
 
 	encoder_config();
 	switch_config();
+
 	pwm_config();
 	
 	move_up();

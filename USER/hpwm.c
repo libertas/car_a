@@ -60,27 +60,30 @@ void hpwm_config(uint32_t arr,uint32_t psc)
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1; //选择定时器模式:TIM脉冲宽度调制模式2
  	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; //比较输出使能
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low; //输出极性:TIM输出比较极性低
-	TIM_OC1Init(TIM9, &TIM_OCInitStructure);  //根据T指定的参数初始化外设TIM1 4OC1
+	TIM_OC1Init(TIM9, &TIM_OCInitStructure);
 	
 	//初始化TIM9Channel2 PWM模式	 
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1; //选择定时器模式:TIM脉冲宽度调制模式2
  	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; //比较输出使能
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low; //输出极性:TIM输出比较极性低
-	TIM_OC2Init(TIM9, &TIM_OCInitStructure);  //根据T指定的参数初始化外设TIM1 4OC1
+	TIM_OC2Init(TIM9, &TIM_OCInitStructure); 
 	
 	//初始化TIM9Channel3 PWM模式	 
-	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2; //选择定时器模式:TIM脉冲宽度调制模式2
+	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1; //选择定时器模式:TIM脉冲宽度调制模式2
  	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; //比较输出使能
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low; //输出极性:TIM输出比较极性低
-	TIM_OC3Init(TIM9, &TIM_OCInitStructure);  //根据T指定的参数初始化外设TIM1 4OC1
+	TIM_OC3Init(TIM9, &TIM_OCInitStructure); 
 	
 	//初始化TIM9Channel4 PWM模式	 
-	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2; //选择定时器模式:TIM脉冲宽度调制模式2
+	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1; //选择定时器模式:TIM脉冲宽度调制模式2
  	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; //比较输出使能
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low; //输出极性:TIM输出比较极性低
-	TIM_OC4Init(TIM9, &TIM_OCInitStructure);  //根据T指定的参数初始化外设TIM1 4OC1
+	TIM_OC4Init(TIM9, &TIM_OCInitStructure);  
 
 	TIM_OC1PreloadConfig(TIM9, TIM_OCPreload_Enable);  //使能TIM9在CCR1上的预装载寄存器
+	TIM_OC2PreloadConfig(TIM9, TIM_OCPreload_Enable);
+	//TIM_OC3PreloadConfig(TIM9, TIM_OCPreload_Enable);
+	//TIM_OC4PreloadConfig(TIM9, TIM_OCPreload_Enable);
  
   TIM_ARRPreloadConfig(TIM9,ENABLE);//ARPE使能 
 	

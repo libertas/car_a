@@ -16,11 +16,11 @@ int main(void)
 	TIM_SetCompare1(TIM9,200);//修改比较值，修改占空比
 	TIM_SetCompare2(TIM9,100);
 	TIM_SetCompare3(TIM9,150);
-	TIM_SetCompare4(TIM9,250):
+	TIM_SetCompare4(TIM9,250);
 	
 	while(1)
 	{
-		
+		//uprintf(USART1,"duty = %d\r\n",);
 	}
 
 	return 0;

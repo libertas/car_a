@@ -224,7 +224,7 @@ void TIM7_IRQHandler(void)
 
 void EXTI0_IRQHandler(void)
 {
-	delay_ms(200);
+	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_0)) {
 		printf("exti0 at pf0\n");
 	}
@@ -234,7 +234,7 @@ void EXTI0_IRQHandler(void)
 
 void EXTI1_IRQHandler(void)
 {
-	delay_ms(200);
+	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_1)) {
 		printf("exti1 at pf1\n");
 	}
@@ -244,7 +244,7 @@ void EXTI1_IRQHandler(void)
 
 void EXTI2_IRQHandler(void)
 {
-	delay_ms(200);
+	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_2)) {
 		printf("exti2 at pf2\n");
 	}
@@ -254,7 +254,7 @@ void EXTI2_IRQHandler(void)
 void EXTI15_10_IRQHandler(void)
 {
 	if(SET == EXTI_GetITStatus(EXTI_Line11)){
-		delay_ms(200);
+		delay_ms(10);
 		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_11)) {
 			printf("exti11 at pf11\n");
 		}

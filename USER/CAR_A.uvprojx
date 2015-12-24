@@ -458,6 +458,11 @@
               <FileType>1</FileType>
               <FilePath>.\fan.c</FilePath>
             </File>
+            <File>
+              <FileName>hpwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\hpwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

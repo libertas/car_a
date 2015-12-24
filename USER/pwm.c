@@ -6,6 +6,8 @@
 
 #include "pwm.h"
 
+#ifndef USE_HPWM
+
 uint32_t PWMHighTime[PWM_CHANNEL_NUM];
 uint32_t PWMTotal[PWM_CHANNEL_NUM];
 
@@ -111,3 +113,5 @@ void set_freqs(unsigned long freqs[PWM_CHANNEL_NUM])
 		set_freq(i, freqs[i]);
 	}
 }
+
+#endif

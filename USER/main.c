@@ -24,11 +24,7 @@ int main(void)
 
 	// pwm_config();
 	
-	hpwm_config(500,168);
-	TIM_SetCompare1(TIM1,200);
-	TIM_SetCompare2(TIM1,100);
-	TIM_SetCompare3(TIM1,150);
-	TIM_SetCompare4(TIM1,250);
+	hpwm_config();
 	
 	move_up();
 	delay_ms(10000);

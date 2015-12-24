@@ -181,6 +181,7 @@ void UART4_IRQHandler(void)
 	}
 }
 
+#ifndef USE_HPWM
 
 void TIM6_DAC_IRQHandler(void)
 {
@@ -203,6 +204,8 @@ void TIM6_DAC_IRQHandler(void)
 		TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
 	}
 }
+
+#endif
 
 #include "encoder.h"
 void TIM7_IRQHandler(void)

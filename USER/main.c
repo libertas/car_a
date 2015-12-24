@@ -24,6 +24,8 @@ int main(void)
 	pwm_config();
 	
 	move_up();
+	delay_ms(10000);
+	stop_move_up();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

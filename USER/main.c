@@ -4,6 +4,7 @@
 
 #include "clock.h"
 #include "encoder.h"
+#include "hpwm.h"
 #include "movement.h"
 #include "pwm.h"
 #include "switch.h"
@@ -21,7 +22,13 @@ int main(void)
 	encoder_config();
 	switch_config();
 
-	pwm_config();
+	// pwm_config();
+	
+	hpwm_config(500,168);
+	TIM_SetCompare1(TIM9,200);
+	TIM_SetCompare2(TIM9,100);
+	TIM_SetCompare3(TIM9,150);
+	TIM_SetCompare4(TIM9,250);
 	
 	move_up();
 	delay_ms(10000);

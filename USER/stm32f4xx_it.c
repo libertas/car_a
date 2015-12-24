@@ -253,16 +253,16 @@ void EXTI2_IRQHandler(void)
 
 void EXTI15_10_IRQHandler(void)
 {
-	if(SET == EXTI_GetITStatus(EXTI_Line11)){
+	//if(SET == EXTI_GetITStatus(EXTI_Line11)){
 		//EXTI_ClearFlag(EXTI_Line11);
 		delay_ms(10);
 		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_11)) {
 			printf("exti11 at pf11\n");
-			delay_ms(10);
-			//EXTI_ClearFlag(EXTI_Line0);
+			//delay_ms(10);
+			//EXTI_ClearFlag(EXTI_Line11);
 		}
 		EXTI_ClearITPendingBit(EXTI_Line11);
-	}
+	//}
 }  
 /******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */

@@ -251,6 +251,14 @@ void EXTI2_IRQHandler(void)
 	EXTI_ClearITPendingBit(EXTI_Line2);
 }
 
+void EXTI15_10_IRQHandler(void)
+{
+	delay_ms(10);
+	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_11)) {
+		printf("exti11 at pf11\n");
+	}
+	EXTI_ClearITPendingBit(EXTI_Line11);
+}  
 /******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */

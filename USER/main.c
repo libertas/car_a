@@ -28,8 +28,8 @@ int main(void)
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
-		printf("LiPei \r\n");
-		delay_ms(100);
+		//printf("test usart,ten seconds\n");
+		//delay_ms(10);
 	}
 
 	return 0;

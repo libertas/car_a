@@ -43,6 +43,7 @@ void switch_config(void)
 	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOF, EXTI_PinSource1);
 	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOF, EXTI_PinSource2);
 	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOF, EXTI_PinSource2);
+	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOF, EXTI_PinSource11);
 	
 	
 	EXTI_InitStructure.EXTI_Line = EXTI_Line0;

@@ -11,7 +11,7 @@
 #ifndef USE_HPWM
 
 #define PWM_PRESCALE (84 - 1)
-#define PWM_FREQ 50000UL
+#define PWM_FREQ 100000UL
 #define PWM_CHANNEL_NUM 5
 
 extern uint32_t PWMHighTime[PWM_CHANNEL_NUM];

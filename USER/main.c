@@ -25,7 +25,7 @@ int main(void)
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
-		//printf("test usart,ten ms\n");
+		//printf("test usart3,ten ms delay\n");
 		//delay_ms(10);
 	}
 

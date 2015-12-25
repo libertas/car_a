@@ -47,7 +47,6 @@ void set_duty(uint8_t channel, double duty)
 	}
 }
 
-
 void hpwm_config(void)
 {		 					 
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -92,7 +91,7 @@ void hpwm_config(void)
 
 	
 	TIM_TimeBaseStructure.TIM_Prescaler = 168 - 1;
-	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_CenterAligned1;
 	TIM_TimeBaseStructure.TIM_Period = 40000;
 	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 

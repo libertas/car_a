@@ -48,7 +48,7 @@ void set_duty(uint8_t channel, double duty)
 }
 
 
-void hpwm_config(void)
+void pwm_config(void)
 {		 					 
 	GPIO_InitTypeDef GPIO_InitStructure;
 	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;

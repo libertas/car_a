@@ -19,9 +19,8 @@ int main(void)
 	encoder_config();
 	switch_config();
 
-	// pwm_config();
-	
-	hpwm_config();
+	pwm_config();
+
 
 	move_up();
 	delay_ms(10000);

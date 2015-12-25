@@ -91,7 +91,7 @@ void pwm_config(void)
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
 	
-	TIM_TimeBaseStructure.TIM_Prescaler = 168 - 1;
+	TIM_TimeBaseStructure.TIM_Prescaler = PWM_PRESCALE;
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseStructure.TIM_Period = 40000;
 	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
@@ -170,7 +170,7 @@ void pwm_config(void)
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 
 	
-	TIM_TimeBaseStructure.TIM_Prescaler = 168 - 1;
+	TIM_TimeBaseStructure.TIM_Prescaler = PWM_PRESCALE;
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseStructure.TIM_Period = 40000;
 	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;

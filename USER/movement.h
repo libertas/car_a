@@ -13,7 +13,7 @@ The world view:
 	down = -z
 */
 
-#define ZERO (1E-3)
+#define ZERO (1E-1)
 #define PI 3.141592653589793
 
 #define W_DIAMETER 120  // millimeter

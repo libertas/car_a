@@ -14,10 +14,7 @@ int main(void)
 {
 	systick_config();
 
-	uart1_config(115200);
-	uart2_config(115200);
-	uart3_config(115200);
-	uart4_config(115200);
+	uart_config(115200);
 
 	encoder_config();
 	switch_config();
@@ -25,7 +22,7 @@ int main(void)
 	// pwm_config();
 	
 	hpwm_config();
-	
+
 	move_up();
 	delay_ms(10000);
 	stop_move_up();

@@ -225,16 +225,45 @@ void TIM7_IRQHandler(void)
 }
 
 
+void EXTI0_IRQHandler(void)
+{
+	delay_ms(10);
+	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_0)) {
+		printf("exti0 at pf0\n");
+	}
+	EXTI_ClearITPendingBit(EXTI_Line0);
+}
+
+
+void EXTI1_IRQHandler(void)
+{
+	delay_ms(10);
+	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_1)) {
+		printf("exti1 at pf1\n");
+	}
+	EXTI_ClearITPendingBit(EXTI_Line1);
+}
+
+
 void EXTI2_IRQHandler(void)
 {
 	delay_ms(10);
-	if(0 == GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_2)) {
-		printf("exti2\n");
+	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_2)) {
+		printf("exti2 at pf2\n");
 	}
 	EXTI_ClearITPendingBit(EXTI_Line2);
 }
 
-
+void EXTI15_10_IRQHandler(void)
+{
+	delay_ms(10);
+	if(SET == EXTI_GetITStatus(EXTI_Line11)){
+		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_11)) {
+			printf("exti11 at pf11\n");
+		}
+		EXTI_ClearITPendingBit(EXTI_Line11);
+	}
+}
 /******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */

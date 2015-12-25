@@ -11,4 +11,5 @@ void uart1_config(uint32_t baud);
 void uart2_config(uint32_t baud);
 void uart3_config(uint32_t baud);
 void uart4_config(uint32_t baud);
+void uart_config(uint32_t baud);
 void uprintf(USART_TypeDef* USARTx, char *fmt, ...);

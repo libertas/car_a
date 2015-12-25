@@ -253,8 +253,8 @@ void EXTI2_IRQHandler(void)
 
 void EXTI15_10_IRQHandler(void)
 {
+	delay_ms(10);
 	if(SET == EXTI_GetITStatus(EXTI_Line11)){
-		delay_ms(10);
 		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_11)) {
 			printf("exti11 at pf11\n");
 		}

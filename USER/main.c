@@ -13,10 +13,7 @@ int main(void)
 {
 	systick_config();
 
-	uart1_config(115200);
-	uart2_config(115200);
-	uart3_config(115200);
-	uart4_config(115200);
+	uart_config(115200);
 
 	encoder_config();
 	switch_config();
@@ -28,7 +25,7 @@ int main(void)
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
-		//printf("test usart,ten seconds\n");
+		//printf("test usart,ten ms\n");
 		//delay_ms(10);
 	}
 

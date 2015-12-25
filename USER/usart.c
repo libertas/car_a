@@ -163,6 +163,13 @@ void uart4_config(uint32_t baud)
 	NVIC_Init(&NVIC_InitStructure);
 }
 
+void uart_config(uint32_t baud)
+{
+	uart1_config(baud);
+	uart2_config(baud);
+	uart3_config(baud);
+	uart4_config(baud);
+}
 
 #define CMD_BUFFER_LEN 100
 

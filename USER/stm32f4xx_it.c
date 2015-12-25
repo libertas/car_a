@@ -254,41 +254,11 @@ void EXTI2_IRQHandler(void)
 void EXTI15_10_IRQHandler(void)
 {
 	delay_ms(10);
-	if(SET == EXTI_GetITStatus(EXTI_Line10)){
-		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_10)){
-			printf("exti10 at pf10\n");
-		}
-		EXTI_ClearITPendingBit(EXTI_Line10);
-	}
-	else if(SET == EXTI_GetITStatus(EXTI_Line11)){
+	if(SET == EXTI_GetITStatus(EXTI_Line11)){
 		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_11)) {
 			printf("exti11 at pf11\n");
 		}
 		EXTI_ClearITPendingBit(EXTI_Line11);
-	}
-	else if(SET == EXTI_GetITStatus(EXTI_Line12)){
-		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_12)){
-			printf("exti12 at pf12\n");
-		}
-		EXTI_ClearITPendingBit(EXTI_Line12);
-	}
-	else if(SET == EXTI_GetITStatus(EXTI_Line13)){
-		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_13)){
-			printf("exti13 at pf13\n");
-		}
-		EXTI_ClearITPendingBit(EXTI_Line13);
-	}
-	else if(SET == EXTI_GetITStatus(EXTI_Line14)){
-		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_14)){
-			printf("exti14 at pf14\n");
-		}
-		EXTI_ClearITPendingBit(EXTI_Line14);
-	}
-	else if(SET == EXTI_GetITStatus(EXTI_Line15)){
-		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_15)){
-			printf("exti15 at pf15\n");
-		}
-		EXTI_ClearITPendingBit(EXTI_Line15);
 	}
 }
 /******************************************************************************/

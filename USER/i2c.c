@@ -2,6 +2,7 @@
 
 #include "i2c.h"
 
+
 void i2c1_config(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -12,7 +13,7 @@ void i2c1_config(void)
 	
 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource8, GPIO_AF_I2C1);
 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource9, GPIO_AF_I2C1);
-	
+
 
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9; 
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 

@@ -5,11 +5,11 @@
 #include "movement.h"
 
 
-uint32_t speeds[3] = {0};
+uint32_t arg_speeds[3] = {0};
 
 uint32_t get_speed(uint8_t wheel)
 {
-	return speeds[wheel];
+	return arg_speeds[wheel];
 }
 
 void stop_all(void)

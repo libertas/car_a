@@ -30,7 +30,7 @@ void t_move_y(float y);
 
 #endif
 
-extern uint32_t speeds[3];
+extern uint32_t arg_speeds[3];
 
 
 void move_up(void);

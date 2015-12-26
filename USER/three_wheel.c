@@ -11,20 +11,25 @@ void t_move_y(float y)
 
 	old_pos[0] = get_pos_x();
 	old_pos[1] = get_pos_y();
+
+	arg_speeds[0] = VECT_W1 * 10000;
+	arg_speeds[1] = arg_speeds[0] / cos(PI / 6);
+	arg_speeds[2] = VECT_W3 * arg_speeds[1];
+	arg_speeds[1] *= VECT_W2;
 	
 	#ifdef DEBUG
-	printf("old_pos[1]:%f\n", old_pos[1]);
+	printf("arg_speeds:\n");
+	printf("\t0:%d\n", arg_speeds[0]);
+	printf("\t1:%d\n", arg_speeds[1]);
+	printf("\t2:%d\n", arg_speeds[2]);
+	delay_ms(3000);
 	#endif
-
-	speeds[0] = VECT_W1 * 10000;
-	speeds[1] = VECT_W2 * speeds[0] * cos(PI / 2);
-	speeds[1] = VECT_W3 * speeds[0] * cos(PI / 2);
 
 	uprintf(USART1,\
 		"1V%d\r2V%d\r3V%d\r",\
-		(uint16_t) speeds[0],\
-		(uint16_t) speeds[1],\
-		(uint16_t) speeds[2]\
+		(uint16_t) arg_speeds[0],\
+		(uint16_t) arg_speeds[1],\
+		(uint16_t) arg_speeds[2]\
 		);
 	
 	do {
@@ -36,15 +41,15 @@ void t_move_y(float y)
 
 	} while(pos_y - y - old_pos[1] < ZERO);
 	
-	speeds[0] = 0;
-	speeds[1] = 0;
-	speeds[2] = 0;
+	arg_speeds[0] = 0;
+	arg_speeds[1] = 0;
+	arg_speeds[2] = 0;
 	
 	uprintf(USART1,\
 		"1V%d\r2V%d\r3V%d\r",\
-		(uint16_t) speeds[0],\
-		(uint16_t) speeds[1],\
-		(uint16_t) speeds[2]\
+		(uint16_t) arg_speeds[0],\
+		(uint16_t) arg_speeds[1],\
+		(uint16_t) arg_speeds[2]\
 		);
 }
 

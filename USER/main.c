@@ -5,6 +5,7 @@
 #include "clock.h"
 #include "encoder.h"
 #include "hpwm.h"
+#include "i2c.h"
 #include "movement.h"
 #include "pwm.h"
 #include "switch.h"
@@ -17,6 +18,7 @@ int main(void)
 	uart_config(115200);
 
 	encoder_config();
+	i2c1_config();
 	switch_config();
 
 	pwm_config();

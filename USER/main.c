@@ -8,6 +8,7 @@
 #include "pwm.h"
 #include "switch.h"
 #include "usart.h"
+#include "utils.h"
 
 int main(void)
 {
@@ -21,7 +22,7 @@ int main(void)
 	pwm_config();
 
 
-	move_y(314);
+	move_x(314);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

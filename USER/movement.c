@@ -5,8 +5,6 @@
 #include "movement.h"
 
 
-int16_t arg_speeds[3] = {0};
-
 int16_t get_speed(uint8_t wheel)
 {
 	return arg_speeds[wheel];
@@ -21,7 +19,7 @@ void stop_all(void)
 void move_x(float x)
 {
 	#ifdef DEBUG
-	printf("move_x(%f)\n", x);
+	printf("\nmove_x(%f)\n", x);
 	#endif
 	
 	#ifdef USE_THREE_WHEEL
@@ -32,7 +30,7 @@ void move_x(float x)
 void move_y(float y)
 {
 	#ifdef DEBUG
-	printf("move_y(%f)\n", y);
+	printf("\nmove_y(%f)\n", y);
 	#endif
 
 	#ifdef USE_THREE_WHEEL
@@ -42,7 +40,9 @@ void move_y(float y)
 
 void stop(void)
 {
-	uprintf(USART1, "1V0\r2V0\r3V0\r");
+	#ifdef USE_THREE_WHEEL
+	t_stop();
+	#endif
 	delay_ms(10);
 }
 

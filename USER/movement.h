@@ -26,12 +26,13 @@ The world view:
 #define VECT_W1 (+1)  // the front wheel
 #define VECT_W2 (+1)  // the back wheel
 
+extern int16_t arg_speeds[3];
+
 void t_move_x(float x);
 void t_move_y(float y);
+void t_stop(void);
 
 #endif
-
-extern int16_t arg_speeds[3];
 
 
 void move_up(void);

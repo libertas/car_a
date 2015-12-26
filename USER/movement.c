@@ -18,6 +18,17 @@ void stop_all(void)
 	delay_ms(10);
 }
 
+void move_x(float x)
+{
+	#ifdef DEBUG
+	printf("move_x(%f)\n", x);
+	#endif
+	
+	#ifdef USE_THREE_WHEEL
+	t_move_x(x);
+	#endif
+}
+
 void move_y(float y)
 {
 	#ifdef DEBUG

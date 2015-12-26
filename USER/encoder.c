@@ -29,7 +29,6 @@ float get_pos_fan(void)
 
 void timer7_config(void)
 {
-	
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
 

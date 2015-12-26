@@ -13,7 +13,7 @@
 */
 void uart1_config(uint32_t baud)
 {
-  GPIO_InitTypeDef GPIO_InitStructure;
+	GPIO_InitTypeDef GPIO_InitStructure;
 	USART_InitTypeDef USART_InitStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
 
@@ -23,7 +23,7 @@ void uart1_config(uint32_t baud)
 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource6, GPIO_AF_USART1);
 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource7, GPIO_AF_USART1);
 
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -36,13 +36,13 @@ void uart1_config(uint32_t baud)
 	USART_InitStructure.USART_Parity = USART_Parity_No;
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
-  USART_Init(USART1, &USART_InitStructure);
+	USART_Init(USART1, &USART_InitStructure);
 	
-  USART_Cmd(USART1, ENABLE);
+	USART_Cmd(USART1, ENABLE);
 
 	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
 
-  NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
@@ -51,7 +51,7 @@ void uart1_config(uint32_t baud)
 
 void uart2_config(uint32_t baud)
 {
-  GPIO_InitTypeDef GPIO_InitStructure;
+	GPIO_InitTypeDef GPIO_InitStructure;
 	USART_InitTypeDef USART_InitStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
 
@@ -61,7 +61,7 @@ void uart2_config(uint32_t baud)
 	GPIO_PinAFConfig(GPIOD, GPIO_PinSource5, GPIO_AF_USART2);
 	GPIO_PinAFConfig(GPIOD, GPIO_PinSource6, GPIO_AF_USART2);
 
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5 | GPIO_Pin_6;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5 | GPIO_Pin_6;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -74,13 +74,13 @@ void uart2_config(uint32_t baud)
 	USART_InitStructure.USART_Parity = USART_Parity_No;
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
-  USART_Init(USART2, &USART_InitStructure);
+	USART_Init(USART2, &USART_InitStructure);
 	
-  USART_Cmd(USART2, ENABLE);
+	USART_Cmd(USART2, ENABLE);
 
 	USART_ITConfig(USART2, USART_IT_RXNE, ENABLE);
 
-  NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
@@ -99,7 +99,7 @@ void uart3_config(uint32_t baud)
 	GPIO_PinAFConfig(GPIOD, GPIO_PinSource8, GPIO_AF_USART3);
 	GPIO_PinAFConfig(GPIOD, GPIO_PinSource9, GPIO_AF_USART3);
 
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -112,13 +112,13 @@ void uart3_config(uint32_t baud)
 	USART_InitStructure.USART_Parity = USART_Parity_No;
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
-  USART_Init(USART3, &USART_InitStructure);
+	USART_Init(USART3, &USART_InitStructure);
 	
-  USART_Cmd(USART3, ENABLE);
+	USART_Cmd(USART3, ENABLE);
 
 	USART_ITConfig(USART3, USART_IT_RXNE, ENABLE);
 
-  NVIC_InitStructure.NVIC_IRQChannel = USART3_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannel = USART3_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
@@ -137,7 +137,7 @@ void uart4_config(uint32_t baud)
 	GPIO_PinAFConfig(GPIOC, GPIO_PinSource10, GPIO_AF_UART4);
 	GPIO_PinAFConfig(GPIOC, GPIO_PinSource11, GPIO_AF_UART4);
 
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_11;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_11;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -150,13 +150,13 @@ void uart4_config(uint32_t baud)
 	USART_InitStructure.USART_Parity = USART_Parity_No;
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
-  USART_Init(UART4, &USART_InitStructure);
+	USART_Init(UART4, &USART_InitStructure);
 	
-  USART_Cmd(UART4, ENABLE);
+	USART_Cmd(UART4, ENABLE);
 
 	USART_ITConfig(UART4, USART_IT_RXNE, ENABLE);
 
-  NVIC_InitStructure.NVIC_IRQChannel = UART4_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannel = UART4_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;

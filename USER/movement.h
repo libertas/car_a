@@ -13,7 +13,7 @@ The world view:
 	down = -z
 */
 
-#define ZERO (1E-1)
+#define ZERO ((float) (1E-1))
 #define PI 3.141592653589793
 
 #define W_DIAMETER 120  // millimeter
@@ -26,7 +26,7 @@ The world view:
 #define VECT_W2 (+1)  // the front wheel
 #define VECT_W3 (+1)  // the back wheel
 
-void t_move_y(uint32_t y);
+void t_move_y(float y);
 
 #endif
 
@@ -34,7 +34,7 @@ extern uint32_t speeds[3];
 
 
 void move_up(void);
-void move_y(uint32_t y);
+void move_y(float y);
 
 void stop(void);
 void stop_all(void);

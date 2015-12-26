@@ -1,4 +1,5 @@
 #include "clock.h"
+#include "debug.h"
 #include "encoder.h"
 #include "fan.h"
 #include "movement.h"
@@ -17,8 +18,12 @@ void stop_all(void)
 	delay_ms(10);
 }
 
-void move_y(uint32_t y)
+void move_y(float y)
 {
+	#ifdef DEBUG
+	printf("move_y(%f)\n", y);
+	#endif
+
 	#ifdef USE_THREE_WHEEL
 	t_move_y(y);
 	#endif

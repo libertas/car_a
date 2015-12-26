@@ -34,24 +34,24 @@ void timer7_config(void)
 	NVIC_InitTypeDef NVIC_InitStructure;
 
 
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM7, ENABLE);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM7, ENABLE);
 
 
-  TIM_TimeBaseStructure.TIM_Prescaler = 999;  
-  TIM_TimeBaseStructure.TIM_Period = 1680-1;  
-  TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
-  TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-  TIM_TimeBaseInit(TIM7, &TIM_TimeBaseStructure);
+	TIM_TimeBaseStructure.TIM_Prescaler = 168 - 1;	
+	TIM_TimeBaseStructure.TIM_Period = 1000 - 1;	
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseInit(TIM7, &TIM_TimeBaseStructure);
 
-  TIM_ITConfig(TIM7, TIM_IT_Update, ENABLE);
-  TIM_Cmd(TIM7, ENABLE);	
+	TIM_ITConfig(TIM7, TIM_IT_Update, ENABLE);
+	TIM_Cmd(TIM7, ENABLE);	
 
 
-  NVIC_InitStructure.NVIC_IRQChannel=TIM7_IRQn;
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
-  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&NVIC_InitStructure);
+	NVIC_InitStructure.NVIC_IRQChannel=TIM7_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
 }
 
 
@@ -120,60 +120,60 @@ void encoder_config(void)
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
 
-  TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
+	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
 	TIM_ICInitTypeDef TIM_ICInitStructure;
 	
 	TIM_TimeBaseStructure.TIM_Prescaler = 0x0;
-  TIM_TimeBaseStructure.TIM_Period = 29999;  
-  TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
-  TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-  TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+	TIM_TimeBaseStructure.TIM_Period = 29999;	
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
  
-  TIM_EncoderInterfaceConfig(TIM3,TIM_EncoderMode_TI12,TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
-  TIM_ICStructInit(&TIM_ICInitStructure);
-  TIM_ICInitStructure.TIM_ICFilter = 6;
-  TIM_ICInit(TIM3, &TIM_ICInitStructure);
+	TIM_EncoderInterfaceConfig(TIM3,TIM_EncoderMode_TI12,TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+	TIM_ICStructInit(&TIM_ICInitStructure);
+	TIM_ICInitStructure.TIM_ICFilter = 6;
+	TIM_ICInit(TIM3, &TIM_ICInitStructure);
 
-  TIM3->CNT=4000;
+	TIM3->CNT=4000;
 
-  TIM_ClearFlag(TIM3, TIM_FLAG_Update);
-  TIM_ITConfig(TIM3, TIM_IT_Update, ENABLE);
-  TIM_Cmd(TIM3, ENABLE);
+	TIM_ClearFlag(TIM3, TIM_FLAG_Update);
+	TIM_ITConfig(TIM3, TIM_IT_Update, ENABLE);
+	TIM_Cmd(TIM3, ENABLE);
 	
-  TIM_TimeBaseStructure.TIM_Prescaler = 0x0;
-  TIM_TimeBaseStructure.TIM_Period = 29999;  
-  TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
-  TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-  TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
+	TIM_TimeBaseStructure.TIM_Prescaler = 0x0;
+	TIM_TimeBaseStructure.TIM_Period = 29999;	
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
  
-  TIM_EncoderInterfaceConfig(TIM4,TIM_EncoderMode_TI12,TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
-  TIM_ICStructInit(&TIM_ICInitStructure);
-  TIM_ICInitStructure.TIM_ICFilter = 6;
-  TIM_ICInit(TIM4, &TIM_ICInitStructure);
+	TIM_EncoderInterfaceConfig(TIM4,TIM_EncoderMode_TI12,TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+	TIM_ICStructInit(&TIM_ICInitStructure);
+	TIM_ICInitStructure.TIM_ICFilter = 6;
+	TIM_ICInit(TIM4, &TIM_ICInitStructure);
 
-  TIM4->CNT=4000;
+	TIM4->CNT=4000;
 
-  TIM_ClearFlag(TIM4, TIM_FLAG_Update);
-  TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE);
-  TIM_Cmd(TIM4, ENABLE);
+	TIM_ClearFlag(TIM4, TIM_FLAG_Update);
+	TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE);
+	TIM_Cmd(TIM4, ENABLE);
 
 	
-  TIM_TimeBaseStructure.TIM_Prescaler = 0x0;
-  TIM_TimeBaseStructure.TIM_Period = 29999;  
-  TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
-  TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-  TIM_TimeBaseInit(TIM5, &TIM_TimeBaseStructure);
+	TIM_TimeBaseStructure.TIM_Prescaler = 0x0;
+	TIM_TimeBaseStructure.TIM_Period = 29999;	
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseInit(TIM5, &TIM_TimeBaseStructure);
  
-  TIM_EncoderInterfaceConfig(TIM5,TIM_EncoderMode_TI12,TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
-  TIM_ICStructInit(&TIM_ICInitStructure);
-  TIM_ICInitStructure.TIM_ICFilter = 6;
-  TIM_ICInit(TIM5, &TIM_ICInitStructure);
+	TIM_EncoderInterfaceConfig(TIM5,TIM_EncoderMode_TI12,TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+	TIM_ICStructInit(&TIM_ICInitStructure);
+	TIM_ICInitStructure.TIM_ICFilter = 6;
+	TIM_ICInit(TIM5, &TIM_ICInitStructure);
 
-  TIM5->CNT=4000;
+	TIM5->CNT=4000;
 
-  TIM_ClearFlag(TIM5, TIM_FLAG_Update);
-  TIM_ITConfig(TIM5, TIM_IT_Update, ENABLE);
-  TIM_Cmd(TIM5, ENABLE);	
+	TIM_ClearFlag(TIM5, TIM_FLAG_Update);
+	TIM_ITConfig(TIM5, TIM_IT_Update, ENABLE);
+	TIM_Cmd(TIM5, ENABLE);	
 	
 	timer7_config();
 }

@@ -4,10 +4,7 @@
 
 #include "clock.h"
 #include "encoder.h"
-#include "hpwm.h"
-#include "i2c.h"
 #include "movement.h"
-#include "mpu6050.h"
 #include "pwm.h"
 #include "switch.h"
 #include "usart.h"
@@ -19,8 +16,6 @@ int main(void)
 	uart_config(115200);
 
 	encoder_config();
-	i2c1_config();
-	mpu6050_config();
 	switch_config();
 
 	pwm_config();
@@ -31,7 +26,6 @@ int main(void)
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
-		printf("%d\n", mpu6050_get_exact_data(ACCEL_XOUT_H));
 	}
 
 	return 0;

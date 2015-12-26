@@ -33,7 +33,7 @@ void t_move_x(float x)
 		);
 	
 	do {
-		pos_x = get_pos_y();
+		pos_x = get_pos_x();
 
 		#ifdef DEBUG
 		printf("pos_x:%f\n", pos_x);

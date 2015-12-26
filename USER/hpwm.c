@@ -93,7 +93,7 @@ void pwm_config(void)
 	
 	TIM_TimeBaseStructure.TIM_Prescaler = PWM_PRESCALE;
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_TimeBaseStructure.TIM_Period = 40000;
+	TIM_TimeBaseStructure.TIM_Period = 40000 - 1;
 	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 
 	TIM_TimeBaseInit(TIM1,&TIM_TimeBaseStructure);
@@ -172,7 +172,7 @@ void pwm_config(void)
 	
 	TIM_TimeBaseStructure.TIM_Prescaler = PWM_PRESCALE;
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_TimeBaseStructure.TIM_Period = 40000;
+	TIM_TimeBaseStructure.TIM_Period = 40000 - 1;
 	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 
 	TIM_TimeBaseInit(TIM8,&TIM_TimeBaseStructure);

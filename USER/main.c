@@ -21,7 +21,7 @@ int main(void)
 	pwm_config();
 
 
-	// move_y(314);
+	move_y(314);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

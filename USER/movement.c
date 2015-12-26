@@ -5,9 +5,9 @@
 #include "movement.h"
 
 
-uint32_t arg_speeds[3] = {0};
+int16_t arg_speeds[3] = {0};
 
-uint32_t get_speed(uint8_t wheel)
+int16_t get_speed(uint8_t wheel)
 {
 	return arg_speeds[wheel];
 }

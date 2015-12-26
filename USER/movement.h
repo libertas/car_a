@@ -21,20 +21,21 @@ The world view:
 
 #ifdef USE_THREE_WHEEL
 
-#define DEFAULT_ARG_SPEED 10000
-#define VECT_W1 (+1)  // the wheel on the left or right side
-#define VECT_W2 (+1)  // the front wheel
-#define VECT_W3 (+1)  // the back wheel
+#define DEFAULT_ARG_SPEED 2000
+#define VECT_W0 (-1)  // the wheel on the left or right side
+#define VECT_W1 (+1)  // the front wheel
+#define VECT_W2 (+1)  // the back wheel
 
 void t_move_x(float x);
 void t_move_y(float y);
 
 #endif
 
-extern uint32_t arg_speeds[3];
+extern int16_t arg_speeds[3];
 
 
 void move_up(void);
+void move_x(float x);
 void move_y(float y);
 
 void stop(void);

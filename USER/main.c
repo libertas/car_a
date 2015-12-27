@@ -23,11 +23,12 @@ int main(void)
 	pwm_config();
 
 
-	move_x(314);
+	//move_x(314);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
+		printf("shabi xuedi");
 	}
 
 	return 0;

@@ -13,7 +13,7 @@ The world view:
 	down = -z
 */
 
-#define ZERO (1E-3)
+#define ZERO ((float) (1E-1))
 #define PI 3.141592653589793
 
 #define W_DIAMETER 120  // millimeter
@@ -21,20 +21,23 @@ The world view:
 
 #ifdef USE_THREE_WHEEL
 
+#define DEFAULT_ARG_SPEED 2000
+#define VECT_W0 (-1)  // the wheel on the left or right side
+#define VECT_W1 (+1)  // the front wheel
+#define VECT_W2 (+1)  // the back wheel
 
-#define VECT_W1 (+1)  // the wheel on the left or right side
-#define VECT_W2 (+1)  // the front wheel
-#define VECT_W3 (+1)  // the back wheel
+extern int16_t arg_speeds[3];
 
-void t_move_y(uint32_t y);
+void t_move_x(float x);
+void t_move_y(float y);
+void t_stop(void);
 
 #endif
 
-extern uint32_t speeds[3];
-
 
 void move_up(void);
-void move_y(uint32_t y);
+void move_x(float x);
+void move_y(float y);
 
 void stop(void);
 void stop_all(void);

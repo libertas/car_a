@@ -47,7 +47,8 @@ void set_duty(uint8_t channel, double duty)
 	}
 }
 
-void hpwm_config(void)
+
+void pwm_config(void)
 {		 					 
 	GPIO_InitTypeDef GPIO_InitStructure;
 	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
@@ -90,9 +91,9 @@ void hpwm_config(void)
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
 	
-	TIM_TimeBaseStructure.TIM_Prescaler = 168 - 1;
-	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_CenterAligned1;
-	TIM_TimeBaseStructure.TIM_Period = 40000;
+	TIM_TimeBaseStructure.TIM_Prescaler = PWM_PRESCALE;
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseStructure.TIM_Period = 40000 - 1;
 	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 
 	TIM_TimeBaseInit(TIM1,&TIM_TimeBaseStructure);
@@ -169,9 +170,9 @@ void hpwm_config(void)
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 
 	
-	TIM_TimeBaseStructure.TIM_Prescaler = 168 - 1;
+	TIM_TimeBaseStructure.TIM_Prescaler = PWM_PRESCALE;
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_TimeBaseStructure.TIM_Period = 40000;
+	TIM_TimeBaseStructure.TIM_Period = 40000 - 1;
 	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 
 	TIM_TimeBaseInit(TIM8,&TIM_TimeBaseStructure);

@@ -3,5 +3,3 @@
 #include <stdio.h>
 
 #include "stm32f4xx_tim.h"
-
-void hpwm_config(void);

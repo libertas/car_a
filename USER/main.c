@@ -4,11 +4,11 @@
 
 #include "clock.h"
 #include "encoder.h"
-#include "hpwm.h"
 #include "movement.h"
 #include "pwm.h"
 #include "switch.h"
 #include "usart.h"
+#include "utils.h"
 
 int main(void)
 {
@@ -19,13 +19,10 @@ int main(void)
 	encoder_config();
 	switch_config();
 
-	// pwm_config();
-	
-	hpwm_config();
+	pwm_config();
 
-	move_up();
-	delay_ms(10000);
-	stop_move_up();
+
+	move_x(314);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

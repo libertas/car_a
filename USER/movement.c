@@ -1,14 +1,13 @@
 #include "clock.h"
+#include "debug.h"
 #include "encoder.h"
 #include "fan.h"
 #include "movement.h"
 
 
-uint32_t speeds[3] = {0};
-
-uint32_t get_speed(uint8_t wheel)
+int16_t get_speed(uint8_t wheel)
 {
-	return speeds[wheel];
+	return arg_speeds[wheel];
 }
 
 void stop_all(void)
@@ -17,8 +16,23 @@ void stop_all(void)
 	delay_ms(10);
 }
 
-void move_y(uint32_t y)
+void move_x(float x)
 {
+	#ifdef DEBUG
+	printf("\nmove_x(%f)\n", x);
+	#endif
+	
+	#ifdef USE_THREE_WHEEL
+	t_move_x(x);
+	#endif
+}
+
+void move_y(float y)
+{
+	#ifdef DEBUG
+	printf("\nmove_y(%f)\n", y);
+	#endif
+
 	#ifdef USE_THREE_WHEEL
 	t_move_y(y);
 	#endif
@@ -26,7 +40,9 @@ void move_y(uint32_t y)
 
 void stop(void)
 {
-	uprintf(USART1, "1V0\r2V0\r3V0\r");
+	#ifdef USE_THREE_WHEEL
+	t_stop();
+	#endif
 	delay_ms(10);
 }
 

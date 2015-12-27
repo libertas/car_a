@@ -12,6 +12,7 @@
 
 int main(void)
 {
+	system_clk_set();
 	systick_config();
 
 	uart_config(115200);

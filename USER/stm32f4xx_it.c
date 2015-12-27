@@ -165,11 +165,18 @@ void USART2_IRQHandler(void)
 	}
 }
 
+#include "interpreter.h"
 void USART3_IRQHandler(void)
 {
+	uint16_t i;
+	char data;
+
 	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
 	{
-		USART_SendData(USART3, USART_ReceiveData(USART3));
+		data = USART_ReceiveData(USART3);
+		USART_SendData(USART3, data);
+		for(i = 0; 0 != g_cmd_buf[i]; i++);
+		g_cmd_buf[i] = data;
 	}
 }
 

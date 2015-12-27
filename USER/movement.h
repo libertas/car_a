@@ -16,7 +16,7 @@ The world view:
 #define ZERO ((float) (1E-1))
 #define PI 3.141592653589793
 
-#define W_DIAMETER 120  // millimeter
+#define W_DIAMETER ((float) 0.12)  // meter
 #define USE_THREE_WHEEL
 
 #ifdef USE_THREE_WHEEL

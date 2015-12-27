@@ -28,7 +28,8 @@ int main(void)
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
-		printf("shabi xuedi");
+		printf("shabi xuedi\r\n");
+		delay_ms(10);
 	}
 
 	return 0;

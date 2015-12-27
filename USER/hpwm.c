@@ -127,7 +127,7 @@ void pwm_config(void)
 	TIM_OC3PreloadConfig(TIM1, TIM_OCPreload_Enable);
 	TIM_OC4PreloadConfig(TIM1, TIM_OCPreload_Enable);
  
-  TIM_ARRPreloadConfig(TIM1,ENABLE);
+	TIM_ARRPreloadConfig(TIM1,ENABLE);
 	
 	TIM_Cmd(TIM1, ENABLE);
 	TIM_CtrlPWMOutputs(TIM1,ENABLE);
@@ -206,7 +206,7 @@ void pwm_config(void)
 	TIM_OC3PreloadConfig(TIM8, TIM_OCPreload_Enable);
 	TIM_OC4PreloadConfig(TIM8, TIM_OCPreload_Enable);
  
-  TIM_ARRPreloadConfig(TIM8,ENABLE);
+	TIM_ARRPreloadConfig(TIM8,ENABLE);
 	
 	TIM_Cmd(TIM8, ENABLE);
 	TIM_CtrlPWMOutputs(TIM8,ENABLE);

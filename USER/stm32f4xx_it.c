@@ -214,6 +214,7 @@ void TIM6_DAC_IRQHandler(void)
 
 #endif
 
+#include "fan.h"
 #include "encoder.h"
 void TIM7_IRQHandler(void)
 {
@@ -228,11 +229,12 @@ void TIM7_IRQHandler(void)
 		
 		g_rotary_y += (TIM_GetCounter(TIM5)-4000);
 		TIM5->CNT = 4000;
+		
+		kowtow_check();
 	} 
 }
 
 
-#include "fan.h"
 void EXTI0_IRQHandler(void)
 {
 	delay_ms(10);

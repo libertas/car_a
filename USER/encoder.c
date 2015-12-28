@@ -11,19 +11,28 @@ int32_t g_rotary_y = 0;
 int32_t g_rotary_fan = 0;
 
 
+/*
+	meter
+*/
 float get_pos_x(void)
 {
 	return (float)((double) g_rotary_x / 2000 * W_DIAMETER * PI * VECT_EX);
 }
 
+/*
+	meter
+*/
 float get_pos_y(void)
 {
 	return (float)((double)g_rotary_y / 2000 * W_DIAMETER * PI * VECT_EY);
 }
 
+/*
+	rad
+*/
 float get_pos_fan(void)
 {
-	return (float)((double)g_rotary_fan / 2000 * W_DIAMETER * PI * VECT_EFAN);
+	return (float)((double)g_rotary_fan / 2000 * PI * VECT_EFAN);
 }
 
 

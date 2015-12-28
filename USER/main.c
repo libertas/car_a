@@ -24,7 +24,8 @@ int main(void)
 	pwm_config();
 
 
-	fan_up();
+	// start_fan();
+	// fan_up();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

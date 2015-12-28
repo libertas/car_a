@@ -2,16 +2,16 @@
 #include "fan.h"
 #include "pwm.h"
 
-void start_fan(uint8_t channel)
+void start_fan(void)
 {
-	stop_fan(channel);
+	stop_fan();
 	delay_ms(300);
-	set_duty(channel, 0.06);
+	set_duty(FAN_CHANNEL, 0.06);
 }
 
-inline void stop_fan(uint8_t channel)
+inline void stop_fan(void)
 {
-	set_duty(channel, 0.05);
+	set_duty(FAN_CHANNEL, 0.05);
 }
 
 void fan_up(void)

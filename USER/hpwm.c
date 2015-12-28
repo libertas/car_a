@@ -8,14 +8,14 @@
 
 
 /*
-	0	TIM1_CH1
-	1	TIM1_CH2
-	2	TIM1_CH3
-	3	TIM1_CH4
-	4	TIM8_CH1
-	5	TIM8_CH2
-	6	TIM8_CH3
-	7	TIM8_CH4
+	0	TIM1_CH1	PA8
+	1	TIM1_CH2	PA9
+	2	TIM1_CH3	PA10
+	3	TIM1_CH4	PA11
+	4	TIM8_CH1	PC6
+	5	TIM8_CH2	PC7
+	6	TIM8_CH3	PC8
+	7	TIM8_CH4	PC9
 */
 void set_duty(uint8_t channel, double duty)
 {
@@ -101,13 +101,13 @@ void pwm_config(void)
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
  	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
-	TIM_OCInitStructure.TIM_Pulse = 2400;
+	TIM_OCInitStructure.TIM_Pulse = 3040;
 	TIM_OC1Init(TIM1, &TIM_OCInitStructure);
 
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
  	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; 
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
-	TIM_OCInitStructure.TIM_Pulse = 2400;
+	TIM_OCInitStructure.TIM_Pulse = 3040;
 	TIM_OC2Init(TIM1, &TIM_OCInitStructure); 
 
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
@@ -180,13 +180,13 @@ void pwm_config(void)
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
  	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
-	TIM_OCInitStructure.TIM_Pulse = 3040;
+	TIM_OCInitStructure.TIM_Pulse = 2400;
 	TIM_OC1Init(TIM8, &TIM_OCInitStructure);
 
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
  	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; 
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
-	TIM_OCInitStructure.TIM_Pulse = 3040;
+	TIM_OCInitStructure.TIM_Pulse = 2400;
 	TIM_OC2Init(TIM8, &TIM_OCInitStructure); 
 
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;

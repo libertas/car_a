@@ -1,7 +1,9 @@
 #include <stdint.h>
 
-void start_fan(uint8_t channel);
-void stop_fan(uint8_t channel);
+#define FAN_CHANNEL 5
+
+void start_fan(void);
+void stop_fan(void);
 
 void fan_up(void);
 void fan_down(void);

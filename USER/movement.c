@@ -53,7 +53,7 @@ void move_up(void)
 	uprintf(USART1, "3V8000\r");
 	delay_ms(1);
 	
-	start_fan(0);
+	start_fan();
 }
 
 void stop_move_up(void)
@@ -63,5 +63,5 @@ void stop_move_up(void)
 	uprintf(USART1, "3V0\r");
 	delay_ms(1);
 	
-	stop_fan(0);
+	stop_fan();
 }

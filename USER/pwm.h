@@ -2,7 +2,7 @@
 
 #include "stm32f4xx_gpio.h"
 
-#define USE_HPWM
+// #define USE_HPWM
 
 #define PWM_PRESCALE (84 - 1)
 
@@ -13,7 +13,7 @@
 #ifndef USE_HPWM
 
 #define PWM_FREQ 100000UL
-#define PWM_CHANNEL_NUM 5
+#define PWM_CHANNEL_NUM 8
 
 extern uint32_t PWMHighTime[PWM_CHANNEL_NUM];
 extern uint32_t PWMTotal[PWM_CHANNEL_NUM];

@@ -11,8 +11,9 @@
 uint32_t PWMHighTime[PWM_CHANNEL_NUM];
 uint32_t PWMTotal[PWM_CHANNEL_NUM];
 
-uint16_t PWMPins[PWM_CHANNEL_NUM] = {GPIO_Pin_9, GPIO_Pin_8, GPIO_Pin_9, GPIO_Pin_10, GPIO_Pin_11};
-GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {GPIOC, GPIOA, GPIOA, GPIOA, GPIOA};
+uint16_t PWMPins[PWM_CHANNEL_NUM] = {GPIO_Pin_8, GPIO_Pin_9, GPIO_Pin_10, GPIO_Pin_11,\
+	GPIO_Pin_6, GPIO_Pin_7, GPIO_Pin_8, GPIO_Pin_9};
+GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {GPIOA, GPIOA, GPIOA, GPIOA, GPIOC, GPIOC, GPIOC, GPIOC};
 
 
 void rcc_io_config(void)
@@ -25,8 +26,8 @@ void rcc_io_config(void)
 
 void pwm_config(void)
 {
-	double duties[PWM_CHANNEL_NUM] = {0.06, 0.052, 0.052, 0.052, 0.052};
-	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 50, 50, 50, 50};
+	double duties[PWM_CHANNEL_NUM] = {0.06, 0.06, 0.076, 0.076, 0.076, 0.076, 0.076, 0.076};
+	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 50, 50, 50, 50, 50, 50, 50};
 	
 	uint8_t i;
 	GPIO_InitTypeDef GPIO_InitStructure;

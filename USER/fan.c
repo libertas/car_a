@@ -1,5 +1,6 @@
 #include "brake.h"
 #include "clock.h"
+#include "debug.h"
 #include "encoder.h"
 #include "fan.h"
 #include "movement.h"
@@ -34,32 +35,53 @@ void fan_kowtow(float rad)
 		rad = -1 * PI / 2;
 
 	if(rad - fan_kowtow_rad < ZERO) {
+		
+		#ifdef DEBUG
+		printf("\nNot kowtow happened\n");
+		#endif
+		
 		return;
 	} else if(rad > fan_kowtow_rad) {
+		
+		#ifdef DEBUG
+		printf("\nKowtow:dir=1\n");
+		#endif
+		
 		kowtow_dir = 1;
-		set_duty(0, 0.74);
+		set_duty(0, 0.066);
 	} else {
+		
+		#ifdef DEBUG
+		printf("\nKowtow:dir=0\n");
+		#endif
+		
 		kowtow_dir = 0;
-		set_duty(0, 0.67);
+		set_duty(0, 0.075);
 	}
-	fan_kowtow_rad = rad;
+	fan_kowtow_rad += rad;
 }
 
 void fan_kowtow_stop(void)
 {
 	set_duty(0, 0.71);
+	
+	#ifdef DEBUG
+	printf("\nfan_kowtow_stop()\n");
+	#endif
 }
 
 void kowtow_check(void)
 {
+	float pos_fan = get_pos_fan();
+	
 	switch(kowtow_dir) {
 		case 0:
-			if(get_pos_fan() < fan_kowtow_rad) {
+			if(pos_fan < fan_kowtow_rad) {
 				fan_kowtow_stop();
 			}
 			break;
 		case 1:
-			if(get_pos_fan() > fan_kowtow_rad) {
+			if(pos_fan > fan_kowtow_rad) {
 				fan_kowtow_stop();
 			}
 			break;
@@ -73,7 +95,7 @@ void kowtow_check(void)
 void fan_up(void)
 {
 	brake_release(0);
-	set_duty(2, 0.068);
+	set_duty(2, 0.067);
 }
 
 void fan_down(void)

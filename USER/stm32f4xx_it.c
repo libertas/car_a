@@ -237,7 +237,9 @@ void EXTI0_IRQHandler(void)
 {
 	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_0)) {
+		#ifdef DEBUG
 		printf("\nstop_fan_up_down()\n");
+		#endif
 		stop_fan_up_down();
 	}
 	EXTI_ClearITPendingBit(EXTI_Line0);
@@ -248,7 +250,9 @@ void EXTI1_IRQHandler(void)
 {
 	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_1)) {
+		#ifdef DEBUG
 		printf("\nstop_fan_up_down()\n");
+		#endif
 		stop_fan_up_down();
 	}
 	EXTI_ClearITPendingBit(EXTI_Line1);

@@ -2,7 +2,7 @@
 
 #include "brake.h"
 
-uint16_t BrakePins[BRAKE_CHANNEL_NUM] = {GPIO_Pin_10, GPIO_Pin_11, GPIO_Pin_12};
+uint16_t brake_pins[BRAKE_CHANNEL_NUM] = {GPIO_Pin_10, GPIO_Pin_11, GPIO_Pin_12};
 
 void brake_config(void)
 {
@@ -16,9 +16,18 @@ void brake_config(void)
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_Init(GPIOG, &GPIO_InitStructure);
+	
+	for(uint8_t i = 0; i < BRAKE_CHANNEL_NUM; i++) {
+		GPIO_WriteBit(GPIOG, brake_pins[i], Bit_RESET);
+	}
 }
 
-void brake(uint16_t channel)
+void brake(uint8_t channel)
 {
-	GPIO_WriteBit(GPIOG, channel, Bit_SET);
+	GPIO_WriteBit(GPIOG, brake_pins[channel], Bit_SET);
+}
+
+void brake_release(uint8_t channel)
+{
+	GPIO_WriteBit(GPIOG, brake_pins[channel], Bit_RESET);
 }

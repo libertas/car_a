@@ -16,15 +16,15 @@ inline void stop_fan(void)
 
 void fan_up(void)
 {
-	set_duty(3, 0.06);
+	set_duty(2, 0.068);
 }
 
 void fan_down(void)
 {
-	set_duty(3, 0.09);
+	set_duty(2, 0.074);
 }
 
 void stop_fan_up_down(void)
 {
-	set_duty(3, 0.076);
+	set_duty(2, 0.071);
 }

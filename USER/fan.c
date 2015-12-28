@@ -13,3 +13,18 @@ inline void stop_fan(uint8_t channel)
 {
 	set_duty(channel, 0.05);
 }
+
+void fan_up(void)
+{
+	set_duty(3, 0.06);
+}
+
+void fan_down(void)
+{
+	set_duty(3, 0.09);
+}
+
+void stop_fan_up_down(void)
+{
+	set_duty(3, 0.076);
+}

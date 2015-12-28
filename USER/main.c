@@ -4,6 +4,7 @@
 
 #include "clock.h"
 #include "encoder.h"
+#include "fan.h"
 #include "movement.h"
 #include "pwm.h"
 #include "switch.h"
@@ -23,13 +24,11 @@ int main(void)
 	pwm_config();
 
 
-	//move_x(314);
+	fan_up();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
-		printf("shabi xuedi\r\n");
-		delay_ms(10);
 	}
 
 	return 0;

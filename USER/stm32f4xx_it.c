@@ -232,11 +232,13 @@ void TIM7_IRQHandler(void)
 }
 
 
+#include "fan.h"
 void EXTI0_IRQHandler(void)
 {
 	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_0)) {
-		printf("exti0 at pf0\n");
+		printf("\nstop_fan_up_down()\n");
+		stop_fan_up_down();
 	}
 	EXTI_ClearITPendingBit(EXTI_Line0);
 }
@@ -246,7 +248,8 @@ void EXTI1_IRQHandler(void)
 {
 	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_1)) {
-		printf("exti1 at pf1\n");
+		printf("\nstop_fan_up_down()\n");
+		stop_fan_up_down();
 	}
 	EXTI_ClearITPendingBit(EXTI_Line1);
 }

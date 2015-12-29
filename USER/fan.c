@@ -30,18 +30,20 @@ uint8_t kowtow_dir = 0xff;
 
 void fan_kowtow(float rad)
 {
+	float pos = get_pos_fan();
+
 	#ifdef DEBUG
 	printf("\nfan_kowtow(%f)\n", rad);
 	#endif
 
-	if(ABS(rad - fan_kowtow_rad) < ZERO) {
+	if(ABS(rad - pos) < ZERO) {
 		
 		#ifdef DEBUG
 		printf("\nNot kowtow happened\n");
 		#endif
 		
 		return;
-	} else if(rad > fan_kowtow_rad) {
+	} else if(rad > pos) {
 		
 		#ifdef DEBUG
 		printf("\nKowtow:dir=1\n");

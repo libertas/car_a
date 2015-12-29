@@ -59,7 +59,7 @@ void fan_kowtow(float rad)
 		#endif
 		
 		kowtow_dir = 1;
-		set_duty(0, 0.063);
+		set_duty(0, 0.067);
 	} else {
 		
 		#ifdef DEBUG
@@ -67,7 +67,7 @@ void fan_kowtow(float rad)
 		#endif
 		
 		kowtow_dir = 0;
-		set_duty(0, 0.077);
+		set_duty(0, 0.075);
 	}
 	fan_kowtow_rad += rad;
 }

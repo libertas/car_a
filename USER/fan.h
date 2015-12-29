@@ -11,3 +11,5 @@ void stop_fan_up_down(void);
 
 void fan_kowtow(float rad);
 void kowtow_check(void);
+
+void fan_roll(float rad);

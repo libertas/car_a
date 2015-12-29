@@ -28,6 +28,15 @@ float fan_kowtow_rad = 0;
 */
 uint8_t kowtow_dir = 0xff;
 
+void fan_roll(float rad)
+{
+	set_duty(6, 0.12 - 0.12 / PI * rad);
+	
+	#ifdef DEBUG
+	printf("\nfan_roll(%f)\n", rad);
+	#endif
+}
+
 void fan_kowtow(float rad)
 {
 	float pos = get_pos_fan();

@@ -69,12 +69,16 @@ void fan_kowtow(float rad)
 		kowtow_dir = 0;
 		set_duty(0, 0.075);
 	}
+
+	brake_release(1);
+
 	fan_kowtow_rad += rad;
 }
 
 void fan_kowtow_stop(void)
 {
 	set_duty(0, 0.71);
+	brake(1);
 	
 	#ifdef DEBUG
 	printf("\nfan_kowtow_stop()\n");
@@ -83,24 +87,22 @@ void fan_kowtow_stop(void)
 
 void kowtow_check(void)
 {
-	float pos_fan = get_pos_fan();
-	
 	switch(kowtow_dir) {
+		default:
+			break;
+		case 0xff:
+			break;
 		case 0:
-			if(pos_fan < fan_kowtow_rad) {
+			if(get_pos_fan() < fan_kowtow_rad) {
 				fan_kowtow_stop();
 				kowtow_dir = 0xff;
 			}
 			break;
 		case 1:
-			if(pos_fan > fan_kowtow_rad) {
+			if(get_pos_fan() > fan_kowtow_rad) {
 				fan_kowtow_stop();
 				kowtow_dir = 0xff;
 			}
-			break;
-		case 0xff:
-			break;
-		default:
 			break;
 	}
 }

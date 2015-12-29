@@ -23,16 +23,17 @@ int main(void)
 
 	pwm_config();
 
-	fan_roll(PI / 3);
-/*
+
 	fan_kowtow(PI/4);
-	delay_ms(3000);
-	fan_kowtow(-PI / 4);
-*/
+	//delay_ms(3000);
+	//fan_kowtow(-PI / 4);
+	
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
+		extern float fan_kowtow_rad;
+		printf("\npos_fan:%f\t%f\n", get_pos_fan(), fan_kowtow_rad);
 	}
 
 	return 0;

@@ -24,7 +24,10 @@ int main(void)
 	pwm_config();
 
 
-	fan_kowtow(PI / 8);
+	fan_kowtow(PI/4);
+	delay_ms(3000);
+	fan_kowtow(-PI / 4);
+	
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

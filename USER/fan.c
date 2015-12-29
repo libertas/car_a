@@ -5,6 +5,7 @@
 #include "fan.h"
 #include "movement.h"
 #include "pwm.h"
+#include "utils.h"
 
 void start_fan(void)
 {
@@ -29,12 +30,11 @@ uint8_t kowtow_dir = 0xff;
 
 void fan_kowtow(float rad)
 {
-	if(rad > PI / 2)
-		rad = PI / 2;
-	else if(rad < -1 * PI / 2)
-		rad = -1 * PI / 2;
+	#ifdef DEBUG
+	printf("\nfan_kowtow(%f)\n", rad);
+	#endif
 
-	if(rad - fan_kowtow_rad < ZERO) {
+	if(ABS(rad - fan_kowtow_rad) < ZERO) {
 		
 		#ifdef DEBUG
 		printf("\nNot kowtow happened\n");
@@ -48,7 +48,7 @@ void fan_kowtow(float rad)
 		#endif
 		
 		kowtow_dir = 1;
-		set_duty(0, 0.066);
+		set_duty(0, 0.063);
 	} else {
 		
 		#ifdef DEBUG
@@ -56,7 +56,7 @@ void fan_kowtow(float rad)
 		#endif
 		
 		kowtow_dir = 0;
-		set_duty(0, 0.075);
+		set_duty(0, 0.077);
 	}
 	fan_kowtow_rad += rad;
 }
@@ -78,11 +78,13 @@ void kowtow_check(void)
 		case 0:
 			if(pos_fan < fan_kowtow_rad) {
 				fan_kowtow_stop();
+				kowtow_dir = 0xff;
 			}
 			break;
 		case 1:
 			if(pos_fan > fan_kowtow_rad) {
 				fan_kowtow_stop();
+				kowtow_dir = 0xff;
 			}
 			break;
 		case 0xff:

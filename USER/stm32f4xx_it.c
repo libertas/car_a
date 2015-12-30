@@ -240,10 +240,13 @@ void TIM8_TRG_COM_TIM14_IRQHandler(void)
 	static uint16_t t = 0;
 	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
 		TIM_ClearITPendingBit(TIM14, TIM_FLAG_Update);
-		t += 1;
+		t++;
 		if(10000 == t){
 			push_rod(PUSH_ROD_STOP);
-			printf("YES!");
+			#ifdef DEBUG
+			printf("\r\npush_rod_stop\r\n");
+			#endif
+			t = 0;
 			TIM_Cmd(TIM14, DISABLE);
 		}
 	}

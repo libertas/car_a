@@ -26,7 +26,7 @@ void push_rod_config(void)
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM14, ENABLE);
 
 	TIM_TimeBaseInitStructure.TIM_Period = 100 - 1;
-	TIM_TimeBaseInitStructure.TIM_Prescaler = 840 - 1;
+	TIM_TimeBaseInitStructure.TIM_Prescaler = 1680 - 1;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	

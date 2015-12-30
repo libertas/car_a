@@ -22,10 +22,11 @@ int main(void)
 
 	encoder_config();
 	switch_config();
-
 	pwm_config();
 	
+	
 	push_rod_config();
+	push_rod(PUSH_ROD_PUSH);
 
 	//mag_up();
 

@@ -26,9 +26,10 @@ int main(void)
 	
 	
 	push_rod_config();
-	push_rod(PUSH_ROD_PUSH);
+	//push_rod(PUSH_ROD_PUSH);
 
 	//mag_up();
+	move_up();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

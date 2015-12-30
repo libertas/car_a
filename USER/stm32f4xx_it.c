@@ -231,9 +231,23 @@ void TIM7_IRQHandler(void)
 		TIM5->CNT = 4000;
 		
 		kowtow_check();
-	} 
+	}
 }
 
+#include "push_rod.h"
+void TIM8_TRG_COM_TIM14_IRQHandler(void)
+{
+	static uint16_t t = 0;
+	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
+		TIM_ClearITPendingBit(TIM14, TIM_FLAG_Update);
+		t += 1;
+		if(10000 == t){
+			push_rod(PUSH_ROD_STOP);
+			printf("YES!");
+			TIM_Cmd(TIM14, DISABLE);
+		}
+	}
+}
 
 void EXTI0_IRQHandler(void)
 {

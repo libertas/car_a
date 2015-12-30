@@ -11,6 +11,7 @@
 #include "switch.h"
 #include "usart.h"
 #include "utils.h"
+#include "push_rod.h"
 
 int main(void)
 {
@@ -23,9 +24,10 @@ int main(void)
 	switch_config();
 
 	pwm_config();
+	
+	push_rod_config();
 
-
-	mag_up();
+	//mag_up();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

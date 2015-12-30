@@ -239,10 +239,10 @@ void EXTI0_IRQHandler(void)
 {
 	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_0)) {
+		stop_fan_up_down();
 		#ifdef DEBUG
 		printf("\nstop_fan_up_down()\n");
 		#endif
-		stop_fan_up_down();
 	}
 	EXTI_ClearITPendingBit(EXTI_Line0);
 }
@@ -252,20 +252,24 @@ void EXTI1_IRQHandler(void)
 {
 	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_1)) {
+		stop_fan_up_down();
 		#ifdef DEBUG
 		printf("\nstop_fan_up_down()\n");
 		#endif
-		stop_fan_up_down();
 	}
 	EXTI_ClearITPendingBit(EXTI_Line1);
 }
 
 
+#include "magnet.h"
 void EXTI2_IRQHandler(void)
 {
 	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_2)) {
-		printf("exti2 at pf2\n");
+		mag_up_stop();
+		#ifdef DEBUG
+		printf("\nmag_up_stop()\n");
+		#endif
 	}
 	EXTI_ClearITPendingBit(EXTI_Line2);
 }

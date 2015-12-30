@@ -25,8 +25,9 @@ int main(void)
 	pwm_config();
 
 
-	// mag_up_release();
 	mag_up();
+	delay_ms(3000);
+	mag_up_release();
 
 
 	printf("\n\nEntering main loop\n\n");

@@ -11,8 +11,7 @@ void mag_in(void)
 
 void mag_out(void)
 {
-	if(Bit_SET == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_2))
-		set_duty(MAG_IN_CHANNEL, 0.001);
+	set_duty(MAG_IN_CHANNEL, 0.001);
 }
 
 void mag_in_stop(void)
@@ -21,7 +20,8 @@ void mag_in_stop(void)
 
 void mag_up(void)
 {
-	set_duty(MAG_UP_CHANNEL, 0.076);
+	if(Bit_SET == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_2))
+		set_duty(MAG_UP_CHANNEL, 0.076);
 }
 
 void mag_up_stop(void)

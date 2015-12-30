@@ -468,6 +468,11 @@
               <FileType>1</FileType>
               <FilePath>.\brake.c</FilePath>
             </File>
+            <File>
+              <FileName>magnet.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\magnet.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -762,6 +767,11 @@
               <FileName>brake.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\brake.h</FilePath>
+            </File>
+            <File>
+              <FileName>magnet.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\magnet.h</FilePath>
             </File>
           </Files>
         </Group>

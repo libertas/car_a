@@ -70,7 +70,7 @@ void fan_kowtow(float rad)
 		set_duty(0, 0.075);
 	}
 
-	brake_release(1);
+	brake_release(2);
 
 	fan_kowtow_rad += rad;
 }
@@ -78,7 +78,7 @@ void fan_kowtow(float rad)
 void fan_kowtow_stop(void)
 {
 	set_duty(0, 0.71);
-	brake(1);
+	brake(2);
 	
 	#ifdef DEBUG
 	printf("\nfan_kowtow_stop()\n");

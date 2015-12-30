@@ -2,6 +2,7 @@
 
 #include "stm32f4xx.h"
 
+#include "brake.h"
 #include "clock.h"
 #include "encoder.h"
 #include "fan.h"
@@ -19,15 +20,11 @@ int main(void)
 
 	uart_config(115200);
 
+	brake_config();
 	encoder_config();
 	switch_config();
 
 	pwm_config();
-
-
-	mag_up();
-	delay_ms(3000);
-	mag_up_release();
 
 
 	printf("\n\nEntering main loop\n\n");

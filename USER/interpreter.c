@@ -6,8 +6,8 @@
 #include "movement.h"
 
 
-char cmd_buf[CMD_BUF_LEN];
-char_queue *cmd_queue;
+char cmd_buf[CMD_BUF_LEN] = {0};
+char_queue cmd_queue;
 
 /*
 format:
@@ -26,7 +26,7 @@ command list:
 int run_cmd(void)
 {
 	char cmd;
-	out_char_queue(cmd_queue, &cmd);
+	out_char_queue(&cmd_queue, &cmd);
 	
 	uint8_t i;
 	
@@ -46,18 +46,18 @@ int run_cmd(void)
 			break;
 		
 		case 0x10:
-			out_char_queue(cmd_queue, (char*) &buf);
+			out_char_queue(&cmd_queue, (char*) &buf);
 			move_y_c(buf);
 			break;
 		
 		case 0x11:
-			out_char_queue(cmd_queue, (char*) &buf);
+			out_char_queue(&cmd_queue, (char*) &buf);
 			move_x_c(buf);
 			break;
 		
 		case 0x40:
 			for(i = 0; i < 4; i++) {
-				out_char_queue(cmd_queue, (char*) &buf);
+				out_char_queue(&cmd_queue, (char*) &buf);
 				qbuf = qbuf << 8;
 				qbuf |= buf;
 			}
@@ -67,7 +67,7 @@ int run_cmd(void)
 		
 		case 0x41:
 			for(i = 0; i < 4; i++) {
-				out_char_queue(cmd_queue, (char*) &buf);
+				out_char_queue(&cmd_queue, (char*) &buf);
 				qbuf = qbuf << 8;
 				qbuf |= buf;
 			}
@@ -86,9 +86,9 @@ int check_cmd(void)
 	uint8_t check_sum = 0;
 	uint16_t i;
 	
-	if(cmd_queue->count > 0) {
-		fr = (cmd_queue->front + 1) % cmd_queue->max_size;
-		cmd = cmd_queue->data[fr];
+	if(cmd_queue.count > 0) {
+		fr = (cmd_queue.front + 1) % cmd_queue.max_size;
+		cmd = cmd_queue.data[fr];
 		cmd_len = (cmd >> 4);
 		cmd &= 0x0f;
 		
@@ -96,27 +96,46 @@ int check_cmd(void)
 		printf("\nlen:%x\ncmd:%x\n", cmd_len, cmd);
 		#endif
 		
-		if(cmd_queue->count > cmd_len) {
-			for(i = fr; i <= (fr + cmd_len) % cmd_queue->max_size; i = (i + 1) % cmd_queue->max_size) {
-				check_sum += cmd_queue->data[i];
+		if(cmd_queue.count > cmd_len) {
+			for(i = fr; i <= (fr + cmd_len) % cmd_queue.max_size; i = (i + 1) % cmd_queue.max_size) {
+				check_sum += cmd_queue.data[i];
 			}
-			if(cmd_queue->data[i] == check_sum) {
+			if(cmd_queue.data[i] == check_sum) {
 				run_cmd();
-				out_char_queue(cmd_queue, (char*) &check_sum);  // remove the check_sum byte
+				out_char_queue(&cmd_queue, (char*) &check_sum);  // remove the check_sum byte
 				
 				#ifdef DEBUG
 				printf("\nrun_cmd()\n");
 				#endif
 				
 			} else {
+				
+				#ifdef DEBUG
+				printf("\n-3\n");
+				#endif
+				
 				return -3;
 			}
 		} else {
+			
+			#ifdef DEBUG
+			printf("\n-3\n");
+			#endif
+			
 			return -2;
 		}
 		
+		#ifdef DEBUG
+		printf("\n0\n");
+		#endif
+		
 		return 0;
 	} else {
+	
+		#ifdef DEBUG
+		printf("\n-1\n");
+		#endif
+		
 		return -1;
 	}
 }
@@ -124,5 +143,5 @@ int check_cmd(void)
 
 void interpreter_config(void)
 {
-	init_char_queue(cmd_queue, cmd_buf, CMD_BUF_LEN);
+	init_char_queue(&cmd_queue, cmd_buf, CMD_BUF_LEN);
 }

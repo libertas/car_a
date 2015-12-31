@@ -20,5 +20,6 @@ typedef struct
 
 int init_char_queue(char_queue *p, char buf[], uint16_t max_size);
 int in_char_queue(char_queue *p, char c);
+int out_char_queue(char_queue *p, char *c);
 
 #endif

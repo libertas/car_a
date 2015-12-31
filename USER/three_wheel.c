@@ -22,6 +22,63 @@ void t_stop(void)
 		);
 }
 
+void t_move_x_c(uint8_t dir)
+{
+	arg_speeds[0] = 0;
+	arg_speeds[1] = VECT_W1 * DEFAULT_ARG_SPEED * 2 / sqrt(3);
+	arg_speeds[2] = 0 - VECT_W2 * arg_speeds[1];
+	
+	if(!dir) {
+		for(uint8_t i = 0; i < 3; i++) {
+			arg_speeds[i] *= -1;
+		}
+	}
+	
+	#ifdef DEBUG
+	printf("arg_speeds:\n");
+	printf("\t0:%d\n", arg_speeds[0]);
+	printf("\t1:%d\n", arg_speeds[1]);
+	printf("\t2:%d\n", arg_speeds[2]);
+	#endif
+
+	uprintf(USART1,\
+		"\r0V%d\r1V%d\r2V%d\r",\
+		arg_speeds[0],\
+		arg_speeds[1],\
+		arg_speeds[2]\
+		);
+}
+
+void t_move_y_c(uint8_t dir)
+{
+	arg_speeds[0] = DEFAULT_ARG_SPEED;
+	arg_speeds[1] = arg_speeds[0] / cos(PI / 6);
+	arg_speeds[2] = arg_speeds[1];
+	arg_speeds[0] *= VECT_W0;
+	arg_speeds[1] *= VECT_W1;
+	arg_speeds[2] *= VECT_W2;
+	
+	if(!dir) {
+		for(uint8_t i = 0; i < 3; i++) {
+			arg_speeds[i] *= -1;
+		}
+	}
+	
+	#ifdef DEBUG
+	printf("arg_speeds:\n");
+	printf("\t0:%d\n", arg_speeds[0]);
+	printf("\t1:%d\n", arg_speeds[1]);
+	printf("\t2:%d\n", arg_speeds[2]);
+	#endif
+
+	uprintf(USART1,\
+		"\r0V%d\r1V%d\r2V%d\r",\
+		arg_speeds[0],\
+		arg_speeds[1],\
+		arg_speeds[2]\
+		);
+}
+
 void t_move_x(float x)
 {
 	float pos_x;
@@ -41,30 +98,7 @@ void t_move_x(float x)
 	else
 		dir = 0;
 	
-	arg_speeds[0] = 0;
-	arg_speeds[1] = VECT_W1 * DEFAULT_ARG_SPEED * 2 / sqrt(3);
-	arg_speeds[2] = 0 - VECT_W2 * arg_speeds[1];
-	
-	if(!dir) {
-		for(uint8_t i = 0; i < 3; i++) {
-			arg_speeds[i] *= -1;
-		}
-	}
-	
-	#ifdef DEBUG
-	printf("arg_speeds:\n");
-	printf("\t0:%d\n", arg_speeds[0]);
-	printf("\t1:%d\n", arg_speeds[1]);
-	printf("\t2:%d\n", arg_speeds[2]);
-	delay_ms(3000);
-	#endif
-
-	uprintf(USART1,\
-		"\r0V%d\r1V%d\r2V%d\r",\
-		arg_speeds[0],\
-		arg_speeds[1],\
-		arg_speeds[2]\
-		);
+	t_move_x_c(dir);
 	
 	while(1) {
 		pos_x = get_pos_x();
@@ -105,33 +139,7 @@ void t_move_y(float y)
 	else
 		dir = 0;
 
-	arg_speeds[0] = DEFAULT_ARG_SPEED;
-	arg_speeds[1] = arg_speeds[0] / cos(PI / 6);
-	arg_speeds[2] = arg_speeds[1];
-	arg_speeds[0] *= VECT_W0;
-	arg_speeds[1] *= VECT_W1;
-	arg_speeds[2] *= VECT_W2;
-	
-	if(!dir) {
-		for(uint8_t i = 0; i < 3; i++) {
-			arg_speeds[i] *= -1;
-		}
-	}
-	
-	#ifdef DEBUG
-	printf("arg_speeds:\n");
-	printf("\t0:%d\n", arg_speeds[0]);
-	printf("\t1:%d\n", arg_speeds[1]);
-	printf("\t2:%d\n", arg_speeds[2]);
-	delay_ms(3000);
-	#endif
-
-	uprintf(USART1,\
-		"\r0V%d\r1V%d\r2V%d\r",\
-		arg_speeds[0],\
-		arg_speeds[1],\
-		arg_speeds[2]\
-		);
+	t_move_y_c(dir);
 	
 	while(1) {
 		pos_y = get_pos_y();

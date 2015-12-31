@@ -27,6 +27,13 @@ void move_x(float x)
 	#endif
 }
 
+void move_x_c(uint8_t dir)
+{
+	#ifdef USE_THREE_WHEEL
+	t_move_x_c(dir);
+	#endif
+}
+
 void move_y(float y)
 {
 	#ifdef DEBUG
@@ -35,6 +42,13 @@ void move_y(float y)
 
 	#ifdef USE_THREE_WHEEL
 	t_move_y(y);
+	#endif
+}
+
+void move_y_c(uint8_t dir)
+{
+	#ifdef USE_THREE_WHEEL
+	t_move_y_c(dir);
 	#endif
 }
 

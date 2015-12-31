@@ -17,6 +17,7 @@ The world view:
 #define PI 3.141592653589793
 
 #define W_DIAMETER ((float) 0.12)  // meter
+
 #define USE_THREE_WHEEL
 
 #ifdef USE_THREE_WHEEL
@@ -29,7 +30,9 @@ The world view:
 extern int16_t arg_speeds[3];
 
 void t_move_x(float x);
+void t_move_x_c(uint8_t dir);
 void t_move_y(float y);
+void t_move_y_c(uint8_t dir);
 void t_stop(void);
 
 #endif
@@ -37,7 +40,9 @@ void t_stop(void);
 
 void move_up(void);
 void move_x(float x);
+void move_x_c(uint8_t dir);
 void move_y(float y);
+void move_y_c(uint8_t dir);
 
 void stop(void);
 void stop_all(void);

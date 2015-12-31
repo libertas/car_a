@@ -7,4 +7,5 @@
 extern char_queue *cmd_queue;
 
 void interpreter_config(void);
+int check_cmd(void);
 int run_cmd(void);

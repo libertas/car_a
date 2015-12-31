@@ -6,6 +6,7 @@
 #include "clock.h"
 #include "encoder.h"
 #include "fan.h"
+#include "interpreter.h"
 #include "magnet.h"
 #include "movement.h"
 #include "pwm.h"
@@ -31,6 +32,7 @@ int main(void)
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
+		check_cmd();
 	}
 
 	return 0;

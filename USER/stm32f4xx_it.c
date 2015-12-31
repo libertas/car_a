@@ -33,6 +33,7 @@
 #include "clock.h"
 #include "pwm.h"
 #include "usart.h"
+#include "utils.h"
  
 
 /** @addtogroup Template_Project
@@ -174,9 +175,8 @@ void USART3_IRQHandler(void)
 	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
 	{
 		data = USART_ReceiveData(USART3);
-		USART_SendData(USART3, data);
-		for(i = 0; 0 != g_cmd_buf[i]; i++);
-		g_cmd_buf[i] = data;
+		// USART_SendData(USART3, data);
+		
 	}
 }
 

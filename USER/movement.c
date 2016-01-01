@@ -26,6 +26,18 @@ void rotate_c(int8_t arg_spd)
 	t_rotate_c(arg_spd);
 	#endif
 }
+
+void move_xy_c(int8_t spd_x, int8_t spd_y)
+{
+	#ifdef DEBUG
+	printf("\nmove_x(%d, %d)\n", spd_x, spd_y);
+	#endif
+	
+	#ifdef USE_THREE_WHEEL
+	t_move_xy_c(spd_x, spd_y);
+	#endif
+}
+
 void move_x(float x)
 {
 	#ifdef DEBUG

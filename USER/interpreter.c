@@ -38,24 +38,39 @@ int run_cmd(void)
 	
 	switch(cmd) {
 		default:
-			
+
 			#ifdef DEBUG
 			printf("\nUnknown command:%x\n", cmd);
 			#endif
-		
+
 			break;
 		
 		case 0x10:
+
+			#ifdef DEBUG
+			printf("\ncmd\t0x10\n");
+			#endif
+
 			out_char_queue(&cmd_queue, (char*) &buf);
 			move_y_c(buf);
 			break;
 		
 		case 0x11:
+
+			#ifdef DEBUG
+			printf("\ncmd\t0x11\n");
+			#endif
+
 			out_char_queue(&cmd_queue, (char*) &buf);
 			move_x_c(buf);
 			break;
 		
 		case 0x40:
+
+			#ifdef DEBUG
+			printf("\ncmd\t0x40\n");
+			#endif
+
 			for(i = 0; i < 4; i++) {
 				out_char_queue(&cmd_queue, (char*) &buf);
 				qbuf = qbuf << 8;
@@ -66,6 +81,11 @@ int run_cmd(void)
 			break;
 		
 		case 0x41:
+
+			#ifdef DEBUG
+			printf("\ncmd\t0x41\n");
+			#endif
+
 			for(i = 0; i < 4; i++) {
 				out_char_queue(&cmd_queue, (char*) &buf);
 				qbuf = qbuf << 8;
@@ -82,44 +102,46 @@ int run_cmd(void)
 int check_cmd(void)
 {
 	uint16_t fr;
-	uint8_t cmd_len, cmd;
+	uint8_t data_len, cmd;
 	uint8_t check_sum = 0;
 	uint16_t i;
 	
 	if(cmd_queue.count > 0) {
 		fr = (cmd_queue.front + 1) % cmd_queue.max_size;
 		cmd = cmd_queue.data[fr];
-		cmd_len = (cmd >> 4);
+		data_len = (cmd >> 4);
 		cmd &= 0x0f;
 		
 		#ifdef DEBUG
-		printf("\nlen:%x\ncmd:%x\n", cmd_len, cmd);
+		printf("\nlen:%x\ncmd:0x%x\n", data_len, cmd);
 		#endif
 		
-		if(cmd_queue.count > cmd_len) {
-			for(i = fr; i <= (fr + cmd_len) % cmd_queue.max_size; i = (i + 1) % cmd_queue.max_size) {
+		if(cmd_queue.count >= data_len + 2) {
+			for(i = fr; i <= (fr + data_len) % cmd_queue.max_size; i = (i + 1) % cmd_queue.max_size) {
 				check_sum += cmd_queue.data[i];
 			}
 			if(cmd_queue.data[i] == check_sum) {
-				run_cmd();
-				out_char_queue(&cmd_queue, (char*) &check_sum);  // remove the check_sum byte
 				
 				#ifdef DEBUG
 				printf("\nrun_cmd()\n");
 				#endif
 				
+				run_cmd();
+				out_char_queue(&cmd_queue, (char*) &check_sum);  // remove the check_sum byte
 			} else {
 				
 				#ifdef DEBUG
 				printf("\n-3\n");
 				#endif
 				
+				out_char_queue(&cmd_queue, (char*) &check_sum);  //remove the wrong byte
+				
 				return -3;
 			}
 		} else {
 			
 			#ifdef DEBUG
-			printf("\n-3\n");
+			printf("\n-2\n");
 			#endif
 			
 			return -2;
@@ -133,7 +155,7 @@ int check_cmd(void)
 	} else {
 	
 		#ifdef DEBUG
-		printf("\n-1\n");
+		// printf("\n-1\n");
 		#endif
 		
 		return -1;

@@ -33,6 +33,7 @@ int main(void)
 	//push_rod(PUSH_ROD_PUSH);
 
 
+
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{

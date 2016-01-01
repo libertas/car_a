@@ -27,16 +27,11 @@ int main(void)
 	encoder_config();
 	switch_config();
 	pwm_config();
-	
-	
 	push_rod_config();
+	
+	
 	//push_rod(PUSH_ROD_PUSH);
 
-<<<<<<< HEAD
-=======
-	//mag_up();
-	move_up();
->>>>>>> sbxd
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

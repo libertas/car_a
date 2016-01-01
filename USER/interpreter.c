@@ -14,9 +14,9 @@ format:
 	(4-bit) [data-length] + (4-bit) [command] + (n-byte) [data] + (byte) [checksum]
 	NOTE: sometimes data bytes can be used as command bits, too
 command list:
-	move_y()
+	move_y(int16_t arg_spd)
 		(byte) 0x20 (int16) [arg_spd]
-	move_x()
+	move_x(int16_t arg_spd)
 		(byte) 0x21 (int16) [arg_spd]
 	move_y(float y)
 		(byte) 0x40 (float) [y]

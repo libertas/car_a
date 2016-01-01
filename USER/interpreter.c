@@ -155,7 +155,7 @@ int check_cmd(void)
 	} else {
 	
 		#ifdef DEBUG
-		printf("\n-1\n");
+		// printf("\n-1\n");
 		#endif
 		
 		return -1;

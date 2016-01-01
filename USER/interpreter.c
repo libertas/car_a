@@ -31,7 +31,7 @@ int run_cmd(void)
 	uint8_t i;
 	
 	uint8_t buf = 0;
-	uint8_t dbuf = 0;
+	uint16_t dbuf = 0;
 	uint32_t qbuf = 0;
 	
 	float x, y;

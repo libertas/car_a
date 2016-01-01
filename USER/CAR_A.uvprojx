@@ -478,6 +478,11 @@
               <FileType>1</FileType>
               <FilePath>.\utils.c</FilePath>
             </File>
+            <File>
+              <FileName>push_rod.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\push_rod.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -782,6 +787,11 @@
               <FileName>utils.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\utils.h</FilePath>
+            </File>
+            <File>
+              <FileName>push_rod.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\push_rod.h</FilePath>
             </File>
           </Files>
         </Group>

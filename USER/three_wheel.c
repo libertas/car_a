@@ -22,6 +22,39 @@ void t_stop(void)
 		);
 }
 
+void t_rotate_c(int8_t arg_spd)
+{
+	arg_speeds[0] = VECT_W0 * arg_spd;
+	arg_speeds[1] = VECT_W1 * arg_spd;
+	arg_speeds[2] = VECT_W2 * arg_spd;
+	
+	#ifdef DEBUG
+	printf("arg_speeds:\n");
+	printf("\t0:%d\n", arg_speeds[0]);
+	printf("\t1:%d\n", arg_speeds[1]);
+	printf("\t2:%d\n", arg_speeds[2]);
+	#endif
+
+	uprintf(USART1,\
+		"\r0V%d\r1V%d\r2V%d\r",\
+		arg_speeds[0],\
+		arg_speeds[1],\
+		arg_speeds[2]\
+		);
+}
+
+void t_move_xy_c(int8_t spd_x, int8_t spd_y)
+{
+	int16_t arg_x, arg_y;
+	
+	arg_x = (int16_t) (((float) spd_x) / 256 * DEFAULT_ARG_SPEED);
+	arg_y = (int16_t) (((float) spd_y) / 256 * DEFAULT_ARG_SPEED);
+	
+	arg_speeds[0] = VECT_W0 * (0 + ABS(arg_y));
+	arg_speeds[1] = VECT_W1 * (ABS(arg_x) * 2 / sqrt(3) + ABS(arg_y) / cos(PI / 6));
+	arg_speeds[2] = VECT_W2 * (ABS(arg_x) * 2 / sqrt(3) + ABS(arg_y) / cos(PI / 6));
+}
+
 void t_move_x_c(int16_t arg_spd)
 {
 	arg_speeds[0] = 0;

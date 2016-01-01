@@ -33,6 +33,8 @@ void t_move_x(float x);
 void t_move_x_c(int16_t arg_spd);
 void t_move_y(float y);
 void t_move_y_c(int16_t arg_spd);
+void t_move_xy_c(int8_t spd_x, int8_t spd_y);
+void t_rotate_c(int8_t arg_spd);
 void t_stop(void);
 
 #endif
@@ -43,6 +45,9 @@ void move_x(float x);
 void move_x_c(int16_t arg_spd);
 void move_y(float y);
 void move_y_c(int16_t arg_spd);
+void move_xy_c(int8_t spd_x, int8_t spd_y);
+
+void rotate_c(int8_t arg_spd);
 
 void stop(void);
 void stop_all(void);

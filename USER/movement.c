@@ -16,6 +16,28 @@ void stop_all(void)
 	delay_ms(10);
 }
 
+void rotate_c(int8_t arg_spd)
+{
+	#ifdef DEBUG
+	printf("\rotate_c(%d)\n", arg_spd);
+	#endif
+	
+	#ifdef USE_THREE_WHEEL
+	t_rotate_c(arg_spd);
+	#endif
+}
+
+void move_xy_c(int8_t spd_x, int8_t spd_y)
+{
+	#ifdef DEBUG
+	printf("\nmove_xy_c(%d, %d)\n", spd_x, spd_y);
+	#endif
+	
+	#ifdef USE_THREE_WHEEL
+	t_move_xy_c(spd_x, spd_y);
+	#endif
+}
+
 void move_x(float x)
 {
 	#ifdef DEBUG

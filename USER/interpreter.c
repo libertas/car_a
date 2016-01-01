@@ -14,14 +14,20 @@ format:
 	(4-bit) [data-length] + (4-bit) [command] + (n-byte) [data] + (byte) [checksum]
 	NOTE: sometimes data bytes can be used as command bits, too
 command list:
-	move_y()
+	move_y(int16_t arg_spd)
 		(byte) 0x20 (int16) [arg_spd]
-	move_x()
+
+	move_x(int16_t arg_spd)
 		(byte) 0x21 (int16) [arg_spd]
+
 	move_y(float y)
 		(byte) 0x40 (float) [y]
+
 	move_x(float x)
 		(byte) 0x41 (float) [x]
+
+	move_xy_c(int8_t spd_x, int8_t spd_y)
+		(byte) 0x22 (byte) [spd_x] (byte) [spd_y]
 */
 int run_cmd(void)
 {
@@ -30,7 +36,7 @@ int run_cmd(void)
 	
 	uint8_t i;
 	
-	uint8_t buf = 0;
+	uint8_t buf = 0, buf1 = 0;
 	uint16_t dbuf = 0;
 	uint32_t qbuf = 0;
 	
@@ -104,6 +110,18 @@ int run_cmd(void)
 			}
 			memcpy(&x, &qbuf, 4);
 			move_x(x);
+			break;
+
+		case 0x22:
+			
+			#ifdef DEBUG
+			printf("\ncmd\t0x42\n");
+			#endif
+
+			out_char_queue(&cmd_queue, (char*) &buf);
+			out_char_queue(&cmd_queue, (char*) &buf1);
+
+			move_xy_c(buf, buf1);
 			break;
 	}
 	

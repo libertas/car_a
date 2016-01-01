@@ -15,9 +15,9 @@ format:
 	NOTE: sometimes data bytes can be used as command bits, too
 command list:
 	move_y()
-		(byte) 0x10 (byte) [dir]
+		(byte) 0x20 (int16) [arg_spd]
 	move_x()
-		(byte) 0x11 (byte) [dir]
+		(byte) 0x21 (int16) [arg_spd]
 	move_y(float y)
 		(byte) 0x40 (float) [y]
 	move_x(float x)
@@ -31,6 +31,7 @@ int run_cmd(void)
 	uint8_t i;
 	
 	uint8_t buf = 0;
+	uint8_t dbuf = 0;
 	uint32_t qbuf = 0;
 	
 	float x, y;
@@ -45,24 +46,34 @@ int run_cmd(void)
 
 			break;
 		
-		case 0x10:
+		case 0x20:
 
 			#ifdef DEBUG
-			printf("\ncmd\t0x10\n");
+			printf("\ncmd\t0x20\n");
 			#endif
 
 			out_char_queue(&cmd_queue, (char*) &buf);
-			move_y_c(buf);
+			dbuf = buf;
+			dbuf = dbuf << 8;
+			out_char_queue(&cmd_queue, (char*) &buf);
+			dbuf |= buf;
+
+			move_y_c(dbuf);
 			break;
 		
-		case 0x11:
+		case 0x21:
 
 			#ifdef DEBUG
-			printf("\ncmd\t0x11\n");
+			printf("\ncmd\t0x21\n");
 			#endif
 
 			out_char_queue(&cmd_queue, (char*) &buf);
-			move_x_c(buf);
+			dbuf = buf;
+			dbuf = dbuf << 8;
+			out_char_queue(&cmd_queue, (char*) &buf);
+			dbuf |= buf;
+
+			move_x_c(dbuf);
 			break;
 		
 		case 0x40:

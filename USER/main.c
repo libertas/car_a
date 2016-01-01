@@ -27,14 +27,12 @@ int main(void)
 	encoder_config();
 	switch_config();
 	pwm_config();
-	
-	move_xy_c(-127, -127);
 
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
-		// check_cmd();
+		check_cmd();
 	}
 
 	return 0;

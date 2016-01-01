@@ -30,7 +30,7 @@ void rotate_c(int8_t arg_spd)
 void move_xy_c(int8_t spd_x, int8_t spd_y)
 {
 	#ifdef DEBUG
-	printf("\nmove_x(%d, %d)\n", spd_x, spd_y);
+	printf("\nmove_xy_c(%d, %d)\n", spd_x, spd_y);
 	#endif
 	
 	#ifdef USE_THREE_WHEEL

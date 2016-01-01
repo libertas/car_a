@@ -141,7 +141,7 @@ int check_cmd(void)
 		} else {
 			
 			#ifdef DEBUG
-			printf("\n-3\n");
+			printf("\n-2\n");
 			#endif
 			
 			return -2;

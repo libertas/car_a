@@ -28,7 +28,7 @@ int main(void)
 	switch_config();
 	pwm_config();
 	
-	move_xy_c(127, 127);
+	move_xy_c(-127, -127);
 
 
 	printf("\n\nEntering main loop\n\n");

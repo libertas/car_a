@@ -48,8 +48,8 @@ void t_move_xy_c(int8_t spd_x, int8_t spd_y)
 	int16_t arg_x, arg_y;
 	int8_t sign_x, sign_y;
 	
-	sign_x = spd_x >= 0? 1: 0;
-	sign_y = spd_y >= 0? 1: 0;
+	sign_x = spd_x >= 0? 1: -1;
+	sign_y = spd_y >= 0? 1: -1;
 	
 	arg_x = (int16_t) (((float) spd_x) / 128 * DEFAULT_ARG_SPEED);
 	arg_y = (int16_t) (((float) spd_y) / 128 * DEFAULT_ARG_SPEED);

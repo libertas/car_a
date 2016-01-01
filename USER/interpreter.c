@@ -113,7 +113,7 @@ int check_cmd(void)
 		cmd &= 0x0f;
 		
 		#ifdef DEBUG
-		printf("\nlen:%x\ncmd:%x\n", data_len, cmd);
+		printf("\nlen:%x\ncmd:0x%x\n", data_len, cmd);
 		#endif
 		
 		if(cmd_queue.count >= data_len + 2) {

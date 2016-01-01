@@ -13,6 +13,7 @@
 #include "switch.h"
 #include "usart.h"
 #include "utils.h"
+#include "push_rod.h"
 
 int main(void)
 {
@@ -25,9 +26,17 @@ int main(void)
 	brake_config();
 	encoder_config();
 	switch_config();
-
 	pwm_config();
+	
+	
+	push_rod_config();
+	//push_rod(PUSH_ROD_PUSH);
 
+<<<<<<< HEAD
+=======
+	//mag_up();
+	move_up();
+>>>>>>> sbxd
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

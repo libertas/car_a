@@ -30,9 +30,9 @@ The world view:
 extern int16_t arg_speeds[3];
 
 void t_move_x(float x);
-void t_move_x_c(uint8_t dir);
+void t_move_x_c(int16_t arg_spd);
 void t_move_y(float y);
-void t_move_y_c(uint8_t dir);
+void t_move_y_c(int16_t arg_spd);
 void t_stop(void);
 
 #endif
@@ -40,9 +40,9 @@ void t_stop(void);
 
 void move_up(void);
 void move_x(float x);
-void move_x_c(uint8_t dir);
+void move_x_c(int16_t arg_spd);
 void move_y(float y);
-void move_y_c(uint8_t dir);
+void move_y_c(int16_t arg_spd);
 
 void stop(void);
 void stop_all(void);

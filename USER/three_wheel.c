@@ -22,13 +22,13 @@ void t_stop(void)
 		);
 }
 
-void t_move_x_c(uint8_t dir)
+void t_move_x_c(int16_t arg_spd)
 {
 	arg_speeds[0] = 0;
-	arg_speeds[1] = VECT_W1 * DEFAULT_ARG_SPEED * 2 / sqrt(3);
+	arg_speeds[1] = VECT_W1 * ABS(arg_spd) * 2 / sqrt(3);
 	arg_speeds[2] = 0 - VECT_W2 * arg_speeds[1];
 	
-	if(!dir) {
+	if(arg_spd < 0) {
 		for(uint8_t i = 0; i < 3; i++) {
 			arg_speeds[i] *= -1;
 		}
@@ -49,16 +49,16 @@ void t_move_x_c(uint8_t dir)
 		);
 }
 
-void t_move_y_c(uint8_t dir)
+void t_move_y_c(int16_t arg_spd)
 {
-	arg_speeds[0] = DEFAULT_ARG_SPEED;
+	arg_speeds[0] = ABS(arg_spd);
 	arg_speeds[1] = arg_speeds[0] / cos(PI / 6);
 	arg_speeds[2] = arg_speeds[1];
 	arg_speeds[0] *= VECT_W0;
 	arg_speeds[1] *= VECT_W1;
 	arg_speeds[2] *= VECT_W2;
 	
-	if(!dir) {
+	if(arg_spd < 0) {
 		for(uint8_t i = 0; i < 3; i++) {
 			arg_speeds[i] *= -1;
 		}

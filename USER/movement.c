@@ -27,10 +27,10 @@ void move_x(float x)
 	#endif
 }
 
-void move_x_c(uint8_t dir)
+void move_x_c(int16_t arg_spd)
 {
 	#ifdef USE_THREE_WHEEL
-	t_move_x_c(dir);
+	t_move_x_c(arg_spd);
 	#endif
 }
 
@@ -45,10 +45,10 @@ void move_y(float y)
 	#endif
 }
 
-void move_y_c(uint8_t dir)
+void move_y_c(int16_t arg_spd)
 {
 	#ifdef USE_THREE_WHEEL
-	t_move_y_c(dir);
+	t_move_y_c(arg_spd);
 	#endif
 }
 

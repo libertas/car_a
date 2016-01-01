@@ -64,7 +64,7 @@ void move_up(void)
 {
 	uprintf(USART1, "4V-8000\r");
 	delay_ms(1);
-	uprintf(USART1, "3V8000\r");
+	uprintf(USART1, "3V-8000\r");
 	delay_ms(1);
 	
 	start_fan();

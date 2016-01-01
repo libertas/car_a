@@ -31,6 +31,7 @@ int main(void)
 	
 	
 	//push_rod(PUSH_ROD_PUSH);
+	move_up();
 
 
 

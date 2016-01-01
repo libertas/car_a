@@ -128,6 +128,12 @@ int check_cmd(void)
 				
 				run_cmd();
 				out_char_queue(&cmd_queue, (char*) &check_sum);  // remove the check_sum byte
+				
+				#ifdef DEBUG
+				printf("\n0\n");
+				#endif
+		
+				return 0;
 			} else {
 				
 				#ifdef DEBUG
@@ -146,12 +152,6 @@ int check_cmd(void)
 			
 			return -2;
 		}
-		
-		#ifdef DEBUG
-		printf("\n0\n");
-		#endif
-		
-		return 0;
 	} else {
 	
 		#ifdef DEBUG

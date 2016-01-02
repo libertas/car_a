@@ -145,8 +145,10 @@ void t_move_x(float x)
 	if(ABS(relative_mov) < ZERO) {
 		return;
 	} else if(relative_mov > 0) {
+		dir = 1;
 		t_move_x_c(DEFAULT_ARG_SPEED);
 	} else {
+		dir =0;
 		t_move_x_c(-DEFAULT_ARG_SPEED);
 	}
 	
@@ -185,8 +187,10 @@ void t_move_y(float y)
 	if(ABS(relative_mov) < ZERO) {
 		return;
 	} else if(relative_mov > 0) {
+		dir = 1;
 		t_move_y_c(DEFAULT_ARG_SPEED);
 	} else {
+		dir = 0;
 		t_move_y_c(-DEFAULT_ARG_SPEED);
 	}
 	

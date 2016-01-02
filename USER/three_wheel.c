@@ -22,9 +22,10 @@ void t_stop(void)
 		);
 }
 
-void t_rotate_c(int8_t arg_spd)
+void t_rotate_c(int8_t spd)
 {
-	arg_speeds[0] = VECT_W0 * arg_spd;
+	int16_t arg_spd = (float) spd / 128 * DEFAULT_ARG_SPEED;
+	arg_speeds[0] = -VECT_W0 * arg_spd;
 	arg_speeds[1] = VECT_W1 * arg_spd;
 	arg_speeds[2] = VECT_W2 * arg_spd;
 	

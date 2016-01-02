@@ -142,14 +142,13 @@ void t_move_x(float x)
 	
 	relative_mov = x - old_pos[0];
 	
-	if(ABS(relative_mov) < ZERO)
+	if(ABS(relative_mov) < ZERO) {
 		return;
-	else if(relative_mov > 0)
-		dir = 1;
-	else
-		dir = 0;
-	
-	t_move_x_c(dir);
+	} else if(relative_mov > 0) {
+		t_move_x_c(DEFAULT_ARG_SPEED);
+	} else {
+		t_move_x_c(-DEFAULT_ARG_SPEED);
+	}
 	
 	while(1) {
 		pos_x = get_pos_x();
@@ -183,14 +182,13 @@ void t_move_y(float y)
 	
 	relative_mov = y - old_pos[1];
 	
-	if(ABS(relative_mov) < ZERO)
+	if(ABS(relative_mov) < ZERO) {
 		return;
-	else if(relative_mov > 0)
-		dir = 1;
-	else
-		dir = 0;
-
-	t_move_y_c(dir);
+	} else if(relative_mov > 0) {
+		t_move_y_c(DEFAULT_ARG_SPEED);
+	} else {
+		t_move_y_c(-DEFAULT_ARG_SPEED);
+	}
 	
 	while(1) {
 		pos_y = get_pos_y();

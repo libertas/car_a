@@ -28,6 +28,18 @@ command list:
 
 	move_xy_c(int8_t spd_x, int8_t spd_y)
 		(byte) 0x22 (byte) [spd_x] (byte) [spd_y]
+
+	stop()
+		(byte) 0x00
+
+	stop_all()
+		(byte) 0x01
+
+	move_up()
+		(byte) 0x02
+
+	stop_move_up()
+		(byte) 0x03
 */
 int run_cmd(void)
 {
@@ -123,6 +135,39 @@ int run_cmd(void)
 
 			move_xy_c(buf, buf1);
 			break;
+
+		case 0x00:
+			
+			#ifdef DEBUG
+			printf("\ncmd\t0x00\n");
+			#endif
+		
+			stop();
+			break;
+		case 0x01:
+			
+			#ifdef DEBUG
+			printf("\ncmd\t0x01\n");
+			#endif
+		
+			stop_all();
+			break;
+		case 0x02:
+			
+			#ifdef DEBUG
+			printf("\ncmd\t0x02\n");
+			#endif
+		
+			move_up();
+			break;
+		case 0x03:
+			
+			#ifdef DEBUG
+			printf("\ncmd\t0x03\n");
+			#endif
+		
+			stop_move_up();
+			break;
 	}
 	
 	return 0;
@@ -142,7 +187,7 @@ int check_cmd(void)
 		cmd &= 0x0f;
 		
 		#ifdef DEBUG
-		printf("\nlen:%x\ncmd:0x%x\n", data_len, cmd);
+		printf("\ndata-len:%x\ncmd:0x%x\n", data_len, cmd);
 		#endif
 		
 		if(cmd_queue.count >= data_len + 2) {

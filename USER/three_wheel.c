@@ -46,18 +46,14 @@ void t_rotate_c(int8_t arg_spd)
 void t_move_xy_c(int8_t spd_x, int8_t spd_y)
 {
 	int16_t arg_x, arg_y;
-	int8_t sign_x, sign_y;
-	
-	sign_x = spd_x >= 0? 1: -1;
-	sign_y = spd_y >= 0? 1: -1;
-	
+
 	arg_x = (int16_t) (((float) spd_x) / 128 * DEFAULT_ARG_SPEED);
 	arg_y = (int16_t) (((float) spd_y) / 128 * DEFAULT_ARG_SPEED);
-	
-	arg_speeds[0] = VECT_W0 * (sign_x * 0 + sign_y * ABS(arg_y));
-	arg_speeds[1] = VECT_W1 * (sign_x * ABS(arg_x) * 2 / sqrt(3) + sign_y * ABS(arg_y) / cos(PI / 6));
-	arg_speeds[2] = VECT_W2 * (sign_x * ABS(arg_x) * 2 / sqrt(3) + sign_y * ABS(arg_y) / cos(PI / 6));
-	
+
+	arg_speeds[0] = VECT_W0 * ( 0 + arg_y * 2 / 3 );
+	arg_speeds[1] = VECT_W1 * (   arg_x / sqrt(3) + arg_y / 3 );
+	arg_speeds[2] = VECT_W2 * ( - arg_x / sqrt(3) + arg_y / 3 );
+
 	#ifdef DEBUG
 	printf("arg_speeds:\n");
 	printf("\t0:%d\n", arg_speeds[0]);
@@ -103,7 +99,7 @@ void t_move_x_c(int16_t arg_spd)
 void t_move_y_c(int16_t arg_spd)
 {
 	arg_speeds[0] = ABS(arg_spd);
-	arg_speeds[1] = arg_speeds[0] / cos(PI / 6);
+	arg_speeds[1] = arg_speeds[0] * 2 / sqrt(3);
 	arg_speeds[2] = arg_speeds[1];
 	arg_speeds[0] *= VECT_W0;
 	arg_speeds[1] *= VECT_W1;

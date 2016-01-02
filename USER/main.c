@@ -28,9 +28,10 @@ int main(void)
 	switch_config();
 	pwm_config();
 	push_rod_config();
-	
-	
-	move_xy_c((int8_t) 100, (int8_t) 0);
+
+
+	//move_xy_c((int8_t) 0, (int8_t) 50);
+	move_x_c(500);
 
 
 	printf("\n\nEntering main loop\n\n");

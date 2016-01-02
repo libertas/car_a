@@ -29,6 +29,9 @@ command list:
 	move_xy_c(int8_t spd_x, int8_t spd_y)
 		(byte) 0x22 (byte) [spd_x] (byte) [spd_y]
 
+	rotate_c(int8_t r_spd)
+		(byte) 0x10 (byte) r_spd
+
 	stop()
 		(byte) 0x00
 
@@ -135,7 +138,19 @@ int run_cmd(void)
 
 			move_xy_c(buf, buf1);
 			break;
+		
+		case 0x10:
+			
+			#ifdef DEBUG
+			printf("\ncmd\t0x10\n");
+			#endif
 
+			out_char_queue(&cmd_queue, (char*) &buf);
+
+			rotate_c(buf);
+
+			break;
+		
 		case 0x00:
 			
 			#ifdef DEBUG

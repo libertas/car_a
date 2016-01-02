@@ -30,8 +30,7 @@ int main(void)
 	push_rod_config();
 	
 	
-	//push_rod(PUSH_ROD_PUSH);
-	move_up();
+	push_rod(PUSH_ROD_PUSH);
 
 
 

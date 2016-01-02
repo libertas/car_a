@@ -30,13 +30,14 @@ int main(void)
 	push_rod_config();
 
 
-	//move_xy_c((int8_t) 0, (int8_t) 50);
-	move_x_c(500);
+	move_xy_c((int8_t) -100, (int8_t) -100);
+	//uprintf(USART1,"\r0V-245\r1V435\r2V435\r");
 
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
+		//check_cmd();
 	}
 
 	return 0;

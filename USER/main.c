@@ -30,8 +30,7 @@ int main(void)
 	push_rod_config();
 	
 	
-	push_rod(PUSH_ROD_PUSH);
-
+	move_xy_c((int8_t) 100, (int8_t) 0);
 
 
 	printf("\n\nEntering main loop\n\n");

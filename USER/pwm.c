@@ -60,14 +60,14 @@ void pwm_config(void)
 	
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6, ENABLE);
 	
-  TIM_TimeBaseInitStructure.TIM_Period = 19;
+	TIM_TimeBaseInitStructure.TIM_Period = 19;
 	TIM_TimeBaseInitStructure.TIM_Prescaler = PWM_PRESCALE;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	
-	TIM_TimeBaseInit(TIM14, &TIM_TimeBaseInitStructure);
+	TIM_TimeBaseInit(TIM6, &TIM_TimeBaseInitStructure);
 	
-	TIM_ITConfig(TIM14, TIM_IT_Update, ENABLE);
+	TIM_ITConfig(TIM6, TIM_IT_Update, ENABLE);
 	TIM_Cmd(TIM6, ENABLE);
 	
 	NVIC_InitStructure.NVIC_IRQChannel = TIM6_DAC_IRQn;

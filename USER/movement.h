@@ -22,7 +22,7 @@ The world view:
 
 #ifdef USE_THREE_WHEEL
 
-#define DEFAULT_ARG_SPEED 4000
+#define DEFAULT_ARG_SPEED 2000
 #define VECT_W0 (-1)  // the wheel on the left or right side
 #define VECT_W1 (+1)  // the front wheel
 #define VECT_W2 (+1)  // the back wheel

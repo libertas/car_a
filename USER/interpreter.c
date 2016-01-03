@@ -2,6 +2,7 @@
 #include <string.h>
 
 #include "debug.h"
+#include "fan.h"
 #include "interpreter.h"
 #include "movement.h"
 
@@ -43,6 +44,15 @@ command list:
 
 	stop_move_up()
 		(byte) 0x03
+	
+	fan_up()
+		(byte) 0x04
+		
+	fan_roll(float rad)
+		(byte) 0x42	(float) [rad]
+	
+	fan_kowtow(float rad)
+		(byte) 0x43 (float) [rad]
 */
 int run_cmd(void)
 {
@@ -55,7 +65,7 @@ int run_cmd(void)
 	uint16_t dbuf = 0;
 	uint32_t qbuf = 0;
 	
-	float x, y;
+	float x, y, rad;
 	
 	
 	switch(cmd) {
@@ -182,6 +192,47 @@ int run_cmd(void)
 			#endif
 		
 			stop_move_up();
+			break;
+		
+		case 0x04:
+			
+			#ifdef DEBUG
+			printf("\ncmd\t0x04\n");
+			#endif
+		
+			fan_up();
+			break;
+		
+		case 0x42:
+			
+			#ifdef DEBUG
+			printf("\ncmd\t0x42\n");
+			#endif
+		
+			for(i = 0; i < 4; i++) {
+				out_char_queue(&cmd_queue, (char*) &buf);
+				qbuf = qbuf << 8;
+				qbuf |= buf;
+			}
+			memcpy(&rad, &qbuf, 4);
+			fan_roll(rad);
+		
+			break;
+		
+		case 0x43:
+			
+			#ifdef DEBUG
+			printf("\ncmd\t0x43\n");
+			#endif
+		
+			for(i = 0; i < 4; i++) {
+				out_char_queue(&cmd_queue, (char*) &buf);
+				qbuf = qbuf << 8;
+				qbuf |= buf;
+			}
+			memcpy(&rad, &qbuf, 4);
+			fan_kowtow(rad);
+		
 			break;
 	}
 	

@@ -13,7 +13,8 @@ char_queue cmd_queue;
 /*
 format:
 	(4-bit) [data-length] + (4-bit) [command] + (n-byte) [data] + (byte) [checksum]
-	NOTE: sometimes data bytes can be used as command bits, too
+	NOTE: sometimes data bytes can be used as command bits, too.
+	NOTE: command 0x00 is not usable.
 command list:
 	move_y(int16_t arg_spd)
 		(byte) 0x20 (int16) [arg_spd]
@@ -34,7 +35,7 @@ command list:
 		(byte) 0x10 (byte) r_spd
 
 	stop()
-		(byte) 0x00
+		(byte) 0x05
 
 	stop_all()
 		(byte) 0x01
@@ -140,7 +141,7 @@ int run_cmd(void)
 		case 0x22:
 			
 			#ifdef DEBUG
-			printf("\ncmd\t0x42\n");
+			printf("\ncmd\t0x22\n");
 			#endif
 
 			out_char_queue(&cmd_queue, (char*) &buf);
@@ -161,7 +162,7 @@ int run_cmd(void)
 
 			break;
 		
-		case 0x00:
+		case 0x05:
 			
 			#ifdef DEBUG
 			printf("\ncmd\t0x00\n");

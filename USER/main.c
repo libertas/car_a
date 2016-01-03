@@ -29,15 +29,17 @@ int main(void)
 	pwm_config();
 	push_rod_config();
 
-
-	move_xy_c((int8_t) -100, (int8_t) -100);
+//	for(int i = 0; i < 20; i++){
+//		move_xy_c((int8_t) 0, (int8_t) -6 * i);
+//		delay_ms(100);
+//	}
 	//uprintf(USART1,"\r0V-245\r1V435\r2V435\r");
 
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
-		//check_cmd();
+		check_cmd();
 	}
 
 	return 0;

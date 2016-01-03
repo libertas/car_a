@@ -30,7 +30,7 @@ int main(void)
 	push_rod_config();
 
 //	for(int i = 0; i < 20; i++){
-//		move_xy_c((int8_t) 0, (int8_t) -6 * i);
+//		move_xy_c((int8_t) 3 * i, (int8_t) 0);
 //		delay_ms(100);
 //	}
 	//uprintf(USART1,"\r0V-245\r1V435\r2V435\r");

@@ -52,7 +52,7 @@ void t_move_xy_c(int8_t spd_x, int8_t spd_y)
 
 	arg_speeds[0] = VECT_W0 * ( 0 + arg_y / 1.68 );// 4.071 );
 	arg_speeds[1] = VECT_W1 * (   arg_x + arg_y / 2.296 );
-	arg_speeds[2] = VECT_W2 * ( - arg_x + arg_y / 2.296 );
+	arg_speeds[2] = VECT_W2 * ( - 1.07 * arg_x + arg_y / 2.296 );
 
 	#ifdef DEBUG
 	printf("arg_speeds:\n");

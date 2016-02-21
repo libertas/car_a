@@ -212,10 +212,10 @@ int run_cmd(void)
 		
 			for(i = 0; i < 4; i++) {
 				out_char_queue(&cmd_queue, (char*) &buf);
-				qbuf = qbuf << 8;
-				qbuf |= buf;
+				qbuf |= buf << i * 8;
 			}
 			memcpy(&rad, &qbuf, 4);
+			printf("fan_foll(%f)\n", rad);
 			fan_roll(rad);
 		
 			break;
@@ -228,11 +228,10 @@ int run_cmd(void)
 		
 			for(i = 0; i < 4; i++) {
 				out_char_queue(&cmd_queue, (char*) &buf);
-				qbuf = qbuf << 8;
-				qbuf |= buf;
+				qbuf |= buf << i * 8;
 			}
 			memcpy(&rad, &qbuf, 4);
-			fan_kowtow(rad);
+			//fan_kowtow(rad);
 		
 			break;
 	}

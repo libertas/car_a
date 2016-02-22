@@ -54,6 +54,12 @@ command list:
 	
 	fan_kowtow(float rad)
 		(byte) 0x43 (float) [rad]
+	
+	fan_roll_r(int8_t dir)
+		(byte) 0x11 (int8_t) dir
+	
+	fan_kowtow_r(int8_t dir)
+		(byte) 0x12 (int8_t) dir
 */
 int run_cmd(void)
 {
@@ -215,7 +221,6 @@ int run_cmd(void)
 				qbuf |= buf << i * 8;
 			}
 			memcpy(&rad, &qbuf, 4);
-			printf("fan_foll(%f)\n", rad);
 			fan_roll(rad);
 		
 			break;
@@ -231,6 +236,7 @@ int run_cmd(void)
 				qbuf |= buf << i * 8;
 			}
 			memcpy(&rad, &qbuf, 4);
+			printf("fan_kowtow(%f)\n", rad);
 			//fan_kowtow(rad);
 		
 			break;

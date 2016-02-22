@@ -5,4 +5,5 @@
 
 #ifndef DEBUG
 #define DEBUG
+// #define DEBUG_POS_FAN
 #endif

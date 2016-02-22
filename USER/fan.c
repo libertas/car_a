@@ -37,6 +37,13 @@ void fan_roll(float rad)
 	#endif
 }
 
+void fan_roll_r(int8_t dir)
+{
+	static float current_rad = PI / 2;
+	current_rad += dir * FAN_RMOVE_DIST;
+	fan_roll(current_rad);
+}
+
 void fan_kowtow(float rad)
 {
 	float pos = get_pos_fan();
@@ -59,7 +66,7 @@ void fan_kowtow(float rad)
 		#endif
 		
 		kowtow_dir = 1;
-		set_duty(0, 0.067);
+		set_duty(0, 0.066);
 	} else {
 		
 		#ifdef DEBUG
@@ -75,6 +82,11 @@ void fan_kowtow(float rad)
 	fan_kowtow_rad += rad;
 }
 
+void fan_kowtow_r(int8_t dir)
+{
+	fan_kowtow(get_pos_fan() + dir * FAN_RMOVE_DIST);
+}
+
 void fan_kowtow_stop(void)
 {
 	set_duty(0, 0.71);
@@ -87,6 +99,10 @@ void fan_kowtow_stop(void)
 
 void kowtow_check(void)
 {
+	#ifdef DEBUG_POS_FAN
+	printf("pos:%f\n", get_pos_fan());
+	#endif
+	
 	switch(kowtow_dir) {
 		default:
 			break;

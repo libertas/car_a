@@ -29,7 +29,8 @@ int main(void)
 	pwm_config();
 	push_rod_config();
 	
-	start_fan();
+	//start_fan();
+	//fan_roll_r(1);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

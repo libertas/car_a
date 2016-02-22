@@ -1,7 +1,7 @@
 #include <stdint.h>
 
 
-#define VECT_EX (-1)  // encoder of x
+#define VECT_EX (+1)  // encoder of x
 #define VECT_EY (-1)  // encoder of y
 #define VECT_EFAN (-1)  // encoder for the fan
 

@@ -30,7 +30,7 @@ uint8_t kowtow_dir = 0xff;
 
 void fan_roll(float rad)
 {
-	set_duty(6, 0.11 - 0.05 * rad / (PI / 2));
+	set_duty(6, (float)((float)0.11 - (float)0.05 * rad / ((float)PI / 2)));
 	
 	#ifdef DEBUG
 	printf("\nfan_roll(%f)\n", rad);

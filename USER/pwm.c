@@ -26,7 +26,7 @@ void rcc_io_config(void)
 
 void pwm_config(void)
 {
-	double duties[PWM_CHANNEL_NUM] = {0.071, 0.071, 0.071, 0.071, 0.06, 0.06, 0.11, 0.001};
+	float duties[PWM_CHANNEL_NUM] = {0.071, 0.071, 0.071, 0.071, 0.06, 0.06, 0.11, 0.001};
 	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 50, 50, 50, 50, 50, 50, 50};
 	
 	uint8_t i;
@@ -78,21 +78,21 @@ void pwm_config(void)
 }
 
 
-void set_duty(uint8_t channel, double duty)
+void set_duty(uint8_t channel, float duty)
 {
 	PWMHighTime[channel] = PWMTotal[channel] * duty;
 }
 
 void set_freq(uint8_t channel, unsigned long freq)
 {
-	double duty;
+	float duty;
 
-	duty = (double) PWMHighTime[channel] / PWMTotal[channel];
+	duty = (float) PWMHighTime[channel] / PWMTotal[channel];
 	PWMTotal[channel] = PWM_FREQ / freq;
 	PWMHighTime[channel] = PWMTotal[channel] * duty;
 }
 
-void set_duties(double duties[PWM_CHANNEL_NUM])
+void set_duties(float duties[PWM_CHANNEL_NUM])
 {
 	uint8_t i;
 	for(i = 0; i < PWM_CHANNEL_NUM; i++) {

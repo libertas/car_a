@@ -7,7 +7,7 @@
 #ifdef USE_HPWM
 
 
-void set_duty(uint8_t channel, double duty)
+void set_duty(uint8_t channel, float duty)
 {
 	switch(channel) {
 		case 0:

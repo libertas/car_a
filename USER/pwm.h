@@ -21,7 +21,7 @@ extern uint16_t PWMPins[PWM_CHANNEL_NUM];
 extern GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM];
 
 
-void set_duties(double duties[PWM_CHANNEL_NUM]);
+void set_duties(float duties[PWM_CHANNEL_NUM]);
 void set_freq(uint8_t channel, unsigned long freq);
 void set_freqs(unsigned long freqs[PWM_CHANNEL_NUM]);
 
@@ -39,4 +39,4 @@ void pwm_config(void);
 	6	TIM8_CH3	PC8
 	7	TIM8_CH4	PC9
 */
-void set_duty(uint8_t channel, double duty);
+void set_duty(uint8_t channel, float duty);

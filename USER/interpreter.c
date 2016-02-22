@@ -240,6 +240,30 @@ int run_cmd(void)
 			//fan_kowtow(rad);
 		
 			break;
+		
+		case 0x11:
+			
+			#ifdef DEBUG
+			printf("\ncmd\t0x11\n");
+			#endif
+
+			out_char_queue(&cmd_queue, (char*) &buf);
+		
+			fan_roll_r(buf);
+			
+			break;
+		
+		case 0x12:
+			
+			#ifdef DEBUG
+			printf("\ncmd\t0x11\n");
+			#endif
+
+			out_char_queue(&cmd_queue, (char*) &buf);
+		
+			fan_kowtow_r(buf);
+			
+			break;
 	}
 	
 	return 0;

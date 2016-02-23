@@ -46,12 +46,12 @@ void push_rod_config(void)
 void push_rod(uint8_t dir)
 {
 	switch(dir){
-		case 1:{
+		case 0:{
 			GPIO_WriteBit(GPIOE, GPIO_Pin_0, Bit_SET);
 			GPIO_WriteBit(GPIOE, GPIO_Pin_1, Bit_RESET);
 			break;
 		}
-		case 0:{
+		case 1:{
 			GPIO_WriteBit(GPIOE, GPIO_Pin_0, Bit_RESET);
 			GPIO_WriteBit(GPIOE, GPIO_Pin_1, Bit_SET);
 			break;

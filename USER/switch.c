@@ -3,95 +3,67 @@
 
 #include "switch.h"
 
+uint16_t SwitchPins[SWITCH_CHANNEL_NUM] = {GPIO_Pin_3, GPIO_Pin_11, GPIO_Pin_2};
+GPIO_TypeDef *SwitchPorts[SWITCH_CHANNEL_NUM] = {GPIOC, GPIOF, GPIOA};
+uint8_t SwitchEXTIPorts[SWITCH_CHANNEL_NUM] = {EXTI_PortSourceGPIOC, EXTI_PortSourceGPIOF, EXTI_PortSourceGPIOA};
+uint8_t SwitchEXTIPinsources[SWITCH_CHANNEL_NUM] = {EXTI_PinSource3, EXTI_PinSource11, EXTI_PinSource2};
+uint32_t SwitchEXTILines[SWITCH_CHANNEL_NUM] = {EXTI_Line3, EXTI_Line11, EXTI_Line2};
+enum IRQn SwitchNVICPins[SWITCH_CHANNEL_NUM] = {EXTI3_IRQn, EXTI15_10_IRQn, EXTI2_IRQn};
+
+
+void switch_gpio_config(void)
+{
+	uint8_t i;
+	GPIO_InitTypeDef  GPIO_InitStructure;
+
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA | RCC_AHB1Periph_GPIOC | RCC_AHB1Periph_GPIOF, ENABLE);
+
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	for(i = 0; i < SWITCH_CHANNEL_NUM; i++) {
+		GPIO_InitStructure.GPIO_Pin = SwitchPins[i];
+		GPIO_Init(SwitchPorts[i], &GPIO_InitStructure);
+	}
+}
+
+void switch_exti_config(void)
+{
+	uint8_t i;
+	EXTI_InitTypeDef  EXTI_InitStructure;
+
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+
+	for(i = 0; i < SWITCH_CHANNEL_NUM; i++) {
+		SYSCFG_EXTILineConfig(SwitchEXTIPorts[i],  SwitchEXTIPinsources[i]);
+	}
+
+	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+	for(i = 0; i < SWITCH_CHANNEL_NUM; i++) {
+		EXTI_InitStructure.EXTI_Line = SwitchEXTILines[i];
+		EXTI_Init(&EXTI_InitStructure);
+	}
+}
+
+void switch_nvic_config(void)
+{
+	uint8_t i;
+	NVIC_InitTypeDef  NVIC_InitStructure;
+
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 4;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 4;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	for(i = 0; i < SWITCH_CHANNEL_NUM; i++) {
+		NVIC_InitStructure.NVIC_IRQChannel = SwitchNVICPins[i];
+		NVIC_Init(&NVIC_InitStructure);
+	}
+
+}
 void switch_config(void)
 {
-	GPIO_InitTypeDef  GPIO_InitStructure;
-	EXTI_InitTypeDef  EXTI_InitStructure;
-	NVIC_InitTypeDef  NVIC_InitStructure;
-	
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOF, ENABLE);
- 
-	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_Init(GPIOF, &GPIO_InitStructure);
-	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_Init(GPIOF, &GPIO_InitStructure);
-	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_Init(GPIOF, &GPIO_InitStructure);
-	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_Init(GPIOF, &GPIO_InitStructure);
-	
-	
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
-	
-	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOF, EXTI_PinSource0);
-	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOF, EXTI_PinSource1);
-	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOF, EXTI_PinSource2);
-	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOF, EXTI_PinSource2);
-	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOF, EXTI_PinSource11);
-	
-	
-	EXTI_InitStructure.EXTI_Line = EXTI_Line0;
-	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
-	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
-	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-	EXTI_Init(&EXTI_InitStructure);
-	
-	EXTI_InitStructure.EXTI_Line = EXTI_Line1;
-	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
-	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
-	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-	EXTI_Init(&EXTI_InitStructure);
-	
-	EXTI_InitStructure.EXTI_Line = EXTI_Line2;
-	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
-	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
-	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-	EXTI_Init(&EXTI_InitStructure);
-	
-	EXTI_InitStructure.EXTI_Line = EXTI_Line11;
-	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
-	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
-	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-	EXTI_Init(&EXTI_InitStructure);
-	
-	
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 4;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 4;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
-	
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 4;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 4;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
-	
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI2_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 4;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 4;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
-	
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 4;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 4;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
+	switch_gpio_config();
+	switch_exti_config();
+	switch_nvic_config();
 }

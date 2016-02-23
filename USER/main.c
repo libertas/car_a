@@ -14,6 +14,7 @@
 #include "usart.h"
 #include "utils.h"
 #include "push_rod.h"
+#include "watchdog.h"
 
 int main(void)
 {
@@ -28,7 +29,7 @@ int main(void)
 	switch_config();
 	pwm_config();
 	push_rod_config();
-	
+	watchdog_config();
 	//start_fan();
 
 	printf("\n\nEntering main loop\n\n");

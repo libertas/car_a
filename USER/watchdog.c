@@ -1,4 +1,5 @@
 #include "stm32f4xx_iwdg.h"
+#include "usart.h"
 
 void tim13_config(void)
 {
@@ -27,9 +28,9 @@ void tim13_config(void)
 
 void watchdog_config(void)
 {
-	tim13_config();
 	IWDG_WriteAccessCmd(IWDG_WriteAccess_Enable);//关闭IWDG_PR和IWDG_RLR的写保护
 	IWDG_SetReload(0xfff);//设置重装载值为0xfff
 	IWDG_SetPrescaler(IWDG_Prescaler_32);//设置预分频系数为32
 	IWDG_Enable();//使能看门狗
+	tim13_config();
 }

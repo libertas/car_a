@@ -87,7 +87,7 @@ int run_cmd(void)
 	switch(cmd) {
 		default:
 
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\nUnknown command:%x\n", cmd);
 			#endif
 
@@ -95,7 +95,7 @@ int run_cmd(void)
 		
 		case 0x20:
 
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x20\n");
 			#endif
 
@@ -110,7 +110,7 @@ int run_cmd(void)
 		
 		case 0x21:
 
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x21\n");
 			#endif
 
@@ -125,7 +125,7 @@ int run_cmd(void)
 		
 		case 0x40:
 
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x40\n");
 			#endif
 
@@ -140,7 +140,7 @@ int run_cmd(void)
 		
 		case 0x41:
 
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x41\n");
 			#endif
 
@@ -155,7 +155,7 @@ int run_cmd(void)
 
 		case 0x22:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x22\n");
 			#endif
 
@@ -167,7 +167,7 @@ int run_cmd(void)
 		
 		case 0x10:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x10\n");
 			#endif
 
@@ -179,7 +179,7 @@ int run_cmd(void)
 		
 		case 0x05:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x00\n");
 			#endif
 		
@@ -187,7 +187,7 @@ int run_cmd(void)
 			break;
 		case 0x01:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x01\n");
 			#endif
 		
@@ -195,7 +195,7 @@ int run_cmd(void)
 			break;
 		case 0x02:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x02\n");
 			#endif
 		
@@ -203,7 +203,7 @@ int run_cmd(void)
 			break;
 		case 0x03:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x03\n");
 			#endif
 		
@@ -212,7 +212,7 @@ int run_cmd(void)
 		
 		case 0x04:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x04\n");
 			#endif
 		
@@ -221,7 +221,7 @@ int run_cmd(void)
 		
 		case 0x06:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x06\n");
 			#endif
 		
@@ -230,7 +230,7 @@ int run_cmd(void)
 		
 		case 0x07:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x06\n");
 			#endif
 		
@@ -239,7 +239,7 @@ int run_cmd(void)
 		
 		case 0x08:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x06\n");
 			#endif
 		
@@ -248,7 +248,7 @@ int run_cmd(void)
 		
 		case 0x42:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x42\n");
 			#endif
 		
@@ -263,7 +263,7 @@ int run_cmd(void)
 		
 		case 0x43:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x43\n");
 			#endif
 		
@@ -279,7 +279,7 @@ int run_cmd(void)
 		
 		case 0x11:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x11\n");
 			#endif
 
@@ -291,7 +291,7 @@ int run_cmd(void)
 		
 		case 0x12:
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x11\n");
 			#endif
 
@@ -318,7 +318,7 @@ int check_cmd(void)
 		data_len = (cmd >> 4);
 		cmd &= 0x0f;
 		
-		#ifdef DEBUG
+		#ifdef DEBUG_INTPRT
 		printf("\ndata-len:%x\ncmd:0x%x\n", data_len, cmd);
 		#endif
 		
@@ -328,21 +328,21 @@ int check_cmd(void)
 			}
 			if(cmd_queue.data[i] == check_sum) {
 				
-				#ifdef DEBUG
+				#ifdef DEBUG_INTPRT
 				printf("\nrun_cmd()\n");
 				#endif
 				
 				run_cmd();
 				out_char_queue(&cmd_queue, (char*) &check_sum);  // remove the check_sum byte
 				
-				#ifdef DEBUG
+				#ifdef DEBUG_INTPRT
 				printf("\n0\n");
 				#endif
 		
 				return 0;
 			} else {
 				
-				#ifdef DEBUG
+				#ifdef DEBUG_INTPRT
 				printf("\n-3\n");
 				#endif
 				
@@ -352,7 +352,7 @@ int check_cmd(void)
 			}
 		} else {
 			
-			#ifdef DEBUG
+			#ifdef DEBUG_INTPRT
 			printf("\n-2\n");
 			#endif
 			
@@ -360,7 +360,7 @@ int check_cmd(void)
 		}
 	} else {
 	
-		#ifdef DEBUG
+		#ifdef DEBUG_INTPRT
 		// printf("\n-1\n");
 		#endif
 		

@@ -146,10 +146,24 @@ void fan_up(void)
 	set_duty(FAN_UPDOWN_CHANNEL, 0.067);
 }
 
+void fan_up_r(void)
+{
+	fan_up();
+	delay_ms(50);
+	stop_fan_up_down();
+}
+
 void fan_down(void)
 {
 	brake_release(0);
 	set_duty(FAN_UPDOWN_CHANNEL, 0.074);
+}
+
+void fan_down_r(void)
+{
+	fan_down();
+	delay_ms(50);
+	stop_fan_up_down();
 }
 
 void stop_fan_up_down(void)

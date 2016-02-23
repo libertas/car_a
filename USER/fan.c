@@ -40,8 +40,13 @@ void fan_roll(float rad)
 
 void fan_roll_r(int8_t dir)
 {
+	
+	#ifdef DEBUG_FAN_ROLL_R
+	printf("fan_roll_r(%d)\n", dir);
+	#endif
+	
 	static float current_rad;
-	current_rad += dir * FAN_RMOVE_DIST;
+	current_rad += dir * FAN_RROLL_DIST;
 	fan_roll(current_rad);
 }
 
@@ -80,12 +85,19 @@ void fan_kowtow(float rad)
 
 	brake_release(2);
 
-	fan_kowtow_rad += rad;
+	fan_kowtow_rad = rad;
 }
 
 void fan_kowtow_r(int8_t dir)
 {
-	fan_kowtow(get_pos_fan() + dir * FAN_RMOVE_DIST);
+	
+	#ifdef DEBUG_FAN_KOWTOW_R
+	printf("fan_kowtow_r(%d)\n", dir);
+	#endif
+	
+	static float current_pos;
+	current_pos += dir * FAN_RMOVE_DIST;
+	fan_kowtow(current_pos);
 }
 
 void fan_kowtow_stop(void)
@@ -95,6 +107,10 @@ void fan_kowtow_stop(void)
 	
 	#ifdef DEBUG
 	printf("\nfan_kowtow_stop()\n");
+	#endif
+	
+	#ifdef DEBUG_FAN_KOWTOW_R
+	printf("pos_fan:%f\n", get_pos_fan());
 	#endif
 }
 

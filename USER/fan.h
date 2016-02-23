@@ -4,6 +4,7 @@
 #define FAN_KOWTOW_CHANNEL 0
 #define FAN_UPDOWN_CHANNEL 2
 #define FAN_RMOVE_DIST ((float) 0.1)
+#define FAN_RROLL_DIST ((float) 0.1)
 
 void start_fan(void);
 void stop_fan(void);

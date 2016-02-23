@@ -48,6 +48,9 @@ command list:
 	
 	fan_up()
 		(byte) 0x04
+	
+	fan_down()
+		(byte) 0x06
 		
 	fan_roll(float rad)
 		(byte) 0x42	(float) [rad]
@@ -208,6 +211,15 @@ int run_cmd(void)
 			#endif
 		
 			fan_up();
+			break;
+		
+		case 0x06:
+			
+			#ifdef DEBUG
+			printf("\ncmd\t0x06\n");
+			#endif
+		
+			fan_down();
 			break;
 		
 		case 0x42:

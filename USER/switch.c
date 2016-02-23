@@ -3,6 +3,7 @@
 
 #include "switch.h"
 
+uint32_t SwitchAHBPorts[SWITCH_CHANNEL_NUM] = {RCC_AHB1Periph_GPIOC, RCC_AHB1Periph_GPIOF, RCC_AHB1Periph_GPIOA};
 uint16_t SwitchPins[SWITCH_CHANNEL_NUM] = {GPIO_Pin_3, GPIO_Pin_11, GPIO_Pin_2};
 GPIO_TypeDef *SwitchPorts[SWITCH_CHANNEL_NUM] = {GPIOC, GPIOF, GPIOA};
 uint8_t SwitchEXTIPorts[SWITCH_CHANNEL_NUM] = {EXTI_PortSourceGPIOC, EXTI_PortSourceGPIOF, EXTI_PortSourceGPIOA};
@@ -16,6 +17,9 @@ void switch_gpio_config(void)
 	uint8_t i;
 	GPIO_InitTypeDef  GPIO_InitStructure;
 
+	for(i = 0; i < SWITCH_CHANNEL_NUM; i++) {
+		RCC_AHB1PeriphClockCmd(SwitchAHBPorts[i], ENABLE);
+	}
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA | RCC_AHB1Periph_GPIOC | RCC_AHB1Periph_GPIOF, ENABLE);
 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;

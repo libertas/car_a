@@ -2,7 +2,7 @@
 
 #include "brake.h"
 
-uint16_t brake_pins[BRAKE_CHANNEL_NUM] = {GPIO_Pin_10, GPIO_Pin_11, GPIO_Pin_12};
+uint16_t brake_pins[BRAKE_CHANNEL_NUM] = {GPIO_Pin_10, GPIO_Pin_11, GPIO_Pin_13};
 
 void brake_config(void)
 {
@@ -10,7 +10,7 @@ void brake_config(void)
 	
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOG, ENABLE);
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_12;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_13;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;

@@ -483,6 +483,11 @@
               <FileType>1</FileType>
               <FilePath>.\push_rod.c</FilePath>
             </File>
+            <File>
+              <FileName>watchdog.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\watchdog.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -792,6 +797,11 @@
               <FileName>push_rod.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\push_rod.h</FilePath>
+            </File>
+            <File>
+              <FileName>watchdog.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\watchdog.h</FilePath>
             </File>
           </Files>
         </Group>

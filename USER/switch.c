@@ -20,7 +20,6 @@ void switch_gpio_config(void)
 	for(i = 0; i < SWITCH_CHANNEL_NUM; i++) {
 		RCC_AHB1PeriphClockCmd(SwitchAHBPorts[i], ENABLE);
 	}
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA | RCC_AHB1Periph_GPIOC | RCC_AHB1Periph_GPIOF, ENABLE);
 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;

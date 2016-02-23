@@ -253,6 +253,16 @@ void TIM8_TRG_COM_TIM14_IRQHandler(void)
 	}
 }
 
+#include "watchdog.h"
+void TIM8_UP_TIM13_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM13, TIM_IT_Update) != RESET) {
+		TIM_ClearITPendingBit(TIM13, TIM_FLAG_Update);
+		IWDG_ReloadCounter();
+		while(1);
+	}
+}
+
 /*
 	exti3 exti11 exti2
 	switch 0\1\2

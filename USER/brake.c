@@ -1,6 +1,9 @@
+#include <stdio.h>
+
 #include "stm32f4xx_gpio.h"
 
 #include "brake.h"
+#include "debug.h"
 
 uint16_t brake_pins[BRAKE_CHANNEL_NUM] = {GPIO_Pin_10, GPIO_Pin_11, GPIO_Pin_13};
 
@@ -25,9 +28,17 @@ void brake_config(void)
 void brake(uint8_t channel)
 {
 	GPIO_WriteBit(GPIOG, brake_pins[channel], Bit_SET);
+	
+	#ifdef DEBUG_BRAKE
+	printf("brake(%d)\n", channel);
+	#endif
 }
 
 void brake_release(uint8_t channel)
 {
 	GPIO_WriteBit(GPIOG, brake_pins[channel], Bit_RESET);
+	
+	#ifdef DEBUG_BRAKE
+	printf("brake_release(%d)\n", channel);
+	#endif
 }

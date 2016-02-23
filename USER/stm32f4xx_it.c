@@ -31,6 +31,7 @@
 #include "stm32f4xx_it.h"
 
 #include "clock.h"
+#include "debug.h"
 #include "pwm.h"
 #include "usart.h"
 #include "utils.h"

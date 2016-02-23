@@ -66,7 +66,7 @@ void fan_kowtow(float rad)
 		#endif
 		
 		kowtow_dir = 1;
-		set_duty(0, 0.066);
+		set_duty(FAN_KOWTOW_CHANNEL, 0.066);
 	} else {
 		
 		#ifdef DEBUG
@@ -74,7 +74,7 @@ void fan_kowtow(float rad)
 		#endif
 		
 		kowtow_dir = 0;
-		set_duty(0, 0.075);
+		set_duty(FAN_KOWTOW_CHANNEL, 0.075);
 	}
 
 	brake_release(2);
@@ -89,7 +89,7 @@ void fan_kowtow_r(int8_t dir)
 
 void fan_kowtow_stop(void)
 {
-	set_duty(0, 0.71);
+	set_duty(FAN_KOWTOW_CHANNEL, 0.71);
 	brake(2);
 	
 	#ifdef DEBUG
@@ -126,17 +126,17 @@ void kowtow_check(void)
 void fan_up(void)
 {
 	brake_release(0);
-	set_duty(2, 0.067);
+	set_duty(FAN_UPDOWN_CHANNEL, 0.067);
 }
 
 void fan_down(void)
 {
 	brake_release(0);
-	set_duty(2, 0.074);
+	set_duty(FAN_UPDOWN_CHANNEL, 0.074);
 }
 
 void stop_fan_up_down(void)
 {
-	set_duty(2, 0.071);
+	set_duty(FAN_UPDOWN_CHANNEL, 0.071);
 	brake(0);
 }

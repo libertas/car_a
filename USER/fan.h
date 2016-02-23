@@ -2,7 +2,7 @@
 
 #define FAN_CHANNEL 5
 #define FAN_KOWTOW_CHANNEL 0
-#deinfe FAN_UPDOWN_CHANNEL 2
+#define FAN_UPDOWN_CHANNEL 2
 #define FAN_RMOVE_DIST ((float) 0.1)
 
 void start_fan(void);

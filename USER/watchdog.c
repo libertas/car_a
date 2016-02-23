@@ -8,8 +8,8 @@ void tim13_config(void)
 
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM13, ENABLE);
 
-	TIM_TimeBaseInitStructure.TIM_Period = 100 - 1;
-	TIM_TimeBaseInitStructure.TIM_Prescaler = 1680 - 1;
+	TIM_TimeBaseInitStructure.TIM_Period = 168 - 1;
+	TIM_TimeBaseInitStructure.TIM_Prescaler = 30000 - 1;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	
@@ -28,9 +28,9 @@ void tim13_config(void)
 
 void watchdog_config(void)
 {
-	IWDG_WriteAccessCmd(IWDG_WriteAccess_Enable);//关闭IWDG_PR和IWDG_RLR的写保护
-	IWDG_SetReload(0xfff);//设置重装载值为0xfff
-	IWDG_SetPrescaler(IWDG_Prescaler_32);//设置预分频系数为32
-	IWDG_Enable();//使能看门狗
+	IWDG_WriteAccessCmd(IWDG_WriteAccess_Enable);
+	IWDG_SetReload(0x80);
+	IWDG_SetPrescaler(IWDG_Prescaler_32);
+	IWDG_Enable();
 	tim13_config();
 }

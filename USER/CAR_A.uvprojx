@@ -483,6 +483,11 @@
               <FileType>1</FileType>
               <FilePath>.\push_rod.c</FilePath>
             </File>
+            <File>
+              <FileName>watchdog.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\watchdog.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

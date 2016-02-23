@@ -253,37 +253,42 @@ void TIM8_TRG_COM_TIM14_IRQHandler(void)
 	}
 }
 
-void EXTI0_IRQHandler(void)
+/*
+	exti3 exti11 exti2
+	switch 0\1\2
+	fan_down_stop\fan_up_stop\magnet_up_stop
+*/
+void EXTI3_IRQHandler(void)
 {
 	delay_ms(10);
-	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_0)) {
+	if(0 == GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_3)) {
 		stop_fan_up_down();
 		#ifdef DEBUG
 		printf("\nstop_fan_up_down()\n");
 		#endif
 	}
-	EXTI_ClearITPendingBit(EXTI_Line0);
+	EXTI_ClearITPendingBit(EXTI_Line3);
 }
 
-
-void EXTI1_IRQHandler(void)
+void EXTI15_10_IRQHandler(void)
 {
 	delay_ms(10);
-	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_1)) {
-		stop_fan_up_down();
-		#ifdef DEBUG
-		printf("\nstop_fan_up_down()\n");
-		#endif
+	if(SET == EXTI_GetITStatus(EXTI_Line11)){
+		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_11)) {
+			stop_fan_up_down();
+			#ifdef DEBUG
+			printf("\nstop_fan_up_down()\n");
+			#endif
+		}
+		EXTI_ClearITPendingBit(EXTI_Line11);
 	}
-	EXTI_ClearITPendingBit(EXTI_Line1);
 }
-
 
 #include "magnet.h"
 void EXTI2_IRQHandler(void)
 {
 	delay_ms(10);
-	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_2)) {
+	if(0 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
 		mag_up_stop();
 		
 		#ifdef DEBUG
@@ -299,16 +304,6 @@ void EXTI2_IRQHandler(void)
 	EXTI_ClearITPendingBit(EXTI_Line2);
 }
 
-void EXTI15_10_IRQHandler(void)
-{
-	delay_ms(10);
-	if(SET == EXTI_GetITStatus(EXTI_Line11)){
-		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_11)) {
-			printf("exti11 at pf11\n");
-		}
-		EXTI_ClearITPendingBit(EXTI_Line11);
-	}
-}
 /******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */

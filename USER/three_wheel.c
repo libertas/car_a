@@ -48,7 +48,7 @@ void t_move_xy_c(int8_t spd_x, int8_t spd_y)
 {
 	int16_t arg_x, arg_y;
 
-	arg_x = (int16_t) (((float) spd_x) / 128 * DEFAULT_ARG_SPEED * 8);
+	arg_x = (int16_t) (((float) spd_x) / 128 * DEFAULT_ARG_SPEED * 3);
 	arg_y = (int16_t) (((float) spd_y) / 128 * DEFAULT_ARG_SPEED * 8);
 
 	arg_speeds[0] = VECT_W0 * ( 0 + arg_y / 1.68 );// 4.071 );		//4.071是计算结果，1.68是调试结果；可走x/y方向直线

@@ -14,7 +14,7 @@ double int2double(signed int i);
 typedef struct
 {
 	char *data;
-	uint16_t front, rear;
+	uint32_t front, rear;
 	uint16_t count, max_size;
 }	char_queue;
 

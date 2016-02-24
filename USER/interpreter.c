@@ -307,7 +307,7 @@ int run_cmd(void)
 
 int check_cmd(void)
 {
-	uint16_t fr;
+	uint32_t fr;
 	uint8_t data_len, cmd;
 	uint8_t check_sum = 0;
 	uint16_t i;
@@ -323,10 +323,10 @@ int check_cmd(void)
 		#endif
 		
 		if(cmd_queue.count >= data_len + 2) {
-			for(i = fr; i <= (fr + data_len) % cmd_queue.max_size; i = (i + 1) % cmd_queue.max_size) {
-				check_sum += cmd_queue.data[i];
+			for(i = 0; i <= data_len; i++) {
+				check_sum += cmd_queue.data[(fr + i) % cmd_queue.max_size];
 			}
-			if(cmd_queue.data[i] == check_sum) {
+			if(cmd_queue.data[(fr + i) % cmd_queue.max_size] == check_sum) {
 				
 				#ifdef DEBUG_INTPRT
 				printf("\nrun_cmd()\n");

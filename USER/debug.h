@@ -10,4 +10,5 @@
 // #define DEBUG_FAN_KOWTOW_R
 // #define DEBUG_FAN_ROLL_R
 // #define DEBUG_INTPRT
+// #define DEBUG_IWDG
 #endif

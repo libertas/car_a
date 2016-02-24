@@ -260,6 +260,17 @@ void TIM8_UP_TIM13_IRQHandler(void)
 	if(TIM_GetITStatus(TIM13, TIM_IT_Update) != RESET) {
 		TIM_ClearITPendingBit(TIM13, TIM_FLAG_Update);
 		IWDG_ReloadCounter();
+		
+		#ifdef DEBUG_IWDG
+		static uint8_t t;
+		static uint32_t t1;
+		t++;
+		if(t > 10) {
+			t = 0;
+			t1++;
+			printf("%ld\n", t1);
+		}
+		#endif
 	}
 }
 

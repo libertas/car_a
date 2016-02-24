@@ -39,6 +39,23 @@ void t_stop(void);
 
 #endif
 
+#ifdef USE_FOUR_WHEEL
+
+#define DEFAULT_ARG_SPEED 500
+#define CAR_X_LENGTH 600
+#define CAR_Y_LENGTH 800
+#define VECT_W0 (+1)
+#define VECT_W1 (+1)
+#define VECT_W2 (+1)
+#define VECT_W3 (+1)
+
+extern int16_t arg_speeds[4];
+
+void f_move_xy_c(int8_t spd_x, int8_t spd_y);
+void f_rotate_c(int8_t spd);
+void f_stop(void);
+
+#endif
 
 void move_up(void);
 void move_down(void);

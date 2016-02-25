@@ -3,7 +3,7 @@
 #define PUSH_ROD_PUSH 1
 #define PUSH_ROD_PULL 0
 #define PUSH_ROD_STOP 0xff
-#define PUSH_ROD_TIME 1000 //单位：ms
+#define PUSH_ROD_TIME 500 //单位：ms
 
 void push_rod_c(uint8_t dir);
 void push_rod(uint8_t dir);

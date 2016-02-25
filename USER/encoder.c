@@ -9,7 +9,7 @@
 int32_t g_rotary_x = 0;
 int32_t g_rotary_y = 0;
 int32_t g_rotary_fan = 0;
-int32_t g_rotary_test = 0;
+int32_t g_rotary_fan_updown = 0;
 
 
 /*
@@ -41,7 +41,7 @@ float get_pos_fan(void)
 */
 float get_pos_test(void)
 {
-	return (float)((double)g_rotary_test / 2000 * PI * VECT_TEST);
+	return (float)((double)g_rotary_fan_updown / 2000 * PI * VECT_FAN_UPDOWN);
 }
 
 void timer7_config(void)

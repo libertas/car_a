@@ -223,7 +223,7 @@ void TIM7_IRQHandler(void)
 	if(TIM_GetITStatus(TIM7, TIM_IT_Update) != RESET) {
 		TIM_ClearITPendingBit(TIM7, TIM_FLAG_Update);
 
-		g_rotary_test += (TIM_GetCounter(TIM2)-4000);
+		g_rotary_fan_updown += (TIM_GetCounter(TIM2)-4000);
 		TIM2->CNT = 4000;
 		
 		g_rotary_fan += (TIM_GetCounter(TIM3)-4000);

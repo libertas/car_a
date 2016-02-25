@@ -4,10 +4,12 @@
 #define VECT_EX (+1)  // encoder of x
 #define VECT_EY (-1)  // encoder of y
 #define VECT_EFAN (-1)  // encoder for the fan
+#define VECT_FAN_UPDOWN (+1)  // encoder for the up and down movements of the fan
 
 extern int32_t g_rotary_x;
 extern int32_t g_rotary_y;
 extern int32_t g_rotary_fan;
+extern int32_t g_rotary_fan_updown;
 
 void encoder_config(void);
 float get_pos_fan(void);

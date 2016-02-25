@@ -88,8 +88,6 @@ void move_up(void)
 	delay_ms(1);
 	uprintf(USART1, "3V8000\r");
 	delay_ms(1);
-	
-	start_fan();
 }
 
 void move_down(void)
@@ -98,8 +96,6 @@ void move_down(void)
 	delay_ms(1);
 	uprintf(USART1, "3V-1000\r");
 	delay_ms(1);
-	
-	start_fan();
 }
 
 void stop_move_up(void)
@@ -108,6 +104,4 @@ void stop_move_up(void)
 	delay_ms(1);
 	uprintf(USART1, "3V0\r");
 	delay_ms(1);
-	
-	stop_fan();
 }

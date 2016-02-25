@@ -42,6 +42,9 @@ command list:
 
 	move_up()
 		(byte) 0x02
+	
+	move_down()
+		(byte) 0x09
 
 	stop_move_up()
 		(byte) 0x03
@@ -200,6 +203,14 @@ int run_cmd(void)
 			#endif
 		
 			move_up();
+			break;
+		case 0x09:
+			
+			#ifdef DEBUG_INTPRT
+			printf("\ncmd\t0x09\n");
+			#endif
+		
+			move_down();
 			break;
 		case 0x03:
 			

@@ -5,6 +5,7 @@
 #include "fan.h"
 #include "interpreter.h"
 #include "movement.h"
+#include "push_rod.h"
 
 
 char cmd_buf[CMD_BUF_LEN] = {0};
@@ -72,6 +73,9 @@ command list:
 	
 	fan_kowtow_r(int8_t dir)
 		(byte) 0x12 (int8_t) dir
+	
+	push_rod(uint8_t dir)
+		(byte) 0x13 (uint8_t) dir
 */
 int run_cmd(void)
 {
@@ -310,6 +314,18 @@ int run_cmd(void)
 		
 			fan_kowtow_r(buf);
 			
+			break;
+		
+		case 0x13:
+			
+			#ifdef DEBUG_INTPRT
+			printf("\ncmd\t0x11\n");
+			#endif
+		
+			out_char_queue(&cmd_queue, (char*) &buf);
+		
+			push_rod(buf);
+		
 			break;
 	}
 	

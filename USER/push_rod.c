@@ -65,20 +65,19 @@ void push_rod_c(uint8_t dir)
 }
 void push_rod(uint8_t dir)
 {
+	TIM_Cmd(TIM14, ENABLE);
 	switch(dir){
 		case 0:{
-			push_rod_c(PUSH_ROD_PUSH);
-			TIM_Cmd(TIM14, ENABLE);
+			push_rod_c(PUSH_ROD_PULL);
 			break;
 		}
 		case 1:{
-			push_rod_c(PUSH_ROD_PULL);
-			TIM_Cmd(TIM14, ENABLE);
+			push_rod_c(PUSH_ROD_PUSH);
 			break;
 		}
 		case 0xff:{
 			push_rod_c(PUSH_ROD_STOP);
-			TIM_Cmd(TIM14, ENABLE);
+			
 			break;
 		}
 		default:break;

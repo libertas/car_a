@@ -31,7 +31,6 @@ int main(void)
 	watchdog_config();
 	
 	start_fan();
-	push_rod(PUSH_ROD_PULL);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

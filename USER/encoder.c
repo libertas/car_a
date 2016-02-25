@@ -10,6 +10,7 @@ int32_t g_rotary_x = 0;
 int32_t g_rotary_y = 0;
 int32_t g_rotary_fan = 0;
 int32_t g_rotary_fan_updown = 0;
+int32_t g_rotary_mag = 0;
 
 
 /*
@@ -37,11 +38,19 @@ float get_pos_fan(void)
 }
 
 /*
-	rad
+	meter
 */
-float get_pos_test(void)
+float get_pos_fan_updown(void)
 {
-	return (float)((double)g_rotary_fan_updown / 2000 * PI * VECT_FAN_UPDOWN);
+	return (float)((double)g_rotary_fan_updown / 2000 *  W_DIAMETER * PI * VECT_FAN_UPDOWN);
+}
+
+/*
+	meter
+*/
+float get_pos_mag(void)
+{
+	return (float)((double)g_rotary_mag / 2000 *  W_DIAMETER * PI * VECT_EMAG);
 }
 
 void timer7_config(void)
@@ -80,6 +89,7 @@ void encoder_config(void)
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM12, ENABLE);
 	
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
@@ -97,6 +107,8 @@ void encoder_config(void)
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource0, GPIO_AF_TIM5);
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource1, GPIO_AF_TIM5);
 	
+	GPIO_PinAFConfig(GPIOB, GPIO_PinSource14, GPIO_AF_TIM12);
+	GPIO_PinAFConfig(GPIOB, GPIO_PinSource15, GPIO_AF_TIM12);
 	
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
@@ -154,6 +166,19 @@ void encoder_config(void)
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
 
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
 	TIM_ICInitTypeDef TIM_ICInitStructure;
@@ -226,6 +251,25 @@ void encoder_config(void)
 	TIM_ClearFlag(TIM5, TIM_FLAG_Update);
 	TIM_ITConfig(TIM5, TIM_IT_Update, ENABLE);
 	TIM_Cmd(TIM5, ENABLE);	
+
+
+	TIM_TimeBaseStructure.TIM_Prescaler = 0x0;
+	TIM_TimeBaseStructure.TIM_Period = 29999;	
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseInit(TIM12, &TIM_TimeBaseStructure);
+ 
+	TIM_EncoderInterfaceConfig(TIM12,TIM_EncoderMode_TI12,TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+	TIM_ICStructInit(&TIM_ICInitStructure);
+	TIM_ICInitStructure.TIM_ICFilter = 6;
+	TIM_ICInit(TIM12, &TIM_ICInitStructure);
+
+	TIM12->CNT=4000;
+
+	TIM_ClearFlag(TIM12, TIM_FLAG_Update);
+	TIM_ITConfig(TIM12, TIM_IT_Update, ENABLE);
+	TIM_Cmd(TIM12, ENABLE);
+	
 	
 	timer7_config();
 }

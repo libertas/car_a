@@ -7,17 +7,29 @@
 #include "pwm.h"
 #include "utils.h"
 
+uint8_t fan_status = 0;
+
 void start_fan(void)
 {
 	delay_ms(2000);
 	stop_fan();
 	delay_ms(300);
 	set_duty(FAN_CHANNEL, 0.065);
+	fan_status = 1;
 }
 
 inline void stop_fan(void)
 {
 	set_duty(FAN_CHANNEL, 0.05);
+	fan_status = 0;
+}
+
+inline void toggle_fan(void)
+{
+	if(fan_status != 0)
+		stop_fan();
+	else
+		start_fan();
 }
 
 float fan_kowtow_rad = 0;

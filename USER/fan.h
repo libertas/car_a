@@ -8,6 +8,7 @@
 
 void start_fan(void);
 void stop_fan(void);
+void toggle_fan(void);
 
 void fan_up(void);
 void fan_up_r(void);

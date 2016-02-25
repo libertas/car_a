@@ -62,6 +62,9 @@ command list:
 	fan_down_r()
 		(byte) 0x08
 	
+	toggle_fan()
+		(byte) 0x0a
+	
 	fan_roll(float rad)
 		(byte) 0x42	(float) [rad]
 	
@@ -259,6 +262,15 @@ int run_cmd(void)
 			#endif
 		
 			fan_down_r();
+			break;
+		
+		case 0x0a:
+			
+			#ifdef DEBUG_INTPRT
+			printf("\ncmd\t0x06\n");
+			#endif
+		
+			toggle_fan();
 			break;
 		
 		case 0x42:

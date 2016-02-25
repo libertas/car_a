@@ -30,6 +30,8 @@ int main(void)
 	pwm_config();
 	watchdog_config();
 	
+	toggle_fan();
+	delay_ms(5000);
 	start_fan();
 
 	printf("\n\nEntering main loop\n\n");

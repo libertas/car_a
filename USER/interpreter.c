@@ -307,7 +307,7 @@ int run_cmd(void)
 		case 0x12:
 			
 			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x11\n");
+			printf("\ncmd\t0x12\n");
 			#endif
 
 			out_char_queue(&cmd_queue, (char*) &buf);
@@ -319,7 +319,7 @@ int run_cmd(void)
 		case 0x13:
 			
 			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x11\n");
+			printf("\ncmd\t0x13\n");
 			#endif
 		
 			out_char_queue(&cmd_queue, (char*) &buf);

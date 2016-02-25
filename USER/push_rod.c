@@ -44,6 +44,7 @@ void push_rod_config(void)
 
 void push_rod_c(uint8_t dir)
 {
+	push_rod_config();
 	switch(dir){
 		case 0:{
 			GPIO_WriteBit(GPIOE, GPIO_Pin_0, Bit_SET);

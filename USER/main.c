@@ -28,10 +28,10 @@ int main(void)
 	encoder_config();
 	switch_config();
 	pwm_config();
-	push_rod_config();
 	watchdog_config();
 	
 	start_fan();
+	push_rod(PUSH_ROD_PULL);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

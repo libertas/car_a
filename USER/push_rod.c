@@ -33,7 +33,6 @@ void push_rod_config(void)
 	TIM_TimeBaseInit(TIM14, &TIM_TimeBaseInitStructure);
 	
 	TIM_ITConfig(TIM14, TIM_IT_Update, ENABLE);
-	TIM_Cmd(TIM14, ENABLE);
 
 
 	NVIC_InitStructure.NVIC_IRQChannel = TIM8_TRG_COM_TIM14_IRQn;
@@ -43,7 +42,7 @@ void push_rod_config(void)
 	NVIC_Init(&NVIC_InitStructure);
 }
 
-void push_rod(uint8_t dir)
+void push_rod_c(uint8_t dir)
 {
 	switch(dir){
 		case 0:{
@@ -59,6 +58,27 @@ void push_rod(uint8_t dir)
 		case 0xff:{
 			GPIO_WriteBit(GPIOE, GPIO_Pin_0, Bit_RESET);
 			GPIO_WriteBit(GPIOE, GPIO_Pin_1, Bit_RESET);
+			break;
+		}
+		default:break;
+	}
+}
+void push_rod(uint8_t dir)
+{
+	switch(dir){
+		case 0:{
+			push_rod_c(PUSH_ROD_PUSH);
+			TIM_Cmd(TIM14, ENABLE);
+			break;
+		}
+		case 1:{
+			push_rod_c(PUSH_ROD_PULL);
+			TIM_Cmd(TIM14, ENABLE);
+			break;
+		}
+		case 0xff:{
+			push_rod_c(PUSH_ROD_STOP);
+			TIM_Cmd(TIM14, ENABLE);
 			break;
 		}
 		default:break;

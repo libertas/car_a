@@ -361,7 +361,7 @@ int check_cmd(void)
 	} else {
 	
 		#ifdef DEBUG_INTPRT
-		// printf("\n-1\n");
+		printf("\n-1\n");
 		#endif
 		
 		return -1;

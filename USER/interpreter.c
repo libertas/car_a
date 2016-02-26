@@ -4,6 +4,7 @@
 #include "debug.h"
 #include "fan.h"
 #include "interpreter.h"
+#include "magnet.h"
 #include "movement.h"
 #include "push_rod.h"
 
@@ -65,6 +66,15 @@ command list:
 	toggle_fan()
 		(byte) 0x0a
 	
+	mag_up()
+		(byte) 0x14 (byte) 0x00
+	
+	mag_in()
+		(byte) 0x14 (byte) 0x01
+	
+	mag_out()
+		(byte) 0x14 (byte) 0x02
+	
 	fan_roll(float rad)
 		(byte) 0x42	(float) [rad]
 	
@@ -101,6 +111,28 @@ int run_cmd(void)
 			printf("\nUnknown command:%x\n", cmd);
 			#endif
 
+			break;
+		
+		case 0x14:
+			
+			#ifdef DEBUG_INTPRT
+			printf("\ncmd\t0x20\n");
+			#endif
+		
+			out_char_queue(&cmd_queue, (char*) &buf);
+			switch (buf) {
+				default:
+					break;
+				case 0x00:
+					mag_up();
+					break;
+				case 0x01:
+					mag_in();
+					break;
+				case 0x02:
+					mag_out();
+					break;
+			}
 			break;
 		
 		case 0x20:

@@ -314,16 +314,6 @@ void EXTI2_IRQHandler(void)
 	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
 		mag_up_stop();
-		
-		#ifdef DEBUG
-		printf("\nmag_up_stop()\n");
-		#endif
-		
-		mag_in();
-		
-		#ifdef DEBUG
-		printf("\nmag_in()\n");
-		#endif
 	}
 	EXTI_ClearITPendingBit(EXTI_Line2);
 }

@@ -181,7 +181,7 @@ void USART3_IRQHandler(void)
 		// USART_SendData(USART3, data);
 	}
 }
-
+/*
 void UART4_IRQHandler(void)
 {
 	if(USART_GetITStatus(UART4, USART_IT_RXNE) != RESET)
@@ -189,7 +189,7 @@ void UART4_IRQHandler(void)
 		USART_SendData(UART4, USART_ReceiveData(UART4));
 	}
 }
-
+*/
 #ifndef USE_HPWM
 
 void TIM6_DAC_IRQHandler(void)
@@ -211,6 +211,27 @@ void TIM6_DAC_IRQHandler(void)
 			}
 		}
 		TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
+	}
+}
+
+#include "MTi.h"
+void DMA1_Stream2_IRQHandler(void)
+{
+	if(DMA_GetITStatus(DMA1_Stream2, DMA_IT_TCIF2) == SET ){
+		uprintf(USART2,"RECOK\r\n");
+		mti();
+		DMA_Cmd(DMA1_Stream2, DISABLE);
+		DMA_ClearITPendingBit(DMA1_Stream2, DMA_IT_TCIF2);
+		DMA_Cmd(DMA1_Stream2, ENABLE);
+	}
+}
+
+void DMA1_Stream4_IRQHandler(void)
+{
+	if(DMA_GetITStatus(DMA1_Stream4, DMA_IT_TCIF4) == SET ){
+		uprintf(USART2,"SendOK\r\n");
+		DMA_Cmd(DMA1_Stream4, DISABLE);
+		DMA_ClearITPendingBit(DMA1_Stream4, DMA_IT_TCIF4);
 	}
 }
 

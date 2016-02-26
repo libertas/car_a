@@ -15,6 +15,7 @@
 #include "utils.h"
 #include "push_rod.h"
 #include "watchdog.h"
+#include "dma.h"
 
 int main(void)
 {
@@ -23,18 +24,16 @@ int main(void)
 
 	interpreter_config();
 	uart_config(115200);
-
 	brake_config();
 	encoder_config();
 	switch_config();
 	pwm_config();
 	watchdog_config();
-
+	dma_config();
 	start_fan();
 
 	printf("\n\nEntering main loop\n\n");
-	while(1)
-	{
+	while(1) {
 		check_cmd();
 	}
 

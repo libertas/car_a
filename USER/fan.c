@@ -11,9 +11,6 @@ uint8_t fan_status = 0;
 
 void start_fan(void)
 {
-	delay_ms(2000);
-	stop_fan();
-	delay_ms(300);
 	set_duty(FAN_CHANNEL, 0.065);
 	fan_status = 1;
 }

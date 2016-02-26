@@ -30,8 +30,6 @@ int main(void)
 	pwm_config();
 	watchdog_config();
 
-	start_fan();
-
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{

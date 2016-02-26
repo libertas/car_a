@@ -11,6 +11,9 @@ int32_t g_rotary_y = 0;
 int32_t g_rotary_fan = 0;
 int32_t g_rotary_fan_updown = 0;
 int32_t g_rotary_mag = 0;
+int32_t g_rotary_magnet = 0;
+int32_t g_rotary_tim9 = 0;
+
 
 
 /*
@@ -53,6 +56,22 @@ float get_pos_mag(void)
 	return (float)((double)g_rotary_mag / 2000 *  W_DIAMETER * PI * VECT_EMAG);
 }
 
+/*
+	meter
+*/
+float get_pos_magnet(void)
+{
+	return (float)((double)g_rotary_magnet / 2000 *  W_DIAMETER * PI * VECT_EMAGNET);
+}
+
+/*
+	meter
+*/
+float get_pos_tim9(void)
+{
+	return (float)((double)g_rotary_tim9 / 2000 *  W_DIAMETER * PI * VECT_ETIM9);
+}
+
 void timer7_config(void)
 {
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
@@ -85,15 +104,21 @@ void encoder_config(void)
 	GPIO_InitTypeDef GPIO_InitStructure;
 	
 	
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM9, ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM12, ENABLE);
 	
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);
+	
+	GPIO_PinAFConfig(GPIOE, GPIO_PinSource9, GPIO_AF_TIM1);
+	GPIO_PinAFConfig(GPIOE, GPIO_PinSource11, GPIO_AF_TIM1);
 	
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource5, GPIO_AF_TIM2);
 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource3, GPIO_AF_TIM2);
@@ -107,8 +132,25 @@ void encoder_config(void)
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource0, GPIO_AF_TIM5);
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource1, GPIO_AF_TIM5);
 	
+	GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_TIM9);
+	GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_TIM9);
+		
 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource14, GPIO_AF_TIM12);
 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource15, GPIO_AF_TIM12);
+	
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_Init(GPIOE, &GPIO_InitStructure);
+	
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_Init(GPIOE, &GPIO_InitStructure);
 	
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
@@ -166,6 +208,20 @@ void encoder_config(void)
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
@@ -182,6 +238,23 @@ void encoder_config(void)
 
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
 	TIM_ICInitTypeDef TIM_ICInitStructure;
+	
+	TIM_TimeBaseStructure.TIM_Prescaler = 0x0;
+	TIM_TimeBaseStructure.TIM_Period = 29999;	
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure);
+ 
+	TIM_EncoderInterfaceConfig(TIM1,TIM_EncoderMode_TI12,TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+	TIM_ICStructInit(&TIM_ICInitStructure);
+	TIM_ICInitStructure.TIM_ICFilter = 6;
+	TIM_ICInit(TIM1, &TIM_ICInitStructure);
+
+	TIM1->CNT=4000;
+
+	TIM_ClearFlag(TIM1, TIM_FLAG_Update);
+	TIM_ITConfig(TIM1, TIM_IT_Update, ENABLE);
+	TIM_Cmd(TIM1, ENABLE);
 	
 	TIM_TimeBaseStructure.TIM_Prescaler = 0x0;
 	TIM_TimeBaseStructure.TIM_Period = 29999;	
@@ -252,6 +325,23 @@ void encoder_config(void)
 	TIM_ITConfig(TIM5, TIM_IT_Update, ENABLE);
 	TIM_Cmd(TIM5, ENABLE);	
 
+
+	TIM_TimeBaseStructure.TIM_Prescaler = 0x0;
+	TIM_TimeBaseStructure.TIM_Period = 29999;	
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseInit(TIM9, &TIM_TimeBaseStructure);
+ 
+	TIM_EncoderInterfaceConfig(TIM9,TIM_EncoderMode_TI12,TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+	TIM_ICStructInit(&TIM_ICInitStructure);
+	TIM_ICInitStructure.TIM_ICFilter = 6;
+	TIM_ICInit(TIM9, &TIM_ICInitStructure);
+
+	TIM9->CNT=4000;
+
+	TIM_ClearFlag(TIM9, TIM_FLAG_Update);
+	TIM_ITConfig(TIM9, TIM_IT_Update, ENABLE);
+	TIM_Cmd(TIM9, ENABLE);
 
 	TIM_TimeBaseStructure.TIM_Prescaler = 0x0;
 	TIM_TimeBaseStructure.TIM_Period = 29999;	

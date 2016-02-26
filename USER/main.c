@@ -33,6 +33,11 @@ int main(void)
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
+		uprintf(UART5,"tim1 %f \r\n",get_pos_magnet());//pe9/pe11
+		uprintf(UART5,"tim2 %f \r\n",get_pos_fan_updown());//pa5/pb3
+		uprintf(UART5,"tim9 %f \r\n",get_pos_tim9());//pa2/pa3
+		uprintf(UART5,"tim12 %f \r\n",get_pos_mag());//pb14/pb15
+		delay_ms(100);
 		check_cmd();
 	}
 

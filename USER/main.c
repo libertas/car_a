@@ -35,6 +35,10 @@ int main(void)
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
+		uprintf(UART5,"magnet %f \r\n",get_pos_mag());
+		uprintf(UART5,"fan_updown %f \r\n",get_pos_fan_updown());
+		uprintf(UART5,"tim9 \t%f \r\n",get_pos_tim9());
+		delay_ms(100);
 		check_cmd();
 	}
 

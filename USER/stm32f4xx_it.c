@@ -223,6 +223,9 @@ void TIM7_IRQHandler(void)
 	if(TIM_GetITStatus(TIM7, TIM_IT_Update) != RESET) {
 		TIM_ClearITPendingBit(TIM7, TIM_FLAG_Update);
 
+		g_rotary_magnet += (TIM_GetCounter(TIM1)-4000);
+		TIM1->CNT = 4000;
+		
 		g_rotary_fan_updown += (TIM_GetCounter(TIM2)-4000);
 		TIM2->CNT = 4000;
 		
@@ -235,6 +238,12 @@ void TIM7_IRQHandler(void)
 		g_rotary_y += (TIM_GetCounter(TIM5)-4000);
 		TIM5->CNT = 4000;
 		
+		g_rotary_tim9 += (TIM_GetCounter(TIM9)-4000);
+		TIM9->CNT = 4000;
+		
+		g_rotary_mag += (TIM_GetCounter(TIM12)-4000);
+		TIM12->CNT = 4000;
+
 		kowtow_check();
 	}
 }

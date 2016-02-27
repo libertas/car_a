@@ -75,6 +75,9 @@ command list:
 	mag_out()
 		(byte) 0x14 (byte) 0x02
 	
+	mag_down()
+		(byte) 0x14 (byte) 0x03
+	
 	fan_roll(float rad)
 		(byte) 0x42	(float) [rad]
 	

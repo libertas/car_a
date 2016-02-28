@@ -318,13 +318,17 @@ void EXTI15_10_IRQHandler(void)
 }
 
 #include "magnet.h"
+#include "switch.h"
 void EXTI2_IRQHandler(void)
 {
 	delay_ms(10);
-	if(0 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
-		mag_up_stop();
-	}
 	EXTI_ClearITPendingBit(EXTI_Line2);
+	if(0 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
+		g_switch_flag = 1;
+	}
+	if(1 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
+		g_switch_flag = 0;
+	}
 }
 
 /******************************************************************************/

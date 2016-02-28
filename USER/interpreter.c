@@ -7,10 +7,13 @@
 #include "magnet.h"
 #include "movement.h"
 #include "push_rod.h"
+#include "math.h"
 
 
 char cmd_buf[CMD_BUF_LEN] = {0};
 char_queue cmd_queue;
+u8 g_run_flag = 0;
+u8 g_pre_buf = 0,g_pre_buf1 = 0;
 
 /*
 format:
@@ -206,8 +209,11 @@ int run_cmd(void)
 
 			out_char_queue(&cmd_queue, (char*) &buf);
 			out_char_queue(&cmd_queue, (char*) &buf1);
-
-			move_xy_c(buf, buf1);
+			if(abs(buf - g_pre_buf) > 20 || abs(buf1 - g_pre_buf1) > 20){
+				move_xy_c(buf, buf1);
+				g_pre_buf = buf;
+				g_pre_buf1 = buf1;
+			}
 			break;
 		
 		case 0x10:
@@ -237,6 +243,8 @@ int run_cmd(void)
 			#endif
 		
 			stop_all();
+			g_pre_buf = 0;
+			g_pre_buf1 = 0;
 			break;
 		case 0x02:
 			

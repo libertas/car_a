@@ -3,6 +3,8 @@
 
 #include "switch.h"
 
+int8_t g_switch_flag = 0;
+
 const uint32_t SwitchAHBPorts[SWITCH_CHANNEL_NUM] = {RCC_AHB1Periph_GPIOC, RCC_AHB1Periph_GPIOF, RCC_AHB1Periph_GPIOA};
 const uint16_t SwitchPins[SWITCH_CHANNEL_NUM] = {GPIO_Pin_3, GPIO_Pin_11, GPIO_Pin_2};
 GPIO_TypeDef *SwitchPorts[SWITCH_CHANNEL_NUM] = {GPIOC, GPIOF, GPIOA};

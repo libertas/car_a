@@ -1,4 +1,5 @@
 #define SWITCH_CHANNEL_NUM 3
+extern int8_t g_switch_flag;
 void switch_config(void);
 /*
 	0 PC3  fan_down_stop

@@ -5,13 +5,13 @@
 
 int8_t g_switch_flag = 0;
 
-const uint32_t SwitchAHBPorts[SWITCH_CHANNEL_NUM] = {RCC_AHB1Periph_GPIOC, RCC_AHB1Periph_GPIOF, RCC_AHB1Periph_GPIOA};
-const uint16_t SwitchPins[SWITCH_CHANNEL_NUM] = {GPIO_Pin_3, GPIO_Pin_11, GPIO_Pin_2};
-GPIO_TypeDef *SwitchPorts[SWITCH_CHANNEL_NUM] = {GPIOC, GPIOF, GPIOA};
-const uint8_t SwitchEXTIPorts[SWITCH_CHANNEL_NUM] = {EXTI_PortSourceGPIOC, EXTI_PortSourceGPIOF, EXTI_PortSourceGPIOA};
-const uint8_t SwitchEXTIPinsources[SWITCH_CHANNEL_NUM] = {EXTI_PinSource3, EXTI_PinSource11, EXTI_PinSource2};
-const uint32_t SwitchEXTILines[SWITCH_CHANNEL_NUM] = {EXTI_Line3, EXTI_Line11, EXTI_Line2};
-const enum IRQn SwitchNVICPins[SWITCH_CHANNEL_NUM] = {EXTI3_IRQn, EXTI15_10_IRQn, EXTI2_IRQn};
+const uint32_t SwitchAHBPorts[SWITCH_CHANNEL_NUM] = {RCC_AHB1Periph_GPIOC, RCC_AHB1Periph_GPIOF, RCC_AHB1Periph_GPIOA, RCC_AHB1Periph_GPIOF};
+const uint16_t SwitchPins[SWITCH_CHANNEL_NUM] = {GPIO_Pin_3, GPIO_Pin_11, GPIO_Pin_2, GPIO_Pin_0};
+GPIO_TypeDef *SwitchPorts[SWITCH_CHANNEL_NUM] = {GPIOC, GPIOF, GPIOA, GPIOF};
+const uint8_t SwitchEXTIPorts[SWITCH_CHANNEL_NUM] = {EXTI_PortSourceGPIOC, EXTI_PortSourceGPIOF, EXTI_PortSourceGPIOA, EXTI_PortSourceGPIOF};
+const uint8_t SwitchEXTIPinsources[SWITCH_CHANNEL_NUM] = {EXTI_PinSource3, EXTI_PinSource11, EXTI_PinSource2, EXTI_PinSource0};
+const uint32_t SwitchEXTILines[SWITCH_CHANNEL_NUM] = {EXTI_Line3, EXTI_Line11, EXTI_Line2, EXTI_Line2};
+const enum IRQn SwitchNVICPins[SWITCH_CHANNEL_NUM] = {EXTI3_IRQn, EXTI15_10_IRQn, EXTI2_IRQn, EXTI0_IRQn};
 
 
 void switch_gpio_config(void)

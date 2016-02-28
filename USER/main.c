@@ -33,7 +33,7 @@ int main(void)
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{
-		//printf("g_switch_flag = %d \r\n",g_switch_flag);
+		printf("g_switch_flag = %d \r\n",g_switch_flag);
 		check_cmd();
 	}
 

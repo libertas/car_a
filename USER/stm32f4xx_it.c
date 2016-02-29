@@ -323,10 +323,17 @@ void EXTI2_IRQHandler(void)
 {
 	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
-		g_switch_flag = 1;
-	}
-	if(1 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
-		g_switch_flag = 0;
+		mag_up_stop();
+		
+		#ifdef DEBUG
+		printf("\nmag_up_stop()\n");
+		#endif
+		
+		mag_in();
+		
+		#ifdef DEBUG
+		printf("\nmag_in()\n");
+		#endif
 	}
 	EXTI_ClearITPendingBit(EXTI_Line2);
 }
@@ -334,13 +341,29 @@ void EXTI2_IRQHandler(void)
 void EXTI0_IRQHandler(void)
 {
 	delay_ms(10);
+	
 	if(1 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_0)) {
 		g_switch_flag = 1;
 	}
-	else if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_0)) {
+	
+	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_0)) {
 		g_switch_flag = 0;
 	}
+	
 	EXTI_ClearITPendingBit(EXTI_Line0);
+}
+
+void EXTI1_IRQHandler(void)
+{
+	delay_ms(10);
+	
+	if(1 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_1)) {
+		g_switch_flag = 1;
+	}
+	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_1)) {
+		g_switch_flag = 0;
+	}
+	EXTI_ClearITPendingBit(EXTI_Line1);
 }
 
 /******************************************************************************/

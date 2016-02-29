@@ -97,8 +97,6 @@ command list:
 */
 int run_cmd(void)
 {
-	static uint8_t pre_spd_x = 0, pre_spd_y = 0;
-
 	char cmd;
 	out_char_queue(&cmd_queue, &cmd);
 
@@ -210,11 +208,8 @@ int run_cmd(void)
 
 			out_char_queue(&cmd_queue, (char*) &buf);
 			out_char_queue(&cmd_queue, (char*) &buf1);
-			if(abs(buf - pre_spd_x) > 20 || abs(buf1 - pre_spd_y) > 20){
-				move_xy_c(buf, buf1);
-				pre_spd_x = buf;
-				pre_spd_y = buf1;
-			}
+			move_xy_c(buf, buf1);
+
 			break;
 		
 		case 0x10:
@@ -244,8 +239,6 @@ int run_cmd(void)
 			#endif
 		
 			stop_all();
-			pre_spd_x = 0;
-			pre_spd_y = 0;
 			break;
 		case 0x02:
 			

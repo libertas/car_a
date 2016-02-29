@@ -64,15 +64,13 @@ void t_move_xy_c(int8_t spd_x, int8_t spd_y)
 	printf("\t1:%d\n", arg_speeds[1]);
 	printf("\t2:%d\n", arg_speeds[2]);
 	#endif
-	for( int8_t i = 1; i <= 100; i++) {
-		uprintf(USART1,\
-			"\r0V%d\r1V%d\r2V%d\r",\
-			i * arg_speeds[0] / 100,\
-			i * arg_speeds[1] / 100,\
-			i * arg_speeds[2] / 100 \
-			);
-		delay_ms(10);
-	}
+
+	uprintf(USART1,\
+		"\r0V%d\r1V%d\r2V%d\r",\
+		arg_speeds[0],\
+		arg_speeds[1],\
+		arg_speeds[2]\
+		);
 }
 
 void t_move_x_c(int16_t arg_spd)

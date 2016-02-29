@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "debug.h"
@@ -12,8 +13,6 @@
 
 char cmd_buf[CMD_BUF_LEN] = {0};
 char_queue cmd_queue;
-u8 g_run_flag = 0;
-u8 g_pre_buf = 0,g_pre_buf1 = 0;
 
 /*
 format:
@@ -98,18 +97,20 @@ command list:
 */
 int run_cmd(void)
 {
+	static uint8_t pre_spd_x = 0, pre_spd_y = 0;
+
 	char cmd;
 	out_char_queue(&cmd_queue, &cmd);
-	
+
 	uint8_t i;
-	
+
 	uint8_t buf = 0, buf1 = 0;
 	uint16_t dbuf = 0;
 	uint32_t qbuf = 0;
-	
+
 	float x, y, rad;
-	
-	
+
+
 	switch(cmd) {
 		default:
 
@@ -209,10 +210,10 @@ int run_cmd(void)
 
 			out_char_queue(&cmd_queue, (char*) &buf);
 			out_char_queue(&cmd_queue, (char*) &buf1);
-			if(abs(buf - g_pre_buf) > 20 || abs(buf1 - g_pre_buf1) > 20){
+			if(abs(buf - pre_spd_x) > 20 || abs(buf1 - pre_spd_y) > 20){
 				move_xy_c(buf, buf1);
-				g_pre_buf = buf;
-				g_pre_buf1 = buf1;
+				pre_spd_x = buf;
+				pre_spd_y = buf1;
 			}
 			break;
 		
@@ -243,8 +244,8 @@ int run_cmd(void)
 			#endif
 		
 			stop_all();
-			g_pre_buf = 0;
-			g_pre_buf1 = 0;
+			pre_spd_x = 0;
+			pre_spd_y = 0;
 			break;
 		case 0x02:
 			

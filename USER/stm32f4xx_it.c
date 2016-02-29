@@ -322,6 +322,7 @@ void EXTI15_10_IRQHandler(void)
 void EXTI2_IRQHandler(void)
 {
 	delay_ms(10);
+	
 	if(1 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
 		g_switch_flag = 1;
 	}
@@ -334,13 +335,30 @@ void EXTI2_IRQHandler(void)
 void EXTI0_IRQHandler(void)
 {
 	delay_ms(10);
+	
 	if(1 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_0)) {
 		g_switch_flag = 1;
 	}
-	else if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_0)) {
+	
+	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_0)) {
 		g_switch_flag = 0;
 	}
+	
+	//g_switch_flag = 1;
 	EXTI_ClearITPendingBit(EXTI_Line0);
+}
+
+void EXTI1_IRQHandler(void)
+{
+	delay_ms(10);
+	
+	if(1 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_1)) {
+		g_switch_flag = 1;
+	}
+	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_1)) {
+		g_switch_flag = 0;
+	}
+	EXTI_ClearITPendingBit(EXTI_Line1);
 }
 
 /******************************************************************************/

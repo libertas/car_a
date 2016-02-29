@@ -1,3 +1,4 @@
+#include <math.h>
 #include <stdlib.h>
 
 #include "clock.h"
@@ -142,7 +143,7 @@ void t_move_x(float x)
 	
 	relative_mov = x - old_pos[0];
 	
-	if(abs(relative_mov) < ZERO) {
+	if(fabs(relative_mov) < ZERO) {
 		return;
 	} else if(relative_mov > 0) {
 		dir = 1;
@@ -184,7 +185,7 @@ void t_move_y(float y)
 	
 	relative_mov = y - old_pos[1];
 	
-	if(abs(relative_mov) < ZERO) {
+	if(fabs(relative_mov) < ZERO) {
 		return;
 	} else if(relative_mov > 0) {
 		dir = 1;

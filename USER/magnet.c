@@ -11,7 +11,7 @@ void mag_in(void)
 
 void mag_out(void)
 {
-	set_duty(MAG_IN_CHANNEL, 0.001);
+	set_duty(MAG_IN_CHANNEL, 0.03);
 }
 
 void mag_in_stop(void)

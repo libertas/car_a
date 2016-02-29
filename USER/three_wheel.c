@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 #include "clock.h"
 #include "debug.h"
 #include "encoder.h"
@@ -75,7 +77,7 @@ void t_move_xy_c(int8_t spd_x, int8_t spd_y)
 void t_move_x_c(int16_t arg_spd)
 {
 	arg_speeds[0] = 0;
-	arg_speeds[1] = VECT_W1 * ABS(arg_spd) * 2 / sqrt(3);
+	arg_speeds[1] = VECT_W1 * abs(arg_spd) * 2 / sqrt(3);
 	arg_speeds[2] = 0 - VECT_W2 * arg_speeds[1];
 	
 	if(arg_spd < 0) {
@@ -101,7 +103,7 @@ void t_move_x_c(int16_t arg_spd)
 
 void t_move_y_c(int16_t arg_spd)
 {
-	arg_speeds[0] = ABS(arg_spd);
+	arg_speeds[0] = abs(arg_spd);
 	arg_speeds[1] = arg_speeds[0] * 2 / sqrt(3);
 	arg_speeds[2] = arg_speeds[1];
 	arg_speeds[0] *= VECT_W0;
@@ -140,7 +142,7 @@ void t_move_x(float x)
 	
 	relative_mov = x - old_pos[0];
 	
-	if(ABS(relative_mov) < ZERO) {
+	if(abs(relative_mov) < ZERO) {
 		return;
 	} else if(relative_mov > 0) {
 		dir = 1;
@@ -182,7 +184,7 @@ void t_move_y(float y)
 	
 	relative_mov = y - old_pos[1];
 	
-	if(ABS(relative_mov) < ZERO) {
+	if(abs(relative_mov) < ZERO) {
 		return;
 	} else if(relative_mov > 0) {
 		dir = 1;

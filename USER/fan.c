@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 #include "brake.h"
 #include "clock.h"
 #include "debug.h"
@@ -67,7 +69,7 @@ void fan_kowtow(float rad)
 	printf("\nfan_kowtow(%f)\n", rad);
 	#endif
 
-	if(ABS(rad - pos) < ZERO) {
+	if(abs(rad - pos) < ZERO) {
 		
 		#ifdef DEBUG
 		printf("\nNot kowtow happened\n");

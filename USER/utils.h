@@ -9,8 +9,6 @@
 */
 double int2double(signed int i);
 
-#define ABS(x) ((x) >= 0? (x): (-1) * (x))
-
 typedef struct
 {
 	char *data;

@@ -1,5 +1,6 @@
 #include <stdbool.h>
 
+#include "misc.h"
 #include "stm32f4xx_gpio.h"
 
 #include "suart.h"
@@ -10,10 +11,10 @@ typedef unsigned char byte;
 typedef unsigned int word;
 
 uint16_t su_tx_pins[SU_CHANNEL_NUM] = {GPIO_Pin_10};
-GPIO_TypeDef *su_tx_ports[SU_CHANNEL_NUM] = {GPIOA};
+GPIO_TypeDef *su_tx_ports[SU_CHANNEL_NUM] = {GPIOB};
 
-uint16_t su_rx_pins[SU_CHANNEL_NUM] = {GPIO_Pin_10};
-GPIO_TypeDef *su_rx_ports[SU_CHANNEL_NUM] = {GPIOA};
+uint16_t su_rx_pins[SU_CHANNEL_NUM] = {GPIO_Pin_11};
+GPIO_TypeDef *su_rx_ports[SU_CHANNEL_NUM] = {GPIOB};
 
 byte TBUF[SU_CHANNEL_NUM], RBUF[SU_CHANNEL_NUM];
 byte TDAT[SU_CHANNEL_NUM], RDAT[SU_CHANNEL_NUM];
@@ -21,6 +22,52 @@ byte TCNT[SU_CHANNEL_NUM], RCNT[SU_CHANNEL_NUM];
 byte TBIT[SU_CHANNEL_NUM], RBIT[SU_CHANNEL_NUM];
 bool TING[SU_CHANNEL_NUM], RING[SU_CHANNEL_NUM];
 bool TEND[SU_CHANNEL_NUM], REND[SU_CHANNEL_NUM];
+
+void suart_config(void)
+{
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
+
+
+	GPIO_InitTypeDef GPIO_InitStructure;
+
+	for(uint8_t i = 0; i < SU_CHANNEL_NUM; i++) {
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+		GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+		GPIO_InitStructure.GPIO_Pin = su_tx_pins[i];
+		GPIO_Init(su_tx_ports[i], &GPIO_InitStructure);
+		
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+		GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+		GPIO_InitStructure.GPIO_Pin = su_rx_pins[i];
+		GPIO_Init(su_rx_ports[i], &GPIO_InitStructure);
+	}
+
+
+	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
+	NVIC_InitTypeDef NVIC_InitStructure;
+	
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM11, ENABLE);
+	
+	TIM_TimeBaseInitStructure.TIM_Period = 19;
+	TIM_TimeBaseInitStructure.TIM_Prescaler = 0;
+	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	
+	TIM_TimeBaseInit(TIM11, &TIM_TimeBaseInitStructure);
+	
+	TIM_ITConfig(TIM11, TIM_IT_Update, ENABLE);
+	TIM_Cmd(TIM11, ENABLE);
+	
+	NVIC_InitStructure.NVIC_IRQChannel = TIM1_TRG_COM_TIM11_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 4;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 4;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+}
 
 void send_uart(uint8_t channel, char data)
 {
@@ -51,7 +98,7 @@ char sugetchar(uint8_t channel)
 	return receive_uart(channel);
 }
 
-void uart_check(void)
+void suart_check(void)
 {
 	for(uint8_t i = 0; i < SU_CHANNEL_NUM; i++) {
 		if(RING[i])

@@ -14,6 +14,7 @@
 #include "usart.h"
 #include "utils.h"
 #include "push_rod.h"
+#include "suart.h"
 #include "watchdog.h"
 
 int main(void)
@@ -23,6 +24,7 @@ int main(void)
 
 	interpreter_config();
 	uart_config(115200);
+	suart_config();
 
 	brake_config();
 	encoder_config();
@@ -34,6 +36,8 @@ int main(void)
 	while(1)
 	{
 		check_cmd();
+		//suputchar(0, 'h');
+		GPIO_WriteBit(GPIOB, GPIO_Pin_10, Bit_SET);
 	}
 
 	return 0;

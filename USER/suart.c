@@ -1,96 +1,112 @@
+#include <stdbool.h>
+
+#include "stm32f4xx_gpio.h"
+
 #include "suart.h"
 
-typedef __bit bool;
+#define RXB(i) GPIO_ReadInputDataBit(su_rx_ports[i], su_rx_pins[i])
+
 typedef unsigned char byte;
 typedef unsigned int word;
 
-byte TBUF, RBUF;
-byte TDAT, RDAT;
-byte TCNT, RCNT;
-byte TBIT, RBIT;
-bool TING, RING;
-bool TEND, REND;
+uint16_t su_tx_pins[SU_CHANNEL_NUM] = {GPIO_Pin_10};
+GPIO_TypeDef *su_tx_ports[SU_CHANNEL_NUM] = {GPIOA};
 
-void sendUART(unsigned char data)
+uint16_t su_rx_pins[SU_CHANNEL_NUM] = {GPIO_Pin_10};
+GPIO_TypeDef *su_rx_ports[SU_CHANNEL_NUM] = {GPIOA};
+
+byte TBUF[SU_CHANNEL_NUM], RBUF[SU_CHANNEL_NUM];
+byte TDAT[SU_CHANNEL_NUM], RDAT[SU_CHANNEL_NUM];
+byte TCNT[SU_CHANNEL_NUM], RCNT[SU_CHANNEL_NUM];
+byte TBIT[SU_CHANNEL_NUM], RBIT[SU_CHANNEL_NUM];
+bool TING[SU_CHANNEL_NUM], RING[SU_CHANNEL_NUM];
+bool TEND[SU_CHANNEL_NUM], REND[SU_CHANNEL_NUM];
+
+void send_uart(uint8_t channel, char data)
 {
-	if(TEND)
+	if(TEND[channel])
 	{
-		TEND = 0;
-		TBUF = data;
-		TING = 1;
+		TEND[channel] = 0;
+		TBUF[channel] = data;
+		TING[channel] = 1;
 	}
 }
 
-void putchar(char c)
+void suputchar(uint8_t channel, char c)
 {
-	while(!TEND);
-	sendUART(c);
+	while(!TEND[channel]);
+	send_uart(channel, c);
 }
 
-unsigned char receiveUART()
+char receive_uart(uint8_t channel)
 {
-	unsigned char tmp = RBUF;
-	REND = 0;
+	char tmp = RBUF[channel];
+	REND[channel] = 0;
 	return tmp;
 }
 
-unsigned char getChar()
+char sugetchar(uint8_t channel)
 {
-	while(!REND);
-	return receiveUART();
+	while(!REND[channel]);
+	return receive_uart(channel);
 }
 
-void uart() __interrupt(TF1_VECTOR)
+void uart_check(void)
 {
-	if(RING)
-	{
-		if(--RCNT == 0)
+	for(uint8_t i = 0; i < SU_CHANNEL_NUM; i++) {
+		if(RING[i])
 		{
-			RCNT = 3;
-			if(--RBIT == 0)
+			if(--RCNT[i] == 0)
 			{
-				RBUF = RDAT;
-				RING = 0;
-				REND = 1;
-			}
-			else
-			{
-				RDAT >>= 1;
-				if(RXB)
-					RDAT |= 0x80;
-			}
-		}
-	}
-	else if(!RXB)
-	{
-		RING = 1;
-		RCNT = 4;
-		RBIT = 9;
-	}
-
-	if(--TCNT == 0)
-	{
-		TCNT = 3;
-		if(TING)
-		{
-			if(TBIT == 0)
-			{
-				TXB = 0;
-				TDAT = TBUF;
-				TBIT = 9;
-			}
-			else
-			{
-				if(--TBIT == 0)
+				RCNT[i] = 3;
+				if(--RBIT[i] == 0)
 				{
-					TXB = 1;
-					TING = 0;
-					TEND = 1;
+					RBUF[i] = RDAT[i];
+					RING[i] = 0;
+					REND[i] = 1;
 				}
 				else
 				{
-					TDAT >>= 1;
-					TXB = CY;
+					RDAT[i] >>= 1;
+					if(RXB(i))
+						RDAT[i] |= 0x80;
+				}
+			}
+		}
+		else if(!RXB(i))
+		{
+			RING[i] = 1;
+			RCNT[i] = 4;
+			RBIT[i] = 9;
+		}
+
+		if(--TCNT[i] == 0)
+		{
+			TCNT[i] = 3;
+			if(TING[i])
+			{
+				if(TBIT[i] == 0)
+				{
+					GPIO_WriteBit(su_tx_ports[i], su_tx_pins[i], Bit_RESET);
+					TDAT[i] = TBUF[i];
+					TBIT[i] = 9;
+				}
+				else
+				{
+					if(--TBIT[i] == 0)
+					{
+						GPIO_WriteBit(su_tx_ports[i], su_tx_pins[i], Bit_SET);
+						TING[i] = 0;
+						TEND[i] = 1;
+					}
+					else
+					{
+						if(TDAT[i] & 0x01)
+							GPIO_WriteBit(su_tx_ports[i], su_tx_pins[i], Bit_SET);
+						else
+							GPIO_WriteBit(su_tx_ports[i], su_tx_pins[i], Bit_RESET);
+						TDAT[i] >>= 1;
+					}
 				}
 			}
 		}

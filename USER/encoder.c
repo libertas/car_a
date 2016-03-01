@@ -22,7 +22,7 @@ const uint32_t EncoderAHBPorts[ENCODER_CHANNEL_NUM] = {\
 				RCC_AHB1Periph_GPIOA, RCC_AHB1Periph_GPIOB,\
 				RCC_AHB1Periph_GPIOC, RCC_AHB1Periph_GPIOD, RCC_AHB1Periph_GPIOE\
 				};
-GPIO_TypeDef * EncoderPorts[ENCODER_CHANNEL_NUM] = {\
+GPIO_TypeDef * EncoderPorts[2 * ENCODER_CHANNEL_NUM] = {\
 				GPIOE, GPIOE,\
 				GPIOA, GPIOB,\
 				GPIOA, GPIOA,\
@@ -30,7 +30,7 @@ GPIO_TypeDef * EncoderPorts[ENCODER_CHANNEL_NUM] = {\
 				GPIOA, GPIOA,\
 				GPIOC, GPIOC\
 				};
-const uint16_t EncoderPinsources[ENCODER_CHANNEL_NUM] = {\
+const uint16_t EncoderPinsources[2 * ENCODER_CHANNEL_NUM] = {\
 				GPIO_PinSource9, GPIO_PinSource11,\
 				GPIO_PinSource5, GPIO_PinSource3,\
 				GPIO_PinSource6, GPIO_PinSource7,\
@@ -38,7 +38,7 @@ const uint16_t EncoderPinsources[ENCODER_CHANNEL_NUM] = {\
 				GPIO_PinSource0, GPIO_PinSource1,\
 				GPIO_PinSource6, GPIO_PinSource7\
 				};
-const uint8_t EncoderAFTIMs[ENCODER_CHANNEL_NUM] = {\
+const uint8_t EncoderAFTIMs[2 * ENCODER_CHANNEL_NUM] = {\
 				GPIO_AF_TIM1, GPIO_AF_TIM1,\
 				GPIO_AF_TIM2, GPIO_AF_TIM2,\
 				GPIO_AF_TIM3, GPIO_AF_TIM3,\
@@ -46,7 +46,7 @@ const uint8_t EncoderAFTIMs[ENCODER_CHANNEL_NUM] = {\
 				GPIO_AF_TIM5, GPIO_AF_TIM5,\
 				GPIO_AF_TIM8, GPIO_AF_TIM8\
 				};
-const uint16_t EncoderPins[ENCODER_CHANNEL_NUM] = {\
+const uint16_t EncoderPins[2 * ENCODER_CHANNEL_NUM] = {\
 				GPIO_Pin_9, GPIO_Pin_11,\
 				GPIO_Pin_5, GPIO_Pin_3,\
 				GPIO_Pin_6, GPIO_Pin_7,\
@@ -77,7 +77,7 @@ float get_pos_y(void)
 }
 
 /*
-	rad
+	100 degree
 */
 float get_pos_fan(void)
 {
@@ -141,7 +141,7 @@ void encoder_config(void)
 
 
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
-	for(int8_t i = 0; i < 4; i++) {
+	for(int8_t i = 0; i < ENCODER_CHANNEL_NUM - 2; i++) {
 		RCC_APB1PeriphClockCmd(EncoderAPB1TIMs[i], ENABLE);
 	}
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM8, ENABLE);
@@ -152,7 +152,7 @@ void encoder_config(void)
 	}
 
 
-	for(int8_t i = 0; i < 12; i++) {
+	for(int8_t i = 0; i < 2 * ENCODER_CHANNEL_NUM; i++) {
 		GPIO_PinAFConfig(EncoderPorts[i], EncoderPinsources[i], EncoderAFTIMs[i]);
 	}
 
@@ -161,7 +161,7 @@ void encoder_config(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	for(int8_t i = 0; i < 12; i++) {
+	for(int8_t i = 0; i < 2 * ENCODER_CHANNEL_NUM; i++) {
 		GPIO_InitStructure.GPIO_Pin = EncoderPins[i];
 		GPIO_Init(EncoderPorts[i], &GPIO_InitStructure);
 	}
@@ -176,7 +176,7 @@ void encoder_config(void)
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_ICStructInit(&TIM_ICInitStructure);
 	TIM_ICInitStructure.TIM_ICFilter = 6;
-	for(int8_t i = 0; i < 6; i++) {
+	for(int8_t i = 0; i < ENCODER_CHANNEL_NUM; i++) {
 		TIM_TimeBaseInit(EncoderTIMs[i], &TIM_TimeBaseStructure);
 		TIM_EncoderInterfaceConfig(EncoderTIMs[i],TIM_EncoderMode_TI12,TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
 		TIM_ICInit(EncoderTIMs[i], &TIM_ICInitStructure);

@@ -1,7 +1,7 @@
 #include <stdint.h>
 
 
-#define ENCODER_CHANNEL_NUM 12
+#define ENCODER_CHANNEL_NUM 6
 
 #define VECT_EX (+1)  // encoder of x
 #define VECT_EY (-1)  // encoder of y

@@ -14,13 +14,50 @@ int32_t g_rotary_magnet = 0;
 int32_t g_rotary_tim8 = 0;
 
 
-const uint32_t EncoderAPB1TIMs[ENCODER_CHANNEL_NUM] = {RCC_APB1Periph_TIM2, RCC_APB1Periph_TIM3, RCC_APB1Periph_TIM4, RCC_APB1Periph_TIM5};
-const uint32_t EncoderAHBPorts[ENCODER_CHANNEL_NUM] = {RCC_AHB1Periph_GPIOA, RCC_AHB1Periph_GPIOB, RCC_AHB1Periph_GPIOC, RCC_AHB1Periph_GPIOD, RCC_AHB1Periph_GPIOE};
-GPIO_TypeDef * EncoderPorts[ENCODER_CHANNEL_NUM] = {GPIOE, GPIOE, GPIOA, GPIOB, GPIOA, GPIOA, GPIOD, GPIOD, GPIOA, GPIOA, GPIOC, GPIOC};
-const uint16_t EncoderPinsources[ENCODER_CHANNEL_NUM] = {GPIO_PinSource9, GPIO_PinSource11, GPIO_PinSource5, GPIO_PinSource3, GPIO_PinSource6, GPIO_PinSource7, GPIO_PinSource12, GPIO_PinSource13, GPIO_PinSource0, GPIO_PinSource1, GPIO_PinSource6, GPIO_PinSource7};
-const uint8_t EncoderAFTIMs[ENCODER_CHANNEL_NUM] = {GPIO_AF_TIM1, GPIO_AF_TIM1, GPIO_AF_TIM2, GPIO_AF_TIM2, GPIO_AF_TIM3, GPIO_AF_TIM3, GPIO_AF_TIM4, GPIO_AF_TIM4, GPIO_AF_TIM5, GPIO_AF_TIM5, GPIO_AF_TIM8, GPIO_AF_TIM8};
-const uint16_t EncoderPins[ENCODER_CHANNEL_NUM] = {GPIO_Pin_9, GPIO_Pin_11, GPIO_Pin_5, GPIO_Pin_3, GPIO_Pin_6, GPIO_Pin_7, GPIO_Pin_12, GPIO_Pin_13, GPIO_Pin_0, GPIO_Pin_1, GPIO_Pin_6, GPIO_Pin_7};
-TIM_TypeDef * EncoderTIMs[ENCODER_CHANNEL_NUM] = {TIM1, TIM2, TIM3, TIM4, TIM5, TIM8};
+const uint32_t EncoderAPB1TIMs[ENCODER_CHANNEL_NUM] = {\
+				RCC_APB1Periph_TIM2, RCC_APB1Periph_TIM3,\
+				RCC_APB1Periph_TIM4, RCC_APB1Periph_TIM5\
+				};
+const uint32_t EncoderAHBPorts[ENCODER_CHANNEL_NUM] = {\
+				RCC_AHB1Periph_GPIOA, RCC_AHB1Periph_GPIOB,\
+				RCC_AHB1Periph_GPIOC, RCC_AHB1Periph_GPIOD, RCC_AHB1Periph_GPIOE\
+				};
+GPIO_TypeDef * EncoderPorts[ENCODER_CHANNEL_NUM] = {\
+				GPIOE, GPIOE,\
+				GPIOA, GPIOB,\
+				GPIOA, GPIOA,\
+				GPIOD, GPIOD,\
+				GPIOA, GPIOA,\
+				GPIOC, GPIOC\
+				};
+const uint16_t EncoderPinsources[ENCODER_CHANNEL_NUM] = {\
+				GPIO_PinSource9, GPIO_PinSource11,\
+				GPIO_PinSource5, GPIO_PinSource3,\
+				GPIO_PinSource6, GPIO_PinSource7,\
+				GPIO_PinSource12, GPIO_PinSource13,\
+				GPIO_PinSource0, GPIO_PinSource1,\
+				GPIO_PinSource6, GPIO_PinSource7\
+				};
+const uint8_t EncoderAFTIMs[ENCODER_CHANNEL_NUM] = {\
+				GPIO_AF_TIM1, GPIO_AF_TIM1,\
+				GPIO_AF_TIM2, GPIO_AF_TIM2,\
+				GPIO_AF_TIM3, GPIO_AF_TIM3,\
+				GPIO_AF_TIM4, GPIO_AF_TIM4,\
+				GPIO_AF_TIM5, GPIO_AF_TIM5,\
+				GPIO_AF_TIM8, GPIO_AF_TIM8\
+				};
+const uint16_t EncoderPins[ENCODER_CHANNEL_NUM] = {\
+				GPIO_Pin_9, GPIO_Pin_11,\
+				GPIO_Pin_5, GPIO_Pin_3,\
+				GPIO_Pin_6, GPIO_Pin_7,\
+				GPIO_Pin_12, GPIO_Pin_13,\
+				GPIO_Pin_0, GPIO_Pin_1,\
+				GPIO_Pin_6, GPIO_Pin_7\
+				};
+TIM_TypeDef * EncoderTIMs[ENCODER_CHANNEL_NUM] = {\
+				TIM1, TIM2, TIM3,\
+				TIM4, TIM5, TIM8\
+				};
 
 
 /*

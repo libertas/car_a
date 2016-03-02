@@ -12,6 +12,7 @@
 #include "pwm.h"
 #include "switch.h"
 #include "usart.h"
+#include "us100.h"
 #include "utils.h"
 #include "push_rod.h"
 #include "suart.h"
@@ -36,7 +37,7 @@ int main(void)
 	while(1)
 	{
 		check_cmd();
-		printf("u\n");
+		printf("%d\n", us100_get_distance(0));
 	}
 
 	return 0;

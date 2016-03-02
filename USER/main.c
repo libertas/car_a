@@ -37,7 +37,6 @@ int main(void)
 	while(1)
 	{
 		check_cmd();
-		printf("%d\n", us100_get_distance(0));
 	}
 
 	return 0;

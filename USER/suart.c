@@ -16,12 +16,12 @@ GPIO_TypeDef *su_tx_ports[SU_CHANNEL_NUM] = {GPIOB};
 uint16_t su_rx_pins[SU_CHANNEL_NUM] = {GPIO_Pin_11};
 GPIO_TypeDef *su_rx_ports[SU_CHANNEL_NUM] = {GPIOB};
 
-byte TBUF[SU_CHANNEL_NUM], RBUF[SU_CHANNEL_NUM];
-byte TDAT[SU_CHANNEL_NUM], RDAT[SU_CHANNEL_NUM];
-byte TCNT[SU_CHANNEL_NUM], RCNT[SU_CHANNEL_NUM];
-byte TBIT[SU_CHANNEL_NUM], RBIT[SU_CHANNEL_NUM];
-bool TING[SU_CHANNEL_NUM], RING[SU_CHANNEL_NUM];
-bool TEND[SU_CHANNEL_NUM], REND[SU_CHANNEL_NUM];
+byte TBUF[SU_CHANNEL_NUM] = {0}, RBUF[SU_CHANNEL_NUM] = {0};
+byte TDAT[SU_CHANNEL_NUM] = {0}, RDAT[SU_CHANNEL_NUM] = {0};
+byte TCNT[SU_CHANNEL_NUM] = {0}, RCNT[SU_CHANNEL_NUM] = {0};
+byte TBIT[SU_CHANNEL_NUM] = {0}, RBIT[SU_CHANNEL_NUM] = {0};
+bool TING[SU_CHANNEL_NUM] = {0}, RING[SU_CHANNEL_NUM] = {0};
+bool TEND[SU_CHANNEL_NUM] = {1}, REND[SU_CHANNEL_NUM] = {1};
 
 void suart_config(void)
 {
@@ -52,19 +52,21 @@ void suart_config(void)
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM11, ENABLE);
 	
-	TIM_TimeBaseInitStructure.TIM_Period = 19;
-	TIM_TimeBaseInitStructure.TIM_Prescaler = 0;
+	TIM_TimeBaseInitStructure.TIM_Period = 729 - 1;
+	TIM_TimeBaseInitStructure.TIM_Prescaler = 8 - 1;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	
 	TIM_TimeBaseInit(TIM11, &TIM_TimeBaseInitStructure);
 	
+	TIM_ClearFlag(TIM11, TIM_FLAG_Update);
+	
 	TIM_ITConfig(TIM11, TIM_IT_Update, ENABLE);
 	TIM_Cmd(TIM11, ENABLE);
 	
 	NVIC_InitStructure.NVIC_IRQChannel = TIM1_TRG_COM_TIM11_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 4;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 4;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
 }

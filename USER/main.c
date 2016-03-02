@@ -36,8 +36,7 @@ int main(void)
 	while(1)
 	{
 		check_cmd();
-		//suputchar(0, 'h');
-		GPIO_WriteBit(GPIOB, GPIO_Pin_10, Bit_SET);
+		printf("u\n");
 	}
 
 	return 0;

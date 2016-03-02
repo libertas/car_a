@@ -237,7 +237,7 @@ void uprintf(USART_TypeDef* USARTx, char *fmt, ...)
 	while ((i < CMD_BUFFER_LEN) && buffer[i])
 	{
 		while (USART_GetFlagStatus(USARTx, USART_FLAG_TXE) == RESET);
-	  USART_SendData(USARTx, (u8)buffer[i++]); 
+		USART_SendData(USARTx, (u8)buffer[i++]); 
 	}
 	
 	va_end(arg_ptr);

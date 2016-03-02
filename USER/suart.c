@@ -1,9 +1,13 @@
 #include <stdbool.h>
+#include <stdio.h>
 
 #include "misc.h"
 #include "stm32f4xx_gpio.h"
 
+#include "clock.h"
 #include "suart.h"
+
+#define SU_BUFFER_LEN 512
 
 #define RXB(i) GPIO_ReadInputDataBit(su_rx_ports[i], su_rx_pins[i])
 
@@ -98,6 +102,28 @@ char sugetchar(uint8_t channel)
 {
 	while(!REND[channel]);
 	return receive_uart(channel);
+}
+
+void suprintf(uint8_t channel, char *fmt, ...)
+{
+
+	char buffer[SU_BUFFER_LEN + 1];
+	u8 i = 0;
+	
+	va_list arg_ptr;
+	
+	va_start(arg_ptr, fmt);  
+	
+	vsnprintf(buffer, SU_BUFFER_LEN + 1, fmt, arg_ptr);
+	
+	while ((i < SU_BUFFER_LEN) && buffer[i])
+	{
+		suputchar(channel, (uint8_t)buffer[i++]); 
+	}
+	
+	va_end(arg_ptr);
+	
+	delay_ms(2);
 }
 
 void suart_check(void)

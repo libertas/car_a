@@ -1,5 +1,8 @@
 #include "dma.h"
 
+uint8_t mti_buffer[MTI_BUF_SIZE] = {'0'};
+uint8_t mti_sendbuffer[MTI_SEND_SIZE] = {0xFA,0x01,0xA4,0x02,0x00,0x04,0x55};
+
 void dma_config(void)
  { 
 	DMA_InitTypeDef  DMA_InitStructure;
@@ -19,7 +22,7 @@ void dma_config(void)
 	DMA_DeInit(DMA1_Stream4);
 	DMA_StructInit(&DMA_InitStructure);
 
-	DMA_InitStructure.DMA_BufferSize = SEND_SIZE ;
+	DMA_InitStructure.DMA_BufferSize = MTI_SEND_SIZE ;
 	DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Disable ;
 	DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_1QuarterFull ;
 	DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single ;
@@ -34,14 +37,14 @@ void dma_config(void)
 	DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;
 	DMA_InitStructure.DMA_Channel = DMA_Channel_4 ; 
 	DMA_InitStructure.DMA_DIR =  DMA_DIR_MemoryToPeripheral;
-	DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)sendbuffer;
+	DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)mti_sendbuffer;
 	DMA_Init(DMA1_Stream4, &DMA_InitStructure);
  /* REC */
-	DMA_InitStructure.DMA_BufferSize = BUF_SIZE ;
+	DMA_InitStructure.DMA_BufferSize = MTI_BUF_SIZE ;
 	DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;
 	DMA_InitStructure.DMA_Channel = DMA_Channel_4 ;
 	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralToMemory ;
-	DMA_InitStructure.DMA_Memory0BaseAddr =(uint32_t)buffer; 
+	DMA_InitStructure.DMA_Memory0BaseAddr =(uint32_t)mti_buffer; 
 	DMA_Init(DMA1_Stream2, &DMA_InitStructure); 
 
 	DMA_Cmd(DMA1_Stream2, ENABLE);  // RX

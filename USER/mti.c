@@ -1,21 +1,27 @@
-#include "MTi.h"
+#include "mti.h"
 #include "usart.h"
+
+const uint8_t mti_flag[4] = {0xFA,0xFF,0x32,0x0E};
+float mti_roll = 0;
+float mti_pitch = 0;
+float mti_yaw = 0;
+
 
 void mti(void)
 {
 	int a,b,c;
 	
-	if(buffer[0] == flag[0])
-		if(buffer[1] == flag[1])
-			if(buffer[2] == flag[2])
-				if(buffer[3] == flag[3]){
-					a = btol(buffer + 4);
-					b = btol(buffer + 8);
-					c = btol(buffer + 12);
-					memcpy(&roll, &a, sizeof(a));
-					memcpy(&pitch, &b, sizeof(b));
-					memcpy(&yaw, &c, sizeof(c));
-					uprintf(USART2, "roll = %f\t pitch = %f\t yaw = %f\t\r\n",roll, pitch, yaw);
+	if(mti_buffer[0] == mti_flag[0])
+		if(mti_buffer[1] == mti_flag[1])
+			if(mti_buffer[2] == mti_flag[2])
+				if(mti_buffer[3] == mti_flag[3]){
+					a = btol(mti_buffer + 4);
+					b = btol(mti_buffer + 8);
+					c = btol(mti_buffer + 12);
+					memcpy(&mti_roll, &a, sizeof(a));
+					memcpy(&mti_pitch, &b, sizeof(b));
+					memcpy(&mti_yaw, &c, sizeof(c));
+					uprintf(USART2, "roll = %f\t pitch = %f\t yaw = %f\t\r\n",mti_roll, mti_pitch, mti_yaw);
 				}
 }
 

@@ -213,11 +213,12 @@ void TIM6_DAC_IRQHandler(void)
 		TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
 	}
 }
+#endif
 
-#include "MTi.h"
+#include "mti.h"
 void DMA1_Stream2_IRQHandler(void)
 {
-	if(DMA_GetITStatus(DMA1_Stream2, DMA_IT_TCIF2) == SET ){
+	if(SET == DMA_GetITStatus(DMA1_Stream2, DMA_IT_TCIF2) ) {
 		uprintf(USART2,"RECOK\r\n");
 		mti();
 		DMA_Cmd(DMA1_Stream2, DISABLE);
@@ -228,14 +229,12 @@ void DMA1_Stream2_IRQHandler(void)
 
 void DMA1_Stream4_IRQHandler(void)
 {
-	if(DMA_GetITStatus(DMA1_Stream4, DMA_IT_TCIF4) == SET ){
+	if(SET == DMA_GetITStatus(DMA1_Stream4, DMA_IT_TCIF4)) {
 		uprintf(USART2,"SendOK\r\n");
 		DMA_Cmd(DMA1_Stream4, DISABLE);
 		DMA_ClearITPendingBit(DMA1_Stream4, DMA_IT_TCIF4);
 	}
 }
-
-#endif
 
 #include "fan.h"
 #include "encoder.h"

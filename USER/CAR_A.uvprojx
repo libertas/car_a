@@ -493,6 +493,11 @@
               <FileType>1</FileType>
               <FilePath>.\four_wheel.c</FilePath>
             </File>
+            <File>
+              <FileName>suart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\suart.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -807,6 +812,11 @@
               <FileName>watchdog.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\watchdog.h</FilePath>
+            </File>
+            <File>
+              <FileName>suart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\suart.h</FilePath>
             </File>
           </Files>
         </Group>

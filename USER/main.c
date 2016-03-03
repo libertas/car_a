@@ -2,6 +2,7 @@
 
 #include "stm32f4xx.h"
 
+#include "auto_control.h"
 #include "brake.h"
 #include "clock.h"
 #include "encoder.h"
@@ -12,8 +13,10 @@
 #include "pwm.h"
 #include "switch.h"
 #include "usart.h"
+#include "us100.h"
 #include "utils.h"
 #include "push_rod.h"
+#include "suart.h"
 #include "watchdog.h"
 
 int main(void)
@@ -23,6 +26,7 @@ int main(void)
 
 	interpreter_config();
 	uart_config(115200);
+	suart_config();
 
 	brake_config();
 	encoder_config();

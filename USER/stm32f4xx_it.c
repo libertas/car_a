@@ -216,6 +216,17 @@ void TIM6_DAC_IRQHandler(void)
 
 #endif
 
+
+#include "suart.h"
+void TIM1_TRG_COM_TIM11_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM11, TIM_IT_Update) != RESET) {
+		suart_check();
+		TIM_ClearITPendingBit(TIM11, TIM_IT_Update);
+	}
+}
+
+
 #include "fan.h"
 #include "encoder.h"
 void TIM7_IRQHandler(void)

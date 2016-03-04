@@ -21,6 +21,9 @@ void mti(void)
 					memcpy(&mti_roll, &a, sizeof(a));
 					memcpy(&mti_pitch, &b, sizeof(b));
 					memcpy(&mti_yaw, &c, sizeof(c));
+					mti_roll *= ANGLE_TO_RAD;
+					mti_pitch *= ANGLE_TO_RAD;
+					mti_yaw *= ANGLE_TO_RAD;
 					uprintf(USART2, "roll = %f\t pitch = %f\t yaw = %f\t\r\n",mti_roll, mti_pitch, mti_yaw);
 				}
 }

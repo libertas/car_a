@@ -256,24 +256,6 @@ void TIM7_IRQHandler(void)
 	}
 }
 
-#include "push_rod.h"
-void TIM8_TRG_COM_TIM14_IRQHandler(void)
-{
-	static uint16_t t = 0;
-	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
-		TIM_ClearITPendingBit(TIM14, TIM_FLAG_Update);
-		t++;
-		if(PUSH_ROD_TIME == t){
-			push_rod(PUSH_ROD_STOP);
-			#ifdef DEBUG
-			printf("\r\npush_rod_stop\r\n");
-			#endif
-			t = 0;
-			TIM_Cmd(TIM14, DISABLE);
-		}
-	}
-}
-
 #include "watchdog.h"
 void TIM8_UP_TIM13_IRQHandler(void)
 {

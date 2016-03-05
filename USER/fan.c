@@ -154,7 +154,7 @@ void kowtow_check(void)
 void fan_up(void)
 {
 	brake_release(0);
-	set_duty(FAN_UPDOWN_CHANNEL, 0.065);
+	set_duty(FAN_UPDOWN_CHANNEL, 0.063);
 }
 
 void fan_up_r(void)

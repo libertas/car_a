@@ -313,7 +313,7 @@ void EXTI2_IRQHandler(void)
 {
 	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
-		mag_up_stop();
+		mag_updown_stop();
 		
 		#ifdef DEBUG
 		printf("\nmag_up_stop()\n");

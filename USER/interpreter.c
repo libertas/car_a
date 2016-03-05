@@ -80,6 +80,9 @@ command list:
 	mag_down()
 		(byte) 0x14 (byte) 0x03
 	
+	mag_updown_stop()
+		(byte) 0x14 (byte) 0x04
+	
 	fan_roll(float rad)
 		(byte) 0x42	(float) [rad]
 	
@@ -121,7 +124,7 @@ int run_cmd(void)
 		case 0x14:
 			
 			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x20\n");
+			printf("\ncmd\t0x14\n");
 			#endif
 		
 			out_char_queue(&cmd_queue, (char*) &buf);
@@ -136,6 +139,12 @@ int run_cmd(void)
 					break;
 				case 0x02:
 					mag_out();
+					break;
+				case 0x03:
+					mag_down();
+					break;
+				case 0x04:
+					mag_updown_stop();
 					break;
 			}
 			break;

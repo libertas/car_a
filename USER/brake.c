@@ -21,7 +21,7 @@ void brake_config(void)
 	GPIO_Init(GPIOG, &GPIO_InitStructure);
 	
 	for(uint8_t i = 0; i < BRAKE_CHANNEL_NUM; i++) {
-		GPIO_WriteBit(GPIOG, brake_pins[i], Bit_RESET);
+		GPIO_WriteBit(GPIOG, brake_pins[i], Bit_SET);
 	}
 }
 

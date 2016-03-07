@@ -714,6 +714,11 @@
           <GroupName>Headers</GroupName>
           <Files>
             <File>
+              <FileName>auto_control.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\auto_control.h</FilePath>
+            </File>
+            <File>
               <FileName>clock.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\clock.h</FilePath>
@@ -822,11 +827,6 @@
               <FileName>suart.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\suart.h</FilePath>
-            </File>
-            <File>
-              <FileName>auto_control.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\auto_control.h</FilePath>
             </File>
           </Files>
         </Group>

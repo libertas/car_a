@@ -19,7 +19,7 @@ void f_stop(void)
 	}
 
 	uprintf(USART1,\
-		"\r0V%d\r1V%d\r2V%d\r3V%d\r",\
+		"\r0V%d\r1V%d\r2V%d\r5V%d\r",\
 		arg_speeds[0],\
 		arg_speeds[1],\
 		arg_speeds[2],\
@@ -44,7 +44,7 @@ void f_rotate_c(int8_t spd)
 	#endif
 
 	uprintf(USART1,\
-		"\r0V%d\r1V%d\r2V%d\r3V%d\r",\
+		"\r0V%d\r1V%d\r2V%d\r5V%d\r",\
 		arg_speeds[0],\
 		arg_speeds[1],\
 		arg_speeds[2],\
@@ -72,7 +72,7 @@ void f_move_xy_c(int8_t spd_x, int8_t spd_y)
 	#endif
 
 	uprintf(USART1,\
-		"\r0V%d\r1V%d\r2V%d\r3V%d\r",\
+		"\r0V%d\r1V%d\r2V%d\r5V%d\r",\
 		arg_speeds[0],\
 		arg_speeds[1],\
 		arg_speeds[2],\

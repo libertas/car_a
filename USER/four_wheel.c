@@ -69,6 +69,7 @@ void f_move_xy_c(int8_t spd_x, int8_t spd_y)
 	printf("\t0:%d\n", arg_speeds[0]);
 	printf("\t1:%d\n", arg_speeds[1]);
 	printf("\t2:%d\n", arg_speeds[2]);
+	printf("\t3:%d\n", arg_speeds[3]);
 	#endif
 
 	uprintf(USART1,\

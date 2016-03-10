@@ -25,7 +25,7 @@ The world view:
 #define DEFAULT_ARG_SPEED 2000
 #define VECT_W0 (-1)  // the wheel on the left or right side
 #define VECT_W1 (+1)  // the front wheel
-#define VECT_W2 (+1)  // the back wheel
+#define VECT_W2 (-1)  // the back wheel
 
 extern int16_t arg_speeds[3];
 

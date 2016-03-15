@@ -1,3 +1,5 @@
+#include "misc.h"
+#include "stm32f4xx_gpio.h"
 #include "stm32f4xx_spi.h"
 
 #include "spi.h"
@@ -16,6 +18,7 @@ uint8_t spi_wr(uint8_t data)
 void spi_config(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
+	NVIC_InitTypeDef NVIC_InitStructure;
 	SPI_InitTypeDef	SPI_InitStructure;
 	
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
@@ -53,6 +56,14 @@ void spi_config(void)
 	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
 	SPI_InitStructure.SPI_CRCPolynomial = 7;
 	SPI_Init(SPI2, &SPI_InitStructure);
- 
+
 	SPI_Cmd(SPI2, ENABLE);
+
+	SPI_I2S_ITConfig(SPI2, SPI_I2S_IT_RXNE, ENABLE);
+
+	NVIC_InitStructure.NVIC_IRQChannel = SPI2_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 4;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 4;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
 }

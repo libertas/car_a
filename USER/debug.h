@@ -5,6 +5,7 @@
 
 #ifndef DEBUG
 #define DEBUG
+// #define DEBUG_SPI
 // #define DEBUG_POS_FAN
 // #define DEBUG_BRAKE
 // #define DEBUG_FAN_KOWTOW_R

@@ -16,6 +16,7 @@
 #include "us100.h"
 #include "utils.h"
 #include "push_rod.h"
+#include "spi.h"
 #include "suart.h"
 #include "watchdog.h"
 
@@ -26,11 +27,12 @@ int main(void)
 
 	interpreter_config();
 	uart_config(115200);
+	spi_config();
 	suart_config();
 
 	brake_config();
 	encoder_config();
-	switch_config();
+	// switch_config();
 	pwm_config();
 	watchdog_config();
 

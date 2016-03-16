@@ -154,7 +154,7 @@ void SysTick_Handler(void)
 void SPI2_IRQHandler(void)
 {
 	#ifdef DEBUG_SPI
-	printf("SPI:0x%x\n", SPI_I2S_ReceiveData(SPI2));
+	printf("SPI:0x%x\n", SPI_ReceiveData(SPI2));
 	#endif
 }
 

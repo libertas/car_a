@@ -7,12 +7,12 @@
 uint8_t spi_wr(uint8_t data)
 {		 			 
  
-	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET);
-	SPI_I2S_SendData(SPI2, data);
+	while (SPI_GetFlagStatus(SPI2, SPI_FLAG_TXE) == RESET);
+	SPI_SendData(SPI2, data);
 	
-	while (SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+	while (SPI_GetFlagStatus(SPI2, SPI_FLAG_RXNE) == RESET);
 
-	return SPI_I2S_ReceiveData(SPI2);
+	return SPI_ReceiveData(SPI2);
 }
 
 void spi_config(void)
@@ -59,7 +59,7 @@ void spi_config(void)
 
 	SPI_Cmd(SPI2, ENABLE);
 
-	SPI_I2S_ITConfig(SPI2, SPI_I2S_IT_RXNE, ENABLE);
+	SPI_ITConfig(SPI2, SPI_IT_RXNE, ENABLE);
 
 	NVIC_InitStructure.NVIC_IRQChannel = SPI2_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 4;

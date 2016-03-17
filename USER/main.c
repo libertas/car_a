@@ -40,10 +40,7 @@ int main(void)
 	#ifdef MP_MASTER
 	delay_ms(1000);
 	for(uint8_t i = 0; i < 0xff; i++) {
-		delay_ms(1);
-		GPIO_WriteBit(GPIOB, GPIO_Pin_12, Bit_RESET);
-		printf("0x%x\n", spi_wr(i));
-		GPIO_WriteBit(GPIOB, GPIO_Pin_12, Bit_SET);
+		printf("%x\n", spi_wr(i));
 	}
 	#endif
 	

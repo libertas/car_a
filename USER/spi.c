@@ -6,14 +6,20 @@
 #include "spi.h"
 
 uint8_t spi_wr(uint8_t data)
-{		 			 
- 
+{
+	uint16_t rdata = data;
+
 	while (SPI_GetFlagStatus(SPI2, SPI_FLAG_TXE) == RESET);
-	SPI_SendData(SPI2, data);
+	SPI_SendData(SPI2, (~rdata) << 8 | rdata);
 	
 	while (SPI_GetFlagStatus(SPI2, SPI_FLAG_RXNE) == RESET);
+	rdata = SPI_ReceiveData(SPI2);
+	if(~(rdata >> 8) & rdata)
+		data = (uint8_t)data;
+	else
+		data = 0x00;
 
-	return SPI_ReceiveData(SPI2);
+	return data;
 }
 
 void spi_config(void)
@@ -40,6 +46,7 @@ void spi_config(void)
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 
+
 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource13, GPIO_AF_SPI2);
 	GPIO_PinAFConfig(GPIOB, GPIO_PinSource14, GPIO_AF_SPI2);
 	GPIO_PinAFConfig(GPIOC, GPIO_PinSource3, GPIO_AF_SPI2);
@@ -55,10 +62,10 @@ void spi_config(void)
 	SPI_InitStructure.SPI_Mode = SPI_Mode_Slave;
 	SPI_InitStructure.SPI_NSS = SPI_NSS_Hard;
 	#endif
-	SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
+	SPI_InitStructure.SPI_DataSize = SPI_DataSize_16b;
 	SPI_InitStructure.SPI_CPOL = SPI_CPOL_High;
 	SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;
-	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_128;
+	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_256;
 	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
 	SPI_InitStructure.SPI_CRCPolynomial = 7;
 	SPI_Init(SPI2, &SPI_InitStructure);

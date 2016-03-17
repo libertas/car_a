@@ -32,6 +32,7 @@
 
 #include "clock.h"
 #include "debug.h"
+#include "multi_processing.h"
 #include "pwm.h"
 #include "usart.h"
 #include "utils.h"
@@ -156,6 +157,12 @@ void SPI2_IRQHandler(void)
 	#ifdef DEBUG_SPI
 	printf("SPI:0x%x\n", SPI_ReceiveData(SPI2));
 	#endif
+	
+	#ifdef MP_SLAVE0
+	SPI_SendData(SPI2, SPI_ReceiveData(SPI2));
+	#endif
+	
+	SPI_ClearITPendingBit(SPI2, SPI_IT_RXNE);
 }
 
 

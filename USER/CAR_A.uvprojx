@@ -147,7 +147,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>11</TargetSelection>
+          <TargetSelection>6</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -161,7 +161,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>STLink\ST-LINKIII-KEIL_SWO.dll</Driver>
+            <Driver>Segger\JL2CM3.dll</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -503,6 +503,11 @@
               <FileType>1</FileType>
               <FilePath>.\auto_control.c</FilePath>
             </File>
+            <File>
+              <FileName>multi_processing.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\multi_processing.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -718,6 +723,11 @@
         <Group>
           <GroupName>Headers</GroupName>
           <Files>
+            <File>
+              <FileName>multi_processing.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\multi_processing.h</FilePath>
+            </File>
             <File>
               <FileName>auto_control.h</FileName>
               <FileType>5</FileType>

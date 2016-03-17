@@ -1,4 +1,5 @@
 #include "misc.h"
+#include "multi_processing.h"
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_spi.h"
 
@@ -47,19 +48,30 @@ void spi_config(void)
 	RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI2,DISABLE);
 
 	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+	#ifdef MP_MASTER
 	SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+	#else
+	SPI_InitStructure.SPI_Mode = SPI_Mode_Slave;
+	SPI_InitStructure.SPI_NSS = SPI_NSS_Hard;
+	#endif
 	SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
 	SPI_InitStructure.SPI_CPOL = SPI_CPOL_High;
 	SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;
-	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
 	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_128;
 	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
 	SPI_InitStructure.SPI_CRCPolynomial = 7;
 	SPI_Init(SPI2, &SPI_InitStructure);
 
 	SPI_Cmd(SPI2, ENABLE);
+	SPI_ClearITPendingBit(SPI2, SPI_IT_RXNE);
 
+	#ifdef MP_MASTER
+	SPI_ITConfig(SPI2, SPI_IT_RXNE, DISABLE);
+	SPI_ITConfig(SPI2, SPI_IT_TXE, DISABLE);
+	#else
 	SPI_ITConfig(SPI2, SPI_IT_RXNE, ENABLE);
+	#endif
 
 	NVIC_InitStructure.NVIC_IRQChannel = SPI2_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 4;

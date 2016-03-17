@@ -39,9 +39,9 @@ int main(void)
 
 	uint8_t i = 0,t = 0;
 	uint8_t cnt = 0;
-	uint8_t res;
-	uint8_t key;
-	CAN1_Mode_Init(CAN_SJW_1tq,CAN_BS2_6tq,CAN_BS1_7tq,6,CAN_Mode_LoopBack);//CAN初始化环回模式,波特率500Kbps    
+	//uint8_t can_send_failed;
+	//uint8_t can_received;
+	can1_config(CAN_SJW_1tq, CAN_BS2_6tq, CAN_BS1_7tq, 6, CAN_Mode_LoopBack);//CAN初始化环回模式,波特率500Kbps    
 
 	printf("\n\nEntering main loop\n\n");
 
@@ -50,14 +50,14 @@ int main(void)
 		if(10 == t) {
 			for(i = 0; i < 8; i++)
 			{
-				canbuf[i] = 0x07;//填充发送缓冲区
+				can_buffer[i] = 0x07;//填充发送缓冲区
  			}
-			res = CAN1_Send_Msg(canbuf,8);//发送8个字节 
-			if(res) uprintf(USART1, "failed\r\n");
+			can_send_failed = can1_send(can_buffer, 8);//发送8个字节
+			if(can_send_failed) uprintf(USART1, "failed\r\n");
 			else uprintf(USART1, "ok\r\n");
 		}	 
-		key = CAN1_Receive_Msg(canbuf);
-		if(key)//接收到有数据
+
+		if(can1_receive(can_buffer))//接收到有数据
 		{
 			uprintf(USART1,"received\r\n");
 		}

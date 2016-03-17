@@ -364,6 +364,18 @@ void EXTI1_IRQHandler(void)
 	EXTI_ClearITPendingBit(EXTI_Line1);
 }
 
+#include "can.h"
+#if CAN1_RX0_INT_ENABLE	//使能RX0中断
+//中断服务函数			    
+void CAN1_RX0_IRQHandler(void)
+{
+  	CanRxMsg RxMessage;
+	int i=0;
+    CAN_Receive(CAN1, CAN_FIFO0, &RxMessage);
+	for(i=0;i<8;i++)
+	printf("rxbuf[%d]:%d\r\n",i,RxMessage.Data[i]);
+}
+#endif
 /******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */

@@ -2,9 +2,10 @@
 #include "clock.h"
 #include "usart.h"
 
-uint8_t canbuf[8] = {0};
+uint8_t can_buffer[8] = {0};
+uint8_t can_send_failed = 0;
 
-uint8_t CAN1_Mode_Init(uint8_t tsjw, uint8_t tbs2, uint8_t tbs1, uint16_t brp, uint8_t mode)
+uint8_t can1_config(uint8_t tsjw, uint8_t tbs2, uint8_t tbs1, uint16_t brp, uint8_t mode)
 {
 
   	GPIO_InitTypeDef GPIO_InitStructure; 
@@ -67,47 +68,35 @@ uint8_t CAN1_Mode_Init(uint8_t tsjw, uint8_t tbs2, uint8_t tbs1, uint16_t brp, u
 #endif
 	return 0;
 }   
- 
-#if CAN1_RX0_INT_ENABLE	//使能RX0中断
-//中断服务函数			    
-void CAN1_RX0_IRQHandler(void)
-{
-  	CanRxMsg RxMessage;
-	int i=0;
-    CAN_Receive(CAN1, 0, &RxMessage);
-	for(i=0;i<8;i++)
-	printf("rxbuf[%d]:%d\r\n",i,RxMessage.Data[i]);
-}
-#endif
 
 //can发送一组数据(固定格式:ID为0X12,标准帧,数据帧)	
 //len:数据长度(最大为8)				     
 //msg:数据指针,最大为8个字节.
 //返回值:0,成功;
 //		 其他,失败;
-uint8_t CAN1_Send_Msg(uint8_t* msg,uint8_t len)
+uint8_t can1_send(uint8_t* msg,uint8_t len)
 {	
-  uint8_t mbox;
-  uint16_t i=0;
-  CanTxMsg TxMessage;
-  TxMessage.StdId=0x12;	 // 标准标识符为0
-  TxMessage.ExtId=0x12;	 // 设置扩展标示符（29位）
-  TxMessage.IDE=0;		  // 使用扩展标识符
-  TxMessage.RTR=0;		  // 消息类型为数据帧，一帧8位
-  TxMessage.DLC=len;							 // 发送两帧信息
-  for(i=0; i < len; i++)
-  TxMessage.Data[i] = msg[i];				 // 第一帧信息          
-  mbox = CAN_Transmit(CAN1, &TxMessage);   
-  i = 0;
-  while((CAN_TransmitStatus(CAN1, mbox)==CAN_TxStatus_Failed)&&(i<0XFFF))i++;	//等待发送结束
-  if(i >= 0XFFF)return 1;
-  return 0;		
+	uint8_t mbox;
+	uint16_t i=0;
+	CanTxMsg TxMessage;
+	TxMessage.StdId=0x12;	 // 标准标识符为0
+	TxMessage.ExtId=0x12;	 // 设置扩展标示符（29位）
+	TxMessage.IDE=0;		  // 使用扩展标识符
+	TxMessage.RTR=0;		  // 消息类型为数据帧，一帧8位
+	TxMessage.DLC=len;							 // 发送两帧信息
+	for(i=0; i < len; i++)
+	TxMessage.Data[i] = msg[i];				 // 第一帧信息          
+	mbox = CAN_Transmit(CAN1, &TxMessage);   
+	i = 0;
+	while((CAN_TransmitStatus(CAN1, mbox)==CAN_TxStatus_Failed)&&(i<0XFFF))i++;	//等待发送结束
+	if(i >= 0XFFF)return 1;
+	return 0;
 }
 //can口接收数据查询
 //buf:数据缓存区;	 
 //返回值:0,无数据被收到;
 //		 其他,接收的数据长度;
-uint8_t CAN1_Receive_Msg(uint8_t *buf)
+uint8_t can1_receive(uint8_t *buf)
 {		   		   
  	uint32_t i;
 	CanRxMsg RxMessage;

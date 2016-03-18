@@ -13,13 +13,21 @@ void iic_config(void)
 
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);//使能GPIOB时钟
 
-	//GPIOB8,B9初始化设置
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//普通输出模式
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//推挽输出
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉
-	GPIO_Init(GPIOB, &GPIO_InitStructure);//初始化
+	//GPIO definition of IIC_SCL IIC_SDA 
+	GPIO_InitStructure.GPIO_Pin = IIC_SCL.pin;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_Init(IIC_SCL.port, &GPIO_InitStructure);
+	
+	GPIO_InitStructure.GPIO_Pin = IIC_SDA.pin;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_Init(IIC_SDA.port, &GPIO_InitStructure);
+	
 	iic_write_bit(IIC_SCL, Bit_SET);
 	iic_write_bit(IIC_SDA, Bit_SET);
 }

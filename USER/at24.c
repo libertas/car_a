@@ -114,7 +114,8 @@ void iic_send_byte(uint8_t txd)
     iic_write_bit(IIC_SCL, Bit_RESET);//拉低时钟开始数据传输
     for(t=0;t<8;t++)
     {              
-        iic_write_bit(IIC_SDA, (txd&0x80)>>7);
+        if(!(txd&0x80)>>7) iic_write_bit(IIC_SDA, Bit_RESET);
+		else iic_write_bit(IIC_SDA, Bit_SET);
         txd<<=1; 	  
 		delay_us(2);   //对TEA5767这三个延时都是必须的
 		iic_write_bit(IIC_SCL, Bit_SET);

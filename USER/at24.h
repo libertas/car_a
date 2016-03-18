@@ -16,12 +16,12 @@ extern struct iic_pin IIC_SCL, IIC_SDA;
 #define READ_SDA   GPIO_ReadInputDataBit(IIC_SDA.port, IIC_SDA.pin)//输入SDA
 
 //IIC所有操作函数
-void iic_config(void);                //初始化IIC的IO口				 
+void iic_config(void);              //初始化IIC的IO口				 
 void iic_start(void);				//发送IIC开始信号
 void iic_stop(void);	  			//发送IIC停止信号
-void iic_send_byte(uint8_t txd);			//IIC发送一个字节
+void iic_send_byte(uint8_t txd);		 //IIC发送一个字节
 uint8_t iic_read_byte(unsigned char ack);//IIC读取一个字节
-uint8_t iic_wait_ack(void); 				//IIC等待ACK信号
+uint8_t iic_wait_ack(void); 			 //IIC等待ACK信号
 void iic_ack(void);					//IIC发送ACK信号
 void iic_nack(void);				//IIC不发送ACK信号
 

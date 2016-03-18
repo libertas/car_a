@@ -7,6 +7,7 @@
 #include "clock.h"
 #include "encoder.h"
 #include "fan.h"
+#include "flash.h"
 #include "interpreter.h"
 #include "magnet.h"
 #include "movement.h"
@@ -35,15 +36,8 @@ int main(void)
 	encoder_config();
 	// switch_config();
 	pwm_config();
-	watchdog_config();
-	
-	#ifdef MP_MASTER
-	delay_ms(1000);
-	for(uint8_t i = 0; i < 0xff; i++) {
-		printf("%x\n", spi_wr(i));
-	}
-	#endif
-	
+	// watchdog_config();
+
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

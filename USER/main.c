@@ -10,6 +10,7 @@
 #include "interpreter.h"
 #include "magnet.h"
 #include "movement.h"
+#include "multi_processing.h"
 #include "pwm.h"
 #include "switch.h"
 #include "usart.h"
@@ -35,6 +36,14 @@ int main(void)
 	// switch_config();
 	pwm_config();
 	watchdog_config();
+	
+	#ifdef MP_MASTER
+	delay_ms(1000);
+	for(uint8_t i = 0; i < 0xff; i++) {
+		printf("%x\n", spi_wr(i));
+	}
+	#endif
+	
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

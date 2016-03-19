@@ -39,6 +39,16 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 
+	char str[10] = "012345678";
+	char tmp[1000];
+	db_clear_init();
+	db_save("abc", str, 5);
+	db_sync();
+	uint32_t d = db_find("abc");
+	printf("%x\n", d);
+	flreadn(DB_SECTOR, (uint32_t*)tmp, 20);
+	printf("%s\n", tmp);
+
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

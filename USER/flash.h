@@ -17,6 +17,7 @@
 #define ADDR_FLASH_SECTOR_10    ((uint32_t)0x080C0000) 	// 128 Kbytes  
 #define ADDR_FLASH_SECTOR_11    ((uint32_t)0x080E0000) 	// 128 Kbytes  
 
+void flerase(uint32_t addrx);
 uint32_t flread(uint32_t faddr);
-void flwriten(uint32_t WriteAddr,uint32_t *pBuffer,uint32_t NumToWrite);
-void flreadn(uint32_t ReadAddr,uint32_t *pBuffer,uint32_t NumToRead);
+void flwriten(uint32_t addrx,uint32_t *buf,uint32_t data_len);
+void flreadn(uint32_t addrx,uint32_t *buf,uint32_t data_len);

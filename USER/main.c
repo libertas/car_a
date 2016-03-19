@@ -38,14 +38,6 @@ int main(void)
 	// switch_config();
 	pwm_config();
 	// watchdog_config();
-	
-	db_init();
-	uint8_t data[2] = {0xab, 0xcd};
-	uint8_t ndata[2];
-	db_save("test0", data, 2);
-	db_sync();
-	db_read("test0", ndata);
-	printf("%x %x\n", data[0], data[1]);
 
 
 	printf("\n\nEntering main loop\n\n");

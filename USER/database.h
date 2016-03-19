@@ -5,6 +5,7 @@
 
 void db_init(void);
 void db_clear_init(void);
+void db_delete(char name[], uint32_t data_len);
 uint32_t db_find(char name[]);
 void db_read(char name[], uint8_t* data);
 void db_save(char name[], uint8_t* data, uint32_t data_len);

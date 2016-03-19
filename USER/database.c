@@ -70,6 +70,7 @@ void db_sync(void)
 	if(false == db_init_done)
 		return;
 
+	flerase(DB_SECTOR);
 	flwriten(DB_SECTOR, (uint32_t*)db_buf, DB_SECTOR_LEN);
 }
 
@@ -84,7 +85,6 @@ uint32_t db_find(char name[])
 			return 0;
 		}
 
-		// d = sscanf((char*)(db_buf + i), "%s", tmp);
 		if('\n' == db_buf[i]) {
 			for(j = 0; j < db_index; j++) {
 				tmp[j] = db_buf[i + j + 1];
@@ -104,6 +104,28 @@ uint32_t db_find(char name[])
 	}
 	
 	return 0;
+}
+
+void db_delete(char name[], uint32_t data_len)
+{
+	uint32_t i, pos, start, end, len;
+
+	pos = db_find(name);
+	if(0 == pos)
+		return;
+
+	for(start = pos; '\n' != db_buf[start]; start--);
+	end = pos + data_len;
+	len = end - start;
+
+	for(i = end; i < db_index; i++) {
+		db_buf[i - len] = db_buf[i];
+	}
+	for(i = i - len; i < db_index; i++) {
+		db_buf[i] = 0xff;
+	}
+
+	db_index -= len;
 }
 
 void db_read(char name[], uint8_t* data)

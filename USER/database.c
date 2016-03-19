@@ -182,7 +182,7 @@ void db_exec(char cmd[])
 	uint32_t i, pos;
 	uint32_t len = strlen(cmd);
 	bool is_valid = false;
-	uint8_t name[CMD_BUF_LEN];
+	char name[CMD_BUF_LEN];
 	uint8_t data[CMD_BUF_LEN];
 
 	switch(cmd[0]) {
@@ -206,21 +206,42 @@ void db_exec(char cmd[])
 				}
 				data[i] = 0;
 
-				#ifdef DEBUG_DB_EXEC
-				printf("name:%s,data:%s\n", (char*)name, (char*)data);
-				#endif
+				printf("\nname:%s,data:%s\n", (char*)name, (char*)data);
 
 				db_save((char*)name, data, i);
-				db_sync();
 			} else {
-				#ifdef DEBUG_DB_EXEC
-				printf("Wrong code to write\n");
-				#endif
+				printf("\nWrong code to write\n");
 			}
+			break;
+		case 'r':
+			for(i = 1; i < NAME_MAX_LEN; i++) {
+				name[i - 1] = cmd[i];
+				if('\n' == cmd[i]) {
+					name[i - 1] = 0;
+					break;
+				}
+			}
+			db_read((char*)name, data);
+			printf("\n%s=%s\n", name, data);
+			break;
+		case 'd':
+			for(i = 1; i < NAME_MAX_LEN; i++) {
+				name[i - 1] = cmd[i];
+				if('\n' == cmd[i]) {
+					name[i - 1] = 0;
+					break;
+				}
+			}
+			db_delete((char*)name);
+			printf("\n%s deleted\n", name);
+			break;
+		case 's':
+			db_sync();
+			printf("\nsync done\n");
 			break;
 		default:
 			#ifdef DEBUG_DB_EXEC
-			printf("Unrecognised code\n");
+			printf("\nUnrecognised code\n");
 			#endif
 			break;
 	}

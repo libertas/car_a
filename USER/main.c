@@ -27,6 +27,7 @@ int main(void)
 {
 	system_clk_set();
 	systick_config();
+	db_init();
 
 	interpreter_config();
 	uart_config(115200);
@@ -39,14 +40,6 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 
-	char tmp[1000];
-	db_init();
-
-	uint32_t d = db_find("c");
-	printf("%d\n", d);
-
-	db_read("c", (uint8_t*)tmp);
-	printf("c:%s\n", tmp);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

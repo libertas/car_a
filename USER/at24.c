@@ -2,192 +2,179 @@
 
 #include "at24.h"
 #include "clock.h"
-	
-struct iic_pin IIC_SCL = {GPIOB, GPIO_Pin_8};
-struct iic_pin IIC_SDA = {GPIOB, GPIO_Pin_9};
 
-
-void iic_config(void)
+//初始化IIC
+void IIC_Init(void)
 {			
-	GPIO_InitTypeDef  GPIO_InitStructure;
+  GPIO_InitTypeDef  GPIO_InitStructure;
 
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);//使能GPIOB时钟
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);//使能GPIOB时钟
 
-	//GPIO definition of IIC_SCL IIC_SDA 
-	GPIO_InitStructure.GPIO_Pin = IIC_SCL.pin;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_Init(IIC_SCL.port, &GPIO_InitStructure);
-	
-	GPIO_InitStructure.GPIO_Pin = IIC_SDA.pin;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_Init(IIC_SDA.port, &GPIO_InitStructure);
-	
-	iic_write_bit(IIC_SCL, Bit_SET);
-	iic_write_bit(IIC_SDA, Bit_SET);
+  //GPIOB8,B9初始化设置
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//普通输出模式
+  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//推挽输出
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉
+  GPIO_Init(GPIOB, &GPIO_InitStructure);//初始化
+	IIC_SCL=1;
+	IIC_SDA=1;
 }
-
-void iic_start(void)
+//产生IIC起始信号
+void IIC_Start(void)
 {
 	SDA_OUT();     //sda线输出
-	iic_write_bit(IIC_SDA, Bit_SET);	  	  
-	iic_write_bit(IIC_SCL, Bit_SET);
+	IIC_SDA=1;	  	  
+	IIC_SCL=1;
 	delay_us(4);
- 	iic_write_bit(IIC_SDA, Bit_RESET);//START:when CLK is high,DATA change form high to low 
+ 	IIC_SDA=0;//START:when CLK is high,DATA change form high to low 
 	delay_us(4);
-	iic_write_bit(IIC_SCL, Bit_RESET);//钳住I2C总线，准备发送或接收数据 
+	IIC_SCL=0;//钳住I2C总线，准备发送或接收数据 
 }	  
-
-void iic_stop(void)
+//产生IIC停止信号
+void IIC_Stop(void)
 {
 	SDA_OUT();//sda线输出
-	iic_write_bit(IIC_SCL, Bit_RESET);
-	iic_write_bit(IIC_SDA, Bit_RESET);//STOP:when CLK is high DATA change form low to high
+	IIC_SCL=0;
+	IIC_SDA=0;//STOP:when CLK is high DATA change form low to high
  	delay_us(4);
-	iic_write_bit(IIC_SCL, Bit_SET); 
-	iic_write_bit(IIC_SDA, Bit_SET);//发送I2C总线结束信号
+	IIC_SCL=1; 
+	IIC_SDA=1;//发送I2C总线结束信号
 	delay_us(4);							   	
 }
 //等待应答信号到来
 //返回值：1，接收应答失败
 //        0，接收应答成功
-uint8_t iic_wait_ack(void)
+u8 IIC_Wait_Ack(void)
 {
-	uint8_t ucErrTime=0;
+	u8 ucErrTime=0;
 	SDA_IN();      //SDA设置为输入  
-	iic_write_bit(IIC_SDA, Bit_SET);
-	delay_us(1);	   
-	iic_write_bit(IIC_SCL, Bit_SET);
-	delay_us(1);	 
+	IIC_SDA=1;delay_us(1);	   
+	IIC_SCL=1;delay_us(1);	 
 	while(READ_SDA)
 	{
 		ucErrTime++;
 		if(ucErrTime>250)
 		{
-			iic_stop();
+			IIC_Stop();
 			return 1;
 		}
 	}
-	iic_write_bit(IIC_SCL, Bit_RESET);//时钟输出0 	   
+	IIC_SCL=0;//时钟输出0 	   
 	return 0;  
 } 
 //产生ACK应答
-void iic_ack(void)
+void IIC_Ack(void)
 {
-	iic_write_bit(IIC_SCL, Bit_RESET);
+	IIC_SCL=0;
 	SDA_OUT();
-	iic_write_bit(IIC_SDA, Bit_RESET);
+	IIC_SDA=0;
 	delay_us(2);
-	iic_write_bit(IIC_SCL, Bit_SET);
+	IIC_SCL=1;
 	delay_us(2);
-	iic_write_bit(IIC_SCL, Bit_RESET);
+	IIC_SCL=0;
 }
 //不产生ACK应答		    
-void iic_nack(void)
+void IIC_NAck(void)
 {
-	iic_write_bit(IIC_SCL, Bit_RESET);
+	IIC_SCL=0;
 	SDA_OUT();
-	iic_write_bit(IIC_SDA, Bit_RESET);
+	IIC_SDA=1;
 	delay_us(2);
-	iic_write_bit(IIC_SCL, Bit_SET);
+	IIC_SCL=1;
 	delay_us(2);
-	iic_write_bit(IIC_SCL, Bit_RESET);
+	IIC_SCL=0;
 }					 				     
-//IIC写bit
-void iic_write_bit(struct iic_pin IIC_PIN, BitAction BitVal)
-{
-	GPIO_WriteBit(IIC_PIN.port, IIC_PIN.pin, BitVal);
-}
 //IIC发送一个字节
 //返回从机有无应答
 //1，有应答
 //0，无应答			  
-void iic_send_byte(uint8_t txd)
+void IIC_Send_Byte(u8 txd)
 {                        
-    uint8_t t;   
+    u8 t;   
 	SDA_OUT(); 	    
-    iic_write_bit(IIC_SCL, Bit_RESET);//拉低时钟开始数据传输
+    IIC_SCL=0;//拉低时钟开始数据传输
     for(t=0;t<8;t++)
     {              
-        iic_write_bit(IIC_SDA, (txd&0x80)>>7);
+        IIC_SDA=(txd&0x80)>>7;
         txd<<=1; 	  
 		delay_us(2);   //对TEA5767这三个延时都是必须的
-		iic_write_bit(IIC_SCL, Bit_SET);
+		IIC_SCL=1;
 		delay_us(2); 
-		iic_write_bit(IIC_SCL, Bit_RESET);	
+		IIC_SCL=0;	
 		delay_us(2);
     }	 
 } 	    
 //读1个字节，ack=1时，发送ACK，ack=0，发送nACK   
-uint8_t iic_read_byte(unsigned char ack)
+u8 IIC_Read_Byte(unsigned char ack)
 {
 	unsigned char i,receive=0;
 	SDA_IN();//SDA设置为输入
     for(i=0;i<8;i++ )
 	{
-        iic_write_bit(IIC_SCL, Bit_RESET); 
+        IIC_SCL=0; 
         delay_us(2);
-		iic_write_bit(IIC_SCL, Bit_SET);
+		IIC_SCL=1;
         receive<<=1;
         if(READ_SDA)receive++;   
 		delay_us(1); 
     }					 
     if (!ack)
-        iic_nack();//发送nACK
+        IIC_NAck();//发送nACK
     else
-        iic_ack(); //发送ACK   
+        IIC_Ack(); //发送ACK   
     return receive;
 }
 
 
 //at24
 
+//初始化IIC接口
+void AT24CXX_Init(void)
+{
+	IIC_Init();//IIC初始化
+}
 //在AT24CXX指定地址读出一个数据
 //ReadAddr:开始读数的地址  
 //返回值  :读到的数据
-uint8_t AT24CXX_ReadOneByte(uint16_t ReadAddr)
+u8 AT24CXX_ReadOneByte(u16 ReadAddr)
 {				  
-	uint8_t temp=0;		  	    																 
-    iic_start();  
+	u8 temp=0;		  	    																 
+    IIC_Start();  
 	if(EE_TYPE>AT24C16)
 	{
-		iic_send_byte(0XA0);	   //发送写命令
-		iic_wait_ack();
-		iic_send_byte(ReadAddr>>8);//发送高地址	    
-	}else iic_send_byte(0XA0+((ReadAddr/256)<<1));   //发送器件地址0XA0,写数据 	   
-	iic_wait_ack(); 
-    iic_send_byte(ReadAddr%256);   //发送低地址
-	iic_wait_ack();	    
-	iic_start();  	 	   
-	iic_send_byte(0XA1);           //进入接收模式			   
-	iic_wait_ack();	 
-    temp=iic_read_byte(0);		   
-    iic_stop();//产生一个停止条件	    
+		IIC_Send_Byte(0XA0);	   //发送写命令
+		IIC_Wait_Ack();
+		IIC_Send_Byte(ReadAddr>>8);//发送高地址	    
+	}else IIC_Send_Byte(0XA0+((ReadAddr/256)<<1));   //发送器件地址0XA0,写数据 	   
+	IIC_Wait_Ack(); 
+    IIC_Send_Byte(ReadAddr%256);   //发送低地址
+	IIC_Wait_Ack();	    
+	IIC_Start();  	 	   
+	IIC_Send_Byte(0XA1);           //进入接收模式			   
+	IIC_Wait_Ack();	 
+    temp=IIC_Read_Byte(0);		   
+    IIC_Stop();//产生一个停止条件	    
 	return temp;
 }
 //在AT24CXX指定地址写入一个数据
 //WriteAddr  :写入数据的目的地址    
 //DataToWrite:要写入的数据
-void AT24CXX_WriteOneByte(uint16_t WriteAddr,uint8_t DataToWrite)
+void AT24CXX_WriteOneByte(u16 WriteAddr,u8 DataToWrite)
 {				   	  	    																 
-    iic_start();  
+    IIC_Start();  
 	if(EE_TYPE>AT24C16)
 	{
-		iic_send_byte(0XA0);	    //发送写命令
-		iic_wait_ack();
-		iic_send_byte(WriteAddr>>8);//发送高地址	  
-	}else iic_send_byte(0XA0+((WriteAddr/256)<<1));   //发送器件地址0XA0,写数据 	 
-	iic_wait_ack();	   
-    iic_send_byte(WriteAddr%256);   //发送低地址
-	iic_wait_ack(); 	 										  		   
-	iic_send_byte(DataToWrite);     //发送字节							   
-	iic_wait_ack();  		    	   
-    iic_stop();//产生一个停止条件 
+		IIC_Send_Byte(0XA0);	    //发送写命令
+		IIC_Wait_Ack();
+		IIC_Send_Byte(WriteAddr>>8);//发送高地址	  
+	}else IIC_Send_Byte(0XA0+((WriteAddr/256)<<1));   //发送器件地址0XA0,写数据 	 
+	IIC_Wait_Ack();	   
+    IIC_Send_Byte(WriteAddr%256);   //发送低地址
+	IIC_Wait_Ack(); 	 										  		   
+	IIC_Send_Byte(DataToWrite);     //发送字节							   
+	IIC_Wait_Ack();  		    	   
+    IIC_Stop();//产生一个停止条件 
 	delay_ms(10);	 
 }
 //在AT24CXX里面的指定地址开始写入长度为Len的数据
@@ -195,9 +182,9 @@ void AT24CXX_WriteOneByte(uint16_t WriteAddr,uint8_t DataToWrite)
 //WriteAddr  :开始写入的地址  
 //DataToWrite:数据数组首地址
 //Len        :要写入数据的长度2,4
-void AT24CXX_WriteLenByte(uint16_t WriteAddr,uint32_t DataToWrite,uint8_t Len)
+void AT24CXX_WriteLenByte(u16 WriteAddr,u32 DataToWrite,u8 Len)
 {  	
-	uint8_t t;
+	u8 t;
 	for(t=0;t<Len;t++)
 	{
 		AT24CXX_WriteOneByte(WriteAddr+t,(DataToWrite>>(8*t))&0xff);
@@ -209,10 +196,10 @@ void AT24CXX_WriteLenByte(uint16_t WriteAddr,uint32_t DataToWrite,uint8_t Len)
 //ReadAddr   :开始读出的地址 
 //返回值     :数据
 //Len        :要读出数据的长度2,4
-uint32_t AT24CXX_ReadLenByte(uint16_t ReadAddr,uint8_t Len)
+u32 AT24CXX_ReadLenByte(u16 ReadAddr,u8 Len)
 {  	
-	uint8_t t;
-	uint32_t temp=0;
+	u8 t;
+	u32 temp=0;
 	for(t=0;t<Len;t++)
 	{
 		temp<<=8;
@@ -225,9 +212,9 @@ uint32_t AT24CXX_ReadLenByte(uint16_t ReadAddr,uint8_t Len)
 //如果用其他24C系列,这个地址要修改
 //返回1:检测失败
 //返回0:检测成功
-uint8_t AT24CXX_Check(void)
+u8 AT24CXX_Check(void)
 {
-	uint8_t temp;
+	u8 temp;
 	temp=AT24CXX_ReadOneByte(255);//避免每次开机都写AT24CXX			   
 	if(temp==0X55)return 0;		   
 	else//排除第一次初始化的情况
@@ -243,7 +230,7 @@ uint8_t AT24CXX_Check(void)
 //ReadAddr :开始读出的地址 对24c02为0~255
 //pBuffer  :数据数组首地址
 //NumToRead:要读出数据的个数
-void AT24CXX_Read(uint16_t ReadAddr,uint8_t *pBuffer,uint16_t NumToRead)
+void AT24CXX_Read(u16 ReadAddr,u8 *pBuffer,u16 NumToRead)
 {
 	while(NumToRead)
 	{
@@ -255,7 +242,7 @@ void AT24CXX_Read(uint16_t ReadAddr,uint8_t *pBuffer,uint16_t NumToRead)
 //WriteAddr :开始写入的地址 对24c02为0~255
 //pBuffer   :数据数组首地址
 //NumToWrite:要写入数据的个数
-void AT24CXX_Write(uint16_t WriteAddr,uint8_t *pBuffer,uint16_t NumToWrite)
+void AT24CXX_Write(u16 WriteAddr,u8 *pBuffer,u16 NumToWrite)
 {
 	while(NumToWrite--)
 	{

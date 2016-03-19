@@ -42,41 +42,41 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 
-	iic_config();
-	uint16_t t = 0;
-	uint8_t datatemp[SIZE];
+	u16 i=0;
+	u8 datatemp[SIZE];	
 	
-	printf("\n\nEntering main loop\n\n");
-	while(AT24CXX_Check())//检测不到24c02
+	AT24CXX_Init();			//IIC初始化 
+
+ 	while(AT24CXX_Check())//检测不到24c02
 	{
-		uprintf(USART3,"at24 Check Failed!");
+		uprintf(USART1,"24C02 Check Failed!");
 		delay_ms(500);
-		uprintf(USART3,"Please Check!      ");
+		uprintf(USART1,"Please Check!      ");
 		delay_ms(500);
 	}
-	uprintf(USART3,"at24 Ready!");      
+	uprintf(USART1,"24C02 Ready!");    
 	while(1)
 	{
-		if(10 == t)
+		if(5 == i)//KEY1按下,写入24C02
 		{
- 			uprintf(USART3,"Start Write at24....");
-			AT24CXX_Write(0,(uint8_t*)TEXT_Buffer,SIZE);
-			uprintf(USART3,"at24 Write Finished!");
+ 			uprintf(USART1,"Start Write 24C02....");
+			AT24CXX_Write(0,(u8*)TEXT_Buffer,SIZE);
+			uprintf(USART1,"24C02 Write Finished!");//提示传送完成
 		}
-		if(20 == t)
+		if(10 == i)//KEY0按下,读取字符串并显示
 		{
- 			uprintf(USART3,"Start Read at24.... ");
+ 			uprintf(USART1,"Start Read 24C02.... ");
 			AT24CXX_Read(0,datatemp,SIZE);
-			uprintf(USART3,"The Data Readed Is:  ");//提示传送完成
-			uprintf(USART3,"%d",datatemp);//显示读到的字符串
+			uprintf(USART1,"The Data Readed Is:  ");//提示传送完成
+			uprintf(USART1,"%s\r\n",datatemp);//显示读到的字符串
 		}
-		t++;
+		i++;
 		delay_ms(10);
-		if(30 == t)
+		if(i==20)
 		{
-			t = 0;
+			i=0;
 		}		   
-	} 	   
+	} 		   
 
 	return 0;
 }

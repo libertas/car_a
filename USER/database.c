@@ -45,6 +45,9 @@ void db_save(char name[], uint8_t* data, uint32_t data_len)
 	if(false == db_init_done)
 		return;
 
+	if(0 != db_find(name))
+		db_delete(name, data_len);
+
 	uint32_t i, j;
 	uint8_t name_len = strlen(name);
 

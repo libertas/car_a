@@ -40,6 +40,7 @@ int main(void)
 	// watchdog_config();
 
 	char str[10] = "012345678";
+	char str1[10] = "87654321";
 	char tmp[1000];
 	db_clear_init();
 	db_save("testa", (uint8_t*)str, 5);
@@ -58,6 +59,7 @@ int main(void)
 	printf("%s\n", tmp);
 	
 	db_delete("testb", 5);
+	db_save("testc", (uint8_t*)str1, 5);
 	db_sync();
 	
 	flreadn(DB_SECTOR, (uint32_t*)tmp, 30);

@@ -8,7 +8,11 @@
 
 
 #define NAME_MAX_LEN 32
+#define CMD_BUF_LEN 64
 
+
+char db_cmd_buf[CMD_BUF_LEN] = {0};
+char_queue db_cmd_queue;
 
 static uint8_t db_buf[DB_SECTOR_LEN + NAME_MAX_LEN]; // NAME_MAX_LEN for not to overflow
 static uint32_t db_index = 0;
@@ -31,6 +35,8 @@ void db_init(void)
 			}
 		}
 	}
+
+	init_char_queue(&db_cmd_queue, db_cmd_buf, CMD_BUF_LEN);
 	db_init_done = true;
 }
 
@@ -148,4 +154,23 @@ void db_read(char name[], uint8_t* data)
 	for(j = 0; j < data_len; j++) {
 		data[j] = db_buf[i + j];
 	}
+}
+
+
+void db_exec(char cmd[])
+{
+	uint32_t len = strlen(cmd);
+	
+}
+
+void db_queue_exec(void)
+{
+	uint16_t i;
+	static char cmd[CMD_BUF_LEN];
+	for(i = 0; i < CMD_BUF_LEN; i++) {
+		out_char_queue(&db_cmd_queue, (cmd + i));
+		if('\n' == cmd[i])
+			break;
+	}
+	db_exec(cmd);
 }

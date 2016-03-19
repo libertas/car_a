@@ -508,6 +508,11 @@
               <FileType>1</FileType>
               <FilePath>.\multi_processing.c</FilePath>
             </File>
+            <File>
+              <FileName>database.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\database.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -857,6 +862,11 @@
               <FileName>flash.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\flash.h</FilePath>
+            </File>
+            <File>
+              <FileName>database.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\database.h</FilePath>
             </File>
           </Files>
         </Group>

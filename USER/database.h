@@ -9,7 +9,7 @@ extern char_queue db_cmd_queue;
 
 void db_init(void);
 void db_clear_init(void);
-void db_delete(char name[], uint32_t data_len);
+void db_delete(char name[]);
 void db_exec(char cmd[]);
 uint32_t db_find(char name[]);
 void db_queue_exec(void);

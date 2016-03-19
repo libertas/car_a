@@ -47,23 +47,26 @@ int main(void)
 	db_save("testb", (uint8_t*)str, 5);
 	db_save("testc", (uint8_t*)str, 5);
 	db_sync();
+
 	uint32_t d = db_find("testa");
 	printf("%d\n", d);
 	d = db_find("testb");
 	printf("%d\n", d);
 	d = db_find("testc");
 	printf("%d\n", d);
+
+	db_read("testa", (uint8_t*)tmp);
+	printf("a:%30s\n", tmp);
+	db_read("testb", (uint8_t*)tmp);
+	printf("b:%30s\n", tmp);
 	db_read("testc", (uint8_t*)tmp);
-	printf("%s\n", tmp);
-	flreadn(DB_SECTOR, (uint32_t*)tmp, 30);
-	printf("%s\n", tmp);
+	printf("c:%30s\n", tmp);
 	
-	db_delete("testb", 5);
+	db_delete("testb");
 	db_save("testc", (uint8_t*)str1, 5);
 	db_sync();
-	
-	flreadn(DB_SECTOR, (uint32_t*)tmp, 30);
-	printf("\n%s\n", tmp);
+	db_read("testc", (uint8_t*)tmp);
+	printf("c:%30s\n", tmp);
 
 
 	printf("\n\nEntering main loop\n\n");

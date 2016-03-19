@@ -162,8 +162,10 @@ void db_read(char name[], uint8_t* data)
 	uint32_t i, j, data_len;
 	
 	i = db_find(name);
-	if(i == 0)
+	if(i == 0) {
+		data[0] = 0;
 		return;
+	}
 
 	data_len = get_len_by_pos(i);
 

@@ -56,18 +56,22 @@ int main(void)
 	printf("%d\n", d);
 
 	db_read("testa", (uint8_t*)tmp);
-	printf("a:%30s\n", tmp);
+	printf("a:%s\n", tmp);
 	db_read("testb", (uint8_t*)tmp);
-	printf("b:%30s\n", tmp);
+	printf("b:%s\n", tmp);
 	db_read("testc", (uint8_t*)tmp);
-	printf("c:%30s\n", tmp);
+	printf("c:%s\n", tmp);
 	
 	db_delete("testb");
 	db_save("testc", (uint8_t*)str1, 5);
 	db_sync();
+	
+	db_read("testa", (uint8_t*)tmp);
+	printf("a:%s\n", tmp);
+	db_read("testb", (uint8_t*)tmp);
+	printf("b:%s\n", tmp);
 	db_read("testc", (uint8_t*)tmp);
-	printf("c:%30s\n", tmp);
-
+	printf("c:%s\n", tmp);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

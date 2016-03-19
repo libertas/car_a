@@ -39,38 +39,13 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 
-	char str[10] = "012345678";
-	char str1[10] = "87654321";
 	char tmp[1000];
-	db_clear_init();
-	db_save("testa", (uint8_t*)str, 5);
-	db_save("testb", (uint8_t*)str, 5);
-	db_save("testc", (uint8_t*)str, 5);
-	db_sync();
+	db_init();
 
-	uint32_t d = db_find("testa");
-	printf("%d\n", d);
-	d = db_find("testb");
-	printf("%d\n", d);
-	d = db_find("testc");
+	uint32_t d = db_find("c");
 	printf("%d\n", d);
 
-	db_read("testa", (uint8_t*)tmp);
-	printf("a:%s\n", tmp);
-	db_read("testb", (uint8_t*)tmp);
-	printf("b:%s\n", tmp);
-	db_read("testc", (uint8_t*)tmp);
-	printf("c:%s\n", tmp);
-	
-	db_delete("testb");
-	db_save("testc", (uint8_t*)str1, 5);
-	db_sync();
-	
-	db_read("testa", (uint8_t*)tmp);
-	printf("a:%s\n", tmp);
-	db_read("testb", (uint8_t*)tmp);
-	printf("b:%s\n", tmp);
-	db_read("testc", (uint8_t*)tmp);
+	db_read("c", (uint8_t*)tmp);
 	printf("c:%s\n", tmp);
 
 	printf("\n\nEntering main loop\n\n");

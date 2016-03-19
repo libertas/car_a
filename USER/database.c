@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "database.h"
+#include "debug.h"
 #include "flash.h"
 
 
@@ -60,7 +61,7 @@ void db_clear_init(void)
 	db_init();
 }
 
-void db_save(char name[], uint8_t* data, uint32_t data_len)
+void db_save(const char* const name, uint8_t* data, uint32_t data_len)
 {
 	if(false == db_init_done)
 		return;
@@ -103,7 +104,7 @@ void db_sync(void)
 }
 
 
-uint32_t db_find(char name[])
+uint32_t db_find(const char* const name)
 {
 	static char tmp[NAME_MAX_LEN];
 	uint32_t i, j;
@@ -125,11 +126,11 @@ uint32_t db_find(char name[])
 			
 		}
 	}
-	
+
 	return 0;
 }
 
-void db_delete(char name[])
+void db_delete(const char* const name)
 {
 	uint32_t i, pos, start, end, len;
 	uint32_t data_len = 0;
@@ -154,7 +155,7 @@ void db_delete(char name[])
 	db_index -= len;
 }
 
-void db_read(char name[], uint8_t* data)
+void db_read(const char* const name, uint8_t* data)
 {
 	if(false == db_init_done)
 		return;
@@ -178,7 +179,51 @@ void db_read(char name[], uint8_t* data)
 
 void db_exec(char cmd[])
 {
+	uint32_t i, pos;
 	uint32_t len = strlen(cmd);
+	bool is_valid = false;
+	uint8_t name[CMD_BUF_LEN];
+	uint8_t data[CMD_BUF_LEN];
+
+	switch(cmd[0]) {
+		case 'w':
+			for(i = 0; i < NAME_MAX_LEN; i++) {
+				if('=' == cmd[i]) {
+					is_valid = true;
+					cmd[i] = 0;
+					break;
+				}
+			}
+			if(is_valid) {
+				for(i = 1; cmd[i] != 0; i++) {
+					name[i - 1] = cmd[i];
+				}
+				name[i - 1] = 0;
+
+				pos = i + 1;
+				for(i = 0; '\n' != cmd[pos + i]; i++) {
+					data[i] = cmd[pos + i];
+				}
+				data[i] = 0;
+
+				#ifdef DEBUG_DB_EXEC
+				printf("name:%s,data:%s\n", (char*)name, (char*)data);
+				#endif
+
+				db_save((char*)name, data, i);
+				db_sync();
+			} else {
+				#ifdef DEBUG_DB_EXEC
+				printf("Wrong code to write\n");
+				#endif
+			}
+			break;
+		default:
+			#ifdef DEBUG_DB_EXEC
+			printf("Unrecognised code\n");
+			#endif
+			break;
+	}
 	
 }
 

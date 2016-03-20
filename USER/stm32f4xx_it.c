@@ -28,6 +28,8 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include <stdbool.h>
+
 #include "stm32f4xx_it.h"
 
 #include "clock.h"
@@ -186,6 +188,7 @@ void USART2_IRQHandler(void)
 void USART3_IRQHandler(void)
 {
 	char data;
+	char tmp;
 
 	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
 	{
@@ -193,7 +196,30 @@ void USART3_IRQHandler(void)
 		
 		in_char_queue(&cmd_queue, data);
 		
-		// USART_SendData(USART3, data);
+		#ifdef DEBUG_DB_EXEC
+		#include "database.h"
+		
+		static bool db_exec_start = false;
+		switch(data) {
+			case '\n':
+				if(db_exec_start) {
+					db_exec_start = false;
+					in_char_queue(&db_cmd_queue, data);
+					db_queue_exec();
+				} else {
+					while(-1 != out_char_queue(&db_cmd_queue, &tmp));
+				}
+				break;
+			case '#':
+				db_exec_start = true;
+				break;
+			default:
+				if(db_exec_start)
+					in_char_queue(&db_cmd_queue, data);
+				break;
+		}
+		USART_SendData(USART3, data);
+		#endif
 	}
 }
 

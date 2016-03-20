@@ -25,54 +25,55 @@ uint16_t flash_get_sector(uint32_t addr)
 }
 
 
-
-void flwriten(uint32_t WriteAddr,uint32_t *pBuffer,uint32_t NumToWrite)	
-{ 
-  FLASH_Status status = FLASH_COMPLETE;
-	uint32_t addrx=0;
-	uint32_t endaddr=0;	
-  if(WriteAddr<STM32_FLASH_BASE||WriteAddr%4)
-	  return;
+void flerase(uint32_t addrx)
+{
+	if(addrx < STM32_FLASH_BASE || addrx % 4)
+		return;
 	FLASH_Unlock();
-  FLASH_DataCacheCmd(DISABLE);
- 		
-	addrx=WriteAddr;
-	endaddr=WriteAddr+NumToWrite*4;
+	FLASH_DataCacheCmd(DISABLE);
+
 	if(addrx<0X1FFF0000)
+	{   
+		FLASH_EraseSector(flash_get_sector(addrx),VoltageRange_3);
+	}
+
+	FLASH_DataCacheCmd(ENABLE);
+	FLASH_Lock();
+}
+
+
+void flwriten(uint32_t addrx,uint32_t *buf,uint32_t data_len)	
+{ 
+	FLASH_Status status = FLASH_COMPLETE;
+	uint32_t endaddr = addrx + data_len / 4;	
+	if(addrx < STM32_FLASH_BASE || addrx % 4)
+		return;
+	FLASH_Unlock();
+	FLASH_DataCacheCmd(DISABLE);
+
+	if(status == FLASH_COMPLETE)
 	{
 		while(addrx<endaddr)
 		{
-			if(flread(addrx)!=0XFFFFFFFF)
-			{   
-				status=FLASH_EraseSector(flash_get_sector(addrx),VoltageRange_3);
-				if(status!=FLASH_COMPLETE)
-					break;
-			}else addrx+=4;
-		} 
-	}
-	if(status==FLASH_COMPLETE)
-	{
-		while(WriteAddr<endaddr)
-		{
-			if(FLASH_ProgramWord(WriteAddr,*pBuffer)!=FLASH_COMPLETE)
+			if(FLASH_ProgramWord(addrx, *buf) != FLASH_COMPLETE)
 			{ 
 				break;
 			}
-			WriteAddr+=4;
-			pBuffer++;
+			addrx += 4;
+			buf++;
 		} 
 	}
-  FLASH_DataCacheCmd(ENABLE);
+	FLASH_DataCacheCmd(ENABLE);
 	FLASH_Lock();
 } 
 
 
-void flreadn(uint32_t ReadAddr,uint32_t *pBuffer,uint32_t NumToRead)   	
+void flreadn(uint32_t addrx,uint32_t *buf,uint32_t data_len)   	
 {
 	uint32_t i;
-	for(i=0;i<NumToRead;i++)
+	for(i=0;i<data_len;i++)
 	{
-		pBuffer[i]=flread(ReadAddr);
-		ReadAddr+=4;	
+		buf[i]=flread(addrx);
+		addrx+=4;	
 	}
 }

@@ -3,6 +3,10 @@
 #include "at24.h"
 #include "clock.h"
 
+
+struct iic_pin IIC_SCL_GPIO = {GPIOB, GPIO_Pin_8, 8};
+struct iic_pin IIC_SDA_GPIO = {GPIOB, GPIO_Pin_9, 9};
+
 //≥ı ºªØIIC
 void IIC_Init(void)
 {			

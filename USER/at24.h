@@ -62,12 +62,21 @@
 #define PIin(n)    BIT_ADDR(GPIOI_IDR_Addr,n)  //输入
 
 
+struct iic_pin {
+	GPIO_TypeDef* port;
+	uint16_t pin;
+	uint8_t pin_num;
+};
+
+extern struct iic_pin IIC_SCL_GPIO, IIC_SDA_GPIO;
 
 //iic
 
 //IO方向设置
-#define SDA_IN()  {GPIOB->MODER&=~(3<<(9*2));GPIOB->MODER|=0<<9*2;}	//PB9输入模式
-#define SDA_OUT() {GPIOB->MODER&=~(3<<(9*2));GPIOB->MODER|=1<<9*2;} //PB9输出模式
+#define SDA_IN()  {IIC_SDA_GPIO.port->MODER&=~(3<<(IIC_SDA_GPIO.pin_num*2));\
+				IIC_SDA_GPIO.port->MODER|=0<<IIC_SDA_GPIO.pin_num*2;}
+#define SDA_OUT() {IIC_SDA_GPIO.port->MODER&=~(3<<(IIC_SDA_GPIO.pin_num*2));\
+				IIC_SDA_GPIO.port->MODER|=1<<IIC_SDA_GPIO.pin_num*2;}
 //IO操作函数	 
 #define IIC_SCL    PBout(8) //SCL
 #define IIC_SDA    PBout(9) //SDA	 

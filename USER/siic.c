@@ -63,8 +63,7 @@ u8 siic_wait_ack(void)
 	delay_us(1);	   
 	siic_write_bit(siic_scl, Bit_SET);
 	delay_us(1);	 
-	while(READ_SDA)
-	{
+	while(READ_SDA) {
 		uc_err_time++;
 		if(uc_err_time>250)
 		{
@@ -106,8 +105,7 @@ void siic_send_byte(u8 txd)
     u8 t;   
 	SDA_OUT(); 	    
     siic_write_bit(siic_scl, Bit_RESET);//拉低时钟开始数据传输
-    for(t=0;t<8;t++)
-    {              
+    for(t=0;t<8;t++) {              
         if(!((txd&0x80)>>7)) siic_write_bit(siic_sda, Bit_RESET);
 		else siic_write_bit(siic_sda, Bit_SET);
         txd<<=1; 	  
@@ -123,8 +121,7 @@ u8 siic_read_byte(unsigned char ack)
 {
 	unsigned char i,receive=0;
 	SDA_IN();//SDA设置为输入
-    for(i=0;i<8;i++ )
-	{
+    for(i=0;i<8;i++ ) {
         siic_write_bit(siic_scl, Bit_RESET); 
         delay_us(2);
 		siic_write_bit(siic_scl,Bit_SET);

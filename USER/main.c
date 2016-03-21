@@ -45,9 +45,9 @@ int main(void)
 	u16 i=0;
 	u8 datatemp[SIZE];	
 	
-	AT24CXX_Init();			//IIC初始化 
+	at24cxx_config();			//IIC初始化 
 
- 	while(AT24CXX_Check())//检测不到24c02
+ 	while(at24cxx_check())//检测不到24c02
 	{
 		uprintf(USART1,"24C02 Check Failed!");
 		delay_ms(500);
@@ -60,13 +60,13 @@ int main(void)
 		if(5 == i)//KEY1按下,写入24C02
 		{
  			uprintf(USART1,"Start Write 24C02....");
-			AT24CXX_Write(0,(u8*)TEXT_Buffer,SIZE);
+			at24cxx_write(0,(u8*)TEXT_Buffer,SIZE);
 			uprintf(USART1,"24C02 Write Finished!");//提示传送完成
 		}
 		if(10 == i)//KEY0按下,读取字符串并显示
 		{
  			uprintf(USART1,"Start Read 24C02.... ");
-			AT24CXX_Read(0,datatemp,SIZE);
+			at24cxx_read(0,datatemp,SIZE);
 			uprintf(USART1,"The Data Readed Is:  ");//提示传送完成
 			uprintf(USART1,"%s\r\n",datatemp);//显示读到的字符串
 		}

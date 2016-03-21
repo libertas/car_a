@@ -68,19 +68,17 @@ struct iic_pin {
 	uint8_t pin_num;
 };
 
-extern struct iic_pin IIC_SCL_GPIO, IIC_SDA_GPIO;
+extern struct iic_pin IIC_SCL, IIC_SDA;
 
 //iic
 
 //IO方向设置
-#define SDA_IN()  {IIC_SDA_GPIO.port->MODER&=~(3<<(IIC_SDA_GPIO.pin_num*2));\
-				IIC_SDA_GPIO.port->MODER|=0<<IIC_SDA_GPIO.pin_num*2;}
-#define SDA_OUT() {IIC_SDA_GPIO.port->MODER&=~(3<<(IIC_SDA_GPIO.pin_num*2));\
-				IIC_SDA_GPIO.port->MODER|=1<<IIC_SDA_GPIO.pin_num*2;}
-//IO操作函数	 
-#define IIC_SCL    PBout(8) //SCL
-#define IIC_SDA    PBout(9) //SDA	 
-#define READ_SDA   PBin(9)  //输入SDA 
+#define SDA_IN()  {IIC_SDA.port->MODER&=~(3<<(IIC_SDA.pin_num*2));\
+				IIC_SDA.port->MODER|=0<<IIC_SDA.pin_num*2;}
+#define SDA_OUT() {IIC_SDA.port->MODER&=~(3<<(IIC_SDA.pin_num*2));\
+				IIC_SDA.port->MODER|=1<<IIC_SDA.pin_num*2;}
+//IO操作函数	
+#define READ_SDA   GPIO_ReadInputDataBit(IIC_SDA.port, IIC_SDA.pin)
 
 //IIC所有操作函数
 void IIC_Init(void);                //初始化IIC的IO口				 
@@ -92,6 +90,7 @@ u8 IIC_Wait_Ack(void); 				//IIC等待ACK信号
 void IIC_Ack(void);					//IIC发送ACK信号
 void IIC_NAck(void);				//IIC不发送ACK信号
 
+void IIC_WriteBit(struct iic_pin IIC_PIN, BitAction BitVal);
 void IIC_Write_One_Byte(u8 daddr,u8 addr,u8 data);
 u8 IIC_Read_One_Byte(u8 daddr,u8 addr);	  
 

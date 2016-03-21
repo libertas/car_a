@@ -4,53 +4,53 @@
 #include "clock.h"
 
 
-struct iic_pin IIC_SCL_GPIO = {GPIOB, GPIO_Pin_8, 8};
-struct iic_pin IIC_SDA_GPIO = {GPIOB, GPIO_Pin_9, 9};
+struct iic_pin IIC_SCL = {GPIOB, GPIO_Pin_8, 8};
+struct iic_pin IIC_SDA = {GPIOB, GPIO_Pin_9, 9};
 
 //初始化IIC
 void IIC_Init(void)
 {			
-  GPIO_InitTypeDef  GPIO_InitStructure;
+	GPIO_InitTypeDef  GPIO_InitStructure;
 
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);//使能GPIOB时钟
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);//使能GPIOB时钟
 
-  //GPIOB8,B9初始化设置
-	GPIO_InitStructure.GPIO_Pin = IIC_SCL_GPIO.pin;
+	//GPIOB8,B9初始化设置
+	GPIO_InitStructure.GPIO_Pin = IIC_SCL.pin;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//普通输出模式
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//推挽输出
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉
-	GPIO_Init(IIC_SCL_GPIO.port, &GPIO_InitStructure);//初始化
+	GPIO_Init(IIC_SCL.port, &GPIO_InitStructure);//初始化
 	
-	GPIO_InitStructure.GPIO_Pin = IIC_SDA_GPIO.pin;
+	GPIO_InitStructure.GPIO_Pin = IIC_SDA.pin;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//普通输出模式
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//推挽输出
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉
-	GPIO_Init(IIC_SDA_GPIO.port, &GPIO_InitStructure);//初始化
-	IIC_SCL=1;
-	IIC_SDA=1;
+	GPIO_Init(IIC_SDA.port, &GPIO_InitStructure);//初始化
+	IIC_WriteBit(IIC_SCL, Bit_SET);
+	IIC_WriteBit(IIC_SDA, Bit_SET);
 }
 //产生IIC起始信号
 void IIC_Start(void)
 {
 	SDA_OUT();     //sda线输出
-	IIC_SDA=1;	  	  
-	IIC_SCL=1;
+	IIC_WriteBit(IIC_SDA, Bit_SET);	  	  
+	IIC_WriteBit(IIC_SCL, Bit_SET);
 	delay_us(4);
- 	IIC_SDA=0;//START:when CLK is high,DATA change form high to low 
+ 	IIC_WriteBit(IIC_SDA, Bit_RESET);//START:when CLK is high,DATA change form high to low 
 	delay_us(4);
-	IIC_SCL=0;//钳住I2C总线，准备发送或接收数据 
+	IIC_WriteBit(IIC_SCL, Bit_RESET);//钳住I2C总线，准备发送或接收数据 
 }	  
 //产生IIC停止信号
 void IIC_Stop(void)
 {
 	SDA_OUT();//sda线输出
-	IIC_SCL=0;
-	IIC_SDA=0;//STOP:when CLK is high DATA change form low to high
+	IIC_WriteBit(IIC_SCL, Bit_RESET);
+	IIC_WriteBit(IIC_SDA, Bit_RESET);//STOP:when CLK is high DATA change form low to high
  	delay_us(4);
-	IIC_SCL=1; 
-	IIC_SDA=1;//发送I2C总线结束信号
+	IIC_WriteBit(IIC_SCL, Bit_SET); 
+	IIC_WriteBit(IIC_SDA, Bit_SET);//发送I2C总线结束信号
 	delay_us(4);							   	
 }
 //等待应答信号到来
@@ -60,8 +60,10 @@ u8 IIC_Wait_Ack(void)
 {
 	u8 ucErrTime=0;
 	SDA_IN();      //SDA设置为输入  
-	IIC_SDA=1;delay_us(1);	   
-	IIC_SCL=1;delay_us(1);	 
+	IIC_WriteBit(IIC_SDA, Bit_SET);
+	delay_us(1);	   
+	IIC_WriteBit(IIC_SCL, Bit_SET);
+	delay_us(1);	 
 	while(READ_SDA)
 	{
 		ucErrTime++;
@@ -71,30 +73,30 @@ u8 IIC_Wait_Ack(void)
 			return 1;
 		}
 	}
-	IIC_SCL=0;//时钟输出0 	   
+	IIC_WriteBit(IIC_SCL, Bit_RESET);//时钟输出0 	   
 	return 0;  
 } 
 //产生ACK应答
 void IIC_Ack(void)
 {
-	IIC_SCL=0;
+	IIC_WriteBit(IIC_SCL, Bit_RESET);
 	SDA_OUT();
-	IIC_SDA=0;
+	IIC_WriteBit(IIC_SDA, Bit_RESET);
 	delay_us(2);
-	IIC_SCL=1;
+	IIC_WriteBit(IIC_SCL, Bit_SET);
 	delay_us(2);
-	IIC_SCL=0;
+	IIC_WriteBit(IIC_SCL, Bit_RESET);
 }
 //不产生ACK应答		    
 void IIC_NAck(void)
 {
-	IIC_SCL=0;
+	IIC_WriteBit(IIC_SCL, Bit_RESET);
 	SDA_OUT();
-	IIC_SDA=1;
+	IIC_WriteBit(IIC_SDA, Bit_SET);
 	delay_us(2);
-	IIC_SCL=1;
+	IIC_WriteBit(IIC_SCL, Bit_SET);
 	delay_us(2);
-	IIC_SCL=0;
+	IIC_WriteBit(IIC_SCL, Bit_RESET);
 }					 				     
 //IIC发送一个字节
 //返回从机有无应答
@@ -104,15 +106,16 @@ void IIC_Send_Byte(u8 txd)
 {                        
     u8 t;   
 	SDA_OUT(); 	    
-    IIC_SCL=0;//拉低时钟开始数据传输
+    IIC_WriteBit(IIC_SCL, Bit_RESET);//拉低时钟开始数据传输
     for(t=0;t<8;t++)
     {              
-        IIC_SDA=(txd&0x80)>>7;
+        if(!((txd&0x80)>>7)) IIC_WriteBit(IIC_SDA, Bit_RESET);
+		else IIC_WriteBit(IIC_SDA, Bit_SET);
         txd<<=1; 	  
 		delay_us(2);   //对TEA5767这三个延时都是必须的
-		IIC_SCL=1;
+		IIC_WriteBit(IIC_SCL, Bit_SET);
 		delay_us(2); 
-		IIC_SCL=0;	
+		IIC_WriteBit(IIC_SCL, Bit_RESET);	
 		delay_us(2);
     }	 
 } 	    
@@ -123,9 +126,9 @@ u8 IIC_Read_Byte(unsigned char ack)
 	SDA_IN();//SDA设置为输入
     for(i=0;i<8;i++ )
 	{
-        IIC_SCL=0; 
+        IIC_WriteBit(IIC_SCL, Bit_RESET); 
         delay_us(2);
-		IIC_SCL=1;
+		IIC_WriteBit(IIC_SCL,Bit_SET);
         receive<<=1;
         if(READ_SDA)receive++;   
 		delay_us(1); 
@@ -135,6 +138,11 @@ u8 IIC_Read_Byte(unsigned char ack)
     else
         IIC_Ack(); //发送ACK   
     return receive;
+}
+
+void IIC_WriteBit(struct iic_pin IIC_PIN, BitAction BitVal)
+{
+	GPIO_WriteBit(IIC_PIN.port, IIC_PIN.pin, BitVal);
 }
 
 

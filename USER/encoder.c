@@ -83,14 +83,6 @@ float get_pos_fan(void)
 /*
 	meter
 */
-float get_pos_fan_updown(void)
-{
-	return (float)((double)g_rotary_fan_updown / 2000 *  W_DIAMETER * PI * VECT_FAN_UPDOWN);
-}
-
-/*
-	meter
-*/
 float get_pos_magnet(void)
 {
 	return (float)((double)g_rotary_magnet / 2000 *  W_DIAMETER * PI * VECT_EMAGNET);

@@ -278,9 +278,6 @@ void TIM7_IRQHandler(void)
 		g_rotary_magnet += (TIM_GetCounter(TIM1)-4000);
 		TIM1->CNT = 4000;
 		
-		g_rotary_fan_updown += (TIM_GetCounter(TIM2)-4000);
-		TIM2->CNT = 4000;
-		
 		g_rotary_fan += (TIM_GetCounter(TIM3)-4000);
 		TIM3->CNT = 4000;
 		

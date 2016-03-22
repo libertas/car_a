@@ -42,8 +42,8 @@ void t_stop(void);
 #ifdef USE_FOUR_WHEEL
 
 #define DEFAULT_ARG_SPEED 500
-#define CAR_X_LENGTH 600
-#define CAR_Y_LENGTH 800
+#define CAR_X_LENGTH 500
+#define CAR_Y_LENGTH 650
 #define VECT_W0 (+1)
 #define VECT_W1 (+1)
 #define VECT_W2 (+1)

@@ -27,7 +27,7 @@ void rcc_io_config(void)
 
 void pwm_config(void)
 {
-	float duties[PWM_CHANNEL_NUM] = {0.071, 0.071, 0.071, 0.071, 0.06, 0.05, 0.11, 0.03};
+	float duties[PWM_CHANNEL_NUM] = {0.071, 0.071, 0.071, 0.071, 0.06, 0.11, 0.11, 0.03};
 	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 50, 50, 50, 50, 50, 50, 50};
 	
 	uint8_t i;

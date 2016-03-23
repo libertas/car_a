@@ -23,14 +23,14 @@ const uint32_t EncoderAHBPorts[ENCODER_CHANNEL_NUM] = {\
 				RCC_AHB1Periph_GPIOD, RCC_AHB1Periph_GPIOE\
 				};
 GPIO_TypeDef * EncoderPorts[2 * ENCODER_CHANNEL_NUM] = {\
-				GPIOE, GPIOE,\
+				GPIOA, GPIOA,\
 				GPIOA, GPIOA,\
 				GPIOD, GPIOD,\
 				GPIOA, GPIOA,\
 				GPIOC, GPIOC\
 				};
 const uint16_t EncoderPinsources[2 * ENCODER_CHANNEL_NUM] = {\
-				GPIO_PinSource9, GPIO_PinSource11,\
+				GPIO_PinSource8, GPIO_PinSource9,\
 				GPIO_PinSource6, GPIO_PinSource7,\
 				GPIO_PinSource12, GPIO_PinSource13,\
 				GPIO_PinSource0, GPIO_PinSource1,\
@@ -44,7 +44,7 @@ const uint8_t EncoderAFTIMs[2 * ENCODER_CHANNEL_NUM] = {\
 				GPIO_AF_TIM8, GPIO_AF_TIM8\
 				};
 const uint16_t EncoderPins[2 * ENCODER_CHANNEL_NUM] = {\
-				GPIO_Pin_9, GPIO_Pin_11,\
+				GPIO_Pin_8, GPIO_Pin_9,\
 				GPIO_Pin_6, GPIO_Pin_7,\
 				GPIO_Pin_12, GPIO_Pin_13,\
 				GPIO_Pin_0, GPIO_Pin_1,\

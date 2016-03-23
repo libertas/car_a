@@ -57,8 +57,8 @@ void f_move_xy_c(int8_t spd_x, int8_t spd_y)
 	double coe_x = (sqrt( pow( CAR_X_LENGTH, 2) + pow( CAR_Y_LENGTH, 2))) / CAR_Y_LENGTH;
 	double coe_y = (sqrt( pow( CAR_X_LENGTH, 2) + pow( CAR_Y_LENGTH, 2))) / CAR_X_LENGTH;
 
-	arg_x = (int16_t) (((float) spd_x) / 128 * DEFAULT_ARG_SPEED * 3);
-	arg_y = (int16_t) (((float) spd_y) / 128 * DEFAULT_ARG_SPEED * 8);
+	arg_x = (int16_t) (((float) spd_x) / 128 * DEFAULT_ARG_SPEED);
+	arg_y = (int16_t) (((float) spd_y) / 128 * DEFAULT_ARG_SPEED);
 
 	arg_speeds[0] = VECT_W0 * (coe_x * arg_x + coe_y * arg_y);
 	arg_speeds[1] = VECT_W1 * (-coe_x * arg_x + coe_y * arg_y);

@@ -1,14 +1,12 @@
+#include <math.h>
+
 #include "clock.h"
 #include "debug.h"
 #include "encoder.h"
-#include "math.h"
 #include "movement.h"
 #include "utils.h"
 
 #ifdef USE_FOUR_WHEEL
-
-const static double coe_x = (sqrt( pow( CAR_X_LENGTH, 2) + pow( CAR_Y_LENGTH, 2))) / CAR_Y_LENGTH;
-const static double coe_y = (sqrt( pow( CAR_X_LENGTH, 2) + pow( CAR_Y_LENGTH, 2))) / CAR_X_LENGTH;
 
 int16_t arg_speeds[4] = {0};
 
@@ -55,6 +53,9 @@ void f_rotate_c(int8_t spd)
 void f_move_xy_c(int8_t spd_x, int8_t spd_y)
 {
 	int16_t arg_x, arg_y;
+	
+	double coe_x = (sqrt( pow( CAR_X_LENGTH, 2) + pow( CAR_Y_LENGTH, 2))) / CAR_Y_LENGTH;
+	double coe_y = (sqrt( pow( CAR_X_LENGTH, 2) + pow( CAR_Y_LENGTH, 2))) / CAR_X_LENGTH;
 
 	arg_x = (int16_t) (((float) spd_x) / 128 * DEFAULT_ARG_SPEED * 3);
 	arg_y = (int16_t) (((float) spd_y) / 128 * DEFAULT_ARG_SPEED * 8);

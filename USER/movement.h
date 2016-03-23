@@ -18,7 +18,7 @@ The world view:
 
 #define W_DIAMETER ((float) 0.12)  // meter
 
-#define USE_THREE_WHEEL
+#define USE_FOUR_WHEEL
 
 #ifdef USE_THREE_WHEEL
 

@@ -25,6 +25,10 @@ void rotate_c(int8_t arg_spd)
 	#ifdef USE_THREE_WHEEL
 	t_rotate_c(arg_spd);
 	#endif
+	
+	#ifdef USE_FOUR_WHEEL
+	f_rotate_c(arg_spd);
+	#endif
 }
 
 void move_xy_c(int8_t spd_x, int8_t spd_y)
@@ -35,6 +39,10 @@ void move_xy_c(int8_t spd_x, int8_t spd_y)
 	
 	#ifdef USE_THREE_WHEEL
 	t_move_xy_c(spd_x, spd_y);
+	#endif
+	
+	#ifdef USE_FOUR_WHEEL
+	f_move_xy_c(spd_x, spd_y);
 	#endif
 }
 

@@ -35,11 +35,10 @@ int main(void)
 	suart_config();
 
 	brake_config();
-	// encoder_config();
+	encoder_config();
 	// switch_config();
 	pwm_config();
 	// watchdog_config();
-
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

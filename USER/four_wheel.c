@@ -60,10 +60,10 @@ void f_move_xy_c(int8_t spd_x, int8_t spd_y)
 	arg_x = (int16_t) (((float) spd_x) / 128 * DEFAULT_ARG_SPEED * 3);
 	arg_y = (int16_t) (((float) spd_y) / 128 * DEFAULT_ARG_SPEED * 8);
 
-	arg_speeds[0] = VECT_W0 * ( -coe_x * arg_x + coe_y * arg_y);
-	arg_speeds[1] = VECT_W1 * (  coe_x * arg_x + coe_y * arg_y);
-	arg_speeds[2] = VECT_W2 * ( -coe_x * arg_x + coe_y * arg_y);
-	arg_speeds[3] = VECT_W3 * (  coe_x * arg_x + coe_y * arg_y);
+	arg_speeds[0] = VECT_W0 * (coe_x * arg_x + coe_y * arg_y);
+	arg_speeds[1] = VECT_W1 * (-coe_x * arg_x + coe_y * arg_y);
+	arg_speeds[2] = VECT_W2 * (coe_x * arg_x + coe_y * arg_y);
+	arg_speeds[3] = VECT_W3 * (-coe_x * arg_x + coe_y * arg_y);
 
 	#ifdef DEBUG
 	printf("arg_speeds:\n");

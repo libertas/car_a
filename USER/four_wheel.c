@@ -28,10 +28,10 @@ void f_stop(void)
 void f_rotate_c(int8_t spd)
 {
 	int16_t arg_spd = (float) spd / 128 * DEFAULT_ARG_SPEED;
-	arg_speeds[0] =  VECT_W0 * arg_spd;
-	arg_speeds[1] = -VECT_W1 * arg_spd;
+	arg_speeds[0] = VECT_W0 * arg_spd;
+	arg_speeds[1] = VECT_W1 * arg_spd;
 	arg_speeds[2] = -VECT_W2 * arg_spd;
-	arg_speeds[3] =  VECT_W3 * arg_spd;
+	arg_speeds[3] = -VECT_W3 * arg_spd;
 	
 	#ifdef DEBUG
 	printf("arg_speeds:\n");

@@ -289,8 +289,6 @@ void TIM7_IRQHandler(void)
 
 		g_rotary_tim8 += (TIM_GetCounter(TIM8)-4000);
 		TIM8->CNT = 4000;
-		
-		kowtow_check();
 	}
 }
 
@@ -351,7 +349,6 @@ void EXTI2_IRQHandler(void)
 {
 	delay_ms(10);
 	if(0 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
-		mag_updown_stop();
 		
 		#ifdef DEBUG
 		printf("\nmag_up_stop()\n");

@@ -10,25 +10,32 @@
 
 uint32_t PWMHighTime[PWM_CHANNEL_NUM];
 uint32_t PWMTotal[PWM_CHANNEL_NUM];
-
-uint16_t PWMPins[PWM_CHANNEL_NUM] = {GPIO_Pin_10, GPIO_Pin_6, GPIO_Pin_7, GPIO_Pin_9,\
-	GPIO_Pin_11, GPIO_Pin_8, GPIO_Pin_9, GPIO_Pin_8};
-GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {GPIOA, GPIOC, GPIOC, GPIOA,\
-	GPIOA, GPIOC, GPIOC, GPIOA};
+/*
+	0 fan 涵道风扇
+	1 fan_updown 无刷
+	2 fan_roll 舵机
+	3 mag_in/out 舵机
+	4 mag_near/far 舵机
+	*舵机各位置暂未确定（duty)
+*/
+uint16_t PWMPins[PWM_CHANNEL_NUM] = {\
+	GPIO_Pin_7, GPIO_Pin_6, GPIO_Pin_9,\
+	GPIO_Pin_10, GPIO_Pin_8};
+GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {\
+	GPIOC, GPIOC, GPIOC,\
+	GPIOA, GPIOC};
 
 
 void rcc_io_config(void)
 {
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOG, ENABLE);
 }
 
 void pwm_config(void)
 {
-	float duties[PWM_CHANNEL_NUM] = {0.071, 0.071, 0.071, 0.071, 0.06, 0.11, 0.11, 0.03};
-	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 50, 50, 50, 50, 50, 50, 50};
+	float duties[PWM_CHANNEL_NUM] = {0.11, 0.071, 0.06, 0.06, 0.06};
+	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 50, 50, 50, 50};
 	
 	uint8_t i;
 	GPIO_InitTypeDef GPIO_InitStructure;

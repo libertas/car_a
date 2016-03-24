@@ -132,7 +132,7 @@ int run_cmd(void)
 				default:
 					break;
 				case 0x00:
-					mag_up();
+					//mag_up();
 					break;
 				case 0x01:
 					mag_in();
@@ -141,10 +141,10 @@ int run_cmd(void)
 					mag_out();
 					break;
 				case 0x03:
-					mag_down();
+					//mag_down();
 					break;
 				case 0x04:
-					mag_updown_stop();
+					//mag_updown_stop();
 					break;
 			}
 			break;
@@ -370,7 +370,7 @@ int run_cmd(void)
 
 			out_char_queue(&cmd_queue, (char*) &buf);
 		
-			fan_kowtow_r(buf);
+			//fan_kowtow_r(buf);
 			
 			break;
 		

@@ -382,7 +382,7 @@ int run_cmd(void)
 		
 			out_char_queue(&cmd_queue, (char*) &buf);
 		
-			push_rod(buf);
+			push_rod(buf, 0);//push_rod attention!
 		
 			break;
 	}

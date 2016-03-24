@@ -17,6 +17,8 @@ uint32_t PWMTotal[PWM_CHANNEL_NUM];
 	3 mag_in/out 舵机
 	4 mag_near/far 舵机
 	*舵机各位置暂未确定（duty)
+	*无刷0.71stop,0.76/0.65正/反转
+	*舵机0~0.12
 */
 uint16_t PWMPins[PWM_CHANNEL_NUM] = {\
 	GPIO_Pin_7, GPIO_Pin_6, GPIO_Pin_9,\

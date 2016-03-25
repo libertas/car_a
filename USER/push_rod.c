@@ -4,9 +4,11 @@
 #include "clock.h"
 #include "push_rod.h"
 /*if push and pull error, exchange this array*/
+// 0 PG14/15 靠近核心板
+// 1 PG11/13 板子少的一边
 uint16_t PUSHPins[2 * PUSH_ROD_CHANNEL_NUM] = {\
 	GPIO_Pin_14, GPIO_Pin_15,\
-	GPIO_Pin_11, GPIO_Pin_13\
+	GPIO_Pin_13, GPIO_Pin_11\
 	};
 GPIO_TypeDef *PUSHPorts[2 * PUSH_ROD_CHANNEL_NUM] = {\
 	GPIOG, GPIOG,\
@@ -43,17 +45,17 @@ void push_rod_c(uint8_t dir, uint8_t num)
 	switch(dir){
 		case 0:{
 			GPIO_WriteBit(PUSHPorts[2 * num], PUSHPins[2 * num], Bit_SET);
-			GPIO_WriteBit(PUSHPorts[2 * num], PUSHPins[2 * num + 1], Bit_RESET);
+			GPIO_WriteBit(PUSHPorts[2 * num + 1], PUSHPins[2 * num + 1], Bit_RESET);
 			break;
 		}
 		case 1:{
 			GPIO_WriteBit(PUSHPorts[2 * num], PUSHPins[2 * num], Bit_RESET);
-			GPIO_WriteBit(PUSHPorts[2 * num], PUSHPins[2 * num + 1], Bit_SET);
+			GPIO_WriteBit(PUSHPorts[2 * num + 1], PUSHPins[2 * num + 1], Bit_SET);
 			break;
 		}
 		case 0xff:{
 			GPIO_WriteBit(PUSHPorts[2 * num], PUSHPins[2 * num], Bit_RESET);
-			GPIO_WriteBit(PUSHPorts[2 * num], PUSHPins[2 * num + 1], Bit_RESET);
+			GPIO_WriteBit(PUSHPorts[2 * num + 1], PUSHPins[2 * num + 1], Bit_RESET);
 			break;
 		}
 		default:break;

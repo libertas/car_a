@@ -3,15 +3,18 @@
 #include "stm32f4xx_tim.h"
 #include "clock.h"
 #include "push_rod.h"
+
 /*if push and pull error, exchange this array*/
 // 0 PG14/15 靠近核心板
 // 1 PG11/13 板子少的一边
+
 uint16_t PUSHPins[2 * PUSH_ROD_CHANNEL_NUM] = {\
-	GPIO_Pin_14, GPIO_Pin_15,\
+	GPIO_Pin_1, GPIO_Pin_0,\
 	GPIO_Pin_13, GPIO_Pin_11\
 	};
+
 GPIO_TypeDef *PUSHPorts[2 * PUSH_ROD_CHANNEL_NUM] = {\
-	GPIOG, GPIOG,\
+	GPIOE, GPIOE,\
 	GPIOG, GPIOG\
 	};
 
@@ -20,16 +23,15 @@ void push_rod_config(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOG, ENABLE);
 
 	for(uint8_t i = 0; i < 2* PUSH_ROD_CHANNEL_NUM; i++) {
 		GPIO_InitStructure.GPIO_Pin = PUSHPins[i];
-	}
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	for(uint8_t i = 0; i < 2* PUSH_ROD_CHANNEL_NUM; i++) {
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+		GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 		GPIO_Init(PUSHPorts[i], &GPIO_InitStructure);
 	}
 
@@ -61,6 +63,7 @@ void push_rod_c(uint8_t dir, uint8_t num)
 		default:break;
 	}
 }
+
 void push_rod(uint8_t dir, uint8_t num)
 {
 	switch(dir){

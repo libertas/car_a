@@ -14,17 +14,16 @@ uint32_t PWMTotal[PWM_CHANNEL_NUM];
 	0 fan 涵道风扇
 	1 fan_updown 无刷
 	2 fan_roll 舵机
-	3 mag_in/out 舵机
-	4 mag_near/far 舵机
-	*舵机各位置暂未确定（duty)
+	3 mag_in/out 舵机	0.045 - 0.08
+	4 mag_near/far 舵机  0.06 - 0.085
 	*无刷0.71stop,0.76/0.65正/反转
 	*舵机0~0.12
 */
 uint16_t PWMPins[PWM_CHANNEL_NUM] = {\
-	GPIO_Pin_7, GPIO_Pin_6, GPIO_Pin_9,\
+	GPIO_Pin_6, GPIO_Pin_5, GPIO_Pin_9,\
 	GPIO_Pin_10, GPIO_Pin_8};
 GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {\
-	GPIOC, GPIOC, GPIOC,\
+	GPIOG, GPIOG, GPIOC,\
 	GPIOA, GPIOC};
 
 
@@ -32,11 +31,12 @@ void rcc_io_config(void)
 {
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOG, ENABLE);
 }
 
 void pwm_config(void)
 {
-	float duties[PWM_CHANNEL_NUM] = {0.11, 0.071, 0.06, 0.06, 0.06};
+	float duties[PWM_CHANNEL_NUM] = {0.06, 0.071, 0.06, 0.08, 0.085};
 	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 50, 50, 50, 50};
 	
 	uint8_t i;

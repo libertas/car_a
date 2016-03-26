@@ -42,7 +42,7 @@ float fan_kowtow_rad = 0;
 
 void fan_roll(float rad)
 {
-	set_duty(FAN_ROLL_CHANNEL, (float)((float)0.11 - (float)0.05 * rad / ((float)PI / 2)));
+	set_duty(FAN_ROLL_CHANNEL, (float)((float)0.11 - (float)0.06 * rad / ((float)PI / 2)));
 	
 	#ifdef DEBUG
 	printf("\nfan_roll(%f)\n", rad);

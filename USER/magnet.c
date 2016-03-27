@@ -14,24 +14,12 @@ void mag_out(void)
 	set_duty(MAG_IN_CHANNEL, 0.03);
 }
 
-void mag_up(void)
+void mag_near(void)
 {
-	set_duty(MAG_UP_CHANNEL, 0.076);
+	set_duty(MAG_NEAR_CHANNEL, 0.10);
 }
 
-void mag_down(void)
+void mag_far(void)
 {
-	set_duty(MAG_UP_CHANNEL, 0.065);
-}
-
-void mag_updown_stop(void)
-{
-	set_duty(MAG_UP_CHANNEL, 0.071);
-}
-
-void mag_up_release(void)
-{
-	set_duty(MAG_UP_CHANNEL, 0.067);
-	delay_ms(1000);
-	set_duty(MAG_UP_CHANNEL, 0.071);
+	set_duty(MAG_NEAR_CHANNEL, 0.03);
 }

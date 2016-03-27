@@ -53,9 +53,9 @@ void f_rotate_c(int8_t spd)
 void f_move_xy_c(int8_t spd_x, int8_t spd_y)
 {
 	int16_t arg_x, arg_y;
-	
-	float coe_x = (sqrtf( powf( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2))) / CAR_Y_LENGTH;
-	float coe_y = (sqrtf( powf( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2))) / CAR_X_LENGTH;
+
+	float coe_x = CAR_Y_LENGTH / (sqrtf( powf( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
+	float coe_y = CAR_X_LENGTH / (sqrtf( powf( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
 
 	arg_x = (int16_t) (((float) spd_x) / 128 * DEFAULT_ARG_SPEED);
 	arg_y = (int16_t) (((float) spd_y) / 128 * DEFAULT_ARG_SPEED);

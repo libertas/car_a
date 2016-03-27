@@ -13,7 +13,7 @@
 #ifndef USE_HPWM
 
 #define PWM_FREQ 100000UL
-#define PWM_CHANNEL_NUM 8
+#define PWM_CHANNEL_NUM 5
 
 extern uint32_t PWMHighTime[PWM_CHANNEL_NUM];
 extern uint32_t PWMTotal[PWM_CHANNEL_NUM];

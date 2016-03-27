@@ -1,9 +1,7 @@
-#define MAG_IN_CHANNEL 7
-#define MAG_UP_CHANNEL 1
+#define MAG_IN_CHANNEL 3
+#define MAG_NEAR_CHANNEL 4
 
-void mag_down(void);
 void mag_in(void);
 void mag_out(void);
-void mag_up(void);
-void mag_up_release(void);
-void mag_updown_stop(void);
+void mag_near(void);
+void mag_far(void);

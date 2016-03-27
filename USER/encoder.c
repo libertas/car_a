@@ -56,6 +56,11 @@ TIM_TypeDef * EncoderTIMs[ENCODER_CHANNEL_NUM] = {\
 				};
 
 
+void encoder_test(void)
+{
+	printf("%d	%d	%d	%d	%d\n", g_rotary_magnet, g_rotary_fan, g_rotary_x, g_rotary_y, g_rotary_tim8);
+}
+
 /*
 	meter
 */

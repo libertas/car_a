@@ -18,6 +18,7 @@ extern int32_t g_rotary_tim8;
 
 
 void encoder_config(void);
+void encoder_test(void);
 float get_pos_fan(void);
 float get_pos_x(void);
 float get_pos_y(void);

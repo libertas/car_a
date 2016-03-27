@@ -39,8 +39,6 @@ int main(void)
 	// switch_config();
 	pwm_config();
 	// watchdog_config();
-	
-	//fan_up();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1)

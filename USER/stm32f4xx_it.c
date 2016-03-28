@@ -219,9 +219,10 @@ void TIM6_DAC_IRQHandler(void)
 void DMA1_Stream2_IRQHandler(void)
 {
 	if(SET == DMA_GetITStatus(DMA1_Stream2, DMA_IT_TCIF2) ) {
-		uprintf(USART2,"RECOK\r\n");
-		mti();
+		//uprintf(USART2,"RECOK\r\n");
 		DMA_Cmd(DMA1_Stream2, DISABLE);
+		//float angle = mti();
+		
 		DMA_ClearITPendingBit(DMA1_Stream2, DMA_IT_TCIF2);
 		DMA_Cmd(DMA1_Stream2, ENABLE);
 	}

@@ -7,7 +7,7 @@ float mti_pitch = 0;
 float mti_yaw = 0;
 
 
-void mti(void)
+float mti(void)
 {
 	int a,b,c;
 	
@@ -26,6 +26,7 @@ void mti(void)
 					mti_yaw *= ANGLE_TO_RAD;
 					uprintf(USART2, "roll = %f\t pitch = %f\t yaw = %f\t\r\n",mti_roll, mti_pitch, mti_yaw);
 				}
+	return mti_yaw;
 }
 
 int btol(uint8_t buffer[])

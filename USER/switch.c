@@ -11,31 +11,24 @@ int8_t g_switch_flag = 0;
 
 const uint32_t SwitchAHBPorts[SWITCH_CHANNEL_NUM] = {\
 				RCC_AHB1Periph_GPIOE, RCC_AHB1Periph_GPIOF,\
-				RCC_AHB1Periph_GPIOA, RCC_AHB1Periph_GPIOF, RCC_AHB1Periph_GPIOF\
 				};
 const uint16_t SwitchPins[SWITCH_CHANNEL_NUM] = {\
 				GPIO_Pin_8, GPIO_Pin_11,\
-				GPIO_Pin_2, GPIO_Pin_0, GPIO_Pin_1\
 				};
 GPIO_TypeDef *SwitchPorts[SWITCH_CHANNEL_NUM] = {\
 				GPIOE, GPIOF,\
-				GPIOA, GPIOF, GPIOF\
 				};
 const uint8_t SwitchEXTIPorts[SWITCH_CHANNEL_NUM] = {\
 				EXTI_PortSourceGPIOE, EXTI_PortSourceGPIOF,\
-				EXTI_PortSourceGPIOA, EXTI_PortSourceGPIOF, EXTI_PortSourceGPIOF\
 				};
 const uint8_t SwitchEXTIPinsources[SWITCH_CHANNEL_NUM] = {\
 				EXTI_PinSource8, EXTI_PinSource11,\
-				EXTI_PinSource2, EXTI_PinSource0, EXTI_PinSource1\
 				};
 const uint32_t SwitchEXTILines[SWITCH_CHANNEL_NUM] = {\
 				EXTI_Line8, EXTI_Line11,\
-				EXTI_Line2, EXTI_Line2, EXTI_Line1\
 				};
 const enum IRQn SwitchNVICPins[SWITCH_CHANNEL_NUM] = {\
 				EXTI9_5_IRQn, EXTI15_10_IRQn,\
-				EXTI2_IRQn, EXTI0_IRQn, EXTI1_IRQn\
 				};
 
 

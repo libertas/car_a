@@ -2,7 +2,11 @@
 #include "stm32f4xx_gpio.h"
 
 #include "switch.h"
-
+/*
+	exti3 exti11 exti2
+	switch 0\1\2
+	fan_down_stop\fan_up_stop\magnet_up_stop
+*/
 int8_t g_switch_flag = 0;
 
 const uint32_t SwitchAHBPorts[SWITCH_CHANNEL_NUM] = {\

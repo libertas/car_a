@@ -313,20 +313,22 @@ void TIM8_UP_TIM13_IRQHandler(void)
 }
 
 /*
-	exti3 exti11 exti2
-	switch 0\1\2
-	fan_down_stop\fan_up_stop\magnet_up_stop
+	exti8 exti11
+	switch 0\1
+	fan_down_stop\fan_up_stop
 */
-void EXTI3_IRQHandler(void)
+void EXTI9_5_IRQHandler(void)
 {
 	delay_ms(10);
-	if(0 == GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_3)) {
-		stop_fan_up_down();
-		#ifdef DEBUG
-		printf("\nstop_fan_up_down()\n");
-		#endif
+	if(SET == EXTI_GetITStatus(EXTI_Line11)){
+		if(0 == GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_8)) {
+			stop_fan_up_down();
+			#ifdef DEBUG
+			printf("\nstop_fan_up_down()\n");
+			#endif
+		}
 	}
-	EXTI_ClearITPendingBit(EXTI_Line3);
+	EXTI_ClearITPendingBit(EXTI_Line8);
 }
 
 void EXTI15_10_IRQHandler(void)

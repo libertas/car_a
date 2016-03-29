@@ -41,6 +41,8 @@ int main(void)
 	// watchdog_config();
 
 
+	auto_control();
+
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{

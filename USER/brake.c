@@ -5,7 +5,7 @@
 #include "brake.h"
 #include "debug.h"
 
-uint16_t brake_pins[BRAKE_CHANNEL_NUM] = {GPIO_Pin_12, GPIO_Pin_11, GPIO_Pin_13};
+uint16_t brake_pins[BRAKE_CHANNEL_NUM] = {GPIO_Pin_12};
 
 void brake_config(void)
 {

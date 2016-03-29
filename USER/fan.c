@@ -31,7 +31,6 @@ inline void toggle_fan(void)
 		start_fan();
 }
 
-float fan_kowtow_rad = 0;
 
 /*
 	0xff means not working

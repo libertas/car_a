@@ -1,6 +1,7 @@
 #include <math.h>
 
 #include "clock.h"
+#include "database.h"
 #include "debug.h"
 #include "encoder.h"
 #include "movement.h"
@@ -53,13 +54,21 @@ void f_rotate_c(int8_t spd)
 void f_move_arc(float y, float rad)
 {
 	float coe_y = CAR_X_LENGTH / (sqrtf( pow( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
+	float div_rad;
+	db_read("div_rad", (uint8_t*)&div_rad);
 
 	int16_t arg_y = DEFAULT_ARG_SPEED;
+	int16_t arg_r = rad / div_rad * DEFAULT_ARG_SPEED;
 
 	arg_speeds[0] = VECT_W0 * (coe_y * arg_y);
 	arg_speeds[1] = VECT_W1 * (coe_y * arg_y);
 	arg_speeds[2] = VECT_W2 * (coe_y * arg_y);
 	arg_speeds[3] = VECT_W3 * (coe_y * arg_y);
+
+	arg_speeds[0] += VECT_W0 * arg_r;
+	arg_speeds[1] += VECT_W1 * arg_r;
+	arg_speeds[2] += -VECT_W2 * arg_r;
+	arg_speeds[3] += -VECT_W3 * arg_r;
 
 	
 }

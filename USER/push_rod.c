@@ -43,7 +43,6 @@ void push_rod_config(void)
 
 void push_rod_c(uint8_t dir, uint8_t num)
 {
-	push_rod_config();
 	switch(dir){
 		case 0:{
 			GPIO_WriteBit(PUSHPorts[2 * num], PUSHPins[2 * num], Bit_SET);

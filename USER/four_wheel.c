@@ -50,6 +50,10 @@ void f_rotate_c(int8_t spd)
 		);
 }
 
+void f_move_arc(float y, float rad, bool rightwards)
+{
+}
+
 void f_move_xy_c(int8_t spd_x, int8_t spd_y)
 {
 	int16_t arg_x, arg_y;

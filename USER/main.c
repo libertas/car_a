@@ -37,6 +37,7 @@ int main(void)
 	brake_config();
 	encoder_config();
 	switch_config();
+	push_rod_config();
 	pwm_config();
 	// watchdog_config();
 

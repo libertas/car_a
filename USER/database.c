@@ -186,8 +186,24 @@ void db_exec(char cmd[])
 	uint8_t data[CMD_BUF_LEN];
 
 	switch(cmd[0]) {
+		case 'f':
+			for(i = 2; i < NAME_MAX_LEN; i++) {
+				if('=' == cmd[i]) {
+					is_valid = true;
+					cmd[i] = 0;
+					break;
+				}
+			}
+			if(is_valid) {
+				float tmp_f;
+				sscanf(cmd + 1, "%s", name);
+				sscanf(cmd + 1 + i, "%f", &tmp_f);
+				db_save(name, (uint8_t*)&tmp_f, sizeof(float));
+				printf("float:\t%s=%f\n", name, tmp_f);
+			}
+			break;
 		case 'w':
-			for(i = 0; i < NAME_MAX_LEN; i++) {
+			for(i = 1; i < NAME_MAX_LEN; i++) {
 				if('=' == cmd[i]) {
 					is_valid = true;
 					cmd[i] = 0;

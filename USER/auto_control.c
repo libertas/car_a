@@ -10,6 +10,7 @@ bool auto_flag = false;
 
 void auto_start(void)
 {
+	printf("\nAuto controlling.\n");
 	auto_flag = true;
 	delay_ms(2000);
 	start_fan();
@@ -40,7 +41,7 @@ void tim10_config(void)
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM10, ENABLE);
 	
-	TIM_TimeBaseInitStructure.TIM_Period = 100 - 1;
+	TIM_TimeBaseInitStructure.TIM_Period = 1000 - 1;
 	TIM_TimeBaseInitStructure.TIM_Prescaler = 168 - 1;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
@@ -64,7 +65,7 @@ void tim14_config(void)
 	
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM14, ENABLE);
 	
-	TIM_TimeBaseInitStructure.TIM_Period = 100 - 1;
+	TIM_TimeBaseInitStructure.TIM_Period = 1000 - 1;
 	TIM_TimeBaseInitStructure.TIM_Prescaler = 168 - 1;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;

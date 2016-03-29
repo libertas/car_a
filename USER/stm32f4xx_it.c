@@ -235,18 +235,14 @@ void UART4_IRQHandler(void)
 void TIM1_UP_TIM10_IRQHandler(void)
 {
 	if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
-		#ifdef DEBUG_AUTO
-		printf("TIM10\n");
-		#endif
+		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
 	}
 }
 
 void TIM8_TRG_COM_TIM14_IRQHandler(void)
 {
 	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
-		#ifdef DEBUG_AUTO
-		printf("TIM14\n");
-		#endif
+		TIM_ClearITPendingBit(TIM14, TIM_IT_Update);
 	}
 }
 

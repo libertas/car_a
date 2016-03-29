@@ -52,14 +52,14 @@ void t_stop(void);
 
 extern int16_t arg_speeds[4];
 
-void f_move_arc(float y, float rad, bool rightwards);
+void f_move_arc(float y, float rad);
 void f_move_xy_c(int8_t spd_x, int8_t spd_y);
 void f_rotate_c(int8_t spd);
 void f_stop(void);
 
 #endif
 
-void move_arc(float y, float rad, bool rightwards);
+void move_arc(float y, float rad);
 void move_up(void);
 void move_down(void);
 void move_x(float x);

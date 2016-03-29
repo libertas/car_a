@@ -31,10 +31,10 @@ void rotate_c(int8_t arg_spd)
 	#endif
 }
 
-void move_arc(float y, float rad, bool rightwards)
+void move_arc(float y, float rad)
 {
 	#ifdef USE_FOUR_WHEEL
-	f_move_arc(y, rad, rightwards);
+	f_move_arc(y, rad);
 	#endif
 }
 

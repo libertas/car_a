@@ -50,16 +50,26 @@ void f_rotate_c(int8_t spd)
 		);
 }
 
-void f_move_arc(float y, float rad, bool rightwards)
+void f_move_arc(float y, float rad)
 {
+	float coe_y = CAR_X_LENGTH / (sqrtf( pow( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
+
+	int16_t arg_y = DEFAULT_ARG_SPEED;
+
+	arg_speeds[0] = VECT_W0 * (coe_y * arg_y);
+	arg_speeds[1] = VECT_W1 * (coe_y * arg_y);
+	arg_speeds[2] = VECT_W2 * (coe_y * arg_y);
+	arg_speeds[3] = VECT_W3 * (coe_y * arg_y);
+
+	
 }
 
 void f_move_xy_c(int8_t spd_x, int8_t spd_y)
 {
 	int16_t arg_x, arg_y;
 	
-	double coe_x = CAR_Y_LENGTH / (sqrt( pow( CAR_X_LENGTH, 2) + pow( CAR_Y_LENGTH, 2)));
-	double coe_y = CAR_X_LENGTH / (sqrt( pow( CAR_X_LENGTH, 2) + pow( CAR_Y_LENGTH, 2)));
+	float coe_x = CAR_Y_LENGTH / (sqrtf( pow( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
+	float coe_y = CAR_X_LENGTH / (sqrtf( pow( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
 
 	arg_x = (int16_t) (((float) spd_x) / 128 * DEFAULT_ARG_SPEED);
 	arg_y = (int16_t) (((float) spd_y) / 128 * DEFAULT_ARG_SPEED);

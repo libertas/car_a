@@ -24,7 +24,7 @@ float mti(void)
 					mti_roll *= ANGLE_TO_RAD;
 					mti_pitch *= ANGLE_TO_RAD;
 					mti_yaw *= ANGLE_TO_RAD;
-					uprintf(USART2, "roll = %f\t pitch = %f\t yaw = %f\t\r\n",mti_roll, mti_pitch, mti_yaw);
+					//uprintf(USART3, "roll = %f\t pitch = %f\t yaw = %f\t\r\n",mti_roll, mti_pitch, mti_yaw);
 				}
 	return mti_yaw;
 }

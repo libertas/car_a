@@ -19,22 +19,22 @@
 
 int main(void)
 {
-	system_clk_set();
-	systick_config();
+	//system_clk_set();
+	//systick_config();
 
-	interpreter_config();
+	//interpreter_config();
 	uart_config(115200);
-	brake_config();
-	encoder_config();
-	switch_config();
-	pwm_config();
-	watchdog_config();
+	//brake_config();
+	//encoder_config();
+	//switch_config();
+	//pwm_config();
+	//watchdog_config();
 	dma_config();
-	start_fan();
+	//start_fan();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
-		check_cmd();
+		//check_cmd();
 	}
 
 	return 0;

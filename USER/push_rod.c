@@ -68,20 +68,21 @@ void push_rod(uint8_t dir, uint8_t num)
 	switch(dir){
 		case 0:{
 			push_rod_c(PUSH_ROD_PULL, num);
+			if(1 == num) delay_ms(PUSH_ROD_TIME);
+			else delay_ms(PUSH_ROD_TIME / 5);
 			break;
 		}
 		case 1:{
 			push_rod_c(PUSH_ROD_PUSH, num);
+			if(1 == num) delay_ms(PUSH_ROD_TIME);
+			else delay_ms(PUSH_ROD_TIME / 5);
 			break;
 		}
 		case 0xff:{
 			push_rod_c(PUSH_ROD_STOP, num);
-			
 			break;
 		}
 		default:break;
 	}
-	if(1 == num) delay_ms(PUSH_ROD_TIME);
-	else delay_ms(PUSH_ROD_TIME / 5);
 	push_rod_c(PUSH_ROD_STOP, num);
 }

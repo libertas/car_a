@@ -76,6 +76,9 @@ void f_move_arc(float y, float rad)
 	} else if(rad < 0) {
 		r1 = (r + CAR_X_LENGTH / 2) / fabs(r);
 		r2 = (r / CAR_X_LENGTH / 2) / fabs(r);
+	} else {
+		r1 = 1;
+		r2 = 1;
 	}
 	
 	arg_speeds[0] = VECT_W0 * (coe_y * arg_y) * r2;

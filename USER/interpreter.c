@@ -68,19 +68,16 @@ command list:
 	toggle_fan()
 		(byte) 0x0a
 	
-	mag_up()
-		(byte) 0x14 (byte) 0x00
-	
 	mag_in()
 		(byte) 0x14 (byte) 0x01
 	
 	mag_out()
 		(byte) 0x14 (byte) 0x02
 	
-	mag_down()
+	mag_near()
 		(byte) 0x14 (byte) 0x03
 	
-	mag_updown_stop()
+	mag_far()
 		(byte) 0x14 (byte) 0x04
 	
 	fan_roll(float rad)
@@ -131,9 +128,6 @@ int run_cmd(void)
 			switch (buf) {
 				default:
 					break;
-				case 0x00:
-					//mag_up();
-					break;
 				case 0x01:
 					mag_in();
 					break;
@@ -141,10 +135,10 @@ int run_cmd(void)
 					mag_out();
 					break;
 				case 0x03:
-					//mag_down();
+					mag_near();
 					break;
 				case 0x04:
-					//mag_updown_stop();
+					mag_far();
 					break;
 			}
 			break;

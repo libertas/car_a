@@ -43,7 +43,6 @@ void push_rod_config(void)
 
 void push_rod_c(uint8_t dir, uint8_t num)
 {
-	push_rod_config();
 	switch(dir){
 		case 0:{
 			GPIO_WriteBit(PUSHPorts[2 * num], PUSHPins[2 * num], Bit_SET);
@@ -69,19 +68,21 @@ void push_rod(uint8_t dir, uint8_t num)
 	switch(dir){
 		case 0:{
 			push_rod_c(PUSH_ROD_PULL, num);
+			if(1 == num) delay_ms(PUSH_ROD_TIME);
+			else delay_ms(PUSH_ROD_TIME / 5);
 			break;
 		}
 		case 1:{
 			push_rod_c(PUSH_ROD_PUSH, num);
+			if(1 == num) delay_ms(PUSH_ROD_TIME);
+			else delay_ms(PUSH_ROD_TIME / 5);
 			break;
 		}
 		case 0xff:{
 			push_rod_c(PUSH_ROD_STOP, num);
-			
 			break;
 		}
 		default:break;
 	}
-	delay_ms(PUSH_ROD_TIME);
 	push_rod_c(PUSH_ROD_STOP, num);
 }

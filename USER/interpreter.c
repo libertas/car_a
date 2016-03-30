@@ -128,6 +128,9 @@ int run_cmd(void)
 			switch (buf) {
 				default:
 					break;
+				case 0x00:
+					mag_far();
+					break;
 				case 0x01:
 					mag_in();
 					break;
@@ -136,9 +139,6 @@ int run_cmd(void)
 					break;
 				case 0x03:
 					mag_near();
-					break;
-				case 0x04:
-					mag_far();
 					break;
 			}
 			break;

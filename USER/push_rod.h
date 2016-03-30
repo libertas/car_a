@@ -3,7 +3,7 @@
 #define PUSH_ROD_PUSH 1
 #define PUSH_ROD_PULL 0
 #define PUSH_ROD_STOP 0xff
-#define PUSH_ROD_TIME 100 //单位：ms
+#define PUSH_ROD_TIME 200 //单位：ms
 #define PUSH_ROD_CHANNEL_NUM 2
 
 extern uint16_t PUSHPins[];

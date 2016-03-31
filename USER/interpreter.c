@@ -92,7 +92,7 @@ command list:
 	fan_kowtow_r(int8_t dir)
 		(byte) 0x12 (int8_t) dir
 	
-	push_rod(uint8_t dir)
+	push_rod(uint8_t dir, uint8_t channel_num)
 		(byte) 0x13 (uint8_t) dir
 */
 int run_cmd(void)
@@ -375,9 +375,9 @@ int run_cmd(void)
 			#endif
 		
 			out_char_queue(&cmd_queue, (char*) &buf);
+			out_char_queue(&cmd_queue, (char*) &buf1);
 		
-			push_rod(buf, 0);
-			push_rod(buf, 1);
+			push_rod(buf, buf1);
 		
 			break;
 	}

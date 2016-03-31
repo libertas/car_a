@@ -375,9 +375,8 @@ int run_cmd(void)
 			#endif
 		
 			out_char_queue(&cmd_queue, (char*) &buf);
-			out_char_queue(&cmd_queue, (char*) &buf1);
 		
-			push_rod(buf, buf1);
+			push_rod((buf >> 4) & 0x0f, buf & 0x0f);
 		
 			break;
 	}

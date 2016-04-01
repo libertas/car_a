@@ -172,7 +172,7 @@ void USART1_IRQHandler(void)
 {
 	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
 	{
-		USART_SendData(USART3, USART_ReceiveData(USART1));
+		USART_SendData(UART5, USART_ReceiveData(USART1));
 	}
 }
 
@@ -180,7 +180,7 @@ void USART2_IRQHandler(void)
 {
 	if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)
 	{
-		USART_SendData(USART3, USART_ReceiveData(USART2));
+		USART_SendData(UART5, USART_ReceiveData(USART2));
 	}
 }
 
@@ -188,14 +188,33 @@ void USART2_IRQHandler(void)
 void USART3_IRQHandler(void)
 {
 	char data;
-	char tmp;
 
 	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
 	{
 		data = USART_ReceiveData(USART3);
 		
 		in_char_queue(&cmd_queue, data);
-		
+	}
+}
+
+void UART4_IRQHandler(void)
+{
+	if(USART_GetITStatus(UART4, USART_IT_RXNE) != RESET)
+	{
+		USART_SendData(UART5, USART_ReceiveData(UART4));
+	}
+}
+
+void UART5_IRQHandler(void)
+{
+	char data;
+	char tmp;
+
+	if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET)
+	{
+		data = USART_ReceiveData(UART5);
+		USART_SendData(UART5, data);
+
 		#ifdef DEBUG_DB_EXEC
 		#include "database.h"
 		
@@ -218,16 +237,7 @@ void USART3_IRQHandler(void)
 					in_char_queue(&db_cmd_queue, data);
 				break;
 		}
-		USART_SendData(USART3, data);
 		#endif
-	}
-}
-
-void UART4_IRQHandler(void)
-{
-	if(USART_GetITStatus(UART4, USART_IT_RXNE) != RESET)
-	{
-		USART_SendData(UART4, USART_ReceiveData(UART4));
 	}
 }
 

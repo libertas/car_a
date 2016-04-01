@@ -60,7 +60,7 @@ void f_move_arc(float y, float rad)
 	db_read("div_rad", (uint8_t*)&div_rad);
 	if(0 == div_rad) {
 		printf("\nSet div_rad!\n");
-		return;
+		div_rad = 1;
 	}
 
 	int16_t arg_y = DEFAULT_ARG_SPEED;

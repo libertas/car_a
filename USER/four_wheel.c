@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdbool.h>
 
 #include "clock.h"
 #include "database.h"
@@ -53,25 +54,21 @@ void f_rotate_c(int8_t spd)
 
 void f_move_arc(float y, float rad)
 {
-	float r = y / sinf(rad);
+	float r = y / sinf(fabsf(rad));
 	float r1, r2, rt;
 	float coe_y = CAR_X_LENGTH / (sqrtf( pow( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
-	float div_rad;
-	db_read("div_rad", (uint8_t*)&div_rad);
-	if(0 == div_rad) {
-		printf("\nSet div_rad!\n");
-		div_rad = 1;
-	}
+	float div_rad = 1.5;
 
-	int16_t arg_y = DEFAULT_ARG_SPEED / 128;
-	int16_t arg_r = rad / div_rad * DEFAULT_ARG_SPEED / 128;
+	int16_t arg_y = DEFAULT_ARG_SPEED;
 
 	if(rad > 0) {
-		r1 = (r - CAR_X_LENGTH / 2) / r;
-		r2 = (r + CAR_X_LENGTH / 2) / r;
+		r1 = (r - (float)CAR_X_LENGTH / 2000) / r;
+		r2 = (r + (float)CAR_X_LENGTH / 2000) / r;
+		r2 *= div_rad;
 	} else if(rad < 0) {
-		r1 = (r + CAR_X_LENGTH / 2) / fabs(r);
-		r2 = (r - CAR_X_LENGTH / 2) / fabs(r);
+		r1 = (r + (float)CAR_X_LENGTH / 2000) / fabs(r);
+		r2 = (r - (float)CAR_X_LENGTH / 2000) / fabs(r);
+		r1 *= div_rad;
 	} else {
 		r1 = 1;
 		r2 = 1;
@@ -82,9 +79,9 @@ void f_move_arc(float y, float rad)
 	r2 = r2 / rt;
 	
 	arg_speeds[0] = VECT_W0 * (coe_y * arg_y) * r2;
-	arg_speeds[1] = VECT_W1 * (-coe_y * arg_y) * r2;
+	arg_speeds[1] = VECT_W1 * (coe_y * arg_y) * r2;
 	arg_speeds[2] = VECT_W2 * (coe_y * arg_y) * r1;
-	arg_speeds[3] = VECT_W3 * (-coe_y * arg_y) * r1;
+	arg_speeds[3] = VECT_W3 * (coe_y * arg_y) * r1;
 
 	#ifdef DEBUG
 	printf("arg_speeds:\n");

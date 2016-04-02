@@ -6,6 +6,7 @@
 #include "brake.h"
 #include "clock.h"
 #include "database.h"
+#include "dma.h"
 #include "encoder.h"
 #include "fan.h"
 #include "flash.h"
@@ -23,7 +24,6 @@
 #include "spi.h"
 #include "suart.h"
 #include "watchdog.h"
-#include "dma.h"
 
 int main(void)
 {

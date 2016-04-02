@@ -513,6 +513,16 @@
               <FileType>1</FileType>
               <FilePath>.\database.c</FilePath>
             </File>
+            <File>
+              <FileName>dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>mti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mti.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -747,11 +757,6 @@
               <FileName>clock.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\clock.h</FilePath>
-            </File>
-            <File>
-              <FileName>config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\config.h</FilePath>
             </File>
             <File>
               <FileName>debug.h</FileName>

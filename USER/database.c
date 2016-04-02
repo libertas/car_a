@@ -155,17 +155,17 @@ void db_delete(const char* const name)
 	db_index -= len;
 }
 
-void db_read(const char* const name, uint8_t* data)
+bool db_read(const char* const name, uint8_t* data)
 {
 	if(false == db_init_done)
-		return;
+		return false;
 
 	uint32_t i, j, data_len;
 	
 	i = db_find(name);
 	if(i == 0) {
 		data[0] = 0;
-		return;
+		return false;
 	}
 
 	data_len = get_len_by_pos(i);
@@ -174,6 +174,8 @@ void db_read(const char* const name, uint8_t* data)
 		data[j] = db_buf[i + j];
 	}
 	data[j] = 0;
+	
+	return true;
 }
 
 

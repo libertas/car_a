@@ -280,7 +280,6 @@ void TIM6_DAC_IRQHandler(void)
 		TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
 	}
 }
-
 #endif
 
 
@@ -290,6 +289,29 @@ void TIM1_TRG_COM_TIM11_IRQHandler(void)
 	if(TIM_GetITStatus(TIM11, TIM_IT_Update) != RESET) {
 		suart_check();
 		TIM_ClearITPendingBit(TIM11, TIM_IT_Update);
+	}
+}
+
+
+#include "mti.h"
+void DMA1_Stream2_IRQHandler(void)
+{
+	if(SET == DMA_GetITStatus(DMA1_Stream2, DMA_IT_TCIF2) ) {
+		uprintf(USART3,"RECOK\r\n");
+		DMA_Cmd(DMA1_Stream2, DISABLE);
+		float angle = mti();
+		uprintf(USART3,"%f\r\n",angle);
+		DMA_ClearITPendingBit(DMA1_Stream2, DMA_IT_TCIF2);
+		DMA_Cmd(DMA1_Stream2, ENABLE);
+	}
+}
+
+void DMA1_Stream4_IRQHandler(void)
+{
+	if(SET == DMA_GetITStatus(DMA1_Stream4, DMA_IT_TCIF4)) {
+		uprintf(USART2,"SendOK\r\n");
+		DMA_Cmd(DMA1_Stream4, DISABLE);
+		DMA_ClearITPendingBit(DMA1_Stream4, DMA_IT_TCIF4);
 	}
 }
 

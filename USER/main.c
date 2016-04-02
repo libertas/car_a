@@ -12,6 +12,7 @@
 #include "interpreter.h"
 #include "magnet.h"
 #include "movement.h"
+#include "mti.h"
 #include "multi_processing.h"
 #include "pwm.h"
 #include "switch.h"
@@ -22,6 +23,7 @@
 #include "spi.h"
 #include "suart.h"
 #include "watchdog.h"
+#include "dma.h"
 
 int main(void)
 {
@@ -31,6 +33,7 @@ int main(void)
 
 	interpreter_config();
 	uart_config(115200);
+	dma_config();
 	spi_config();
 	suart_config();
 
@@ -44,9 +47,8 @@ int main(void)
 	move_arc(2, PI / 2);
 
 	printf("\n\nEntering main loop\n\n");
-	while(1)
-	{
-		check_cmd();
+	while(1) {
+		//check_cmd();
 	}
 
 	return 0;

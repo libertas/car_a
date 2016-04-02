@@ -266,6 +266,10 @@ void db_exec(char cmd[])
 			db_sync();
 			printf("\nsync done\n");
 			break;
+		case 'c':
+			db_clear_init();
+			printf("\nDB CLEARED!!\n");
+			break;
 		default:
 			#ifdef DEBUG_DB_EXEC
 			printf("\nUnrecognised code\n");

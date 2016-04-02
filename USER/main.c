@@ -44,11 +44,11 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 
-	move_arc(2, PI / 2);
+	//move_arc(2, PI / 2);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
-		//check_cmd();
+		check_cmd();
 	}
 
 	return 0;

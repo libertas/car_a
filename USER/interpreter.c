@@ -93,7 +93,7 @@ command list:
 		(byte) 0x12 (int8_t) dir
 	
 	push_rod(uint8_t dir, uint8_t channel_num)
-		(byte) 0x13 (uint8_t) dir
+		(byte) 0x13 (4-bit) dir (4-bit) num
 */
 int run_cmd(void)
 {

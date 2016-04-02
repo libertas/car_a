@@ -54,7 +54,7 @@ void f_rotate_c(int8_t spd)
 void f_move_arc(float y, float rad)
 {
 	float r = y / sinf(rad);
-	float r1, r2;
+	float r1, r2, rt;
 	float coe_y = CAR_X_LENGTH / (sqrtf( pow( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
 	float div_rad;
 	db_read("div_rad", (uint8_t*)&div_rad);
@@ -65,21 +65,25 @@ void f_move_arc(float y, float rad)
 
 	int16_t arg_y = DEFAULT_ARG_SPEED;
 	int16_t arg_r = rad / div_rad * DEFAULT_ARG_SPEED;
+	
+	printf("arg_y:%d\targ_r:%d\n", arg_y, arg_r);
 
 	if(rad > 0) {
 		r1 = (r - CAR_X_LENGTH / 2) / r;
 		r2 = (r + CAR_X_LENGTH / 2) / r;
-		arg_speeds[0] = VECT_W0 * (coe_y * arg_y) * r2;
-		arg_speeds[1] = VECT_W1 * (-coe_y * arg_y) * r2;
-		arg_speeds[2] = VECT_W2 * (coe_y * arg_y) * r1;
-		arg_speeds[3] = VECT_W3 * (-coe_y * arg_y) * r1;
 	} else if(rad < 0) {
 		r1 = (r + CAR_X_LENGTH / 2) / fabs(r);
-		r2 = (r / CAR_X_LENGTH / 2) / fabs(r);
+		r2 = (r - CAR_X_LENGTH / 2) / fabs(r);
 	} else {
 		r1 = 1;
 		r2 = 1;
 	}
+
+	rt = r1 + r2;
+	r1 = r1 / rt;
+	r2 = r2 / rt;
+	
+	printf("r1:%f\tr2:%f\n", r1, r2);
 	
 	arg_speeds[0] = VECT_W0 * (coe_y * arg_y) * r2;
 	arg_speeds[1] = VECT_W1 * (-coe_y * arg_y) * r2;

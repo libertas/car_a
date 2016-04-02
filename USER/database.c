@@ -245,8 +245,11 @@ void db_exec(char cmd[])
 					break;
 				}
 			}
-			db_read((char*)name, data);
-			printf("\n%s=%s\n", name, data);
+			if(true == db_read((char*)name, data)) {
+				printf("\n%s=%s\n", name, data);
+			} else {
+				printf("\nKey not found.\n");
+			}
 			break;
 		case 'd':
 			for(i = 1; i < NAME_MAX_LEN; i++) {

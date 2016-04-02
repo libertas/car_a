@@ -61,7 +61,7 @@ void f_move_arc(float y, float rad)
 
 	int16_t arg_y = DEFAULT_ARG_SPEED;
 	
-	if(true == db_read("dr", (uint8_t*)&div_rad)) {
+	if(true == db_read("div_rad", (uint8_t*)&div_rad)) {
 		#ifdef DEBUG
 		printf("div_rad:%x\n", *(uint32_t*)&div_rad);
 		printf("div_rad*10:%d\n", (uint32_t)(div_rad * 10));

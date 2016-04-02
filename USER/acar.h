@@ -1,4 +1,3 @@
-#include "global.h"
 
 
 #define MAX_MOTOR_MOV_V 4000
@@ -19,7 +18,6 @@
 #define ACAR_ROTATE_D 1.5
 #define ACAR_MOV_P 2000 
 #define ACAR_MOV_D 1.5
-
 
 #define PI 3.1415926535898
 

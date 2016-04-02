@@ -131,9 +131,9 @@ void acar_while(float d_t){
 
 
     if(g_acar_d.run_en == ACAR_RUN_ENABLE){   //如果大车运动被使能，则给驱动卡发指令，驱动大车
-        myprintf(MOTOR_USART,"0v%d\r1v%d\r2v%d\r",g_acar_d.motor1_v,g_acar_d.motor2_v,g_acar_d.motor3_v);
+        uprintf(MOTOR_USART,"0v%d\r1v%d\r2v%d\r",g_acar_d.motor1_v,g_acar_d.motor2_v,g_acar_d.motor3_v);
     }else if(g_acar_d.run_en == ACAR_RUN_DISABLE){
-        myprintf(MOTOR_USART,"v0\r");
+        uprintf(MOTOR_USART,"v0\r");
     }
 }
 

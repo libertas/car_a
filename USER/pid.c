@@ -14,7 +14,7 @@ void pid_config(pid_inittypedef* pid_initstruct)
 float pid_realize(pid_inittypedef* pid)
 {
     int8_t index = 0;
-    if(abs(pid->error) > (pid->set_value * 1.5)) {
+    if(abs(pid->error) > (pid->set_value * 1.5F)) {
         index = 0;
     }
     else {

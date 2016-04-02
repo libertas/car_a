@@ -41,9 +41,6 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 
-	float tf = 3.141592653f;
-	printf("%f\n", tf);
-
 	move_arc(2, PI / 2);
 
 	printf("\n\nEntering main loop\n\n");

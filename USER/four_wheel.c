@@ -63,10 +63,8 @@ void f_move_arc(float y, float rad)
 		div_rad = 1;
 	}
 
-	int16_t arg_y = DEFAULT_ARG_SPEED;
-	int16_t arg_r = rad / div_rad * DEFAULT_ARG_SPEED;
-	
-	printf("arg_y:%d\targ_r:%d\n", arg_y, arg_r);
+	int16_t arg_y = DEFAULT_ARG_SPEED / 128;
+	int16_t arg_r = rad / div_rad * DEFAULT_ARG_SPEED / 128;
 
 	if(rad > 0) {
 		r1 = (r - CAR_X_LENGTH / 2) / r;
@@ -82,8 +80,6 @@ void f_move_arc(float y, float rad)
 	rt = r1 + r2;
 	r1 = r1 / rt;
 	r2 = r2 / rt;
-	
-	printf("r1:%f\tr2:%f\n", r1, r2);
 	
 	arg_speeds[0] = VECT_W0 * (coe_y * arg_y) * r2;
 	arg_speeds[1] = VECT_W1 * (-coe_y * arg_y) * r2;

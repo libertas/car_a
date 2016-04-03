@@ -45,7 +45,6 @@ int main(void)
 	// watchdog_config();
 
 	printf("\n\nEntering main loop\n\n");
-	delay_ms(500);
 	while(1) {
 		check_cmd();
 	}

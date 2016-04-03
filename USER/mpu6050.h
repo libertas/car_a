@@ -22,8 +22,7 @@
 
 #include "stm32f4xx.h"
 
-//#include "global.h"
-//#include "stm32f4xx_i2c.h"
+#include "movement.h"
 
 
 #define PWR_MSMT_1 0x6B   //睡眠唤醒
@@ -45,7 +44,6 @@
 #define GYRO_YOUT_L  0x46
 #define GYRO_ZOUT_H  0x47
 #define GYRO_ZOUT_L  0x48
-#define PI 3.1415926535898
 
 
 //以下是MPU6050数据选择的宏定义

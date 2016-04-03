@@ -15,6 +15,7 @@
 #include "movement.h"
 #include "mti.h"
 #include "multi_processing.h"
+#include "mpu6050.h"
 #include "pwm.h"
 #include "switch.h"
 #include "usart.h"
@@ -43,12 +44,14 @@ int main(void)
 	push_rod_config();
 	pwm_config();
 	// watchdog_config();
-
-	move_arc(2, PI / 2);
+	
+	float mpu[3] = {0};
+	mpu6050_fast_init(mpu);
+	mpu6050_cycleread_start();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
-		check_cmd();
+		printf("%f\t%f\t%f\n", mpu[0], mpu[1], mpu[2]);
 	}
 
 	return 0;

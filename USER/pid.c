@@ -2,8 +2,8 @@
 #include <stdint.h>
 #include "pid.h"
 
-#ifndef USE_PID_INC
-void pid_config(pid_inittypedef* pid_initstruct)
+
+void pid_config(pid_t* pid_initstruct)
 {
 	pid_initstruct->actual_value = 0.0;
 	pid_initstruct->error = 0.0;
@@ -11,7 +11,7 @@ void pid_config(pid_inittypedef* pid_initstruct)
 	pid_initstruct->sum = 0.0;
 }
 
-float pid_realize(pid_inittypedef* pid)
+float pid_realize(pid_t* pid)
 {
     int8_t index = 0;
     if(abs(pid->error) > (pid->set_value * 1.5F)) {
@@ -28,19 +28,19 @@ float pid_realize(pid_inittypedef* pid)
 	pid->error_old = pid->error;
 	return pid->actual_value;
 }
-#endif
 
-#ifdef USE_PID_INC
-void pid_config(pid_inittypedef* pid_initstruct)
+
+
+void pid_inc_config(pid_inc_t* pid_inc_initstruct)
 {
-	pid_initstruct->actual_value = 0.0;
-	pid_initstruct->error = 0.0;
-	pid_initstruct->error_oold = 0.0;
-	pid_initstruct->error_old = 0.0;
-	pid_initstruct->sum = 0.0;
+	pid_inc_initstruct->actual_value = 0.0;
+	pid_inc_initstruct->error = 0.0;
+	pid_inc_initstruct->error_oold = 0.0;
+	pid_inc_initstruct->error_old = 0.0;
+	pid_inc_initstruct->sum = 0.0;
 }
 
-float pid_realize(pid_inittypedef* pid)
+float pid_inc_realize(pid_inc_t* pid)
 {
     pid->error = pid->set_value - pid->actual_value;
     float increment = pid->kp * (pid->error - pid->error_old)\
@@ -51,4 +51,3 @@ float pid_realize(pid_inittypedef* pid)
     pid->error_old = pid->error;
 return pid->actual_value;
 }
-#endif

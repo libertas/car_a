@@ -29,7 +29,7 @@ int main(void)
 {
 	system_clk_set();
 	systick_config();
-	db_init();
+	// db_init();
 
 	interpreter_config();
 	uart_config(115200);
@@ -44,9 +44,8 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 
-	move_arc(2, PI / 2);
-
 	printf("\n\nEntering main loop\n\n");
+	delay_ms(500);
 	while(1) {
 		check_cmd();
 	}

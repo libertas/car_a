@@ -48,11 +48,11 @@ void dma_config(void)
 	DMA_Init(DMA1_Stream2, &DMA_InitStructure); 
 
 	DMA_Cmd(DMA1_Stream2, ENABLE);  // RX
-	DMA_Cmd(DMA1_Stream4, ENABLE);  // TX
+	//DMA_Cmd(DMA1_Stream4, ENABLE);  // TX
 
-	USART_DMACmd(UART4, USART_DMAReq_Tx, ENABLE);
+	//USART_DMACmd(UART4, USART_DMAReq_Tx, ENABLE);
 	USART_DMACmd(UART4, USART_DMAReq_Rx, ENABLE);
 
 	DMA_ITConfig(DMA1_Stream2, DMA_IT_TC, ENABLE);       
-	DMA_ITConfig(DMA1_Stream4, DMA_IT_TC, ENABLE);       
+	//DMA_ITConfig(DMA1_Stream4, DMA_IT_TC, ENABLE);       
  }

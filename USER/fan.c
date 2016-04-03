@@ -31,7 +31,6 @@ inline void toggle_fan(void)
 		start_fan();
 }
 
-float fan_kowtow_rad = 0;
 
 /*
 	0xff means not working
@@ -42,7 +41,7 @@ float fan_kowtow_rad = 0;
 
 void fan_roll(float rad)
 {
-	set_duty(FAN_ROLL_CHANNEL, (float)((float)0.11 - (float)0.06 * rad / ((float)PI / 2)));
+	set_duty(FAN_ROLL_CHANNEL, (float)((float)0.14 - (float)0.06 * rad / ((float)PI / 2)));
 	
 	#ifdef DEBUG
 	printf("\nfan_roll(%f)\n", rad);
@@ -64,7 +63,7 @@ void fan_roll_r(int8_t dir)
 void fan_up(void)
 {
 	brake_release(0);
-	set_duty(FAN_UPDOWN_CHANNEL, 0.063);
+	set_duty(FAN_UPDOWN_CHANNEL, 0.068);
 }
 
 void fan_up_r(void)

@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdbool.h>
 #include <stdint.h>
 
 #include "usart.h"
@@ -41,7 +42,7 @@ void t_stop(void);
 
 #ifdef USE_FOUR_WHEEL
 
-#define DEFAULT_ARG_SPEED 2000
+#define DEFAULT_ARG_SPEED 4000
 #define CAR_X_LENGTH 500
 #define CAR_Y_LENGTH 650
 #define VECT_W0 (-1)
@@ -51,12 +52,14 @@ void t_stop(void);
 
 extern int16_t arg_speeds[4];
 
+void f_move_arc(float y, float rad);
 void f_move_xy_c(int8_t spd_x, int8_t spd_y);
 void f_rotate_c(int8_t spd);
 void f_stop(void);
 
 #endif
 
+void move_arc(float y, float rad);
 void move_up(void);
 void move_down(void);
 void move_x(float x);

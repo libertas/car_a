@@ -179,6 +179,7 @@ void db_read(const char* const name, uint8_t* data)
 
 void db_exec(char cmd[])
 {
+	uint32_t tmp;
 	uint32_t i, pos;
 	uint32_t len = strlen(cmd);
 	bool is_valid = false;
@@ -186,8 +187,29 @@ void db_exec(char cmd[])
 	uint8_t data[CMD_BUF_LEN];
 
 	switch(cmd[0]) {
+		case 'h': 
+			for(i = 2; i < NAME_MAX_LEN; i++) {
+				if('=' == cmd[i]) {
+					is_valid = true;
+					cmd[i] = 0;
+					break;
+				}
+			}
+			if(is_valid) {
+				for(i = 0; 0 != cmd[i + 1]; i++) {
+					name[i] = cmd[i + 1];
+				}
+				sscanf(cmd + 2 + i, "%32x", &tmp);
+				db_save(name, (uint8_t*)(&tmp), sizeof(uint32_t));
+				tmp = 0;
+				db_read(name, (uint8_t*)(&tmp));
+				printf("\nname:%s\nhex:0x%x saved.\n", name, tmp);
+			} else {
+				printf("\nInvalid hex\n");
+			}
+			break;
 		case 'w':
-			for(i = 0; i < NAME_MAX_LEN; i++) {
+			for(i = 1; i < NAME_MAX_LEN; i++) {
 				if('=' == cmd[i]) {
 					is_valid = true;
 					cmd[i] = 0;
@@ -254,8 +276,10 @@ void db_queue_exec(void)
 	static char cmd[CMD_BUF_LEN];
 	for(i = 0; i < CMD_BUF_LEN; i++) {
 		out_char_queue(&db_cmd_queue, (cmd + i));
-		if('\n' == cmd[i])
+		if('\n' == cmd[i]) {
+			cmd[i + 1] = 0;
 			break;
+		}
 	}
 	db_exec(cmd);
 }

@@ -50,14 +50,7 @@ void fan_roll(float rad)
 
 void fan_roll_r(int8_t dir)
 {
-	
-	#ifdef DEBUG_FAN_ROLL_R
-	printf("fan_roll_r(%d)\n", dir);
-	#endif
-	
-	static float current_rad;
-	current_rad += dir * FAN_RROLL_DIST;
-	fan_roll(current_rad);
+	set_duty(FAN_ROLL_CHANNEL, 0.13F + dir * 0.08F);
 }
 
 void fan_up(void)

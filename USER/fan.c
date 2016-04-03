@@ -63,7 +63,7 @@ void fan_roll_r(int8_t dir)
 void fan_up(void)
 {
 	brake_release(0);
-	set_duty(FAN_UPDOWN_CHANNEL, 0.068);
+	set_duty(FAN_UPDOWN_CHANNEL, 0.065);
 }
 
 void fan_up_r(void)
@@ -76,7 +76,7 @@ void fan_up_r(void)
 void fan_down(void)
 {
 	brake_release(0);
-	set_duty(FAN_UPDOWN_CHANNEL, 0.074);
+	set_duty(FAN_UPDOWN_CHANNEL, 0.076);
 }
 
 void fan_down_r(void)

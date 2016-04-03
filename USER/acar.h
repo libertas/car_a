@@ -1,11 +1,11 @@
-
+#include "stm32f4xx.h"
 
 #define MAX_MOTOR_MOV_V 4000
 #define MAX_MOTOR_R_V 3500
 #define MAX_MOTOR_A 200
 #define MAX_V 100
 #define MAX_A_CNT 200
-#define MOTOR_USART USART1
+#define MOTOR_USART USART2
 #define CODER_X_TIM TIM4
 #define CODER_Y_TIM	TIM5
 #define CODERX_TIM_PERIOD 2000.0f

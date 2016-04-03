@@ -1,4 +1,7 @@
 #include "parameter.h"
+#include "stm32f4xx.h"
+#include "global.h"
+#include "cmd_func.h"    //命令调用函数声明文件
 
 
 param_struct *g_control_param;   //存放控制参数的结构体
@@ -9,20 +12,20 @@ static int group_now;
 
 //在自定义结构体param_struct里添加成员参数之后，需要在这个函数里添加相应的宏PARAM_UPDATE()
 void param_update_all(){
-//    PARAM_UPDATE(g_param_list,control_param_array,servo_p,UART5);
-//    PARAM_UPDATE(g_param_list,control_param_array,servo_i,UART5);
-//    PARAM_UPDATE(g_param_list,control_param_array,servo_d,UART5);
-//    PARAM_UPDATE(g_param_list,control_param_array,threshold,UART5);
-//    PARAM_UPDATE(g_param_list,control_param_array,servo_centroid,UART5);
-//    PARAM_UPDATE(g_param_list,control_param_array,servo_p_gain,UART5);
-//    PARAM_UPDATE(g_param_list,control_param_array,servo_d_gain,UART5);
-//    PARAM_UPDATE(g_param_list,control_param_array,servo_p_base,UART5);
-//    PARAM_UPDATE(g_param_list,control_param_array,servo_d_base,UART5);
-//    PARAM_UPDATE(g_param_list,control_param_array,return_right,UART5);
-//    PARAM_UPDATE(g_param_list,control_param_array,return_left,UART5);
-//    PARAM_UPDATE(g_param_list,control_param_array,fturn_left,UART5);
-//    PARAM_UPDATE(g_param_list,control_param_array,fturn_right,UART5);
-    PARAM_UPDATE(g_param_list,control_param_array,gyro_x_adj,UART5);
+    float param_value_array[PARAM_GROUP_LENGTH];
+
+	  PARAM_UPDATE(g_param_list,control_param_array,group);
+    PARAM_UPDATE(g_param_list,control_param_array,gyro_x_adj);
+}
+
+void param_init(){
+	  list_init(&g_param_list);
+    if(param_ld_from_flash() < 0){   //从FLASH加载参数到内存
+        //如果加载出错，为了安全，把链表给复位了
+        param_list_reset();
+        param_update_all();
+    }
+    param_switch(&g_control_param,g_control_param->group);
 }
 
 //
@@ -40,13 +43,24 @@ int param_list_reset(){
 int param_group_now(){
     return group_now;
 }
-
+//通过串口输出指定参数组的参数值
+void param_print(int param_group){
+	uprintf(PARAM_USARTx,"");
+	list_print(PARAM_USARTx,&g_param_list,param_group);
+}
 //切换参数组
 int param_switch(param_struct **control_param,int group_num){
+	  int i;
+	  list_node *p_list_node;
+	  p_list_node = list_search(&g_param_list,(char *)"group");
     if(group_num > PARAM_GROUP_LENGTH - 1 || group_num < 0){
         return -1;
     }
     *control_param = &(control_param_array[group_num]);
+		for(i = 0;i < PARAM_GROUP_LENGTH;i++){
+			  control_param_array[i].group = group_num;
+			  p_list_node->data->param_value[i] = group_num;
+		}
     group_now = group_num;
     return 1;
 }
@@ -88,6 +102,20 @@ int param_ld_from_flash(){
     }
     param_update_all();
     return 1;
+}
+
+int param_set(char param_name[PARAM_NAME_LENGTH],float param_value){
+	  list_node *p_list_node;
+	  if(strcmp(param_name,"group") == 0){   //如果是设置组，则切换组别
+        param_switch(&g_control_param,(int)param_value);
+			  return 0;
+    }else if((p_list_node = list_search(&g_param_list,(char *)param_name)) != NULL){
+        p_list_node->data->param_value[(int)param_group_now()] = param_value;
+    }else{
+			  return -1;
+		}
+		param_update_all();
+		return 0;
 }
 
 int param_save_to_flash(){
@@ -145,3 +173,5 @@ int param_save_to_flash(){
     }
     return 1;
 }
+
+

@@ -1,0 +1,3282 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ACR_BYTE0_ADDRESS	stm32f4xx_flash.h	396;"	d
+ADC_AnalogWatchdog_AllInjecEnable	stm32f4xx_adc.h	467;"	d
+ADC_AnalogWatchdog_AllRegAllInjecEnable	stm32f4xx_adc.h	468;"	d
+ADC_AnalogWatchdog_AllRegEnable	stm32f4xx_adc.h	466;"	d
+ADC_AnalogWatchdog_None	stm32f4xx_adc.h	469;"	d
+ADC_AnalogWatchdog_SingleInjecEnable	stm32f4xx_adc.h	464;"	d
+ADC_AnalogWatchdog_SingleRegEnable	stm32f4xx_adc.h	463;"	d
+ADC_AnalogWatchdog_SingleRegOrInjecEnable	stm32f4xx_adc.h	465;"	d
+ADC_Channel_0	stm32f4xx_adc.h	308;"	d
+ADC_Channel_1	stm32f4xx_adc.h	309;"	d
+ADC_Channel_10	stm32f4xx_adc.h	318;"	d
+ADC_Channel_11	stm32f4xx_adc.h	319;"	d
+ADC_Channel_12	stm32f4xx_adc.h	320;"	d
+ADC_Channel_13	stm32f4xx_adc.h	321;"	d
+ADC_Channel_14	stm32f4xx_adc.h	322;"	d
+ADC_Channel_15	stm32f4xx_adc.h	323;"	d
+ADC_Channel_16	stm32f4xx_adc.h	324;"	d
+ADC_Channel_17	stm32f4xx_adc.h	325;"	d
+ADC_Channel_18	stm32f4xx_adc.h	326;"	d
+ADC_Channel_2	stm32f4xx_adc.h	310;"	d
+ADC_Channel_3	stm32f4xx_adc.h	311;"	d
+ADC_Channel_4	stm32f4xx_adc.h	312;"	d
+ADC_Channel_5	stm32f4xx_adc.h	313;"	d
+ADC_Channel_6	stm32f4xx_adc.h	314;"	d
+ADC_Channel_7	stm32f4xx_adc.h	315;"	d
+ADC_Channel_8	stm32f4xx_adc.h	316;"	d
+ADC_Channel_9	stm32f4xx_adc.h	317;"	d
+ADC_Channel_TempSensor	stm32f4xx_adc.h	329;"	d
+ADC_Channel_TempSensor	stm32f4xx_adc.h	333;"	d
+ADC_Channel_Vbat	stm32f4xx_adc.h	337;"	d
+ADC_Channel_Vrefint	stm32f4xx_adc.h	336;"	d
+ADC_CommonInitTypeDef	stm32f4xx_adc.h	/^}ADC_CommonInitTypeDef;$/;"	t	typeref:struct:__anon3
+ADC_ContinuousConvMode	stm32f4xx_adc.h	/^  FunctionalState ADC_ContinuousConvMode; \/*!< Specifies whether the conversion $/;"	m	struct:__anon2
+ADC_DMAAccessMode	stm32f4xx_adc.h	/^  uint32_t ADC_DMAAccessMode;             \/*!< Configures the Direct memory access $/;"	m	struct:__anon3
+ADC_DMAAccessMode_1	stm32f4xx_adc.h	166;"	d
+ADC_DMAAccessMode_2	stm32f4xx_adc.h	167;"	d
+ADC_DMAAccessMode_3	stm32f4xx_adc.h	168;"	d
+ADC_DMAAccessMode_Disabled	stm32f4xx_adc.h	165;"	d
+ADC_DataAlign	stm32f4xx_adc.h	/^  uint32_t ADC_DataAlign;                 \/*!< Specifies whether the ADC data  alignment$/;"	m	struct:__anon2
+ADC_DataAlign_Left	stm32f4xx_adc.h	297;"	d
+ADC_DataAlign_Right	stm32f4xx_adc.h	296;"	d
+ADC_DualMode_AlterTrig	stm32f4xx_adc.h	121;"	d
+ADC_DualMode_InjecSimult	stm32f4xx_adc.h	118;"	d
+ADC_DualMode_Interl	stm32f4xx_adc.h	120;"	d
+ADC_DualMode_RegSimult	stm32f4xx_adc.h	119;"	d
+ADC_DualMode_RegSimult_AlterTrig	stm32f4xx_adc.h	117;"	d
+ADC_DualMode_RegSimult_InjecSimult	stm32f4xx_adc.h	116;"	d
+ADC_ExternalTrigConv	stm32f4xx_adc.h	/^  uint32_t ADC_ExternalTrigConv;          \/*!< Select the external event used to trigger $/;"	m	struct:__anon2
+ADC_ExternalTrigConvEdge	stm32f4xx_adc.h	/^  uint32_t ADC_ExternalTrigConvEdge;      \/*!< Select the external trigger edge and$/;"	m	struct:__anon2
+ADC_ExternalTrigConvEdge_Falling	stm32f4xx_adc.h	242;"	d
+ADC_ExternalTrigConvEdge_None	stm32f4xx_adc.h	240;"	d
+ADC_ExternalTrigConvEdge_Rising	stm32f4xx_adc.h	241;"	d
+ADC_ExternalTrigConvEdge_RisingFalling	stm32f4xx_adc.h	243;"	d
+ADC_ExternalTrigConv_Ext_IT11	stm32f4xx_adc.h	271;"	d
+ADC_ExternalTrigConv_T1_CC1	stm32f4xx_adc.h	256;"	d
+ADC_ExternalTrigConv_T1_CC2	stm32f4xx_adc.h	257;"	d
+ADC_ExternalTrigConv_T1_CC3	stm32f4xx_adc.h	258;"	d
+ADC_ExternalTrigConv_T2_CC2	stm32f4xx_adc.h	259;"	d
+ADC_ExternalTrigConv_T2_CC3	stm32f4xx_adc.h	260;"	d
+ADC_ExternalTrigConv_T2_CC4	stm32f4xx_adc.h	261;"	d
+ADC_ExternalTrigConv_T2_TRGO	stm32f4xx_adc.h	262;"	d
+ADC_ExternalTrigConv_T3_CC1	stm32f4xx_adc.h	263;"	d
+ADC_ExternalTrigConv_T3_TRGO	stm32f4xx_adc.h	264;"	d
+ADC_ExternalTrigConv_T4_CC4	stm32f4xx_adc.h	265;"	d
+ADC_ExternalTrigConv_T5_CC1	stm32f4xx_adc.h	266;"	d
+ADC_ExternalTrigConv_T5_CC2	stm32f4xx_adc.h	267;"	d
+ADC_ExternalTrigConv_T5_CC3	stm32f4xx_adc.h	268;"	d
+ADC_ExternalTrigConv_T8_CC1	stm32f4xx_adc.h	269;"	d
+ADC_ExternalTrigConv_T8_TRGO	stm32f4xx_adc.h	270;"	d
+ADC_ExternalTrigInjecConvEdge_Falling	stm32f4xx_adc.h	392;"	d
+ADC_ExternalTrigInjecConvEdge_None	stm32f4xx_adc.h	390;"	d
+ADC_ExternalTrigInjecConvEdge_Rising	stm32f4xx_adc.h	391;"	d
+ADC_ExternalTrigInjecConvEdge_RisingFalling	stm32f4xx_adc.h	393;"	d
+ADC_ExternalTrigInjecConv_Ext_IT15	stm32f4xx_adc.h	422;"	d
+ADC_ExternalTrigInjecConv_T1_CC4	stm32f4xx_adc.h	407;"	d
+ADC_ExternalTrigInjecConv_T1_TRGO	stm32f4xx_adc.h	408;"	d
+ADC_ExternalTrigInjecConv_T2_CC1	stm32f4xx_adc.h	409;"	d
+ADC_ExternalTrigInjecConv_T2_TRGO	stm32f4xx_adc.h	410;"	d
+ADC_ExternalTrigInjecConv_T3_CC2	stm32f4xx_adc.h	411;"	d
+ADC_ExternalTrigInjecConv_T3_CC4	stm32f4xx_adc.h	412;"	d
+ADC_ExternalTrigInjecConv_T4_CC1	stm32f4xx_adc.h	413;"	d
+ADC_ExternalTrigInjecConv_T4_CC2	stm32f4xx_adc.h	414;"	d
+ADC_ExternalTrigInjecConv_T4_CC3	stm32f4xx_adc.h	415;"	d
+ADC_ExternalTrigInjecConv_T4_TRGO	stm32f4xx_adc.h	416;"	d
+ADC_ExternalTrigInjecConv_T5_CC4	stm32f4xx_adc.h	417;"	d
+ADC_ExternalTrigInjecConv_T5_TRGO	stm32f4xx_adc.h	418;"	d
+ADC_ExternalTrigInjecConv_T8_CC2	stm32f4xx_adc.h	419;"	d
+ADC_ExternalTrigInjecConv_T8_CC3	stm32f4xx_adc.h	420;"	d
+ADC_ExternalTrigInjecConv_T8_CC4	stm32f4xx_adc.h	421;"	d
+ADC_FLAG_AWD	stm32f4xx_adc.h	499;"	d
+ADC_FLAG_EOC	stm32f4xx_adc.h	500;"	d
+ADC_FLAG_JEOC	stm32f4xx_adc.h	501;"	d
+ADC_FLAG_JSTRT	stm32f4xx_adc.h	502;"	d
+ADC_FLAG_OVR	stm32f4xx_adc.h	504;"	d
+ADC_FLAG_STRT	stm32f4xx_adc.h	503;"	d
+ADC_IT_AWD	stm32f4xx_adc.h	486;"	d
+ADC_IT_EOC	stm32f4xx_adc.h	485;"	d
+ADC_IT_JEOC	stm32f4xx_adc.h	487;"	d
+ADC_IT_OVR	stm32f4xx_adc.h	488;"	d
+ADC_InitTypeDef	stm32f4xx_adc.h	/^}ADC_InitTypeDef;$/;"	t	typeref:struct:__anon2
+ADC_InjectedChannel_1	stm32f4xx_adc.h	447;"	d
+ADC_InjectedChannel_2	stm32f4xx_adc.h	448;"	d
+ADC_InjectedChannel_3	stm32f4xx_adc.h	449;"	d
+ADC_InjectedChannel_4	stm32f4xx_adc.h	450;"	d
+ADC_Mode	stm32f4xx_adc.h	/^  uint32_t ADC_Mode;                      \/*!< Configures the ADC to operate in $/;"	m	struct:__anon3
+ADC_Mode_Independent	stm32f4xx_adc.h	115;"	d
+ADC_NbrOfConversion	stm32f4xx_adc.h	/^  uint8_t  ADC_NbrOfConversion;           \/*!< Specifies the number of ADC conversions$/;"	m	struct:__anon2
+ADC_Prescaler	stm32f4xx_adc.h	/^  uint32_t ADC_Prescaler;                 \/*!< Select the frequency of the clock $/;"	m	struct:__anon3
+ADC_Prescaler_Div2	stm32f4xx_adc.h	149;"	d
+ADC_Prescaler_Div4	stm32f4xx_adc.h	150;"	d
+ADC_Prescaler_Div6	stm32f4xx_adc.h	151;"	d
+ADC_Prescaler_Div8	stm32f4xx_adc.h	152;"	d
+ADC_Resolution	stm32f4xx_adc.h	/^  uint32_t ADC_Resolution;                \/*!< Configures the ADC resolution dual mode. $/;"	m	struct:__anon2
+ADC_Resolution_10b	stm32f4xx_adc.h	224;"	d
+ADC_Resolution_12b	stm32f4xx_adc.h	223;"	d
+ADC_Resolution_6b	stm32f4xx_adc.h	226;"	d
+ADC_Resolution_8b	stm32f4xx_adc.h	225;"	d
+ADC_SampleTime_112Cycles	stm32f4xx_adc.h	371;"	d
+ADC_SampleTime_144Cycles	stm32f4xx_adc.h	372;"	d
+ADC_SampleTime_15Cycles	stm32f4xx_adc.h	367;"	d
+ADC_SampleTime_28Cycles	stm32f4xx_adc.h	368;"	d
+ADC_SampleTime_3Cycles	stm32f4xx_adc.h	366;"	d
+ADC_SampleTime_480Cycles	stm32f4xx_adc.h	373;"	d
+ADC_SampleTime_56Cycles	stm32f4xx_adc.h	369;"	d
+ADC_SampleTime_84Cycles	stm32f4xx_adc.h	370;"	d
+ADC_ScanConvMode	stm32f4xx_adc.h	/^  FunctionalState ADC_ScanConvMode;       \/*!< Specifies whether the conversion $/;"	m	struct:__anon2
+ADC_TripleMode_AlterTrig	stm32f4xx_adc.h	127;"	d
+ADC_TripleMode_InjecSimult	stm32f4xx_adc.h	124;"	d
+ADC_TripleMode_Interl	stm32f4xx_adc.h	126;"	d
+ADC_TripleMode_RegSimult	stm32f4xx_adc.h	125;"	d
+ADC_TripleMode_RegSimult_AlterTrig	stm32f4xx_adc.h	123;"	d
+ADC_TripleMode_RegSimult_InjecSimult	stm32f4xx_adc.h	122;"	d
+ADC_TwoSamplingDelay	stm32f4xx_adc.h	/^  uint32_t ADC_TwoSamplingDelay;          \/*!< Configures the Delay between 2 sampling phases.$/;"	m	struct:__anon3
+ADC_TwoSamplingDelay_10Cycles	stm32f4xx_adc.h	187;"	d
+ADC_TwoSamplingDelay_11Cycles	stm32f4xx_adc.h	188;"	d
+ADC_TwoSamplingDelay_12Cycles	stm32f4xx_adc.h	189;"	d
+ADC_TwoSamplingDelay_13Cycles	stm32f4xx_adc.h	190;"	d
+ADC_TwoSamplingDelay_14Cycles	stm32f4xx_adc.h	191;"	d
+ADC_TwoSamplingDelay_15Cycles	stm32f4xx_adc.h	192;"	d
+ADC_TwoSamplingDelay_16Cycles	stm32f4xx_adc.h	193;"	d
+ADC_TwoSamplingDelay_17Cycles	stm32f4xx_adc.h	194;"	d
+ADC_TwoSamplingDelay_18Cycles	stm32f4xx_adc.h	195;"	d
+ADC_TwoSamplingDelay_19Cycles	stm32f4xx_adc.h	196;"	d
+ADC_TwoSamplingDelay_20Cycles	stm32f4xx_adc.h	197;"	d
+ADC_TwoSamplingDelay_5Cycles	stm32f4xx_adc.h	182;"	d
+ADC_TwoSamplingDelay_6Cycles	stm32f4xx_adc.h	183;"	d
+ADC_TwoSamplingDelay_7Cycles	stm32f4xx_adc.h	184;"	d
+ADC_TwoSamplingDelay_8Cycles	stm32f4xx_adc.h	185;"	d
+ADC_TwoSamplingDelay_9Cycles	stm32f4xx_adc.h	186;"	d
+BitAction	stm32f4xx_gpio.h	/^}BitAction;$/;"	t	typeref:enum:__anon41
+Bit_RESET	stm32f4xx_gpio.h	/^  Bit_RESET = 0,$/;"	e	enum:__anon41
+Bit_SET	stm32f4xx_gpio.h	/^  Bit_SET$/;"	e	enum:__anon41
+CANINITFAILED	stm32f4xx_can.h	205;"	d
+CANINITOK	stm32f4xx_can.h	206;"	d
+CANSLEEPFAILED	stm32f4xx_can.h	450;"	d
+CANSLEEPOK	stm32f4xx_can.h	451;"	d
+CANTXFAILED	stm32f4xx_can.h	424;"	d
+CANTXOK	stm32f4xx_can.h	425;"	d
+CANTXPENDING	stm32f4xx_can.h	426;"	d
+CANWAKEUPFAILED	stm32f4xx_can.h	463;"	d
+CANWAKEUPOK	stm32f4xx_can.h	464;"	d
+CAN_ABOM	stm32f4xx_can.h	/^  FunctionalState CAN_ABOM;  \/*!< Enable or disable the automatic bus-off management.$/;"	m	struct:__anon4
+CAN_AWUM	stm32f4xx_can.h	/^  FunctionalState CAN_AWUM;  \/*!< Enable or disable the automatic wake-up mode. $/;"	m	struct:__anon4
+CAN_BS1	stm32f4xx_can.h	/^  uint8_t CAN_BS1;          \/*!< Specifies the number of time quanta in Bit $/;"	m	struct:__anon4
+CAN_BS1_10tq	stm32f4xx_can.h	282;"	d
+CAN_BS1_11tq	stm32f4xx_can.h	283;"	d
+CAN_BS1_12tq	stm32f4xx_can.h	284;"	d
+CAN_BS1_13tq	stm32f4xx_can.h	285;"	d
+CAN_BS1_14tq	stm32f4xx_can.h	286;"	d
+CAN_BS1_15tq	stm32f4xx_can.h	287;"	d
+CAN_BS1_16tq	stm32f4xx_can.h	288;"	d
+CAN_BS1_1tq	stm32f4xx_can.h	273;"	d
+CAN_BS1_2tq	stm32f4xx_can.h	274;"	d
+CAN_BS1_3tq	stm32f4xx_can.h	275;"	d
+CAN_BS1_4tq	stm32f4xx_can.h	276;"	d
+CAN_BS1_5tq	stm32f4xx_can.h	277;"	d
+CAN_BS1_6tq	stm32f4xx_can.h	278;"	d
+CAN_BS1_7tq	stm32f4xx_can.h	279;"	d
+CAN_BS1_8tq	stm32f4xx_can.h	280;"	d
+CAN_BS1_9tq	stm32f4xx_can.h	281;"	d
+CAN_BS2	stm32f4xx_can.h	/^  uint8_t CAN_BS2;          \/*!< Specifies the number of time quanta in Bit Segment 2.$/;"	m	struct:__anon4
+CAN_BS2_1tq	stm32f4xx_can.h	298;"	d
+CAN_BS2_2tq	stm32f4xx_can.h	299;"	d
+CAN_BS2_3tq	stm32f4xx_can.h	300;"	d
+CAN_BS2_4tq	stm32f4xx_can.h	301;"	d
+CAN_BS2_5tq	stm32f4xx_can.h	302;"	d
+CAN_BS2_6tq	stm32f4xx_can.h	303;"	d
+CAN_BS2_7tq	stm32f4xx_can.h	304;"	d
+CAN_BS2_8tq	stm32f4xx_can.h	305;"	d
+CAN_ErrorCode_ACKErr	stm32f4xx_can.h	476;"	d
+CAN_ErrorCode_BitDominantErr	stm32f4xx_can.h	478;"	d
+CAN_ErrorCode_BitRecessiveErr	stm32f4xx_can.h	477;"	d
+CAN_ErrorCode_CRCErr	stm32f4xx_can.h	479;"	d
+CAN_ErrorCode_FormErr	stm32f4xx_can.h	475;"	d
+CAN_ErrorCode_NoErr	stm32f4xx_can.h	473;"	d
+CAN_ErrorCode_SoftwareSetErr	stm32f4xx_can.h	480;"	d
+CAN_ErrorCode_StuffErr	stm32f4xx_can.h	474;"	d
+CAN_FIFO0	stm32f4xx_can.h	435;"	d
+CAN_FIFO1	stm32f4xx_can.h	436;"	d
+CAN_FLAG_BOF	stm32f4xx_can.h	515;"	d
+CAN_FLAG_EPV	stm32f4xx_can.h	514;"	d
+CAN_FLAG_EWG	stm32f4xx_can.h	513;"	d
+CAN_FLAG_FF0	stm32f4xx_can.h	500;"	d
+CAN_FLAG_FF1	stm32f4xx_can.h	503;"	d
+CAN_FLAG_FMP0	stm32f4xx_can.h	499;"	d
+CAN_FLAG_FMP1	stm32f4xx_can.h	502;"	d
+CAN_FLAG_FOV0	stm32f4xx_can.h	501;"	d
+CAN_FLAG_FOV1	stm32f4xx_can.h	504;"	d
+CAN_FLAG_LEC	stm32f4xx_can.h	516;"	d
+CAN_FLAG_RQCP0	stm32f4xx_can.h	494;"	d
+CAN_FLAG_RQCP1	stm32f4xx_can.h	495;"	d
+CAN_FLAG_RQCP2	stm32f4xx_can.h	496;"	d
+CAN_FLAG_SLAK	stm32f4xx_can.h	508;"	d
+CAN_FLAG_WKU	stm32f4xx_can.h	507;"	d
+CAN_FilterActivation	stm32f4xx_can.h	/^  FunctionalState CAN_FilterActivation; \/*!< Enable or disable the filter.$/;"	m	struct:__anon5
+CAN_FilterFIFO0	stm32f4xx_can.h	361;"	d
+CAN_FilterFIFO1	stm32f4xx_can.h	362;"	d
+CAN_FilterFIFOAssignment	stm32f4xx_can.h	/^  uint16_t CAN_FilterFIFOAssignment; \/*!< Specifies the FIFO (0 or 1) which will be assigned to the filter.$/;"	m	struct:__anon5
+CAN_FilterIdHigh	stm32f4xx_can.h	/^  uint16_t CAN_FilterIdHigh;         \/*!< Specifies the filter identification number (MSBs for a 32-bit$/;"	m	struct:__anon5
+CAN_FilterIdLow	stm32f4xx_can.h	/^  uint16_t CAN_FilterIdLow;          \/*!< Specifies the filter identification number (LSBs for a 32-bit$/;"	m	struct:__anon5
+CAN_FilterInitTypeDef	stm32f4xx_can.h	/^} CAN_FilterInitTypeDef;$/;"	t	typeref:struct:__anon5
+CAN_FilterMaskIdHigh	stm32f4xx_can.h	/^  uint16_t CAN_FilterMaskIdHigh;     \/*!< Specifies the filter mask number or identification number,$/;"	m	struct:__anon5
+CAN_FilterMaskIdLow	stm32f4xx_can.h	/^  uint16_t CAN_FilterMaskIdLow;      \/*!< Specifies the filter mask number or identification number,$/;"	m	struct:__anon5
+CAN_FilterMode	stm32f4xx_can.h	/^  uint8_t CAN_FilterMode;            \/*!< Specifies the filter mode to be initialized.$/;"	m	struct:__anon5
+CAN_FilterMode_IdList	stm32f4xx_can.h	332;"	d
+CAN_FilterMode_IdMask	stm32f4xx_can.h	331;"	d
+CAN_FilterNumber	stm32f4xx_can.h	/^  uint8_t CAN_FilterNumber;          \/*!< Specifies the filter which will be initialized. It ranges from 0 to 13. *\/$/;"	m	struct:__anon5
+CAN_FilterScale	stm32f4xx_can.h	/^  uint8_t CAN_FilterScale;           \/*!< Specifies the filter scale.$/;"	m	struct:__anon5
+CAN_FilterScale_16bit	stm32f4xx_can.h	343;"	d
+CAN_FilterScale_32bit	stm32f4xx_can.h	344;"	d
+CAN_Filter_FIFO0	stm32f4xx_can.h	355;"	d
+CAN_Filter_FIFO1	stm32f4xx_can.h	356;"	d
+CAN_ID_EXT	stm32f4xx_can.h	396;"	d
+CAN_ID_STD	stm32f4xx_can.h	395;"	d
+CAN_IT_BOF	stm32f4xx_can.h	557;"	d
+CAN_IT_EPV	stm32f4xx_can.h	556;"	d
+CAN_IT_ERR	stm32f4xx_can.h	559;"	d
+CAN_IT_EWG	stm32f4xx_can.h	555;"	d
+CAN_IT_FF0	stm32f4xx_can.h	544;"	d
+CAN_IT_FF1	stm32f4xx_can.h	547;"	d
+CAN_IT_FMP0	stm32f4xx_can.h	543;"	d
+CAN_IT_FMP1	stm32f4xx_can.h	546;"	d
+CAN_IT_FOV0	stm32f4xx_can.h	545;"	d
+CAN_IT_FOV1	stm32f4xx_can.h	548;"	d
+CAN_IT_LEC	stm32f4xx_can.h	558;"	d
+CAN_IT_RQCP0	stm32f4xx_can.h	562;"	d
+CAN_IT_RQCP1	stm32f4xx_can.h	563;"	d
+CAN_IT_RQCP2	stm32f4xx_can.h	564;"	d
+CAN_IT_SLK	stm32f4xx_can.h	552;"	d
+CAN_IT_TME	stm32f4xx_can.h	540;"	d
+CAN_IT_WKU	stm32f4xx_can.h	551;"	d
+CAN_Id_Extended	stm32f4xx_can.h	390;"	d
+CAN_Id_Standard	stm32f4xx_can.h	389;"	d
+CAN_InitStatus_Failed	stm32f4xx_can.h	200;"	d
+CAN_InitStatus_Success	stm32f4xx_can.h	201;"	d
+CAN_InitTypeDef	stm32f4xx_can.h	/^} CAN_InitTypeDef;$/;"	t	typeref:struct:__anon4
+CAN_Mode	stm32f4xx_can.h	/^  uint8_t CAN_Mode;         \/*!< Specifies the CAN operating mode.$/;"	m	struct:__anon4
+CAN_ModeStatus_Failed	stm32f4xx_can.h	250;"	d
+CAN_ModeStatus_Success	stm32f4xx_can.h	251;"	d
+CAN_Mode_LoopBack	stm32f4xx_can.h	216;"	d
+CAN_Mode_Normal	stm32f4xx_can.h	215;"	d
+CAN_Mode_Silent	stm32f4xx_can.h	217;"	d
+CAN_Mode_Silent_LoopBack	stm32f4xx_can.h	218;"	d
+CAN_NART	stm32f4xx_can.h	/^  FunctionalState CAN_NART;  \/*!< Enable or disable the non-automatic retransmission mode.$/;"	m	struct:__anon4
+CAN_NO_MB	stm32f4xx_can.h	427;"	d
+CAN_OperatingMode_Initialization	stm32f4xx_can.h	233;"	d
+CAN_OperatingMode_Normal	stm32f4xx_can.h	234;"	d
+CAN_OperatingMode_Sleep	stm32f4xx_can.h	235;"	d
+CAN_Prescaler	stm32f4xx_can.h	/^  uint16_t CAN_Prescaler;   \/*!< Specifies the length of a time quantum. $/;"	m	struct:__anon4
+CAN_RFLM	stm32f4xx_can.h	/^  FunctionalState CAN_RFLM;  \/*!< Enable or disable the Receive FIFO Locked mode.$/;"	m	struct:__anon4
+CAN_RTR_DATA	stm32f4xx_can.h	409;"	d
+CAN_RTR_Data	stm32f4xx_can.h	404;"	d
+CAN_RTR_REMOTE	stm32f4xx_can.h	410;"	d
+CAN_RTR_Remote	stm32f4xx_can.h	405;"	d
+CAN_SJW	stm32f4xx_can.h	/^  uint8_t CAN_SJW;          \/*!< Specifies the maximum number of time quanta $/;"	m	struct:__anon4
+CAN_SJW_1tq	stm32f4xx_can.h	259;"	d
+CAN_SJW_2tq	stm32f4xx_can.h	260;"	d
+CAN_SJW_3tq	stm32f4xx_can.h	261;"	d
+CAN_SJW_4tq	stm32f4xx_can.h	262;"	d
+CAN_Sleep_Failed	stm32f4xx_can.h	446;"	d
+CAN_Sleep_Ok	stm32f4xx_can.h	447;"	d
+CAN_TTCM	stm32f4xx_can.h	/^  FunctionalState CAN_TTCM; \/*!< Enable or disable the time triggered communication mode.$/;"	m	struct:__anon4
+CAN_TXFP	stm32f4xx_can.h	/^  FunctionalState CAN_TXFP;  \/*!< Enable or disable the transmit FIFO priority.$/;"	m	struct:__anon4
+CAN_TxStatus_Failed	stm32f4xx_can.h	418;"	d
+CAN_TxStatus_NoMailBox	stm32f4xx_can.h	421;"	d
+CAN_TxStatus_Ok	stm32f4xx_can.h	419;"	d
+CAN_TxStatus_Pending	stm32f4xx_can.h	420;"	d
+CAN_WakeUp_Failed	stm32f4xx_can.h	459;"	d
+CAN_WakeUp_Ok	stm32f4xx_can.h	460;"	d
+CLUT_CM_ARGB8888	stm32f4xx_dma2d.h	317;"	d
+CLUT_CM_RGB888	stm32f4xx_dma2d.h	318;"	d
+CM_A4	stm32f4xx_dma2d.h	293;"	d
+CM_A8	stm32f4xx_dma2d.h	292;"	d
+CM_AL44	stm32f4xx_dma2d.h	289;"	d
+CM_AL88	stm32f4xx_dma2d.h	290;"	d
+CM_ARGB1555	stm32f4xx_dma2d.h	286;"	d
+CM_ARGB4444	stm32f4xx_dma2d.h	287;"	d
+CM_ARGB8888	stm32f4xx_dma2d.h	283;"	d
+CM_L4	stm32f4xx_dma2d.h	291;"	d
+CM_L8	stm32f4xx_dma2d.h	288;"	d
+CM_RGB565	stm32f4xx_dma2d.h	285;"	d
+CM_RGB888	stm32f4xx_dma2d.h	284;"	d
+COLOR_VALUE	stm32f4xx_dma2d.h	332;"	d
+COMBINE_ALPHA_VALUE	stm32f4xx_dma2d.h	358;"	d
+CRYP_AlgoDir	stm32f4xx_cryp.h	/^  uint32_t CRYP_AlgoDir;   \/*!< Encrypt or Decrypt. This parameter can be a $/;"	m	struct:__anon8
+CRYP_AlgoDir_Decrypt	stm32f4xx_cryp.h	128;"	d
+CRYP_AlgoDir_Encrypt	stm32f4xx_cryp.h	127;"	d
+CRYP_AlgoMode	stm32f4xx_cryp.h	/^  uint32_t CRYP_AlgoMode;  \/*!< TDES-ECB, TDES-CBC, DES-ECB, DES-CBC, AES-ECB, $/;"	m	struct:__anon8
+CRYP_AlgoMode_AES_CBC	stm32f4xx_cryp.h	150;"	d
+CRYP_AlgoMode_AES_CCM	stm32f4xx_cryp.h	154;"	d
+CRYP_AlgoMode_AES_CTR	stm32f4xx_cryp.h	151;"	d
+CRYP_AlgoMode_AES_ECB	stm32f4xx_cryp.h	149;"	d
+CRYP_AlgoMode_AES_GCM	stm32f4xx_cryp.h	153;"	d
+CRYP_AlgoMode_AES_Key	stm32f4xx_cryp.h	152;"	d
+CRYP_AlgoMode_DES_CBC	stm32f4xx_cryp.h	146;"	d
+CRYP_AlgoMode_DES_ECB	stm32f4xx_cryp.h	145;"	d
+CRYP_AlgoMode_TDES_CBC	stm32f4xx_cryp.h	142;"	d
+CRYP_AlgoMode_TDES_ECB	stm32f4xx_cryp.h	141;"	d
+CRYP_CSGCMCCMR	stm32f4xx_cryp.h	/^  uint32_t CRYP_CSGCMCCMR[8];$/;"	m	struct:__anon11
+CRYP_CSGCMR	stm32f4xx_cryp.h	/^  uint32_t CRYP_CSGCMR[8];$/;"	m	struct:__anon11
+CRYP_Context	stm32f4xx_cryp.h	/^}CRYP_Context;$/;"	t	typeref:struct:__anon11
+CRYP_DMAReq_DataIN	stm32f4xx_cryp.h	269;"	d
+CRYP_DMAReq_DataOUT	stm32f4xx_cryp.h	270;"	d
+CRYP_DataType	stm32f4xx_cryp.h	/^  uint32_t CRYP_DataType;  \/*!< 32-bit data, 16-bit data, bit data or bit string.$/;"	m	struct:__anon8
+CRYP_DataType_16b	stm32f4xx_cryp.h	193;"	d
+CRYP_DataType_1b	stm32f4xx_cryp.h	195;"	d
+CRYP_DataType_32b	stm32f4xx_cryp.h	192;"	d
+CRYP_DataType_8b	stm32f4xx_cryp.h	194;"	d
+CRYP_FLAG_BUSY	stm32f4xx_cryp.h	220;"	d
+CRYP_FLAG_IFEM	stm32f4xx_cryp.h	224;"	d
+CRYP_FLAG_IFNF	stm32f4xx_cryp.h	225;"	d
+CRYP_FLAG_INRIS	stm32f4xx_cryp.h	226;"	d
+CRYP_FLAG_OFFU	stm32f4xx_cryp.h	229;"	d
+CRYP_FLAG_OFNE	stm32f4xx_cryp.h	227;"	d
+CRYP_FLAG_OUTRIS	stm32f4xx_cryp.h	230;"	d
+CRYP_IT_INI	stm32f4xx_cryp.h	247;"	d
+CRYP_IT_OUTI	stm32f4xx_cryp.h	248;"	d
+CRYP_IV0LR	stm32f4xx_cryp.h	/^  uint32_t CRYP_IV0LR;$/;"	m	struct:__anon11
+CRYP_IV0Left	stm32f4xx_cryp.h	/^  uint32_t CRYP_IV0Left;  \/*!< Init Vector 0 Left  *\/$/;"	m	struct:__anon10
+CRYP_IV0RR	stm32f4xx_cryp.h	/^  uint32_t CRYP_IV0RR;$/;"	m	struct:__anon11
+CRYP_IV0Right	stm32f4xx_cryp.h	/^  uint32_t CRYP_IV0Right; \/*!< Init Vector 0 Right *\/$/;"	m	struct:__anon10
+CRYP_IV1LR	stm32f4xx_cryp.h	/^  uint32_t CRYP_IV1LR;$/;"	m	struct:__anon11
+CRYP_IV1Left	stm32f4xx_cryp.h	/^  uint32_t CRYP_IV1Left;  \/*!< Init Vector 1 left  *\/$/;"	m	struct:__anon10
+CRYP_IV1RR	stm32f4xx_cryp.h	/^  uint32_t CRYP_IV1RR;$/;"	m	struct:__anon11
+CRYP_IV1Right	stm32f4xx_cryp.h	/^  uint32_t CRYP_IV1Right; \/*!< Init Vector 1 Right *\/$/;"	m	struct:__anon10
+CRYP_IVInitTypeDef	stm32f4xx_cryp.h	/^}CRYP_IVInitTypeDef;$/;"	t	typeref:struct:__anon10
+CRYP_InitTypeDef	stm32f4xx_cryp.h	/^}CRYP_InitTypeDef;$/;"	t	typeref:struct:__anon8
+CRYP_K0LR	stm32f4xx_cryp.h	/^  uint32_t CRYP_K0LR;$/;"	m	struct:__anon11
+CRYP_K0RR	stm32f4xx_cryp.h	/^  uint32_t CRYP_K0RR;$/;"	m	struct:__anon11
+CRYP_K1LR	stm32f4xx_cryp.h	/^  uint32_t CRYP_K1LR;$/;"	m	struct:__anon11
+CRYP_K1RR	stm32f4xx_cryp.h	/^  uint32_t CRYP_K1RR;$/;"	m	struct:__anon11
+CRYP_K2LR	stm32f4xx_cryp.h	/^  uint32_t CRYP_K2LR;$/;"	m	struct:__anon11
+CRYP_K2RR	stm32f4xx_cryp.h	/^  uint32_t CRYP_K2RR;$/;"	m	struct:__anon11
+CRYP_K3LR	stm32f4xx_cryp.h	/^  uint32_t CRYP_K3LR;$/;"	m	struct:__anon11
+CRYP_K3RR	stm32f4xx_cryp.h	/^  uint32_t CRYP_K3RR;$/;"	m	struct:__anon11
+CRYP_Key0Left	stm32f4xx_cryp.h	/^  uint32_t CRYP_Key0Left;  \/*!< Key 0 Left  *\/$/;"	m	struct:__anon9
+CRYP_Key0Right	stm32f4xx_cryp.h	/^  uint32_t CRYP_Key0Right; \/*!< Key 0 Right *\/$/;"	m	struct:__anon9
+CRYP_Key1Left	stm32f4xx_cryp.h	/^  uint32_t CRYP_Key1Left;  \/*!< Key 1 left  *\/$/;"	m	struct:__anon9
+CRYP_Key1Right	stm32f4xx_cryp.h	/^  uint32_t CRYP_Key1Right; \/*!< Key 1 Right *\/$/;"	m	struct:__anon9
+CRYP_Key2Left	stm32f4xx_cryp.h	/^  uint32_t CRYP_Key2Left;  \/*!< Key 2 left  *\/$/;"	m	struct:__anon9
+CRYP_Key2Right	stm32f4xx_cryp.h	/^  uint32_t CRYP_Key2Right; \/*!< Key 2 Right *\/$/;"	m	struct:__anon9
+CRYP_Key3Left	stm32f4xx_cryp.h	/^  uint32_t CRYP_Key3Left;  \/*!< Key 3 left  *\/$/;"	m	struct:__anon9
+CRYP_Key3Right	stm32f4xx_cryp.h	/^  uint32_t CRYP_Key3Right; \/*!< Key 3 Right *\/$/;"	m	struct:__anon9
+CRYP_KeyInitTypeDef	stm32f4xx_cryp.h	/^}CRYP_KeyInitTypeDef;$/;"	t	typeref:struct:__anon9
+CRYP_KeySize	stm32f4xx_cryp.h	/^  uint32_t CRYP_KeySize;   \/*!< Used only in AES mode only : 128, 192 or 256 bit $/;"	m	struct:__anon8
+CRYP_KeySize_128b	stm32f4xx_cryp.h	207;"	d
+CRYP_KeySize_192b	stm32f4xx_cryp.h	208;"	d
+CRYP_KeySize_256b	stm32f4xx_cryp.h	209;"	d
+CRYP_Phase_Final	stm32f4xx_cryp.h	178;"	d
+CRYP_Phase_Header	stm32f4xx_cryp.h	176;"	d
+CRYP_Phase_Init	stm32f4xx_cryp.h	175;"	d
+CRYP_Phase_Payload	stm32f4xx_cryp.h	177;"	d
+CR_CurrentConfig	stm32f4xx_cryp.h	/^  uint32_t CR_CurrentConfig;$/;"	m	struct:__anon11
+CR_PSIZE_MASK	stm32f4xx_flash.h	376;"	d
+CanRxMsg	stm32f4xx_can.h	/^} CanRxMsg;$/;"	t	typeref:struct:__anon7
+CanTxMsg	stm32f4xx_can.h	/^} CanTxMsg;$/;"	t	typeref:struct:__anon6
+DAC_Align_12b_L	stm32f4xx_dac.h	207;"	d
+DAC_Align_12b_R	stm32f4xx_dac.h	206;"	d
+DAC_Align_8b_R	stm32f4xx_dac.h	208;"	d
+DAC_Channel_1	stm32f4xx_dac.h	194;"	d
+DAC_Channel_2	stm32f4xx_dac.h	195;"	d
+DAC_FLAG_DMAUDR	stm32f4xx_dac.h	251;"	d
+DAC_IT_DMAUDR	stm32f4xx_dac.h	240;"	d
+DAC_InitTypeDef	stm32f4xx_dac.h	/^}DAC_InitTypeDef;$/;"	t	typeref:struct:__anon12
+DAC_LFSRUnmask_Bit0	stm32f4xx_dac.h	125;"	d
+DAC_LFSRUnmask_Bits10_0	stm32f4xx_dac.h	135;"	d
+DAC_LFSRUnmask_Bits11_0	stm32f4xx_dac.h	136;"	d
+DAC_LFSRUnmask_Bits1_0	stm32f4xx_dac.h	126;"	d
+DAC_LFSRUnmask_Bits2_0	stm32f4xx_dac.h	127;"	d
+DAC_LFSRUnmask_Bits3_0	stm32f4xx_dac.h	128;"	d
+DAC_LFSRUnmask_Bits4_0	stm32f4xx_dac.h	129;"	d
+DAC_LFSRUnmask_Bits5_0	stm32f4xx_dac.h	130;"	d
+DAC_LFSRUnmask_Bits6_0	stm32f4xx_dac.h	131;"	d
+DAC_LFSRUnmask_Bits7_0	stm32f4xx_dac.h	132;"	d
+DAC_LFSRUnmask_Bits8_0	stm32f4xx_dac.h	133;"	d
+DAC_LFSRUnmask_Bits9_0	stm32f4xx_dac.h	134;"	d
+DAC_LFSRUnmask_TriangleAmplitude	stm32f4xx_dac.h	/^  uint32_t DAC_LFSRUnmask_TriangleAmplitude; \/*!< Specifies the LFSR mask for noise wave generation or$/;"	m	struct:__anon12
+DAC_OutputBuffer	stm32f4xx_dac.h	/^  uint32_t DAC_OutputBuffer;                 \/*!< Specifies whether the DAC channel output buffer is enabled or disabled.$/;"	m	struct:__anon12
+DAC_OutputBuffer_Disable	stm32f4xx_dac.h	183;"	d
+DAC_OutputBuffer_Enable	stm32f4xx_dac.h	182;"	d
+DAC_TriangleAmplitude_1	stm32f4xx_dac.h	137;"	d
+DAC_TriangleAmplitude_1023	stm32f4xx_dac.h	146;"	d
+DAC_TriangleAmplitude_127	stm32f4xx_dac.h	143;"	d
+DAC_TriangleAmplitude_15	stm32f4xx_dac.h	140;"	d
+DAC_TriangleAmplitude_2047	stm32f4xx_dac.h	147;"	d
+DAC_TriangleAmplitude_255	stm32f4xx_dac.h	144;"	d
+DAC_TriangleAmplitude_3	stm32f4xx_dac.h	138;"	d
+DAC_TriangleAmplitude_31	stm32f4xx_dac.h	141;"	d
+DAC_TriangleAmplitude_4095	stm32f4xx_dac.h	148;"	d
+DAC_TriangleAmplitude_511	stm32f4xx_dac.h	145;"	d
+DAC_TriangleAmplitude_63	stm32f4xx_dac.h	142;"	d
+DAC_TriangleAmplitude_7	stm32f4xx_dac.h	139;"	d
+DAC_Trigger	stm32f4xx_dac.h	/^  uint32_t DAC_Trigger;                      \/*!< Specifies the external trigger for the selected DAC channel.$/;"	m	struct:__anon12
+DAC_Trigger_Ext_IT9	stm32f4xx_dac.h	90;"	d
+DAC_Trigger_None	stm32f4xx_dac.h	81;"	d
+DAC_Trigger_Software	stm32f4xx_dac.h	91;"	d
+DAC_Trigger_T2_TRGO	stm32f4xx_dac.h	83;"	d
+DAC_Trigger_T4_TRGO	stm32f4xx_dac.h	84;"	d
+DAC_Trigger_T5_TRGO	stm32f4xx_dac.h	85;"	d
+DAC_Trigger_T6_TRGO	stm32f4xx_dac.h	86;"	d
+DAC_Trigger_T7_TRGO	stm32f4xx_dac.h	87;"	d
+DAC_Trigger_T8_TRGO	stm32f4xx_dac.h	88;"	d
+DAC_WaveGeneration	stm32f4xx_dac.h	/^  uint32_t DAC_WaveGeneration;               \/*!< Specifies whether DAC channel noise waves or triangle waves$/;"	m	struct:__anon12
+DAC_WaveGeneration_Noise	stm32f4xx_dac.h	112;"	d
+DAC_WaveGeneration_None	stm32f4xx_dac.h	111;"	d
+DAC_WaveGeneration_Triangle	stm32f4xx_dac.h	113;"	d
+DAC_Wave_Noise	stm32f4xx_dac.h	220;"	d
+DAC_Wave_Triangle	stm32f4xx_dac.h	221;"	d
+DBGMCU_CAN1_STOP	stm32f4xx_dbgmcu.h	73;"	d
+DBGMCU_CAN2_STOP	stm32f4xx_dbgmcu.h	74;"	d
+DBGMCU_I2C1_SMBUS_TIMEOUT	stm32f4xx_dbgmcu.h	70;"	d
+DBGMCU_I2C2_SMBUS_TIMEOUT	stm32f4xx_dbgmcu.h	71;"	d
+DBGMCU_I2C3_SMBUS_TIMEOUT	stm32f4xx_dbgmcu.h	72;"	d
+DBGMCU_IWDG_STOP	stm32f4xx_dbgmcu.h	69;"	d
+DBGMCU_RTC_STOP	stm32f4xx_dbgmcu.h	67;"	d
+DBGMCU_SLEEP	stm32f4xx_dbgmcu.h	53;"	d
+DBGMCU_STANDBY	stm32f4xx_dbgmcu.h	55;"	d
+DBGMCU_STOP	stm32f4xx_dbgmcu.h	54;"	d
+DBGMCU_TIM10_STOP	stm32f4xx_dbgmcu.h	80;"	d
+DBGMCU_TIM11_STOP	stm32f4xx_dbgmcu.h	81;"	d
+DBGMCU_TIM12_STOP	stm32f4xx_dbgmcu.h	64;"	d
+DBGMCU_TIM13_STOP	stm32f4xx_dbgmcu.h	65;"	d
+DBGMCU_TIM14_STOP	stm32f4xx_dbgmcu.h	66;"	d
+DBGMCU_TIM1_STOP	stm32f4xx_dbgmcu.h	77;"	d
+DBGMCU_TIM2_STOP	stm32f4xx_dbgmcu.h	58;"	d
+DBGMCU_TIM3_STOP	stm32f4xx_dbgmcu.h	59;"	d
+DBGMCU_TIM4_STOP	stm32f4xx_dbgmcu.h	60;"	d
+DBGMCU_TIM5_STOP	stm32f4xx_dbgmcu.h	61;"	d
+DBGMCU_TIM6_STOP	stm32f4xx_dbgmcu.h	62;"	d
+DBGMCU_TIM7_STOP	stm32f4xx_dbgmcu.h	63;"	d
+DBGMCU_TIM8_STOP	stm32f4xx_dbgmcu.h	78;"	d
+DBGMCU_TIM9_STOP	stm32f4xx_dbgmcu.h	79;"	d
+DBGMCU_WWDG_STOP	stm32f4xx_dbgmcu.h	68;"	d
+DCMI_CROPInitTypeDef	stm32f4xx_dcmi.h	/^} DCMI_CROPInitTypeDef;$/;"	t	typeref:struct:__anon14
+DCMI_CaptureCount	stm32f4xx_dcmi.h	/^  uint16_t DCMI_CaptureCount;           \/*!< Specifies the number of pixel clocks to be captured from the starting$/;"	m	struct:__anon14
+DCMI_CaptureMode	stm32f4xx_dcmi.h	/^  uint16_t DCMI_CaptureMode;      \/*!< Specifies the Capture Mode: Continuous or Snapshot.$/;"	m	struct:__anon13
+DCMI_CaptureMode_Continuous	stm32f4xx_dcmi.h	114;"	d
+DCMI_CaptureMode_SnapShot	stm32f4xx_dcmi.h	116;"	d
+DCMI_CaptureRate	stm32f4xx_dcmi.h	/^  uint16_t DCMI_CaptureRate;      \/*!< Specifies the frequency of frame capture: All, 1\/2 or 1\/4.$/;"	m	struct:__anon13
+DCMI_CaptureRate_1of2_Frame	stm32f4xx_dcmi.h	179;"	d
+DCMI_CaptureRate_1of4_Frame	stm32f4xx_dcmi.h	180;"	d
+DCMI_CaptureRate_All_Frame	stm32f4xx_dcmi.h	178;"	d
+DCMI_CodesInitTypeDef	stm32f4xx_dcmi.h	/^} DCMI_CodesInitTypeDef;$/;"	t	typeref:struct:__anon15
+DCMI_ExtendedDataMode	stm32f4xx_dcmi.h	/^  uint16_t DCMI_ExtendedDataMode; \/*!< Specifies the data width: 8-bit, 10-bit, 12-bit or 14-bit.$/;"	m	struct:__anon13
+DCMI_ExtendedDataMode_10b	stm32f4xx_dcmi.h	193;"	d
+DCMI_ExtendedDataMode_12b	stm32f4xx_dcmi.h	194;"	d
+DCMI_ExtendedDataMode_14b	stm32f4xx_dcmi.h	195;"	d
+DCMI_ExtendedDataMode_8b	stm32f4xx_dcmi.h	192;"	d
+DCMI_FLAG_ERRMI	stm32f4xx_dcmi.h	246;"	d
+DCMI_FLAG_ERRRI	stm32f4xx_dcmi.h	238;"	d
+DCMI_FLAG_FNE	stm32f4xx_dcmi.h	232;"	d
+DCMI_FLAG_FRAMEMI	stm32f4xx_dcmi.h	244;"	d
+DCMI_FLAG_FRAMERI	stm32f4xx_dcmi.h	236;"	d
+DCMI_FLAG_HSYNC	stm32f4xx_dcmi.h	230;"	d
+DCMI_FLAG_LINEMI	stm32f4xx_dcmi.h	248;"	d
+DCMI_FLAG_LINERI	stm32f4xx_dcmi.h	240;"	d
+DCMI_FLAG_OVFMI	stm32f4xx_dcmi.h	245;"	d
+DCMI_FLAG_OVFRI	stm32f4xx_dcmi.h	237;"	d
+DCMI_FLAG_VSYNC	stm32f4xx_dcmi.h	231;"	d
+DCMI_FLAG_VSYNCMI	stm32f4xx_dcmi.h	247;"	d
+DCMI_FLAG_VSYNCRI	stm32f4xx_dcmi.h	239;"	d
+DCMI_FrameEndCode	stm32f4xx_dcmi.h	/^  uint8_t DCMI_FrameEndCode;   \/*!< Specifies the code of the frame end delimiter. *\/$/;"	m	struct:__anon15
+DCMI_FrameStartCode	stm32f4xx_dcmi.h	/^  uint8_t DCMI_FrameStartCode; \/*!< Specifies the code of the frame start delimiter. *\/$/;"	m	struct:__anon15
+DCMI_HSPolarity	stm32f4xx_dcmi.h	/^  uint16_t DCMI_HSPolarity;       \/*!< Specifies the Horizontal synchronization polarity: High or Low.$/;"	m	struct:__anon13
+DCMI_HSPolarity_High	stm32f4xx_dcmi.h	167;"	d
+DCMI_HSPolarity_Low	stm32f4xx_dcmi.h	166;"	d
+DCMI_HorizontalOffsetCount	stm32f4xx_dcmi.h	/^  uint16_t DCMI_HorizontalOffsetCount;  \/*!< Specifies the number of pixel clocks to count before starting a capture.$/;"	m	struct:__anon14
+DCMI_IT_ERR	stm32f4xx_dcmi.h	210;"	d
+DCMI_IT_FRAME	stm32f4xx_dcmi.h	208;"	d
+DCMI_IT_LINE	stm32f4xx_dcmi.h	212;"	d
+DCMI_IT_OVF	stm32f4xx_dcmi.h	209;"	d
+DCMI_IT_VSYNC	stm32f4xx_dcmi.h	211;"	d
+DCMI_InitTypeDef	stm32f4xx_dcmi.h	/^} DCMI_InitTypeDef;$/;"	t	typeref:struct:__anon13
+DCMI_LineEndCode	stm32f4xx_dcmi.h	/^  uint8_t DCMI_LineEndCode;    \/*!< Specifies the code of the line end delimiter. *\/$/;"	m	struct:__anon15
+DCMI_LineStartCode	stm32f4xx_dcmi.h	/^  uint8_t DCMI_LineStartCode;  \/*!< Specifies the code of the line start delimiter. *\/$/;"	m	struct:__anon15
+DCMI_PCKPolarity	stm32f4xx_dcmi.h	/^  uint16_t DCMI_PCKPolarity;      \/*!< Specifies the Pixel clock polarity: Falling or Rising.$/;"	m	struct:__anon13
+DCMI_PCKPolarity_Falling	stm32f4xx_dcmi.h	142;"	d
+DCMI_PCKPolarity_Rising	stm32f4xx_dcmi.h	143;"	d
+DCMI_SynchroMode	stm32f4xx_dcmi.h	/^  uint16_t DCMI_SynchroMode;      \/*!< Specifies the Synchronization Mode: Hardware or Embedded.$/;"	m	struct:__anon13
+DCMI_SynchroMode_Embedded	stm32f4xx_dcmi.h	130;"	d
+DCMI_SynchroMode_Hardware	stm32f4xx_dcmi.h	128;"	d
+DCMI_VSPolarity	stm32f4xx_dcmi.h	/^  uint16_t DCMI_VSPolarity;       \/*!< Specifies the Vertical synchronization polarity: High or Low.$/;"	m	struct:__anon13
+DCMI_VSPolarity_High	stm32f4xx_dcmi.h	155;"	d
+DCMI_VSPolarity_Low	stm32f4xx_dcmi.h	154;"	d
+DCMI_VerticalLineCount	stm32f4xx_dcmi.h	/^  uint16_t DCMI_VerticalLineCount;      \/*!< Specifies the number of lines to be captured from the starting point.$/;"	m	struct:__anon14
+DCMI_VerticalStartLine	stm32f4xx_dcmi.h	/^  uint16_t DCMI_VerticalStartLine;      \/*!< Specifies the Vertical start line count from which the image capture$/;"	m	struct:__anon14
+DEADTIME	stm32f4xx_dma2d.h	416;"	d
+DLC	stm32f4xx_can.h	/^  uint8_t DLC;     \/*!< Specifies the length of the frame that will be $/;"	m	struct:__anon6
+DLC	stm32f4xx_can.h	/^  uint8_t DLC;     \/*!< Specifies the length of the frame that will be received.$/;"	m	struct:__anon7
+DMA2D_ARGB1555	stm32f4xx_dma2d.h	212;"	d
+DMA2D_ARGB4444	stm32f4xx_dma2d.h	213;"	d
+DMA2D_ARGB8888	stm32f4xx_dma2d.h	209;"	d
+DMA2D_BGCM	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_BGCM;                           \/*!< configures the DMA2D background color mode . $/;"	m	struct:__anon19
+DMA2D_BGCMAR	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_BGCMAR;                         \/*!< Configures the DMA2D background CLUT memory address.$/;"	m	struct:__anon19
+DMA2D_BGC_BLUE	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_BGC_BLUE;                       \/*!< Specifies the DMA2D background blue value $/;"	m	struct:__anon19
+DMA2D_BGC_GREEN	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_BGC_GREEN;                      \/*!< Specifies the DMA2D background green value $/;"	m	struct:__anon19
+DMA2D_BGC_RED	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_BGC_RED;                        \/*!< Specifies the DMA2D background red value $/;"	m	struct:__anon19
+DMA2D_BGMA	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_BGMA;                           \/*!< configures the DMA2D background memory address.$/;"	m	struct:__anon19
+DMA2D_BGO	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_BGO;                            \/*!< configures the DMA2D background offset.$/;"	m	struct:__anon19
+DMA2D_BGPFC_ALPHA_MODE	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_BGPFC_ALPHA_MODE;               \/*!< configures the DMA2D background alpha mode. $/;"	m	struct:__anon19
+DMA2D_BGPFC_ALPHA_VALUE	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_BGPFC_ALPHA_VALUE;              \/*!< Specifies the DMA2D background alpha value $/;"	m	struct:__anon19
+DMA2D_BG_CLUT_CM	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_BG_CLUT_CM;                     \/*!< configures the DMA2D background CLUT color mode. $/;"	m	struct:__anon19
+DMA2D_BG_CLUT_SIZE	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_BG_CLUT_SIZE;                   \/*!< configures the DMA2D background CLUT size. $/;"	m	struct:__anon19
+DMA2D_BG_InitTypeDef	stm32f4xx_dma2d.h	/^} DMA2D_BG_InitTypeDef;$/;"	t	typeref:struct:__anon19
+DMA2D_CMode	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_CMode;                          \/*!< configures the color format of the output image.$/;"	m	struct:__anon17
+DMA2D_FGCM	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_FGCM;                           \/*!< configures the DMA2D foreground color mode . $/;"	m	struct:__anon18
+DMA2D_FGCMAR	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_FGCMAR;                         \/*!< Configures the DMA2D foreground CLUT memory address.$/;"	m	struct:__anon18
+DMA2D_FGC_BLUE	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_FGC_BLUE;                       \/*!< Specifies the DMA2D foreground blue value $/;"	m	struct:__anon18
+DMA2D_FGC_GREEN	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_FGC_GREEN;                      \/*!< Specifies the DMA2D foreground green value $/;"	m	struct:__anon18
+DMA2D_FGC_RED	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_FGC_RED;                        \/*!< Specifies the DMA2D foreground red value $/;"	m	struct:__anon18
+DMA2D_FGMA	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_FGMA;                           \/*!< configures the DMA2D foreground memory address.$/;"	m	struct:__anon18
+DMA2D_FGO	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_FGO;                            \/*!< configures the DMA2D foreground offset.$/;"	m	struct:__anon18
+DMA2D_FGPFC_ALPHA_MODE	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_FGPFC_ALPHA_MODE;               \/*!< configures the DMA2D foreground alpha mode. $/;"	m	struct:__anon18
+DMA2D_FGPFC_ALPHA_VALUE	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_FGPFC_ALPHA_VALUE;              \/*!< Specifies the DMA2D foreground alpha value $/;"	m	struct:__anon18
+DMA2D_FG_CLUT_CM	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_FG_CLUT_CM;                     \/*!< configures the DMA2D foreground CLUT color mode. $/;"	m	struct:__anon18
+DMA2D_FG_CLUT_SIZE	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_FG_CLUT_SIZE;                   \/*!< configures the DMA2D foreground CLUT size. $/;"	m	struct:__anon18
+DMA2D_FG_InitTypeDef	stm32f4xx_dma2d.h	/^} DMA2D_FG_InitTypeDef;$/;"	t	typeref:struct:__anon18
+DMA2D_FLAG_CAE	stm32f4xx_dma2d.h	397;"	d
+DMA2D_FLAG_CE	stm32f4xx_dma2d.h	395;"	d
+DMA2D_FLAG_CTC	stm32f4xx_dma2d.h	396;"	d
+DMA2D_FLAG_TC	stm32f4xx_dma2d.h	399;"	d
+DMA2D_FLAG_TE	stm32f4xx_dma2d.h	400;"	d
+DMA2D_FLAG_TW	stm32f4xx_dma2d.h	398;"	d
+DMA2D_IT_CAE	stm32f4xx_dma2d.h	378;"	d
+DMA2D_IT_CE	stm32f4xx_dma2d.h	376;"	d
+DMA2D_IT_CTC	stm32f4xx_dma2d.h	377;"	d
+DMA2D_IT_TC	stm32f4xx_dma2d.h	380;"	d
+DMA2D_IT_TE	stm32f4xx_dma2d.h	381;"	d
+DMA2D_IT_TW	stm32f4xx_dma2d.h	379;"	d
+DMA2D_InitTypeDef	stm32f4xx_dma2d.h	/^} DMA2D_InitTypeDef;$/;"	t	typeref:struct:__anon17
+DMA2D_Line	stm32f4xx_dma2d.h	255;"	d
+DMA2D_M2M	stm32f4xx_dma2d.h	193;"	d
+DMA2D_M2M_BLEND	stm32f4xx_dma2d.h	195;"	d
+DMA2D_M2M_PFC	stm32f4xx_dma2d.h	194;"	d
+DMA2D_Mode	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_Mode;                           \/*!< configures the DMA2D transfer mode.$/;"	m	struct:__anon17
+DMA2D_NumberOfLine	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_NumberOfLine;                   \/*!< Configures the number of line of the area to be transfered.$/;"	m	struct:__anon17
+DMA2D_OUTPUT_OFFSET	stm32f4xx_dma2d.h	241;"	d
+DMA2D_OutputAlpha	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_OutputAlpha;                    \/*!< configures the alpha channel of the output color. $/;"	m	struct:__anon17
+DMA2D_OutputBlue	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_OutputBlue;                     \/*!< configures the blue value of the output image. $/;"	m	struct:__anon17
+DMA2D_OutputGreen	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_OutputGreen;                    \/*!< configures the green value of the output image. $/;"	m	struct:__anon17
+DMA2D_OutputMemoryAdd	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_OutputMemoryAdd;                \/*!< Specifies the memory address. This parameter $/;"	m	struct:__anon17
+DMA2D_OutputOffset	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_OutputOffset;                   \/*!< Specifies the Offset value. This parameter must be range from$/;"	m	struct:__anon17
+DMA2D_OutputRed	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_OutputRed;                      \/*!< configures the red value of the output image. $/;"	m	struct:__anon17
+DMA2D_Output_Color	stm32f4xx_dma2d.h	227;"	d
+DMA2D_PixelPerLine	stm32f4xx_dma2d.h	/^  uint32_t DMA2D_PixelPerLine;                   \/*!< Configures the number pixel per line of the area to be transfered.$/;"	m	struct:__anon17
+DMA2D_R2M	stm32f4xx_dma2d.h	196;"	d
+DMA2D_RGB565	stm32f4xx_dma2d.h	211;"	d
+DMA2D_RGB888	stm32f4xx_dma2d.h	210;"	d
+DMA2D_pixel	stm32f4xx_dma2d.h	254;"	d
+DMA_BufferSize	stm32f4xx_dma.h	/^  uint32_t DMA_BufferSize;         \/*!< Specifies the buffer size, in data unit, of the specified Stream. $/;"	m	struct:__anon16
+DMA_Channel	stm32f4xx_dma.h	/^  uint32_t DMA_Channel;            \/*!< Specifies the channel used for the specified stream. $/;"	m	struct:__anon16
+DMA_Channel_0	stm32f4xx_dma.h	141;"	d
+DMA_Channel_1	stm32f4xx_dma.h	142;"	d
+DMA_Channel_2	stm32f4xx_dma.h	143;"	d
+DMA_Channel_3	stm32f4xx_dma.h	144;"	d
+DMA_Channel_4	stm32f4xx_dma.h	145;"	d
+DMA_Channel_5	stm32f4xx_dma.h	146;"	d
+DMA_Channel_6	stm32f4xx_dma.h	147;"	d
+DMA_Channel_7	stm32f4xx_dma.h	148;"	d
+DMA_DIR	stm32f4xx_dma.h	/^  uint32_t DMA_DIR;                \/*!< Specifies if the data will be transferred from memory to peripheral, $/;"	m	struct:__anon16
+DMA_DIR_MemoryToMemory	stm32f4xx_dma.h	168;"	d
+DMA_DIR_MemoryToPeripheral	stm32f4xx_dma.h	167;"	d
+DMA_DIR_PeripheralToMemory	stm32f4xx_dma.h	166;"	d
+DMA_FIFOMode	stm32f4xx_dma.h	/^  uint32_t DMA_FIFOMode;          \/*!< Specifies if the FIFO mode or Direct mode will be used for the specified Stream.$/;"	m	struct:__anon16
+DMA_FIFOMode_Disable	stm32f4xx_dma.h	276;"	d
+DMA_FIFOMode_Enable	stm32f4xx_dma.h	277;"	d
+DMA_FIFOStatus_1QuarterFull	stm32f4xx_dma.h	341;"	d
+DMA_FIFOStatus_3QuartersFull	stm32f4xx_dma.h	343;"	d
+DMA_FIFOStatus_Empty	stm32f4xx_dma.h	344;"	d
+DMA_FIFOStatus_Full	stm32f4xx_dma.h	345;"	d
+DMA_FIFOStatus_HalfFull	stm32f4xx_dma.h	342;"	d
+DMA_FIFOStatus_Less1QuarterFull	stm32f4xx_dma.h	340;"	d
+DMA_FIFOThreshold	stm32f4xx_dma.h	/^  uint32_t DMA_FIFOThreshold;      \/*!< Specifies the FIFO threshold level.$/;"	m	struct:__anon16
+DMA_FIFOThreshold_1QuarterFull	stm32f4xx_dma.h	289;"	d
+DMA_FIFOThreshold_3QuartersFull	stm32f4xx_dma.h	291;"	d
+DMA_FIFOThreshold_Full	stm32f4xx_dma.h	292;"	d
+DMA_FIFOThreshold_HalfFull	stm32f4xx_dma.h	290;"	d
+DMA_FLAG_DMEIF0	stm32f4xx_dma.h	361;"	d
+DMA_FLAG_DMEIF1	stm32f4xx_dma.h	366;"	d
+DMA_FLAG_DMEIF2	stm32f4xx_dma.h	371;"	d
+DMA_FLAG_DMEIF3	stm32f4xx_dma.h	376;"	d
+DMA_FLAG_DMEIF4	stm32f4xx_dma.h	381;"	d
+DMA_FLAG_DMEIF5	stm32f4xx_dma.h	386;"	d
+DMA_FLAG_DMEIF6	stm32f4xx_dma.h	391;"	d
+DMA_FLAG_DMEIF7	stm32f4xx_dma.h	396;"	d
+DMA_FLAG_FEIF0	stm32f4xx_dma.h	360;"	d
+DMA_FLAG_FEIF1	stm32f4xx_dma.h	365;"	d
+DMA_FLAG_FEIF2	stm32f4xx_dma.h	370;"	d
+DMA_FLAG_FEIF3	stm32f4xx_dma.h	375;"	d
+DMA_FLAG_FEIF4	stm32f4xx_dma.h	380;"	d
+DMA_FLAG_FEIF5	stm32f4xx_dma.h	385;"	d
+DMA_FLAG_FEIF6	stm32f4xx_dma.h	390;"	d
+DMA_FLAG_FEIF7	stm32f4xx_dma.h	395;"	d
+DMA_FLAG_HTIF0	stm32f4xx_dma.h	363;"	d
+DMA_FLAG_HTIF1	stm32f4xx_dma.h	368;"	d
+DMA_FLAG_HTIF2	stm32f4xx_dma.h	373;"	d
+DMA_FLAG_HTIF3	stm32f4xx_dma.h	378;"	d
+DMA_FLAG_HTIF4	stm32f4xx_dma.h	383;"	d
+DMA_FLAG_HTIF5	stm32f4xx_dma.h	388;"	d
+DMA_FLAG_HTIF6	stm32f4xx_dma.h	393;"	d
+DMA_FLAG_HTIF7	stm32f4xx_dma.h	398;"	d
+DMA_FLAG_TCIF0	stm32f4xx_dma.h	364;"	d
+DMA_FLAG_TCIF1	stm32f4xx_dma.h	369;"	d
+DMA_FLAG_TCIF2	stm32f4xx_dma.h	374;"	d
+DMA_FLAG_TCIF3	stm32f4xx_dma.h	379;"	d
+DMA_FLAG_TCIF4	stm32f4xx_dma.h	384;"	d
+DMA_FLAG_TCIF5	stm32f4xx_dma.h	389;"	d
+DMA_FLAG_TCIF6	stm32f4xx_dma.h	394;"	d
+DMA_FLAG_TCIF7	stm32f4xx_dma.h	399;"	d
+DMA_FLAG_TEIF0	stm32f4xx_dma.h	362;"	d
+DMA_FLAG_TEIF1	stm32f4xx_dma.h	367;"	d
+DMA_FLAG_TEIF2	stm32f4xx_dma.h	372;"	d
+DMA_FLAG_TEIF3	stm32f4xx_dma.h	377;"	d
+DMA_FLAG_TEIF4	stm32f4xx_dma.h	382;"	d
+DMA_FLAG_TEIF5	stm32f4xx_dma.h	387;"	d
+DMA_FLAG_TEIF6	stm32f4xx_dma.h	392;"	d
+DMA_FLAG_TEIF7	stm32f4xx_dma.h	397;"	d
+DMA_FlowCtrl_Memory	stm32f4xx_dma.h	533;"	d
+DMA_FlowCtrl_Peripheral	stm32f4xx_dma.h	534;"	d
+DMA_IT_DME	stm32f4xx_dma.h	435;"	d
+DMA_IT_DMEIF0	stm32f4xx_dma.h	448;"	d
+DMA_IT_DMEIF1	stm32f4xx_dma.h	453;"	d
+DMA_IT_DMEIF2	stm32f4xx_dma.h	458;"	d
+DMA_IT_DMEIF3	stm32f4xx_dma.h	463;"	d
+DMA_IT_DMEIF4	stm32f4xx_dma.h	468;"	d
+DMA_IT_DMEIF5	stm32f4xx_dma.h	473;"	d
+DMA_IT_DMEIF6	stm32f4xx_dma.h	478;"	d
+DMA_IT_DMEIF7	stm32f4xx_dma.h	483;"	d
+DMA_IT_FE	stm32f4xx_dma.h	436;"	d
+DMA_IT_FEIF0	stm32f4xx_dma.h	447;"	d
+DMA_IT_FEIF1	stm32f4xx_dma.h	452;"	d
+DMA_IT_FEIF2	stm32f4xx_dma.h	457;"	d
+DMA_IT_FEIF3	stm32f4xx_dma.h	462;"	d
+DMA_IT_FEIF4	stm32f4xx_dma.h	467;"	d
+DMA_IT_FEIF5	stm32f4xx_dma.h	472;"	d
+DMA_IT_FEIF6	stm32f4xx_dma.h	477;"	d
+DMA_IT_FEIF7	stm32f4xx_dma.h	482;"	d
+DMA_IT_HT	stm32f4xx_dma.h	433;"	d
+DMA_IT_HTIF0	stm32f4xx_dma.h	450;"	d
+DMA_IT_HTIF1	stm32f4xx_dma.h	455;"	d
+DMA_IT_HTIF2	stm32f4xx_dma.h	460;"	d
+DMA_IT_HTIF3	stm32f4xx_dma.h	465;"	d
+DMA_IT_HTIF4	stm32f4xx_dma.h	470;"	d
+DMA_IT_HTIF5	stm32f4xx_dma.h	475;"	d
+DMA_IT_HTIF6	stm32f4xx_dma.h	480;"	d
+DMA_IT_HTIF7	stm32f4xx_dma.h	485;"	d
+DMA_IT_TC	stm32f4xx_dma.h	432;"	d
+DMA_IT_TCIF0	stm32f4xx_dma.h	451;"	d
+DMA_IT_TCIF1	stm32f4xx_dma.h	456;"	d
+DMA_IT_TCIF2	stm32f4xx_dma.h	461;"	d
+DMA_IT_TCIF3	stm32f4xx_dma.h	466;"	d
+DMA_IT_TCIF4	stm32f4xx_dma.h	471;"	d
+DMA_IT_TCIF5	stm32f4xx_dma.h	476;"	d
+DMA_IT_TCIF6	stm32f4xx_dma.h	481;"	d
+DMA_IT_TCIF7	stm32f4xx_dma.h	486;"	d
+DMA_IT_TE	stm32f4xx_dma.h	434;"	d
+DMA_IT_TEIF0	stm32f4xx_dma.h	449;"	d
+DMA_IT_TEIF1	stm32f4xx_dma.h	454;"	d
+DMA_IT_TEIF2	stm32f4xx_dma.h	459;"	d
+DMA_IT_TEIF3	stm32f4xx_dma.h	464;"	d
+DMA_IT_TEIF4	stm32f4xx_dma.h	469;"	d
+DMA_IT_TEIF5	stm32f4xx_dma.h	474;"	d
+DMA_IT_TEIF6	stm32f4xx_dma.h	479;"	d
+DMA_IT_TEIF7	stm32f4xx_dma.h	484;"	d
+DMA_InitTypeDef	stm32f4xx_dma.h	/^}DMA_InitTypeDef;$/;"	t	typeref:struct:__anon16
+DMA_Memory0BaseAddr	stm32f4xx_dma.h	/^  uint32_t DMA_Memory0BaseAddr;    \/*!< Specifies the memory 0 base address for DMAy Streamx. $/;"	m	struct:__anon16
+DMA_MemoryBurst	stm32f4xx_dma.h	/^  uint32_t DMA_MemoryBurst;        \/*!< Specifies the Burst transfer configuration for the memory transfers. $/;"	m	struct:__anon16
+DMA_MemoryBurst_INC16	stm32f4xx_dma.h	309;"	d
+DMA_MemoryBurst_INC4	stm32f4xx_dma.h	307;"	d
+DMA_MemoryBurst_INC8	stm32f4xx_dma.h	308;"	d
+DMA_MemoryBurst_Single	stm32f4xx_dma.h	306;"	d
+DMA_MemoryDataSize	stm32f4xx_dma.h	/^  uint32_t DMA_MemoryDataSize;     \/*!< Specifies the Memory data width.$/;"	m	struct:__anon16
+DMA_MemoryDataSize_Byte	stm32f4xx_dma.h	231;"	d
+DMA_MemoryDataSize_HalfWord	stm32f4xx_dma.h	232;"	d
+DMA_MemoryDataSize_Word	stm32f4xx_dma.h	233;"	d
+DMA_MemoryInc	stm32f4xx_dma.h	/^  uint32_t DMA_MemoryInc;          \/*!< Specifies whether the memory address register should be incremented or not.$/;"	m	struct:__anon16
+DMA_MemoryInc_Disable	stm32f4xx_dma.h	204;"	d
+DMA_MemoryInc_Enable	stm32f4xx_dma.h	203;"	d
+DMA_Memory_0	stm32f4xx_dma.h	546;"	d
+DMA_Memory_1	stm32f4xx_dma.h	547;"	d
+DMA_Mode	stm32f4xx_dma.h	/^  uint32_t DMA_Mode;               \/*!< Specifies the operation mode of the DMAy Streamx.$/;"	m	struct:__anon16
+DMA_Mode_Circular	stm32f4xx_dma.h	247;"	d
+DMA_Mode_Normal	stm32f4xx_dma.h	246;"	d
+DMA_PINCOS_Psize	stm32f4xx_dma.h	520;"	d
+DMA_PINCOS_WordAligned	stm32f4xx_dma.h	521;"	d
+DMA_PeripheralBaseAddr	stm32f4xx_dma.h	/^  uint32_t DMA_PeripheralBaseAddr; \/*!< Specifies the peripheral base address for DMAy Streamx. *\/$/;"	m	struct:__anon16
+DMA_PeripheralBurst	stm32f4xx_dma.h	/^  uint32_t DMA_PeripheralBurst;    \/*!< Specifies the Burst transfer configuration for the peripheral transfers. $/;"	m	struct:__anon16
+DMA_PeripheralBurst_INC16	stm32f4xx_dma.h	326;"	d
+DMA_PeripheralBurst_INC4	stm32f4xx_dma.h	324;"	d
+DMA_PeripheralBurst_INC8	stm32f4xx_dma.h	325;"	d
+DMA_PeripheralBurst_Single	stm32f4xx_dma.h	323;"	d
+DMA_PeripheralDataSize	stm32f4xx_dma.h	/^  uint32_t DMA_PeripheralDataSize; \/*!< Specifies the Peripheral data width.$/;"	m	struct:__anon16
+DMA_PeripheralDataSize_Byte	stm32f4xx_dma.h	216;"	d
+DMA_PeripheralDataSize_HalfWord	stm32f4xx_dma.h	217;"	d
+DMA_PeripheralDataSize_Word	stm32f4xx_dma.h	218;"	d
+DMA_PeripheralInc	stm32f4xx_dma.h	/^  uint32_t DMA_PeripheralInc;      \/*!< Specifies whether the Peripheral address register should be incremented or not.$/;"	m	struct:__anon16
+DMA_PeripheralInc_Disable	stm32f4xx_dma.h	191;"	d
+DMA_PeripheralInc_Enable	stm32f4xx_dma.h	190;"	d
+DMA_Priority	stm32f4xx_dma.h	/^  uint32_t DMA_Priority;           \/*!< Specifies the software priority for the DMAy Streamx.$/;"	m	struct:__anon16
+DMA_Priority_High	stm32f4xx_dma.h	261;"	d
+DMA_Priority_Low	stm32f4xx_dma.h	259;"	d
+DMA_Priority_Medium	stm32f4xx_dma.h	260;"	d
+DMA_Priority_VeryHigh	stm32f4xx_dma.h	262;"	d
+Data	stm32f4xx_can.h	/^  uint8_t Data[8]; \/*!< Contains the data to be received. It ranges from 0 to $/;"	m	struct:__anon7
+Data	stm32f4xx_can.h	/^  uint8_t Data[8]; \/*!< Contains the data to be transmitted. It ranges from 0 $/;"	m	struct:__anon6
+Data	stm32f4xx_hash.h	/^  uint32_t Data[8];      \/*!< Message digest result : 8x 32bit wors for SHA-256,$/;"	m	struct:__anon44
+EXTIMode_TypeDef	stm32f4xx_exti.h	/^}EXTIMode_TypeDef;$/;"	t	typeref:enum:__anon20
+EXTITrigger_TypeDef	stm32f4xx_exti.h	/^}EXTITrigger_TypeDef;$/;"	t	typeref:enum:__anon21
+EXTI_InitTypeDef	stm32f4xx_exti.h	/^}EXTI_InitTypeDef;$/;"	t	typeref:struct:__anon22
+EXTI_Line	stm32f4xx_exti.h	/^  uint32_t EXTI_Line;               \/*!< Specifies the EXTI lines to be enabled or disabled.$/;"	m	struct:__anon22
+EXTI_Line0	stm32f4xx_exti.h	105;"	d
+EXTI_Line1	stm32f4xx_exti.h	106;"	d
+EXTI_Line10	stm32f4xx_exti.h	115;"	d
+EXTI_Line11	stm32f4xx_exti.h	116;"	d
+EXTI_Line12	stm32f4xx_exti.h	117;"	d
+EXTI_Line13	stm32f4xx_exti.h	118;"	d
+EXTI_Line14	stm32f4xx_exti.h	119;"	d
+EXTI_Line15	stm32f4xx_exti.h	120;"	d
+EXTI_Line16	stm32f4xx_exti.h	121;"	d
+EXTI_Line17	stm32f4xx_exti.h	122;"	d
+EXTI_Line18	stm32f4xx_exti.h	123;"	d
+EXTI_Line19	stm32f4xx_exti.h	124;"	d
+EXTI_Line2	stm32f4xx_exti.h	107;"	d
+EXTI_Line20	stm32f4xx_exti.h	125;"	d
+EXTI_Line21	stm32f4xx_exti.h	126;"	d
+EXTI_Line22	stm32f4xx_exti.h	127;"	d
+EXTI_Line3	stm32f4xx_exti.h	108;"	d
+EXTI_Line4	stm32f4xx_exti.h	109;"	d
+EXTI_Line5	stm32f4xx_exti.h	110;"	d
+EXTI_Line6	stm32f4xx_exti.h	111;"	d
+EXTI_Line7	stm32f4xx_exti.h	112;"	d
+EXTI_Line8	stm32f4xx_exti.h	113;"	d
+EXTI_Line9	stm32f4xx_exti.h	114;"	d
+EXTI_LineCmd	stm32f4xx_exti.h	/^  FunctionalState EXTI_LineCmd;     \/*!< Specifies the new state of the selected EXTI lines.$/;"	m	struct:__anon22
+EXTI_Mode	stm32f4xx_exti.h	/^  EXTIMode_TypeDef EXTI_Mode;       \/*!< Specifies the mode for the EXTI lines.$/;"	m	struct:__anon22
+EXTI_Mode_Event	stm32f4xx_exti.h	/^  EXTI_Mode_Event = 0x04$/;"	e	enum:__anon20
+EXTI_Mode_Interrupt	stm32f4xx_exti.h	/^  EXTI_Mode_Interrupt = 0x00,$/;"	e	enum:__anon20
+EXTI_PinSource0	stm32f4xx_syscfg.h	90;"	d
+EXTI_PinSource1	stm32f4xx_syscfg.h	91;"	d
+EXTI_PinSource10	stm32f4xx_syscfg.h	100;"	d
+EXTI_PinSource11	stm32f4xx_syscfg.h	101;"	d
+EXTI_PinSource12	stm32f4xx_syscfg.h	102;"	d
+EXTI_PinSource13	stm32f4xx_syscfg.h	103;"	d
+EXTI_PinSource14	stm32f4xx_syscfg.h	104;"	d
+EXTI_PinSource15	stm32f4xx_syscfg.h	105;"	d
+EXTI_PinSource2	stm32f4xx_syscfg.h	92;"	d
+EXTI_PinSource3	stm32f4xx_syscfg.h	93;"	d
+EXTI_PinSource4	stm32f4xx_syscfg.h	94;"	d
+EXTI_PinSource5	stm32f4xx_syscfg.h	95;"	d
+EXTI_PinSource6	stm32f4xx_syscfg.h	96;"	d
+EXTI_PinSource7	stm32f4xx_syscfg.h	97;"	d
+EXTI_PinSource8	stm32f4xx_syscfg.h	98;"	d
+EXTI_PinSource9	stm32f4xx_syscfg.h	99;"	d
+EXTI_PortSourceGPIOA	stm32f4xx_syscfg.h	58;"	d
+EXTI_PortSourceGPIOB	stm32f4xx_syscfg.h	59;"	d
+EXTI_PortSourceGPIOC	stm32f4xx_syscfg.h	60;"	d
+EXTI_PortSourceGPIOD	stm32f4xx_syscfg.h	61;"	d
+EXTI_PortSourceGPIOE	stm32f4xx_syscfg.h	62;"	d
+EXTI_PortSourceGPIOF	stm32f4xx_syscfg.h	63;"	d
+EXTI_PortSourceGPIOG	stm32f4xx_syscfg.h	64;"	d
+EXTI_PortSourceGPIOH	stm32f4xx_syscfg.h	65;"	d
+EXTI_PortSourceGPIOI	stm32f4xx_syscfg.h	66;"	d
+EXTI_PortSourceGPIOJ	stm32f4xx_syscfg.h	67;"	d
+EXTI_PortSourceGPIOK	stm32f4xx_syscfg.h	68;"	d
+EXTI_Trigger	stm32f4xx_exti.h	/^  EXTITrigger_TypeDef EXTI_Trigger; \/*!< Specifies the trigger signal active edge for the EXTI lines.$/;"	m	struct:__anon22
+EXTI_Trigger_Falling	stm32f4xx_exti.h	/^  EXTI_Trigger_Falling = 0x0C,  $/;"	e	enum:__anon21
+EXTI_Trigger_Rising	stm32f4xx_exti.h	/^  EXTI_Trigger_Rising = 0x08,$/;"	e	enum:__anon21
+EXTI_Trigger_Rising_Falling	stm32f4xx_exti.h	/^  EXTI_Trigger_Rising_Falling = 0x10$/;"	e	enum:__anon21
+ExtId	stm32f4xx_can.h	/^  uint32_t ExtId;  \/*!< Specifies the extended identifier.$/;"	m	struct:__anon6
+ExtId	stm32f4xx_can.h	/^  uint32_t ExtId;  \/*!< Specifies the extended identifier.$/;"	m	struct:__anon7
+FLASH_BUSY	stm32f4xx_flash.h	/^  FLASH_BUSY = 1,$/;"	e	enum:__anon23
+FLASH_COMPLETE	stm32f4xx_flash.h	/^  FLASH_COMPLETE$/;"	e	enum:__anon23
+FLASH_ERROR_OPERATION	stm32f4xx_flash.h	/^  FLASH_ERROR_OPERATION,$/;"	e	enum:__anon23
+FLASH_ERROR_PGA	stm32f4xx_flash.h	/^  FLASH_ERROR_PGA,$/;"	e	enum:__anon23
+FLASH_ERROR_PGP	stm32f4xx_flash.h	/^  FLASH_ERROR_PGP,$/;"	e	enum:__anon23
+FLASH_ERROR_PGS	stm32f4xx_flash.h	/^  FLASH_ERROR_PGS,$/;"	e	enum:__anon23
+FLASH_ERROR_PROGRAM	stm32f4xx_flash.h	/^  FLASH_ERROR_PROGRAM,$/;"	e	enum:__anon23
+FLASH_ERROR_RD	stm32f4xx_flash.h	/^  FLASH_ERROR_RD,$/;"	e	enum:__anon23
+FLASH_ERROR_WRP	stm32f4xx_flash.h	/^  FLASH_ERROR_WRP,$/;"	e	enum:__anon23
+FLASH_FLAG_BSY	stm32f4xx_flash.h	359;"	d
+FLASH_FLAG_EOP	stm32f4xx_flash.h	352;"	d
+FLASH_FLAG_OPERR	stm32f4xx_flash.h	353;"	d
+FLASH_FLAG_PGAERR	stm32f4xx_flash.h	355;"	d
+FLASH_FLAG_PGPERR	stm32f4xx_flash.h	356;"	d
+FLASH_FLAG_PGSERR	stm32f4xx_flash.h	357;"	d
+FLASH_FLAG_RDERR	stm32f4xx_flash.h	358;"	d
+FLASH_FLAG_WRPERR	stm32f4xx_flash.h	354;"	d
+FLASH_IT_EOP	stm32f4xx_flash.h	342;"	d
+FLASH_IT_ERR	stm32f4xx_flash.h	343;"	d
+FLASH_KEY1	stm32f4xx_flash.h	385;"	d
+FLASH_KEY2	stm32f4xx_flash.h	386;"	d
+FLASH_Latency_0	stm32f4xx_flash.h	74;"	d
+FLASH_Latency_1	stm32f4xx_flash.h	75;"	d
+FLASH_Latency_10	stm32f4xx_flash.h	84;"	d
+FLASH_Latency_11	stm32f4xx_flash.h	85;"	d
+FLASH_Latency_12	stm32f4xx_flash.h	86;"	d
+FLASH_Latency_13	stm32f4xx_flash.h	87;"	d
+FLASH_Latency_14	stm32f4xx_flash.h	88;"	d
+FLASH_Latency_15	stm32f4xx_flash.h	89;"	d
+FLASH_Latency_2	stm32f4xx_flash.h	76;"	d
+FLASH_Latency_3	stm32f4xx_flash.h	77;"	d
+FLASH_Latency_4	stm32f4xx_flash.h	78;"	d
+FLASH_Latency_5	stm32f4xx_flash.h	79;"	d
+FLASH_Latency_6	stm32f4xx_flash.h	80;"	d
+FLASH_Latency_7	stm32f4xx_flash.h	81;"	d
+FLASH_Latency_8	stm32f4xx_flash.h	82;"	d
+FLASH_Latency_9	stm32f4xx_flash.h	83;"	d
+FLASH_OPT_KEY1	stm32f4xx_flash.h	387;"	d
+FLASH_OPT_KEY2	stm32f4xx_flash.h	388;"	d
+FLASH_PSIZE_BYTE	stm32f4xx_flash.h	372;"	d
+FLASH_PSIZE_DOUBLE_WORD	stm32f4xx_flash.h	375;"	d
+FLASH_PSIZE_HALF_WORD	stm32f4xx_flash.h	373;"	d
+FLASH_PSIZE_WORD	stm32f4xx_flash.h	374;"	d
+FLASH_Sector_0	stm32f4xx_flash.h	131;"	d
+FLASH_Sector_1	stm32f4xx_flash.h	132;"	d
+FLASH_Sector_10	stm32f4xx_flash.h	141;"	d
+FLASH_Sector_11	stm32f4xx_flash.h	142;"	d
+FLASH_Sector_12	stm32f4xx_flash.h	143;"	d
+FLASH_Sector_13	stm32f4xx_flash.h	144;"	d
+FLASH_Sector_14	stm32f4xx_flash.h	145;"	d
+FLASH_Sector_15	stm32f4xx_flash.h	146;"	d
+FLASH_Sector_16	stm32f4xx_flash.h	147;"	d
+FLASH_Sector_17	stm32f4xx_flash.h	148;"	d
+FLASH_Sector_18	stm32f4xx_flash.h	149;"	d
+FLASH_Sector_19	stm32f4xx_flash.h	150;"	d
+FLASH_Sector_2	stm32f4xx_flash.h	133;"	d
+FLASH_Sector_20	stm32f4xx_flash.h	151;"	d
+FLASH_Sector_21	stm32f4xx_flash.h	152;"	d
+FLASH_Sector_22	stm32f4xx_flash.h	153;"	d
+FLASH_Sector_23	stm32f4xx_flash.h	154;"	d
+FLASH_Sector_3	stm32f4xx_flash.h	134;"	d
+FLASH_Sector_4	stm32f4xx_flash.h	135;"	d
+FLASH_Sector_5	stm32f4xx_flash.h	136;"	d
+FLASH_Sector_6	stm32f4xx_flash.h	137;"	d
+FLASH_Sector_7	stm32f4xx_flash.h	138;"	d
+FLASH_Sector_8	stm32f4xx_flash.h	139;"	d
+FLASH_Sector_9	stm32f4xx_flash.h	140;"	d
+FLASH_Status	stm32f4xx_flash.h	/^}FLASH_Status;$/;"	t	typeref:enum:__anon23
+FMC_AccessMode	stm32f4xx_fmc.h	/^  uint32_t FMC_AccessMode;             \/*!< Specifies the asynchronous access mode. $/;"	m	struct:__anon24
+FMC_AccessMode_A	stm32f4xx_fmc.h	621;"	d
+FMC_AccessMode_B	stm32f4xx_fmc.h	622;"	d
+FMC_AccessMode_C	stm32f4xx_fmc.h	623;"	d
+FMC_AccessMode_D	stm32f4xx_fmc.h	624;"	d
+FMC_AddressHoldTime	stm32f4xx_fmc.h	/^  uint32_t FMC_AddressHoldTime;        \/*!< Defines the number of HCLK cycles to configure$/;"	m	struct:__anon24
+FMC_AddressSetupTime	stm32f4xx_fmc.h	/^  uint32_t FMC_AddressSetupTime;       \/*!< Defines the number of HCLK cycles to configure$/;"	m	struct:__anon24
+FMC_AsynchronousWait	stm32f4xx_fmc.h	/^  uint32_t FMC_AsynchronousWait;     \/*!< Enables or disables wait signal during asynchronous transfers,$/;"	m	struct:__anon25
+FMC_AsynchronousWait_Disable	stm32f4xx_fmc.h	463;"	d
+FMC_AsynchronousWait_Enable	stm32f4xx_fmc.h	464;"	d
+FMC_AttributeSpaceTimingStruct	stm32f4xx_fmc.h	/^  FMC_NAND_PCCARDTimingInitTypeDef*  FMC_AttributeSpaceTimingStruct;  \/*!< FMC Attribute Space Timing *\/ $/;"	m	struct:__anon28
+FMC_AttributeSpaceTimingStruct	stm32f4xx_fmc.h	/^  FMC_NAND_PCCARDTimingInitTypeDef*  FMC_AttributeSpaceTimingStruct; \/*!< FMC Attribute Space Timing *\/$/;"	m	struct:__anon27
+FMC_AutoRefreshNumber	stm32f4xx_fmc.h	/^  uint32_t FMC_AutoRefreshNumber;      \/*!< Defines the number of consecutive auto refresh command issued$/;"	m	struct:__anon30
+FMC_Bank	stm32f4xx_fmc.h	/^  uint32_t FMC_Bank;                   \/*!< Specifies the SDRAM memory bank that will be used.$/;"	m	struct:__anon31
+FMC_Bank	stm32f4xx_fmc.h	/^  uint32_t FMC_Bank;                \/*!< Specifies the NOR\/SRAM memory bank that will be used.$/;"	m	struct:__anon25
+FMC_Bank	stm32f4xx_fmc.h	/^  uint32_t FMC_Bank;              \/*!< Specifies the NAND memory bank that will be used.$/;"	m	struct:__anon27
+FMC_Bank1_NORSRAM1	stm32f4xx_fmc.h	353;"	d
+FMC_Bank1_NORSRAM2	stm32f4xx_fmc.h	354;"	d
+FMC_Bank1_NORSRAM3	stm32f4xx_fmc.h	355;"	d
+FMC_Bank1_NORSRAM4	stm32f4xx_fmc.h	356;"	d
+FMC_Bank1_SDRAM	stm32f4xx_fmc.h	389;"	d
+FMC_Bank2_NAND	stm32f4xx_fmc.h	369;"	d
+FMC_Bank2_SDRAM	stm32f4xx_fmc.h	390;"	d
+FMC_Bank3_NAND	stm32f4xx_fmc.h	370;"	d
+FMC_Bank4_PCCARD	stm32f4xx_fmc.h	381;"	d
+FMC_BurstAccessMode	stm32f4xx_fmc.h	/^  uint32_t FMC_BurstAccessMode;     \/*!< Enables or disables the burst access mode for Flash memory,$/;"	m	struct:__anon25
+FMC_BurstAccessMode_Disable	stm32f4xx_fmc.h	451;"	d
+FMC_BurstAccessMode_Enable	stm32f4xx_fmc.h	452;"	d
+FMC_BusTurnAroundDuration	stm32f4xx_fmc.h	/^  uint32_t FMC_BusTurnAroundDuration;  \/*!< Defines the number of HCLK cycles to configure$/;"	m	struct:__anon24
+FMC_CASLatency	stm32f4xx_fmc.h	/^  uint32_t FMC_CASLatency;             \/*!< Defines the SDRAM CAS latency in number of memory clock cycles.$/;"	m	struct:__anon31
+FMC_CAS_Latency_1	stm32f4xx_fmc.h	819;"	d
+FMC_CAS_Latency_2	stm32f4xx_fmc.h	820;"	d
+FMC_CAS_Latency_3	stm32f4xx_fmc.h	821;"	d
+FMC_CClock_SyncAsync	stm32f4xx_fmc.h	562;"	d
+FMC_CClock_SyncOnly	stm32f4xx_fmc.h	561;"	d
+FMC_CLKDivision	stm32f4xx_fmc.h	/^  uint32_t FMC_CLKDivision;            \/*!< Defines the period of CLK clock output signal, expressed in number of HCLK cycles.$/;"	m	struct:__anon24
+FMC_ColumnBitsNumber	stm32f4xx_fmc.h	/^  uint32_t FMC_ColumnBitsNumber;       \/*!< Defines the number of bits of column address.$/;"	m	struct:__anon31
+FMC_ColumnBits_Number_10b	stm32f4xx_fmc.h	760;"	d
+FMC_ColumnBits_Number_11b	stm32f4xx_fmc.h	761;"	d
+FMC_ColumnBits_Number_8b	stm32f4xx_fmc.h	758;"	d
+FMC_ColumnBits_Number_9b	stm32f4xx_fmc.h	759;"	d
+FMC_CommandMode	stm32f4xx_fmc.h	/^  uint32_t FMC_CommandMode;            \/*!< Defines the command issued to the SDRAM device.$/;"	m	struct:__anon30
+FMC_CommandTarget	stm32f4xx_fmc.h	/^  uint32_t FMC_CommandTarget;          \/*!< Defines which bank (1 or 2) the command will be issued to.$/;"	m	struct:__anon30
+FMC_Command_Mode_AutoRefresh	stm32f4xx_fmc.h	951;"	d
+FMC_Command_Mode_CLK_Enabled	stm32f4xx_fmc.h	949;"	d
+FMC_Command_Mode_LoadMode	stm32f4xx_fmc.h	952;"	d
+FMC_Command_Mode_PALL	stm32f4xx_fmc.h	950;"	d
+FMC_Command_Mode_PowerDown	stm32f4xx_fmc.h	954;"	d
+FMC_Command_Mode_Selfrefresh	stm32f4xx_fmc.h	953;"	d
+FMC_Command_Mode_normal	stm32f4xx_fmc.h	948;"	d
+FMC_Command_Target_bank1	stm32f4xx_fmc.h	972;"	d
+FMC_Command_Target_bank1_2	stm32f4xx_fmc.h	973;"	d
+FMC_Command_Target_bank2	stm32f4xx_fmc.h	971;"	d
+FMC_CommonSpaceTimingStruct	stm32f4xx_fmc.h	/^  FMC_NAND_PCCARDTimingInitTypeDef*  FMC_CommonSpaceTimingStruct;   \/*!< FMC Common Space Timing *\/ $/;"	m	struct:__anon27
+FMC_CommonSpaceTimingStruct	stm32f4xx_fmc.h	/^  FMC_NAND_PCCARDTimingInitTypeDef*  FMC_CommonSpaceTimingStruct; \/*!< FMC Common Space Timing *\/$/;"	m	struct:__anon28
+FMC_ContinousClock	stm32f4xx_fmc.h	/^  uint32_t FMC_ContinousClock;       \/*!< Enables or disables the FMC clock output to external memory devices.$/;"	m	struct:__anon25
+FMC_DataAddressMux	stm32f4xx_fmc.h	/^  uint32_t FMC_DataAddressMux;      \/*!< Specifies whether the address and data values are$/;"	m	struct:__anon25
+FMC_DataAddressMux_Disable	stm32f4xx_fmc.h	408;"	d
+FMC_DataAddressMux_Enable	stm32f4xx_fmc.h	409;"	d
+FMC_DataLatency	stm32f4xx_fmc.h	/^  uint32_t FMC_DataLatency;            \/*!< Defines the number of memory clock cycles to issue$/;"	m	struct:__anon24
+FMC_DataSetupTime	stm32f4xx_fmc.h	/^  uint32_t FMC_DataSetupTime;          \/*!< Defines the number of HCLK cycles to configure$/;"	m	struct:__anon24
+FMC_ECC	stm32f4xx_fmc.h	/^  uint32_t FMC_ECC;              \/*!< Enables or disables the ECC computation.$/;"	m	struct:__anon27
+FMC_ECCPageSize	stm32f4xx_fmc.h	/^  uint32_t FMC_ECCPageSize;      \/*!< Defines the page size for the extended ECC.$/;"	m	struct:__anon27
+FMC_ECCPageSize_1024Bytes	stm32f4xx_fmc.h	683;"	d
+FMC_ECCPageSize_2048Bytes	stm32f4xx_fmc.h	684;"	d
+FMC_ECCPageSize_256Bytes	stm32f4xx_fmc.h	681;"	d
+FMC_ECCPageSize_4096Bytes	stm32f4xx_fmc.h	685;"	d
+FMC_ECCPageSize_512Bytes	stm32f4xx_fmc.h	682;"	d
+FMC_ECCPageSize_8192Bytes	stm32f4xx_fmc.h	686;"	d
+FMC_ECC_Disable	stm32f4xx_fmc.h	669;"	d
+FMC_ECC_Enable	stm32f4xx_fmc.h	670;"	d
+FMC_ExitSelfRefreshDelay	stm32f4xx_fmc.h	/^  uint32_t FMC_ExitSelfRefreshDelay;   \/*!< Defines the delay from releasing the self refresh command to $/;"	m	struct:__anon29
+FMC_ExtendedMode	stm32f4xx_fmc.h	/^  uint32_t FMC_ExtendedMode;        \/*!< Enables or disables the extended mode.$/;"	m	struct:__anon25
+FMC_ExtendedMode_Disable	stm32f4xx_fmc.h	535;"	d
+FMC_ExtendedMode_Enable	stm32f4xx_fmc.h	536;"	d
+FMC_FLAG_Busy	stm32f4xx_fmc.h	1053;"	d
+FMC_FLAG_FEMPT	stm32f4xx_fmc.h	1051;"	d
+FMC_FLAG_FallingEdge	stm32f4xx_fmc.h	1050;"	d
+FMC_FLAG_Level	stm32f4xx_fmc.h	1049;"	d
+FMC_FLAG_Refresh	stm32f4xx_fmc.h	1052;"	d
+FMC_FLAG_RisingEdge	stm32f4xx_fmc.h	1048;"	d
+FMC_HiZSetupTime	stm32f4xx_fmc.h	/^  uint32_t FMC_HiZSetupTime;   \/*!< Defines the number of HCLK clock cycles during which the$/;"	m	struct:__anon26
+FMC_HoldSetupTime	stm32f4xx_fmc.h	/^  uint32_t FMC_HoldSetupTime;  \/*!< Defines the number of HCLK clock cycles to hold address$/;"	m	struct:__anon26
+FMC_IOSpaceTimingStruct	stm32f4xx_fmc.h	/^  FMC_NAND_PCCARDTimingInitTypeDef*  FMC_IOSpaceTimingStruct; \/*!< FMC IO Space Timing *\/  $/;"	m	struct:__anon28
+FMC_IT_FallingEdge	stm32f4xx_fmc.h	1027;"	d
+FMC_IT_Level	stm32f4xx_fmc.h	1026;"	d
+FMC_IT_Refresh	stm32f4xx_fmc.h	1028;"	d
+FMC_IT_RisingEdge	stm32f4xx_fmc.h	1025;"	d
+FMC_InternalBankNumber	stm32f4xx_fmc.h	/^  uint32_t FMC_InternalBankNumber;     \/*!< Defines the number of bits of column address.$/;"	m	struct:__anon31
+FMC_InternalBank_Number_2	stm32f4xx_fmc.h	805;"	d
+FMC_InternalBank_Number_4	stm32f4xx_fmc.h	806;"	d
+FMC_LoadToActiveDelay	stm32f4xx_fmc.h	/^  uint32_t FMC_LoadToActiveDelay;      \/*!< Defines the delay between a Load Mode Register command and $/;"	m	struct:__anon29
+FMC_MemoryDataWidth	stm32f4xx_fmc.h	/^  uint32_t FMC_MemoryDataWidth;     \/*!< Specifies the external memory device width.$/;"	m	struct:__anon25
+FMC_MemoryDataWidth	stm32f4xx_fmc.h	/^  uint32_t FMC_MemoryDataWidth;  \/*!< Specifies the external memory device width.$/;"	m	struct:__anon27
+FMC_MemoryType	stm32f4xx_fmc.h	/^  uint32_t FMC_MemoryType;          \/*!< Specifies the type of external memory attached to$/;"	m	struct:__anon25
+FMC_MemoryType_NOR	stm32f4xx_fmc.h	423;"	d
+FMC_MemoryType_PSRAM	stm32f4xx_fmc.h	422;"	d
+FMC_MemoryType_SRAM	stm32f4xx_fmc.h	421;"	d
+FMC_ModeRegisterDefinition	stm32f4xx_fmc.h	/^  uint32_t FMC_ModeRegisterDefinition; \/*!< Defines the SDRAM Mode register content *\/$/;"	m	struct:__anon30
+FMC_NANDInitTypeDef	stm32f4xx_fmc.h	/^}FMC_NANDInitTypeDef;$/;"	t	typeref:struct:__anon27
+FMC_NAND_MemoryDataWidth_16b	stm32f4xx_fmc.h	658;"	d
+FMC_NAND_MemoryDataWidth_8b	stm32f4xx_fmc.h	657;"	d
+FMC_NAND_PCCARDTimingInitTypeDef	stm32f4xx_fmc.h	/^}FMC_NAND_PCCARDTimingInitTypeDef;$/;"	t	typeref:struct:__anon26
+FMC_NORSRAMInitTypeDef	stm32f4xx_fmc.h	/^}FMC_NORSRAMInitTypeDef;$/;"	t	typeref:struct:__anon25
+FMC_NORSRAMTimingInitTypeDef	stm32f4xx_fmc.h	/^}FMC_NORSRAMTimingInitTypeDef;$/;"	t	typeref:struct:__anon24
+FMC_NORSRAM_MemoryDataWidth_16b	stm32f4xx_fmc.h	437;"	d
+FMC_NORSRAM_MemoryDataWidth_32b	stm32f4xx_fmc.h	438;"	d
+FMC_NORSRAM_MemoryDataWidth_8b	stm32f4xx_fmc.h	436;"	d
+FMC_NormalMode_Status	stm32f4xx_fmc.h	1005;"	d
+FMC_PCCARDInitTypeDef	stm32f4xx_fmc.h	/^}FMC_PCCARDInitTypeDef;$/;"	t	typeref:struct:__anon28
+FMC_PowerDownMode_Status	stm32f4xx_fmc.h	1007;"	d
+FMC_RCDDelay	stm32f4xx_fmc.h	/^  uint32_t FMC_RCDDelay;               \/*!< Defines the delay between the Activate Command and a Read\/Write command$/;"	m	struct:__anon29
+FMC_RPDelay	stm32f4xx_fmc.h	/^  uint32_t FMC_RPDelay;                \/*!< Defines the delay between a Precharge Command and an other command $/;"	m	struct:__anon29
+FMC_ReadBurst	stm32f4xx_fmc.h	/^  uint32_t FMC_ReadBurst;              \/*!< This bit enable the SDRAM controller to anticipate the next read commands $/;"	m	struct:__anon31
+FMC_ReadPipeDelay	stm32f4xx_fmc.h	/^  uint32_t FMC_ReadPipeDelay;          \/*!< Define the delay in system clock cycles on read data path.$/;"	m	struct:__anon31
+FMC_ReadPipe_Delay_0	stm32f4xx_fmc.h	876;"	d
+FMC_ReadPipe_Delay_1	stm32f4xx_fmc.h	877;"	d
+FMC_ReadPipe_Delay_2	stm32f4xx_fmc.h	878;"	d
+FMC_ReadWriteTimingStruct	stm32f4xx_fmc.h	/^  FMC_NORSRAMTimingInitTypeDef* FMC_ReadWriteTimingStruct; \/*!< Timing Parameters for write and read access if the  Extended Mode is not used*\/  $/;"	m	struct:__anon25
+FMC_Read_Burst_Disable	stm32f4xx_fmc.h	863;"	d
+FMC_Read_Burst_Enable	stm32f4xx_fmc.h	864;"	d
+FMC_RowBitsNumber	stm32f4xx_fmc.h	/^  uint32_t FMC_RowBitsNumber;          \/*!< Defines the number of bits of column address..$/;"	m	struct:__anon31
+FMC_RowBits_Number_11b	stm32f4xx_fmc.h	775;"	d
+FMC_RowBits_Number_12b	stm32f4xx_fmc.h	776;"	d
+FMC_RowBits_Number_13b	stm32f4xx_fmc.h	777;"	d
+FMC_RowCycleDelay	stm32f4xx_fmc.h	/^  uint32_t FMC_RowCycleDelay;          \/*!< Defines the delay between the Refresh command and the Activate command$/;"	m	struct:__anon29
+FMC_SDClockPeriod	stm32f4xx_fmc.h	/^  uint32_t FMC_SDClockPeriod;          \/*!< Define the SDRAM Clock Period for both SDRAM Banks and they allow to disable$/;"	m	struct:__anon31
+FMC_SDClock_Disable	stm32f4xx_fmc.h	848;"	d
+FMC_SDClock_Period_2	stm32f4xx_fmc.h	849;"	d
+FMC_SDClock_Period_3	stm32f4xx_fmc.h	850;"	d
+FMC_SDMemoryDataWidth	stm32f4xx_fmc.h	/^  uint32_t FMC_SDMemoryDataWidth;        \/*!< Defines the memory device width.$/;"	m	struct:__anon31
+FMC_SDMemory_Width_16b	stm32f4xx_fmc.h	791;"	d
+FMC_SDMemory_Width_32b	stm32f4xx_fmc.h	792;"	d
+FMC_SDMemory_Width_8b	stm32f4xx_fmc.h	790;"	d
+FMC_SDRAMCommandTypeDef	stm32f4xx_fmc.h	/^}FMC_SDRAMCommandTypeDef;$/;"	t	typeref:struct:__anon30
+FMC_SDRAMInitTypeDef	stm32f4xx_fmc.h	/^}FMC_SDRAMInitTypeDef;$/;"	t	typeref:struct:__anon31
+FMC_SDRAMTimingInitTypeDef	stm32f4xx_fmc.h	/^}FMC_SDRAMTimingInitTypeDef;$/;"	t	typeref:struct:__anon29
+FMC_SDRAMTimingStruct	stm32f4xx_fmc.h	/^  FMC_SDRAMTimingInitTypeDef* FMC_SDRAMTimingStruct;   \/*!< Timing Parameters for write and read access*\/                                            $/;"	m	struct:__anon31
+FMC_SelfRefreshMode_Status	stm32f4xx_fmc.h	1006;"	d
+FMC_SelfRefreshTime	stm32f4xx_fmc.h	/^  uint32_t FMC_SelfRefreshTime;        \/*!< Defines the minimum Self Refresh period in number of memory clock $/;"	m	struct:__anon29
+FMC_SetupTime	stm32f4xx_fmc.h	/^  uint32_t FMC_SetupTime;      \/*!< Defines the number of HCLK cycles to setup address before$/;"	m	struct:__anon26
+FMC_TARSetupTime	stm32f4xx_fmc.h	/^  uint32_t FMC_TARSetupTime;     \/*!< Defines the number of HCLK cycles to configure the$/;"	m	struct:__anon27
+FMC_TARSetupTime	stm32f4xx_fmc.h	/^  uint32_t FMC_TARSetupTime;   \/*!< Defines the number of HCLK cycles to configure the$/;"	m	struct:__anon28
+FMC_TCLRSetupTime	stm32f4xx_fmc.h	/^  uint32_t FMC_TCLRSetupTime;    \/*!< Defines the number of HCLK cycles to configure the$/;"	m	struct:__anon27
+FMC_TCLRSetupTime	stm32f4xx_fmc.h	/^  uint32_t FMC_TCLRSetupTime;  \/*!< Defines the number of HCLK cycles to configure the$/;"	m	struct:__anon28
+FMC_WaitSetupTime	stm32f4xx_fmc.h	/^  uint32_t FMC_WaitSetupTime;  \/*!< Defines the minimum number of HCLK cycles to assert the$/;"	m	struct:__anon26
+FMC_WaitSignal	stm32f4xx_fmc.h	/^  uint32_t FMC_WaitSignal;          \/*!< Enables or disables the wait state insertion via wait$/;"	m	struct:__anon25
+FMC_WaitSignalActive	stm32f4xx_fmc.h	/^  uint32_t FMC_WaitSignalActive;    \/*!< Specifies if the wait signal is asserted by the memory one$/;"	m	struct:__anon25
+FMC_WaitSignalActive_BeforeWaitState	stm32f4xx_fmc.h	499;"	d
+FMC_WaitSignalActive_DuringWaitState	stm32f4xx_fmc.h	500;"	d
+FMC_WaitSignalPolarity	stm32f4xx_fmc.h	/^  uint32_t FMC_WaitSignalPolarity;  \/*!< Specifies the wait signal polarity, valid only when accessing$/;"	m	struct:__anon25
+FMC_WaitSignalPolarity_High	stm32f4xx_fmc.h	476;"	d
+FMC_WaitSignalPolarity_Low	stm32f4xx_fmc.h	475;"	d
+FMC_WaitSignal_Disable	stm32f4xx_fmc.h	523;"	d
+FMC_WaitSignal_Enable	stm32f4xx_fmc.h	524;"	d
+FMC_Waitfeature	stm32f4xx_fmc.h	/^  uint32_t FMC_Waitfeature;      \/*!< Enables or disables the Wait feature for the NAND Memory Bank.$/;"	m	struct:__anon27
+FMC_Waitfeature	stm32f4xx_fmc.h	/^  uint32_t FMC_Waitfeature;    \/*!< Enables or disables the Wait feature for the Memory Bank.$/;"	m	struct:__anon28
+FMC_Waitfeature_Disable	stm32f4xx_fmc.h	645;"	d
+FMC_Waitfeature_Enable	stm32f4xx_fmc.h	646;"	d
+FMC_WrapMode	stm32f4xx_fmc.h	/^  uint32_t FMC_WrapMode;            \/*!< Enables or disables the Wrapped burst access mode for Flash$/;"	m	struct:__anon25
+FMC_WrapMode_Disable	stm32f4xx_fmc.h	487;"	d
+FMC_WrapMode_Enable	stm32f4xx_fmc.h	488;"	d
+FMC_WriteBurst	stm32f4xx_fmc.h	/^  uint32_t FMC_WriteBurst;          \/*!< Enables or disables the write burst operation.$/;"	m	struct:__anon25
+FMC_WriteBurst_Disable	stm32f4xx_fmc.h	548;"	d
+FMC_WriteBurst_Enable	stm32f4xx_fmc.h	549;"	d
+FMC_WriteOperation	stm32f4xx_fmc.h	/^  uint32_t FMC_WriteOperation;      \/*!< Enables or disables the write operation in the selected bank by the FMC. $/;"	m	struct:__anon25
+FMC_WriteOperation_Disable	stm32f4xx_fmc.h	511;"	d
+FMC_WriteOperation_Enable	stm32f4xx_fmc.h	512;"	d
+FMC_WriteProtection	stm32f4xx_fmc.h	/^  uint32_t FMC_WriteProtection;        \/*!< Enables the SDRAM bank to be accessed in write mode.$/;"	m	struct:__anon31
+FMC_WriteRecoveryTime	stm32f4xx_fmc.h	/^  uint32_t FMC_WriteRecoveryTime;      \/*!< Defines the Write recovery Time in number of memory clock cycles.$/;"	m	struct:__anon29
+FMC_WriteTimingStruct	stm32f4xx_fmc.h	/^  FMC_NORSRAMTimingInitTypeDef* FMC_WriteTimingStruct;     \/*!< Timing Parameters for write access if the  Extended Mode is used*\/      $/;"	m	struct:__anon25
+FMC_Write_Protection_Disable	stm32f4xx_fmc.h	834;"	d
+FMC_Write_Protection_Enable	stm32f4xx_fmc.h	835;"	d
+FMI	stm32f4xx_can.h	/^  uint8_t FMI;     \/*!< Specifies the index of the filter the message stored in $/;"	m	struct:__anon7
+FSMC_AccessMode	stm32f4xx_fsmc.h	/^  uint32_t FSMC_AccessMode;             \/*!< Specifies the asynchronous access mode. $/;"	m	struct:__anon32
+FSMC_AccessMode_A	stm32f4xx_fsmc.h	483;"	d
+FSMC_AccessMode_B	stm32f4xx_fsmc.h	484;"	d
+FSMC_AccessMode_C	stm32f4xx_fsmc.h	485;"	d
+FSMC_AccessMode_D	stm32f4xx_fsmc.h	486;"	d
+FSMC_AddressHoldTime	stm32f4xx_fsmc.h	/^  uint32_t FSMC_AddressHoldTime;        \/*!< Defines the number of HCLK cycles to configure$/;"	m	struct:__anon32
+FSMC_AddressSetupTime	stm32f4xx_fsmc.h	/^  uint32_t FSMC_AddressSetupTime;       \/*!< Defines the number of HCLK cycles to configure$/;"	m	struct:__anon32
+FSMC_AsynchronousWait	stm32f4xx_fsmc.h	/^  uint32_t FSMC_AsynchronousWait;     \/*!< Enables or disables wait signal during asynchronous transfers,$/;"	m	struct:__anon33
+FSMC_AsynchronousWait_Disable	stm32f4xx_fsmc.h	345;"	d
+FSMC_AsynchronousWait_Enable	stm32f4xx_fsmc.h	346;"	d
+FSMC_AttributeSpaceTimingStruct	stm32f4xx_fsmc.h	/^  FSMC_NAND_PCCARDTimingInitTypeDef*  FSMC_AttributeSpaceTimingStruct;  \/*!< FSMC Attribute Space Timing *\/ $/;"	m	struct:__anon36
+FSMC_AttributeSpaceTimingStruct	stm32f4xx_fsmc.h	/^  FSMC_NAND_PCCARDTimingInitTypeDef*  FSMC_AttributeSpaceTimingStruct; \/*!< FSMC Attribute Space Timing *\/$/;"	m	struct:__anon35
+FSMC_Bank	stm32f4xx_fsmc.h	/^  uint32_t FSMC_Bank;                \/*!< Specifies the NOR\/SRAM memory bank that will be used.$/;"	m	struct:__anon33
+FSMC_Bank	stm32f4xx_fsmc.h	/^  uint32_t FSMC_Bank;              \/*!< Specifies the NAND memory bank that will be used.$/;"	m	struct:__anon35
+FSMC_Bank1_NORSRAM1	stm32f4xx_fsmc.h	247;"	d
+FSMC_Bank1_NORSRAM2	stm32f4xx_fsmc.h	248;"	d
+FSMC_Bank1_NORSRAM3	stm32f4xx_fsmc.h	249;"	d
+FSMC_Bank1_NORSRAM4	stm32f4xx_fsmc.h	250;"	d
+FSMC_Bank2_NAND	stm32f4xx_fsmc.h	258;"	d
+FSMC_Bank3_NAND	stm32f4xx_fsmc.h	259;"	d
+FSMC_Bank4_PCCARD	stm32f4xx_fsmc.h	267;"	d
+FSMC_BurstAccessMode	stm32f4xx_fsmc.h	/^  uint32_t FSMC_BurstAccessMode;     \/*!< Enables or disables the burst access mode for Flash memory,$/;"	m	struct:__anon33
+FSMC_BurstAccessMode_Disable	stm32f4xx_fsmc.h	334;"	d
+FSMC_BurstAccessMode_Enable	stm32f4xx_fsmc.h	335;"	d
+FSMC_BusTurnAroundDuration	stm32f4xx_fsmc.h	/^  uint32_t FSMC_BusTurnAroundDuration;  \/*!< Defines the number of HCLK cycles to configure$/;"	m	struct:__anon32
+FSMC_CLKDivision	stm32f4xx_fsmc.h	/^  uint32_t FSMC_CLKDivision;            \/*!< Defines the period of CLK clock output signal, expressed in number of HCLK cycles.$/;"	m	struct:__anon32
+FSMC_CommonSpaceTimingStruct	stm32f4xx_fsmc.h	/^  FSMC_NAND_PCCARDTimingInitTypeDef*  FSMC_CommonSpaceTimingStruct;   \/*!< FSMC Common Space Timing *\/ $/;"	m	struct:__anon35
+FSMC_CommonSpaceTimingStruct	stm32f4xx_fsmc.h	/^  FSMC_NAND_PCCARDTimingInitTypeDef*  FSMC_CommonSpaceTimingStruct; \/*!< FSMC Common Space Timing *\/$/;"	m	struct:__anon36
+FSMC_DataAddressMux	stm32f4xx_fsmc.h	/^  uint32_t FSMC_DataAddressMux;      \/*!< Specifies whether the address and data values are$/;"	m	struct:__anon33
+FSMC_DataAddressMux_Disable	stm32f4xx_fsmc.h	296;"	d
+FSMC_DataAddressMux_Enable	stm32f4xx_fsmc.h	297;"	d
+FSMC_DataLatency	stm32f4xx_fsmc.h	/^  uint32_t FSMC_DataLatency;            \/*!< Defines the number of memory clock cycles to issue$/;"	m	struct:__anon32
+FSMC_DataSetupTime	stm32f4xx_fsmc.h	/^  uint32_t FSMC_DataSetupTime;          \/*!< Defines the number of HCLK cycles to configure$/;"	m	struct:__anon32
+FSMC_ECC	stm32f4xx_fsmc.h	/^  uint32_t FSMC_ECC;              \/*!< Enables or disables the ECC computation.$/;"	m	struct:__anon35
+FSMC_ECCPageSize	stm32f4xx_fsmc.h	/^  uint32_t FSMC_ECCPageSize;      \/*!< Defines the page size for the extended ECC.$/;"	m	struct:__anon35
+FSMC_ECCPageSize_1024Bytes	stm32f4xx_fsmc.h	531;"	d
+FSMC_ECCPageSize_2048Bytes	stm32f4xx_fsmc.h	532;"	d
+FSMC_ECCPageSize_256Bytes	stm32f4xx_fsmc.h	529;"	d
+FSMC_ECCPageSize_4096Bytes	stm32f4xx_fsmc.h	533;"	d
+FSMC_ECCPageSize_512Bytes	stm32f4xx_fsmc.h	530;"	d
+FSMC_ECCPageSize_8192Bytes	stm32f4xx_fsmc.h	534;"	d
+FSMC_ECC_Disable	stm32f4xx_fsmc.h	518;"	d
+FSMC_ECC_Enable	stm32f4xx_fsmc.h	519;"	d
+FSMC_ExtendedMode	stm32f4xx_fsmc.h	/^  uint32_t FSMC_ExtendedMode;        \/*!< Enables or disables the extended mode.$/;"	m	struct:__anon33
+FSMC_ExtendedMode_Disable	stm32f4xx_fsmc.h	411;"	d
+FSMC_ExtendedMode_Enable	stm32f4xx_fsmc.h	412;"	d
+FSMC_FLAG_FEMPT	stm32f4xx_fsmc.h	613;"	d
+FSMC_FLAG_FallingEdge	stm32f4xx_fsmc.h	612;"	d
+FSMC_FLAG_Level	stm32f4xx_fsmc.h	611;"	d
+FSMC_FLAG_RisingEdge	stm32f4xx_fsmc.h	610;"	d
+FSMC_HiZSetupTime	stm32f4xx_fsmc.h	/^  uint32_t FSMC_HiZSetupTime;   \/*!< Defines the number of HCLK clock cycles during which the$/;"	m	struct:__anon34
+FSMC_HoldSetupTime	stm32f4xx_fsmc.h	/^  uint32_t FSMC_HoldSetupTime;  \/*!< Defines the number of HCLK clock cycles to hold address$/;"	m	struct:__anon34
+FSMC_IOSpaceTimingStruct	stm32f4xx_fsmc.h	/^  FSMC_NAND_PCCARDTimingInitTypeDef*  FSMC_IOSpaceTimingStruct; \/*!< FSMC IO Space Timing *\/  $/;"	m	struct:__anon36
+FSMC_IT_FallingEdge	stm32f4xx_fsmc.h	598;"	d
+FSMC_IT_Level	stm32f4xx_fsmc.h	597;"	d
+FSMC_IT_RisingEdge	stm32f4xx_fsmc.h	596;"	d
+FSMC_MemoryDataWidth	stm32f4xx_fsmc.h	/^  uint32_t FSMC_MemoryDataWidth;     \/*!< Specifies the external memory device width.$/;"	m	struct:__anon33
+FSMC_MemoryDataWidth	stm32f4xx_fsmc.h	/^  uint32_t FSMC_MemoryDataWidth;  \/*!< Specifies the external memory device width.$/;"	m	struct:__anon35
+FSMC_MemoryDataWidth_16b	stm32f4xx_fsmc.h	323;"	d
+FSMC_MemoryDataWidth_8b	stm32f4xx_fsmc.h	322;"	d
+FSMC_MemoryType	stm32f4xx_fsmc.h	/^  uint32_t FSMC_MemoryType;          \/*!< Specifies the type of external memory attached to$/;"	m	struct:__anon33
+FSMC_MemoryType_NOR	stm32f4xx_fsmc.h	310;"	d
+FSMC_MemoryType_PSRAM	stm32f4xx_fsmc.h	309;"	d
+FSMC_MemoryType_SRAM	stm32f4xx_fsmc.h	308;"	d
+FSMC_NANDInitTypeDef	stm32f4xx_fsmc.h	/^}FSMC_NANDInitTypeDef;$/;"	t	typeref:struct:__anon35
+FSMC_NAND_PCCARDTimingInitTypeDef	stm32f4xx_fsmc.h	/^}FSMC_NAND_PCCARDTimingInitTypeDef;$/;"	t	typeref:struct:__anon34
+FSMC_NORSRAMInitTypeDef	stm32f4xx_fsmc.h	/^}FSMC_NORSRAMInitTypeDef;$/;"	t	typeref:struct:__anon33
+FSMC_NORSRAMTimingInitTypeDef	stm32f4xx_fsmc.h	/^}FSMC_NORSRAMTimingInitTypeDef;$/;"	t	typeref:struct:__anon32
+FSMC_PCCARDInitTypeDef	stm32f4xx_fsmc.h	/^}FSMC_PCCARDInitTypeDef;$/;"	t	typeref:struct:__anon36
+FSMC_ReadWriteTimingStruct	stm32f4xx_fsmc.h	/^  FSMC_NORSRAMTimingInitTypeDef* FSMC_ReadWriteTimingStruct; \/*!< Timing Parameters for write and read access if the  Extended Mode is not used*\/  $/;"	m	struct:__anon33
+FSMC_SetupTime	stm32f4xx_fsmc.h	/^  uint32_t FSMC_SetupTime;      \/*!< Defines the number of HCLK cycles to setup address before$/;"	m	struct:__anon34
+FSMC_TARSetupTime	stm32f4xx_fsmc.h	/^  uint32_t FSMC_TARSetupTime;     \/*!< Defines the number of HCLK cycles to configure the$/;"	m	struct:__anon35
+FSMC_TARSetupTime	stm32f4xx_fsmc.h	/^  uint32_t FSMC_TARSetupTime;   \/*!< Defines the number of HCLK cycles to configure the$/;"	m	struct:__anon36
+FSMC_TCLRSetupTime	stm32f4xx_fsmc.h	/^  uint32_t FSMC_TCLRSetupTime;    \/*!< Defines the number of HCLK cycles to configure the$/;"	m	struct:__anon35
+FSMC_TCLRSetupTime	stm32f4xx_fsmc.h	/^  uint32_t FSMC_TCLRSetupTime;  \/*!< Defines the number of HCLK cycles to configure the$/;"	m	struct:__anon36
+FSMC_WaitSetupTime	stm32f4xx_fsmc.h	/^  uint32_t FSMC_WaitSetupTime;  \/*!< Defines the minimum number of HCLK cycles to assert the$/;"	m	struct:__anon34
+FSMC_WaitSignal	stm32f4xx_fsmc.h	/^  uint32_t FSMC_WaitSignal;          \/*!< Enables or disables the wait state insertion via wait$/;"	m	struct:__anon33
+FSMC_WaitSignalActive	stm32f4xx_fsmc.h	/^  uint32_t FSMC_WaitSignalActive;    \/*!< Specifies if the wait signal is asserted by the memory one$/;"	m	struct:__anon33
+FSMC_WaitSignalActive_BeforeWaitState	stm32f4xx_fsmc.h	378;"	d
+FSMC_WaitSignalActive_DuringWaitState	stm32f4xx_fsmc.h	379;"	d
+FSMC_WaitSignalPolarity	stm32f4xx_fsmc.h	/^  uint32_t FSMC_WaitSignalPolarity;  \/*!< Specifies the wait signal polarity, valid only when accessing$/;"	m	struct:__anon33
+FSMC_WaitSignalPolarity_High	stm32f4xx_fsmc.h	357;"	d
+FSMC_WaitSignalPolarity_Low	stm32f4xx_fsmc.h	356;"	d
+FSMC_WaitSignal_Disable	stm32f4xx_fsmc.h	400;"	d
+FSMC_WaitSignal_Enable	stm32f4xx_fsmc.h	401;"	d
+FSMC_Waitfeature	stm32f4xx_fsmc.h	/^  uint32_t FSMC_Waitfeature;      \/*!< Enables or disables the Wait feature for the NAND Memory Bank.$/;"	m	struct:__anon35
+FSMC_Waitfeature	stm32f4xx_fsmc.h	/^  uint32_t FSMC_Waitfeature;    \/*!< Enables or disables the Wait feature for the Memory Bank.$/;"	m	struct:__anon36
+FSMC_Waitfeature_Disable	stm32f4xx_fsmc.h	506;"	d
+FSMC_Waitfeature_Enable	stm32f4xx_fsmc.h	507;"	d
+FSMC_WrapMode	stm32f4xx_fsmc.h	/^  uint32_t FSMC_WrapMode;            \/*!< Enables or disables the Wrapped burst access mode for Flash$/;"	m	struct:__anon33
+FSMC_WrapMode_Disable	stm32f4xx_fsmc.h	367;"	d
+FSMC_WrapMode_Enable	stm32f4xx_fsmc.h	368;"	d
+FSMC_WriteBurst	stm32f4xx_fsmc.h	/^  uint32_t FSMC_WriteBurst;          \/*!< Enables or disables the write burst operation.$/;"	m	struct:__anon33
+FSMC_WriteBurst_Disable	stm32f4xx_fsmc.h	424;"	d
+FSMC_WriteBurst_Enable	stm32f4xx_fsmc.h	425;"	d
+FSMC_WriteOperation	stm32f4xx_fsmc.h	/^  uint32_t FSMC_WriteOperation;      \/*!< Enables or disables the write operation in the selected bank by the FSMC. $/;"	m	struct:__anon33
+FSMC_WriteOperation_Disable	stm32f4xx_fsmc.h	389;"	d
+FSMC_WriteOperation_Enable	stm32f4xx_fsmc.h	390;"	d
+FSMC_WriteTimingStruct	stm32f4xx_fsmc.h	/^  FSMC_NORSRAMTimingInitTypeDef* FSMC_WriteTimingStruct;     \/*!< Timing Parameters for write access if the  Extended Mode is used*\/      $/;"	m	struct:__anon33
+GPIOMode_TypeDef	stm32f4xx_gpio.h	/^}GPIOMode_TypeDef;$/;"	t	typeref:enum:__anon37
+GPIOOType_TypeDef	stm32f4xx_gpio.h	/^}GPIOOType_TypeDef;$/;"	t	typeref:enum:__anon38
+GPIOPuPd_TypeDef	stm32f4xx_gpio.h	/^}GPIOPuPd_TypeDef;$/;"	t	typeref:enum:__anon40
+GPIOSpeed_TypeDef	stm32f4xx_gpio.h	/^}GPIOSpeed_TypeDef;$/;"	t	typeref:enum:__anon39
+GPIO_AF5_SPI3	stm32f4xx_gpio.h	285;"	d
+GPIO_AF6_SPI2	stm32f4xx_gpio.h	294;"	d
+GPIO_AF6_SPI4	stm32f4xx_gpio.h	295;"	d
+GPIO_AF6_SPI5	stm32f4xx_gpio.h	296;"	d
+GPIO_AF7_SPI3	stm32f4xx_gpio.h	305;"	d
+GPIO_AF9_I2C2	stm32f4xx_gpio.h	330;"	d
+GPIO_AF9_I2C3	stm32f4xx_gpio.h	331;"	d
+GPIO_AF_CAN1	stm32f4xx_gpio.h	324;"	d
+GPIO_AF_CAN2	stm32f4xx_gpio.h	325;"	d
+GPIO_AF_DCMI	stm32f4xx_gpio.h	361;"	d
+GPIO_AF_ETH	stm32f4xx_gpio.h	342;"	d
+GPIO_AF_EVENTOUT	stm32f4xx_gpio.h	372;"	d
+GPIO_AF_FMC	stm32f4xx_gpio.h	352;"	d
+GPIO_AF_FSMC	stm32f4xx_gpio.h	348;"	d
+GPIO_AF_I2C1	stm32f4xx_gpio.h	276;"	d
+GPIO_AF_I2C2	stm32f4xx_gpio.h	277;"	d
+GPIO_AF_I2C3	stm32f4xx_gpio.h	278;"	d
+GPIO_AF_I2S3ext	stm32f4xx_gpio.h	310;"	d
+GPIO_AF_LTDC	stm32f4xx_gpio.h	367;"	d
+GPIO_AF_MCO	stm32f4xx_gpio.h	247;"	d
+GPIO_AF_OTG1_FS	stm32f4xx_gpio.h	451;"	d
+GPIO_AF_OTG2_FS	stm32f4xx_gpio.h	453;"	d
+GPIO_AF_OTG2_HS	stm32f4xx_gpio.h	452;"	d
+GPIO_AF_OTG_FS	stm32f4xx_gpio.h	336;"	d
+GPIO_AF_OTG_HS	stm32f4xx_gpio.h	337;"	d
+GPIO_AF_OTG_HS_FS	stm32f4xx_gpio.h	355;"	d
+GPIO_AF_RTC_50Hz	stm32f4xx_gpio.h	246;"	d
+GPIO_AF_SAI1	stm32f4xx_gpio.h	297;"	d
+GPIO_AF_SDIO	stm32f4xx_gpio.h	356;"	d
+GPIO_AF_SPI1	stm32f4xx_gpio.h	283;"	d
+GPIO_AF_SPI2	stm32f4xx_gpio.h	284;"	d
+GPIO_AF_SPI3	stm32f4xx_gpio.h	293;"	d
+GPIO_AF_SPI4	stm32f4xx_gpio.h	286;"	d
+GPIO_AF_SPI5	stm32f4xx_gpio.h	287;"	d
+GPIO_AF_SPI6	stm32f4xx_gpio.h	288;"	d
+GPIO_AF_SWJ	stm32f4xx_gpio.h	249;"	d
+GPIO_AF_TAMPER	stm32f4xx_gpio.h	248;"	d
+GPIO_AF_TIM1	stm32f4xx_gpio.h	255;"	d
+GPIO_AF_TIM10	stm32f4xx_gpio.h	270;"	d
+GPIO_AF_TIM11	stm32f4xx_gpio.h	271;"	d
+GPIO_AF_TIM12	stm32f4xx_gpio.h	326;"	d
+GPIO_AF_TIM13	stm32f4xx_gpio.h	327;"	d
+GPIO_AF_TIM14	stm32f4xx_gpio.h	328;"	d
+GPIO_AF_TIM2	stm32f4xx_gpio.h	256;"	d
+GPIO_AF_TIM3	stm32f4xx_gpio.h	261;"	d
+GPIO_AF_TIM4	stm32f4xx_gpio.h	262;"	d
+GPIO_AF_TIM5	stm32f4xx_gpio.h	263;"	d
+GPIO_AF_TIM8	stm32f4xx_gpio.h	268;"	d
+GPIO_AF_TIM9	stm32f4xx_gpio.h	269;"	d
+GPIO_AF_TRACE	stm32f4xx_gpio.h	250;"	d
+GPIO_AF_UART4	stm32f4xx_gpio.h	315;"	d
+GPIO_AF_UART5	stm32f4xx_gpio.h	316;"	d
+GPIO_AF_UART7	stm32f4xx_gpio.h	318;"	d
+GPIO_AF_UART8	stm32f4xx_gpio.h	319;"	d
+GPIO_AF_USART1	stm32f4xx_gpio.h	302;"	d
+GPIO_AF_USART2	stm32f4xx_gpio.h	303;"	d
+GPIO_AF_USART3	stm32f4xx_gpio.h	304;"	d
+GPIO_AF_USART6	stm32f4xx_gpio.h	317;"	d
+GPIO_Fast_Speed	stm32f4xx_gpio.h	/^  GPIO_Fast_Speed    = 0x02, \/*!< Fast speed   *\/$/;"	e	enum:__anon39
+GPIO_High_Speed	stm32f4xx_gpio.h	/^  GPIO_High_Speed    = 0x03  \/*!< High speed   *\/$/;"	e	enum:__anon39
+GPIO_InitTypeDef	stm32f4xx_gpio.h	/^}GPIO_InitTypeDef;$/;"	t	typeref:struct:__anon42
+GPIO_Low_Speed	stm32f4xx_gpio.h	/^  GPIO_Low_Speed     = 0x00, \/*!< Low speed    *\/$/;"	e	enum:__anon39
+GPIO_Medium_Speed	stm32f4xx_gpio.h	/^  GPIO_Medium_Speed  = 0x01, \/*!< Medium speed *\/$/;"	e	enum:__anon39
+GPIO_Mode	stm32f4xx_gpio.h	/^  GPIOMode_TypeDef GPIO_Mode;     \/*!< Specifies the operating mode for the selected pins.$/;"	m	struct:__anon42
+GPIO_Mode_AF	stm32f4xx_gpio.h	/^  GPIO_Mode_AF   = 0x02, \/*!< GPIO Alternate function Mode *\/$/;"	e	enum:__anon37
+GPIO_Mode_AIN	stm32f4xx_gpio.h	449;"	d
+GPIO_Mode_AN	stm32f4xx_gpio.h	/^  GPIO_Mode_AN   = 0x03  \/*!< GPIO Analog Mode *\/$/;"	e	enum:__anon37
+GPIO_Mode_IN	stm32f4xx_gpio.h	/^  GPIO_Mode_IN   = 0x00, \/*!< GPIO Input Mode *\/$/;"	e	enum:__anon37
+GPIO_Mode_OUT	stm32f4xx_gpio.h	/^  GPIO_Mode_OUT  = 0x01, \/*!< GPIO Output Mode *\/$/;"	e	enum:__anon37
+GPIO_OType	stm32f4xx_gpio.h	/^  GPIOOType_TypeDef GPIO_OType;   \/*!< Specifies the operating output type for the selected pins.$/;"	m	struct:__anon42
+GPIO_OType_OD	stm32f4xx_gpio.h	/^  GPIO_OType_OD = 0x01$/;"	e	enum:__anon38
+GPIO_OType_PP	stm32f4xx_gpio.h	/^  GPIO_OType_PP = 0x00,$/;"	e	enum:__anon38
+GPIO_PIN_MASK	stm32f4xx_gpio.h	177;"	d
+GPIO_Pin	stm32f4xx_gpio.h	/^  uint32_t GPIO_Pin;              \/*!< Specifies the GPIO pins to be configured.$/;"	m	struct:__anon42
+GPIO_PinSource0	stm32f4xx_gpio.h	203;"	d
+GPIO_PinSource1	stm32f4xx_gpio.h	204;"	d
+GPIO_PinSource10	stm32f4xx_gpio.h	213;"	d
+GPIO_PinSource11	stm32f4xx_gpio.h	214;"	d
+GPIO_PinSource12	stm32f4xx_gpio.h	215;"	d
+GPIO_PinSource13	stm32f4xx_gpio.h	216;"	d
+GPIO_PinSource14	stm32f4xx_gpio.h	217;"	d
+GPIO_PinSource15	stm32f4xx_gpio.h	218;"	d
+GPIO_PinSource2	stm32f4xx_gpio.h	205;"	d
+GPIO_PinSource3	stm32f4xx_gpio.h	206;"	d
+GPIO_PinSource4	stm32f4xx_gpio.h	207;"	d
+GPIO_PinSource5	stm32f4xx_gpio.h	208;"	d
+GPIO_PinSource6	stm32f4xx_gpio.h	209;"	d
+GPIO_PinSource7	stm32f4xx_gpio.h	210;"	d
+GPIO_PinSource8	stm32f4xx_gpio.h	211;"	d
+GPIO_PinSource9	stm32f4xx_gpio.h	212;"	d
+GPIO_Pin_0	stm32f4xx_gpio.h	159;"	d
+GPIO_Pin_1	stm32f4xx_gpio.h	160;"	d
+GPIO_Pin_10	stm32f4xx_gpio.h	169;"	d
+GPIO_Pin_11	stm32f4xx_gpio.h	170;"	d
+GPIO_Pin_12	stm32f4xx_gpio.h	171;"	d
+GPIO_Pin_13	stm32f4xx_gpio.h	172;"	d
+GPIO_Pin_14	stm32f4xx_gpio.h	173;"	d
+GPIO_Pin_15	stm32f4xx_gpio.h	174;"	d
+GPIO_Pin_2	stm32f4xx_gpio.h	161;"	d
+GPIO_Pin_3	stm32f4xx_gpio.h	162;"	d
+GPIO_Pin_4	stm32f4xx_gpio.h	163;"	d
+GPIO_Pin_5	stm32f4xx_gpio.h	164;"	d
+GPIO_Pin_6	stm32f4xx_gpio.h	165;"	d
+GPIO_Pin_7	stm32f4xx_gpio.h	166;"	d
+GPIO_Pin_8	stm32f4xx_gpio.h	167;"	d
+GPIO_Pin_9	stm32f4xx_gpio.h	168;"	d
+GPIO_Pin_All	stm32f4xx_gpio.h	175;"	d
+GPIO_PuPd	stm32f4xx_gpio.h	/^  GPIOPuPd_TypeDef GPIO_PuPd;     \/*!< Specifies the operating Pull-up\/Pull down for the selected pins.$/;"	m	struct:__anon42
+GPIO_PuPd_DOWN	stm32f4xx_gpio.h	/^  GPIO_PuPd_DOWN   = 0x02$/;"	e	enum:__anon40
+GPIO_PuPd_NOPULL	stm32f4xx_gpio.h	/^  GPIO_PuPd_NOPULL = 0x00,$/;"	e	enum:__anon40
+GPIO_PuPd_UP	stm32f4xx_gpio.h	/^  GPIO_PuPd_UP     = 0x01,$/;"	e	enum:__anon40
+GPIO_Speed	stm32f4xx_gpio.h	/^  GPIOSpeed_TypeDef GPIO_Speed;   \/*!< Specifies the speed for the selected pins.$/;"	m	struct:__anon42
+GPIO_Speed_100MHz	stm32f4xx_gpio.h	101;"	d
+GPIO_Speed_25MHz	stm32f4xx_gpio.h	99;"	d
+GPIO_Speed_2MHz	stm32f4xx_gpio.h	98;"	d
+GPIO_Speed_50MHz	stm32f4xx_gpio.h	100;"	d
+HASH_AlgoMode	stm32f4xx_hash.h	/^  uint32_t HASH_AlgoMode;      \/*!< HASH or HMAC. This parameter can be a value $/;"	m	struct:__anon43
+HASH_AlgoMode_HASH	stm32f4xx_hash.h	113;"	d
+HASH_AlgoMode_HMAC	stm32f4xx_hash.h	114;"	d
+HASH_AlgoSelection	stm32f4xx_hash.h	/^  uint32_t HASH_AlgoSelection; \/*!< SHA-1, SHA-224, SHA-256 or MD5. This parameter$/;"	m	struct:__anon43
+HASH_AlgoSelection_MD5	stm32f4xx_hash.h	100;"	d
+HASH_AlgoSelection_SHA1	stm32f4xx_hash.h	97;"	d
+HASH_AlgoSelection_SHA224	stm32f4xx_hash.h	98;"	d
+HASH_AlgoSelection_SHA256	stm32f4xx_hash.h	99;"	d
+HASH_CR	stm32f4xx_hash.h	/^  uint32_t HASH_CR;     $/;"	m	struct:__anon45
+HASH_CSR	stm32f4xx_hash.h	/^  uint32_t HASH_CSR[54];       $/;"	m	struct:__anon45
+HASH_Context	stm32f4xx_hash.h	/^}HASH_Context;$/;"	t	typeref:struct:__anon45
+HASH_DataType	stm32f4xx_hash.h	/^  uint32_t HASH_DataType;      \/*!< 32-bit data, 16-bit data, 8-bit data or $/;"	m	struct:__anon43
+HASH_DataType_16b	stm32f4xx_hash.h	126;"	d
+HASH_DataType_1b	stm32f4xx_hash.h	128;"	d
+HASH_DataType_32b	stm32f4xx_hash.h	125;"	d
+HASH_DataType_8b	stm32f4xx_hash.h	127;"	d
+HASH_FLAG_BUSY	stm32f4xx_hash.h	178;"	d
+HASH_FLAG_DCIS	stm32f4xx_hash.h	176;"	d
+HASH_FLAG_DINIS	stm32f4xx_hash.h	175;"	d
+HASH_FLAG_DINNE	stm32f4xx_hash.h	179;"	d
+HASH_FLAG_DMAS	stm32f4xx_hash.h	177;"	d
+HASH_HMACKeyType	stm32f4xx_hash.h	/^  uint32_t HASH_HMACKeyType;   \/*!< HMAC Short key or HMAC Long Key. This parameter$/;"	m	struct:__anon43
+HASH_HMACKeyType_LongKey	stm32f4xx_hash.h	142;"	d
+HASH_HMACKeyType_ShortKey	stm32f4xx_hash.h	141;"	d
+HASH_IMR	stm32f4xx_hash.h	/^  uint32_t HASH_IMR; $/;"	m	struct:__anon45
+HASH_IT_DCI	stm32f4xx_hash.h	163;"	d
+HASH_IT_DINI	stm32f4xx_hash.h	162;"	d
+HASH_InitTypeDef	stm32f4xx_hash.h	/^}HASH_InitTypeDef;$/;"	t	typeref:struct:__anon43
+HASH_MsgDigest	stm32f4xx_hash.h	/^} HASH_MsgDigest; $/;"	t	typeref:struct:__anon44
+HASH_STR	stm32f4xx_hash.h	/^  uint32_t HASH_STR;      $/;"	m	struct:__anon45
+HCLK_Frequency	stm32f4xx_rcc.h	/^  uint32_t HCLK_Frequency;   \/*!<  HCLK clock frequency expressed in Hz   *\/$/;"	m	struct:__anon53
+I2C_Ack	stm32f4xx_i2c.h	/^  uint16_t I2C_Ack;                 \/*!< Enables or disables the acknowledgement.$/;"	m	struct:__anon46
+I2C_Ack_Disable	stm32f4xx_i2c.h	127;"	d
+I2C_Ack_Enable	stm32f4xx_i2c.h	126;"	d
+I2C_AcknowledgedAddress	stm32f4xx_i2c.h	/^  uint16_t I2C_AcknowledgedAddress; \/*!< Specifies if 7-bit or 10-bit address is acknowledged.$/;"	m	struct:__anon46
+I2C_AcknowledgedAddress_10bit	stm32f4xx_i2c.h	151;"	d
+I2C_AcknowledgedAddress_7bit	stm32f4xx_i2c.h	150;"	d
+I2C_ClockSpeed	stm32f4xx_i2c.h	/^  uint32_t I2C_ClockSpeed;          \/*!< Specifies the clock frequency.$/;"	m	struct:__anon46
+I2C_Direction_Receiver	stm32f4xx_i2c.h	139;"	d
+I2C_Direction_Transmitter	stm32f4xx_i2c.h	138;"	d
+I2C_DutyCycle	stm32f4xx_i2c.h	/^  uint16_t I2C_DutyCycle;           \/*!< Specifies the I2C fast mode duty cycle.$/;"	m	struct:__anon46
+I2C_DutyCycle_16_9	stm32f4xx_i2c.h	114;"	d
+I2C_DutyCycle_2	stm32f4xx_i2c.h	115;"	d
+I2C_EVENT_MASTER_BYTE_RECEIVED	stm32f4xx_i2c.h	399;"	d
+I2C_EVENT_MASTER_BYTE_TRANSMITTED	stm32f4xx_i2c.h	405;"	d
+I2C_EVENT_MASTER_BYTE_TRANSMITTING	stm32f4xx_i2c.h	403;"	d
+I2C_EVENT_MASTER_MODE_ADDRESS10	stm32f4xx_i2c.h	366;"	d
+I2C_EVENT_MASTER_MODE_SELECT	stm32f4xx_i2c.h	335;"	d
+I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED	stm32f4xx_i2c.h	364;"	d
+I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED	stm32f4xx_i2c.h	363;"	d
+I2C_EVENT_SLAVE_ACK_FAILURE	stm32f4xx_i2c.h	490;"	d
+I2C_EVENT_SLAVE_BYTE_RECEIVED	stm32f4xx_i2c.h	481;"	d
+I2C_EVENT_SLAVE_BYTE_TRANSMITTED	stm32f4xx_i2c.h	487;"	d
+I2C_EVENT_SLAVE_BYTE_TRANSMITTING	stm32f4xx_i2c.h	488;"	d
+I2C_EVENT_SLAVE_GENERALCALLADDRESS_MATCHED	stm32f4xx_i2c.h	450;"	d
+I2C_EVENT_SLAVE_RECEIVER_ADDRESS_MATCHED	stm32f4xx_i2c.h	442;"	d
+I2C_EVENT_SLAVE_RECEIVER_SECONDADDRESS_MATCHED	stm32f4xx_i2c.h	446;"	d
+I2C_EVENT_SLAVE_STOP_DETECTED	stm32f4xx_i2c.h	483;"	d
+I2C_EVENT_SLAVE_TRANSMITTER_ADDRESS_MATCHED	stm32f4xx_i2c.h	443;"	d
+I2C_EVENT_SLAVE_TRANSMITTER_SECONDADDRESS_MATCHED	stm32f4xx_i2c.h	447;"	d
+I2C_FLAG_ADD10	stm32f4xx_i2c.h	294;"	d
+I2C_FLAG_ADDR	stm32f4xx_i2c.h	296;"	d
+I2C_FLAG_AF	stm32f4xx_i2c.h	288;"	d
+I2C_FLAG_ARLO	stm32f4xx_i2c.h	289;"	d
+I2C_FLAG_BERR	stm32f4xx_i2c.h	290;"	d
+I2C_FLAG_BTF	stm32f4xx_i2c.h	295;"	d
+I2C_FLAG_BUSY	stm32f4xx_i2c.h	277;"	d
+I2C_FLAG_DUALF	stm32f4xx_i2c.h	272;"	d
+I2C_FLAG_GENCALL	stm32f4xx_i2c.h	275;"	d
+I2C_FLAG_MSL	stm32f4xx_i2c.h	278;"	d
+I2C_FLAG_OVR	stm32f4xx_i2c.h	287;"	d
+I2C_FLAG_PECERR	stm32f4xx_i2c.h	286;"	d
+I2C_FLAG_RXNE	stm32f4xx_i2c.h	292;"	d
+I2C_FLAG_SB	stm32f4xx_i2c.h	297;"	d
+I2C_FLAG_SMBALERT	stm32f4xx_i2c.h	284;"	d
+I2C_FLAG_SMBDEFAULT	stm32f4xx_i2c.h	274;"	d
+I2C_FLAG_SMBHOST	stm32f4xx_i2c.h	273;"	d
+I2C_FLAG_STOPF	stm32f4xx_i2c.h	293;"	d
+I2C_FLAG_TIMEOUT	stm32f4xx_i2c.h	285;"	d
+I2C_FLAG_TRA	stm32f4xx_i2c.h	276;"	d
+I2C_FLAG_TXE	stm32f4xx_i2c.h	291;"	d
+I2C_IT_ADD10	stm32f4xx_i2c.h	246;"	d
+I2C_IT_ADDR	stm32f4xx_i2c.h	248;"	d
+I2C_IT_AF	stm32f4xx_i2c.h	240;"	d
+I2C_IT_ARLO	stm32f4xx_i2c.h	241;"	d
+I2C_IT_BERR	stm32f4xx_i2c.h	242;"	d
+I2C_IT_BTF	stm32f4xx_i2c.h	247;"	d
+I2C_IT_BUF	stm32f4xx_i2c.h	224;"	d
+I2C_IT_ERR	stm32f4xx_i2c.h	226;"	d
+I2C_IT_EVT	stm32f4xx_i2c.h	225;"	d
+I2C_IT_OVR	stm32f4xx_i2c.h	239;"	d
+I2C_IT_PECERR	stm32f4xx_i2c.h	238;"	d
+I2C_IT_RXNE	stm32f4xx_i2c.h	244;"	d
+I2C_IT_SB	stm32f4xx_i2c.h	249;"	d
+I2C_IT_SMBALERT	stm32f4xx_i2c.h	236;"	d
+I2C_IT_STOPF	stm32f4xx_i2c.h	245;"	d
+I2C_IT_TIMEOUT	stm32f4xx_i2c.h	237;"	d
+I2C_IT_TXE	stm32f4xx_i2c.h	243;"	d
+I2C_InitTypeDef	stm32f4xx_i2c.h	/^}I2C_InitTypeDef;$/;"	t	typeref:struct:__anon46
+I2C_Mode	stm32f4xx_i2c.h	/^  uint16_t I2C_Mode;                \/*!< Specifies the I2C mode.$/;"	m	struct:__anon46
+I2C_Mode_I2C	stm32f4xx_i2c.h	100;"	d
+I2C_Mode_SMBusDevice	stm32f4xx_i2c.h	101;"	d
+I2C_Mode_SMBusHost	stm32f4xx_i2c.h	102;"	d
+I2C_NACKPosition_Current	stm32f4xx_i2c.h	189;"	d
+I2C_NACKPosition_Next	stm32f4xx_i2c.h	188;"	d
+I2C_OwnAddress1	stm32f4xx_i2c.h	/^  uint16_t I2C_OwnAddress1;         \/*!< Specifies the first device own address.$/;"	m	struct:__anon46
+I2C_PECPosition_Current	stm32f4xx_i2c.h	213;"	d
+I2C_PECPosition_Next	stm32f4xx_i2c.h	212;"	d
+I2C_Register_CCR	stm32f4xx_i2c.h	169;"	d
+I2C_Register_CR1	stm32f4xx_i2c.h	162;"	d
+I2C_Register_CR2	stm32f4xx_i2c.h	163;"	d
+I2C_Register_DR	stm32f4xx_i2c.h	166;"	d
+I2C_Register_OAR1	stm32f4xx_i2c.h	164;"	d
+I2C_Register_OAR2	stm32f4xx_i2c.h	165;"	d
+I2C_Register_SR1	stm32f4xx_i2c.h	167;"	d
+I2C_Register_SR2	stm32f4xx_i2c.h	168;"	d
+I2C_Register_TRISE	stm32f4xx_i2c.h	170;"	d
+I2C_SMBusAlert_High	stm32f4xx_i2c.h	201;"	d
+I2C_SMBusAlert_Low	stm32f4xx_i2c.h	200;"	d
+I2S_AudioFreq	stm32f4xx_spi.h	/^  uint32_t I2S_AudioFreq;    \/*!< Specifies the frequency selected for the I2S communication.$/;"	m	struct:__anon65
+I2S_AudioFreq_11k	stm32f4xx_spi.h	333;"	d
+I2S_AudioFreq_16k	stm32f4xx_spi.h	332;"	d
+I2S_AudioFreq_192k	stm32f4xx_spi.h	326;"	d
+I2S_AudioFreq_22k	stm32f4xx_spi.h	331;"	d
+I2S_AudioFreq_32k	stm32f4xx_spi.h	330;"	d
+I2S_AudioFreq_44k	stm32f4xx_spi.h	329;"	d
+I2S_AudioFreq_48k	stm32f4xx_spi.h	328;"	d
+I2S_AudioFreq_8k	stm32f4xx_spi.h	334;"	d
+I2S_AudioFreq_96k	stm32f4xx_spi.h	327;"	d
+I2S_AudioFreq_Default	stm32f4xx_spi.h	335;"	d
+I2S_CPOL	stm32f4xx_spi.h	/^  uint16_t I2S_CPOL;         \/*!< Specifies the idle state of the I2S clock.$/;"	m	struct:__anon65
+I2S_CPOL_High	stm32f4xx_spi.h	349;"	d
+I2S_CPOL_Low	stm32f4xx_spi.h	348;"	d
+I2S_DataFormat	stm32f4xx_spi.h	/^  uint16_t I2S_DataFormat;   \/*!< Specifies the data format for the I2S communication.$/;"	m	struct:__anon65
+I2S_DataFormat_16b	stm32f4xx_spi.h	298;"	d
+I2S_DataFormat_16bextended	stm32f4xx_spi.h	299;"	d
+I2S_DataFormat_24b	stm32f4xx_spi.h	300;"	d
+I2S_DataFormat_32b	stm32f4xx_spi.h	301;"	d
+I2S_FLAG_CHSIDE	stm32f4xx_spi.h	436;"	d
+I2S_FLAG_UDR	stm32f4xx_spi.h	437;"	d
+I2S_FS_ChannelIdentification	stm32f4xx_sai.h	306;"	d
+I2S_IT_UDR	stm32f4xx_spi.h	409;"	d
+I2S_InitTypeDef	stm32f4xx_spi.h	/^}I2S_InitTypeDef;$/;"	t	typeref:struct:__anon65
+I2S_MCLKOutput	stm32f4xx_spi.h	/^  uint16_t I2S_MCLKOutput;   \/*!< Specifies whether the I2S MCLK output is enabled or not.$/;"	m	struct:__anon65
+I2S_MCLKOutput_Disable	stm32f4xx_spi.h	315;"	d
+I2S_MCLKOutput_Enable	stm32f4xx_spi.h	314;"	d
+I2S_Mode	stm32f4xx_spi.h	/^  uint16_t I2S_Mode;         \/*!< Specifies the I2S operating mode.$/;"	m	struct:__anon65
+I2S_Mode_MasterRx	stm32f4xx_spi.h	266;"	d
+I2S_Mode_MasterTx	stm32f4xx_spi.h	265;"	d
+I2S_Mode_SlaveRx	stm32f4xx_spi.h	264;"	d
+I2S_Mode_SlaveTx	stm32f4xx_spi.h	263;"	d
+I2S_Standard	stm32f4xx_spi.h	/^  uint16_t I2S_Standard;     \/*!< Specifies the standard used for the I2S communication.$/;"	m	struct:__anon65
+I2S_Standard_LSB	stm32f4xx_spi.h	282;"	d
+I2S_Standard_MSB	stm32f4xx_spi.h	281;"	d
+I2S_Standard_PCMLong	stm32f4xx_spi.h	284;"	d
+I2S_Standard_PCMShort	stm32f4xx_spi.h	283;"	d
+I2S_Standard_Phillips	stm32f4xx_spi.h	280;"	d
+IDE	stm32f4xx_can.h	/^  uint8_t IDE;     \/*!< Specifies the type of identifier for the message that $/;"	m	struct:__anon6
+IDE	stm32f4xx_can.h	/^  uint8_t IDE;     \/*!< Specifies the type of identifier for the message that $/;"	m	struct:__anon7
+IS_ADC_ALL_PERIPH	stm32f4xx_adc.h	108;"	d
+IS_ADC_ANALOG_WATCHDOG	stm32f4xx_adc.h	470;"	d
+IS_ADC_CHANNEL	stm32f4xx_adc.h	339;"	d
+IS_ADC_CLEAR_FLAG	stm32f4xx_adc.h	506;"	d
+IS_ADC_DATA_ALIGN	stm32f4xx_adc.h	298;"	d
+IS_ADC_DMA_ACCESS_MODE	stm32f4xx_adc.h	169;"	d
+IS_ADC_EXT_INJEC_TRIG	stm32f4xx_adc.h	423;"	d
+IS_ADC_EXT_INJEC_TRIG_EDGE	stm32f4xx_adc.h	394;"	d
+IS_ADC_EXT_TRIG	stm32f4xx_adc.h	272;"	d
+IS_ADC_EXT_TRIG_EDGE	stm32f4xx_adc.h	244;"	d
+IS_ADC_GET_FLAG	stm32f4xx_adc.h	507;"	d
+IS_ADC_INJECTED_CHANNEL	stm32f4xx_adc.h	451;"	d
+IS_ADC_INJECTED_LENGTH	stm32f4xx_adc.h	539;"	d
+IS_ADC_INJECTED_RANK	stm32f4xx_adc.h	548;"	d
+IS_ADC_IT	stm32f4xx_adc.h	489;"	d
+IS_ADC_MODE	stm32f4xx_adc.h	128;"	d
+IS_ADC_OFFSET	stm32f4xx_adc.h	530;"	d
+IS_ADC_PRESCALER	stm32f4xx_adc.h	153;"	d
+IS_ADC_REGULAR_DISC_NUMBER	stm32f4xx_adc.h	575;"	d
+IS_ADC_REGULAR_LENGTH	stm32f4xx_adc.h	557;"	d
+IS_ADC_REGULAR_RANK	stm32f4xx_adc.h	566;"	d
+IS_ADC_RESOLUTION	stm32f4xx_adc.h	227;"	d
+IS_ADC_SAMPLE_TIME	stm32f4xx_adc.h	374;"	d
+IS_ADC_SAMPLING_DELAY	stm32f4xx_adc.h	198;"	d
+IS_ADC_THRESHOLD	stm32f4xx_adc.h	521;"	d
+IS_ALARM_MASK	stm32f4xx_rtc.h	279;"	d
+IS_CAN_ALL_PERIPH	stm32f4xx_can.h	50;"	d
+IS_CAN_BANKNUMBER	stm32f4xx_can.h	370;"	d
+IS_CAN_BS1	stm32f4xx_can.h	290;"	d
+IS_CAN_BS2	stm32f4xx_can.h	307;"	d
+IS_CAN_CLEAR_FLAG	stm32f4xx_can.h	527;"	d
+IS_CAN_CLEAR_IT	stm32f4xx_can.h	575;"	d
+IS_CAN_DLC	stm32f4xx_can.h	381;"	d
+IS_CAN_EXTID	stm32f4xx_can.h	380;"	d
+IS_CAN_FIFO	stm32f4xx_can.h	438;"	d
+IS_CAN_FILTER_FIFO	stm32f4xx_can.h	357;"	d
+IS_CAN_FILTER_MODE	stm32f4xx_can.h	334;"	d
+IS_CAN_FILTER_NUMBER	stm32f4xx_can.h	323;"	d
+IS_CAN_FILTER_SCALE	stm32f4xx_can.h	346;"	d
+IS_CAN_GET_FLAG	stm32f4xx_can.h	518;"	d
+IS_CAN_IDTYPE	stm32f4xx_can.h	391;"	d
+IS_CAN_IT	stm32f4xx_can.h	567;"	d
+IS_CAN_MODE	stm32f4xx_can.h	220;"	d
+IS_CAN_OPERATING_MODE	stm32f4xx_can.h	238;"	d
+IS_CAN_PRESCALER	stm32f4xx_can.h	315;"	d
+IS_CAN_RTR	stm32f4xx_can.h	406;"	d
+IS_CAN_SJW	stm32f4xx_can.h	264;"	d
+IS_CAN_STDID	stm32f4xx_can.h	379;"	d
+IS_CAN_TRANSMITMAILBOX	stm32f4xx_can.h	378;"	d
+IS_CRYP_ALGODIR	stm32f4xx_cryp.h	129;"	d
+IS_CRYP_ALGOMODE	stm32f4xx_cryp.h	156;"	d
+IS_CRYP_CONFIG_IT	stm32f4xx_cryp.h	249;"	d
+IS_CRYP_DATATYPE	stm32f4xx_cryp.h	196;"	d
+IS_CRYP_DMAREQ	stm32f4xx_cryp.h	271;"	d
+IS_CRYP_GET_FLAG	stm32f4xx_cryp.h	233;"	d
+IS_CRYP_GET_IT	stm32f4xx_cryp.h	250;"	d
+IS_CRYP_KEYSIZE	stm32f4xx_cryp.h	210;"	d
+IS_CRYP_PHASE	stm32f4xx_cryp.h	180;"	d
+IS_DAC_ALIGN	stm32f4xx_dac.h	209;"	d
+IS_DAC_CHANNEL	stm32f4xx_dac.h	196;"	d
+IS_DAC_DATA	stm32f4xx_dac.h	232;"	d
+IS_DAC_FLAG	stm32f4xx_dac.h	252;"	d
+IS_DAC_GENERATE_WAVE	stm32f4xx_dac.h	114;"	d
+IS_DAC_IT	stm32f4xx_dac.h	241;"	d
+IS_DAC_LFSR_UNMASK_TRIANGLE_AMPLITUDE	stm32f4xx_dac.h	150;"	d
+IS_DAC_OUTPUT_BUFFER_STATE	stm32f4xx_dac.h	184;"	d
+IS_DAC_TRIGGER	stm32f4xx_dac.h	93;"	d
+IS_DAC_WAVE	stm32f4xx_dac.h	222;"	d
+IS_DBGMCU_APB1PERIPH	stm32f4xx_dbgmcu.h	75;"	d
+IS_DBGMCU_APB2PERIPH	stm32f4xx_dbgmcu.h	82;"	d
+IS_DBGMCU_PERIPH	stm32f4xx_dbgmcu.h	56;"	d
+IS_DCMI_CAPTURE_MODE	stm32f4xx_dcmi.h	118;"	d
+IS_DCMI_CAPTURE_RATE	stm32f4xx_dcmi.h	181;"	d
+IS_DCMI_CLEAR_FLAG	stm32f4xx_dcmi.h	263;"	d
+IS_DCMI_CONFIG_IT	stm32f4xx_dcmi.h	213;"	d
+IS_DCMI_EXTENDED_DATA	stm32f4xx_dcmi.h	196;"	d
+IS_DCMI_GET_FLAG	stm32f4xx_dcmi.h	249;"	d
+IS_DCMI_GET_IT	stm32f4xx_dcmi.h	214;"	d
+IS_DCMI_HSPOLARITY	stm32f4xx_dcmi.h	168;"	d
+IS_DCMI_PCKPOLARITY	stm32f4xx_dcmi.h	144;"	d
+IS_DCMI_SYNCHRO	stm32f4xx_dcmi.h	132;"	d
+IS_DCMI_VSPOLARITY	stm32f4xx_dcmi.h	156;"	d
+IS_DMA2D_BGCM	stm32f4xx_dma2d.h	302;"	d
+IS_DMA2D_BGC_BLUE	stm32f4xx_dma2d.h	344;"	d
+IS_DMA2D_BGC_GREEN	stm32f4xx_dma2d.h	345;"	d
+IS_DMA2D_BGC_RED	stm32f4xx_dma2d.h	346;"	d
+IS_DMA2D_BGO	stm32f4xx_dma2d.h	272;"	d
+IS_DMA2D_BG_ALPHA_MODE	stm32f4xx_dma2d.h	364;"	d
+IS_DMA2D_BG_ALPHA_VALUE	stm32f4xx_dma2d.h	343;"	d
+IS_DMA2D_BG_CLUT_CM	stm32f4xx_dma2d.h	322;"	d
+IS_DMA2D_BG_CLUT_SIZE	stm32f4xx_dma2d.h	341;"	d
+IS_DMA2D_CMODE	stm32f4xx_dma2d.h	215;"	d
+IS_DMA2D_DEAD_TIME	stm32f4xx_dma2d.h	418;"	d
+IS_DMA2D_FGCM	stm32f4xx_dma2d.h	295;"	d
+IS_DMA2D_FGC_BLUE	stm32f4xx_dma2d.h	337;"	d
+IS_DMA2D_FGC_GREEN	stm32f4xx_dma2d.h	338;"	d
+IS_DMA2D_FGC_RED	stm32f4xx_dma2d.h	339;"	d
+IS_DMA2D_FGO	stm32f4xx_dma2d.h	270;"	d
+IS_DMA2D_FG_ALPHA_MODE	stm32f4xx_dma2d.h	360;"	d
+IS_DMA2D_FG_ALPHA_VALUE	stm32f4xx_dma2d.h	336;"	d
+IS_DMA2D_FG_CLUT_CM	stm32f4xx_dma2d.h	320;"	d
+IS_DMA2D_FG_CLUT_SIZE	stm32f4xx_dma2d.h	334;"	d
+IS_DMA2D_GET_FLAG	stm32f4xx_dma2d.h	403;"	d
+IS_DMA2D_IT	stm32f4xx_dma2d.h	383;"	d
+IS_DMA2D_LINE	stm32f4xx_dma2d.h	257;"	d
+IS_DMA2D_LineWatermark	stm32f4xx_dma2d.h	423;"	d
+IS_DMA2D_MODE	stm32f4xx_dma2d.h	198;"	d
+IS_DMA2D_OALPHA	stm32f4xx_dma2d.h	232;"	d
+IS_DMA2D_OBLUE	stm32f4xx_dma2d.h	231;"	d
+IS_DMA2D_OGREEN	stm32f4xx_dma2d.h	229;"	d
+IS_DMA2D_ORED	stm32f4xx_dma2d.h	230;"	d
+IS_DMA2D_OUTPUT_OFFSET	stm32f4xx_dma2d.h	243;"	d
+IS_DMA2D_PIXEL	stm32f4xx_dma2d.h	258;"	d
+IS_DMA_ALL_CONTROLLER	stm32f4xx_dma.h	135;"	d
+IS_DMA_ALL_PERIPH	stm32f4xx_dma.h	118;"	d
+IS_DMA_BUFFER_SIZE	stm32f4xx_dma.h	181;"	d
+IS_DMA_CHANNEL	stm32f4xx_dma.h	150;"	d
+IS_DMA_CLEAR_FLAG	stm32f4xx_dma.h	401;"	d
+IS_DMA_CLEAR_IT	stm32f4xx_dma.h	488;"	d
+IS_DMA_CONFIG_IT	stm32f4xx_dma.h	438;"	d
+IS_DMA_CURRENT_MEM	stm32f4xx_dma.h	549;"	d
+IS_DMA_DIRECTION	stm32f4xx_dma.h	170;"	d
+IS_DMA_FIFO_MODE_STATE	stm32f4xx_dma.h	279;"	d
+IS_DMA_FIFO_STATUS	stm32f4xx_dma.h	347;"	d
+IS_DMA_FIFO_THRESHOLD	stm32f4xx_dma.h	294;"	d
+IS_DMA_FLOW_CTRL	stm32f4xx_dma.h	536;"	d
+IS_DMA_GET_FLAG	stm32f4xx_dma.h	404;"	d
+IS_DMA_GET_IT	stm32f4xx_dma.h	492;"	d
+IS_DMA_MEMORY_BURST	stm32f4xx_dma.h	311;"	d
+IS_DMA_MEMORY_DATA_SIZE	stm32f4xx_dma.h	235;"	d
+IS_DMA_MEMORY_INC_STATE	stm32f4xx_dma.h	206;"	d
+IS_DMA_MODE	stm32f4xx_dma.h	249;"	d
+IS_DMA_PERIPHERAL_BURST	stm32f4xx_dma.h	328;"	d
+IS_DMA_PERIPHERAL_DATA_SIZE	stm32f4xx_dma.h	220;"	d
+IS_DMA_PERIPHERAL_INC_STATE	stm32f4xx_dma.h	193;"	d
+IS_DMA_PINCOS_SIZE	stm32f4xx_dma.h	523;"	d
+IS_DMA_PRIORITY	stm32f4xx_dma.h	264;"	d
+IS_EXTI_LINE	stm32f4xx_exti.h	129;"	d
+IS_EXTI_MODE	stm32f4xx_exti.h	60;"	d
+IS_EXTI_PIN_SOURCE	stm32f4xx_syscfg.h	106;"	d
+IS_EXTI_PORT_SOURCE	stm32f4xx_syscfg.h	70;"	d
+IS_EXTI_TRIGGER	stm32f4xx_exti.h	73;"	d
+IS_FLASH_ADDRESS	stm32f4xx_flash.h	170;"	d
+IS_FLASH_ADDRESS	stm32f4xx_flash.h	175;"	d
+IS_FLASH_ADDRESS	stm32f4xx_flash.h	180;"	d
+IS_FLASH_ADDRESS	stm32f4xx_flash.h	185;"	d
+IS_FLASH_CLEAR_FLAG	stm32f4xx_flash.h	360;"	d
+IS_FLASH_GET_FLAG	stm32f4xx_flash.h	361;"	d
+IS_FLASH_IT	stm32f4xx_flash.h	344;"	d
+IS_FLASH_LATENCY	stm32f4xx_flash.h	92;"	d
+IS_FLASH_SECTOR	stm32f4xx_flash.h	156;"	d
+IS_FMC_ACCESS_MODE	stm32f4xx_fmc.h	626;"	d
+IS_FMC_ADDRESS_HOLD_TIME	stm32f4xx_fmc.h	581;"	d
+IS_FMC_ADDRESS_SETUP_TIME	stm32f4xx_fmc.h	573;"	d
+IS_FMC_ASYNWAIT	stm32f4xx_fmc.h	466;"	d
+IS_FMC_AUTOREFRESH_NUMBER	stm32f4xx_fmc.h	986;"	d
+IS_FMC_BURSTMODE	stm32f4xx_fmc.h	454;"	d
+IS_FMC_CAS_LATENCY	stm32f4xx_fmc.h	823;"	d
+IS_FMC_CLEAR_FLAG	stm32f4xx_fmc.h	1069;"	d
+IS_FMC_CLK_DIV	stm32f4xx_fmc.h	605;"	d
+IS_FMC_COLUMNBITS_NUMBER	stm32f4xx_fmc.h	763;"	d
+IS_FMC_COMMAND_MODE	stm32f4xx_fmc.h	956;"	d
+IS_FMC_COMMAND_TARGET	stm32f4xx_fmc.h	975;"	d
+IS_FMC_CONTINOUS_CLOCK	stm32f4xx_fmc.h	564;"	d
+IS_FMC_DATASETUP_TIME	stm32f4xx_fmc.h	589;"	d
+IS_FMC_DATA_LATENCY	stm32f4xx_fmc.h	613;"	d
+IS_FMC_ECCPAGE_SIZE	stm32f4xx_fmc.h	688;"	d
+IS_FMC_ECC_STATE	stm32f4xx_fmc.h	672;"	d
+IS_FMC_EXITSELFREFRESH_DELAY	stm32f4xx_fmc.h	899;"	d
+IS_FMC_EXTENDED_MODE	stm32f4xx_fmc.h	538;"	d
+IS_FMC_GETFLAG_BANK	stm32f4xx_fmc.h	1062;"	d
+IS_FMC_GET_FLAG	stm32f4xx_fmc.h	1055;"	d
+IS_FMC_GET_IT	stm32f4xx_fmc.h	1031;"	d
+IS_FMC_HIZ_TIME	stm32f4xx_fmc.h	741;"	d
+IS_FMC_HOLD_TIME	stm32f4xx_fmc.h	733;"	d
+IS_FMC_INTERNALBANK_NUMBER	stm32f4xx_fmc.h	808;"	d
+IS_FMC_IT	stm32f4xx_fmc.h	1030;"	d
+IS_FMC_IT_BANK	stm32f4xx_fmc.h	1036;"	d
+IS_FMC_LOADTOACTIVE_DELAY	stm32f4xx_fmc.h	891;"	d
+IS_FMC_MEMORY	stm32f4xx_fmc.h	425;"	d
+IS_FMC_MODE_REGISTER	stm32f4xx_fmc.h	995;"	d
+IS_FMC_MODE_STATUS	stm32f4xx_fmc.h	1009;"	d
+IS_FMC_MUX	stm32f4xx_fmc.h	411;"	d
+IS_FMC_NAND_BANK	stm32f4xx_fmc.h	372;"	d
+IS_FMC_NAND_MEMORY_WIDTH	stm32f4xx_fmc.h	660;"	d
+IS_FMC_NORSRAM_BANK	stm32f4xx_fmc.h	358;"	d
+IS_FMC_NORSRAM_MEMORY_WIDTH	stm32f4xx_fmc.h	440;"	d
+IS_FMC_RCD_DELAY	stm32f4xx_fmc.h	939;"	d
+IS_FMC_READPIPE_DELAY	stm32f4xx_fmc.h	880;"	d
+IS_FMC_READ_BURST	stm32f4xx_fmc.h	866;"	d
+IS_FMC_REFRESH_COUNT	stm32f4xx_fmc.h	1079;"	d
+IS_FMC_ROWBITS_NUMBER	stm32f4xx_fmc.h	779;"	d
+IS_FMC_ROWCYCLE_DELAY	stm32f4xx_fmc.h	915;"	d
+IS_FMC_RP_DELAY	stm32f4xx_fmc.h	931;"	d
+IS_FMC_SDCLOCK_PERIOD	stm32f4xx_fmc.h	852;"	d
+IS_FMC_SDMEMORY_WIDTH	stm32f4xx_fmc.h	794;"	d
+IS_FMC_SDRAM_BANK	stm32f4xx_fmc.h	392;"	d
+IS_FMC_SELFREFRESH_TIME	stm32f4xx_fmc.h	907;"	d
+IS_FMC_SETUP_TIME	stm32f4xx_fmc.h	717;"	d
+IS_FMC_TAR_TIME	stm32f4xx_fmc.h	709;"	d
+IS_FMC_TCLR_TIME	stm32f4xx_fmc.h	701;"	d
+IS_FMC_TURNAROUND_TIME	stm32f4xx_fmc.h	597;"	d
+IS_FMC_WAITE_SIGNAL	stm32f4xx_fmc.h	526;"	d
+IS_FMC_WAIT_FEATURE	stm32f4xx_fmc.h	648;"	d
+IS_FMC_WAIT_POLARITY	stm32f4xx_fmc.h	478;"	d
+IS_FMC_WAIT_SIGNAL_ACTIVE	stm32f4xx_fmc.h	502;"	d
+IS_FMC_WAIT_TIME	stm32f4xx_fmc.h	725;"	d
+IS_FMC_WRAP_MODE	stm32f4xx_fmc.h	490;"	d
+IS_FMC_WRITE_BURST	stm32f4xx_fmc.h	551;"	d
+IS_FMC_WRITE_OPERATION	stm32f4xx_fmc.h	514;"	d
+IS_FMC_WRITE_PROTECTION	stm32f4xx_fmc.h	837;"	d
+IS_FMC_WRITE_RECOVERY_TIME	stm32f4xx_fmc.h	923;"	d
+IS_FSMC_ACCESS_MODE	stm32f4xx_fsmc.h	487;"	d
+IS_FSMC_ADDRESS_HOLD_TIME	stm32f4xx_fsmc.h	443;"	d
+IS_FSMC_ADDRESS_SETUP_TIME	stm32f4xx_fsmc.h	435;"	d
+IS_FSMC_ASYNWAIT	stm32f4xx_fsmc.h	347;"	d
+IS_FSMC_BURSTMODE	stm32f4xx_fsmc.h	336;"	d
+IS_FSMC_CLEAR_FLAG	stm32f4xx_fsmc.h	619;"	d
+IS_FSMC_CLK_DIV	stm32f4xx_fsmc.h	467;"	d
+IS_FSMC_DATASETUP_TIME	stm32f4xx_fsmc.h	451;"	d
+IS_FSMC_DATA_LATENCY	stm32f4xx_fsmc.h	475;"	d
+IS_FSMC_ECCPAGE_SIZE	stm32f4xx_fsmc.h	535;"	d
+IS_FSMC_ECC_STATE	stm32f4xx_fsmc.h	520;"	d
+IS_FSMC_EXTENDED_MODE	stm32f4xx_fsmc.h	414;"	d
+IS_FSMC_GETFLAG_BANK	stm32f4xx_fsmc.h	280;"	d
+IS_FSMC_GET_FLAG	stm32f4xx_fsmc.h	614;"	d
+IS_FSMC_GET_IT	stm32f4xx_fsmc.h	600;"	d
+IS_FSMC_HIZ_TIME	stm32f4xx_fsmc.h	588;"	d
+IS_FSMC_HOLD_TIME	stm32f4xx_fsmc.h	580;"	d
+IS_FSMC_IT	stm32f4xx_fsmc.h	599;"	d
+IS_FSMC_IT_BANK	stm32f4xx_fsmc.h	284;"	d
+IS_FSMC_MEMORY	stm32f4xx_fsmc.h	311;"	d
+IS_FSMC_MEMORY_WIDTH	stm32f4xx_fsmc.h	324;"	d
+IS_FSMC_MUX	stm32f4xx_fsmc.h	298;"	d
+IS_FSMC_NAND_BANK	stm32f4xx_fsmc.h	277;"	d
+IS_FSMC_NORSRAM_BANK	stm32f4xx_fsmc.h	272;"	d
+IS_FSMC_SETUP_TIME	stm32f4xx_fsmc.h	564;"	d
+IS_FSMC_TAR_TIME	stm32f4xx_fsmc.h	556;"	d
+IS_FSMC_TCLR_TIME	stm32f4xx_fsmc.h	548;"	d
+IS_FSMC_TURNAROUND_TIME	stm32f4xx_fsmc.h	459;"	d
+IS_FSMC_WAITE_SIGNAL	stm32f4xx_fsmc.h	402;"	d
+IS_FSMC_WAIT_FEATURE	stm32f4xx_fsmc.h	508;"	d
+IS_FSMC_WAIT_POLARITY	stm32f4xx_fsmc.h	358;"	d
+IS_FSMC_WAIT_SIGNAL_ACTIVE	stm32f4xx_fsmc.h	380;"	d
+IS_FSMC_WAIT_TIME	stm32f4xx_fsmc.h	572;"	d
+IS_FSMC_WRAP_MODE	stm32f4xx_fsmc.h	369;"	d
+IS_FSMC_WRITE_BURST	stm32f4xx_fsmc.h	426;"	d
+IS_FSMC_WRITE_OPERATION	stm32f4xx_fsmc.h	391;"	d
+IS_GET_EXTI_LINE	stm32f4xx_exti.h	131;"	d
+IS_GET_GPIO_PIN	stm32f4xx_gpio.h	179;"	d
+IS_GPIO_AF	stm32f4xx_gpio.h	375;"	d
+IS_GPIO_AF	stm32f4xx_gpio.h	396;"	d
+IS_GPIO_AF	stm32f4xx_gpio.h	413;"	d
+IS_GPIO_AF	stm32f4xx_gpio.h	417;"	d
+IS_GPIO_ALL_PERIPH	stm32f4xx_gpio.h	50;"	d
+IS_GPIO_BIT_ACTION	stm32f4xx_gpio.h	126;"	d
+IS_GPIO_MODE	stm32f4xx_gpio.h	72;"	d
+IS_GPIO_OTYPE	stm32f4xx_gpio.h	83;"	d
+IS_GPIO_PIN	stm32f4xx_gpio.h	178;"	d
+IS_GPIO_PIN_SOURCE	stm32f4xx_gpio.h	220;"	d
+IS_GPIO_PUPD	stm32f4xx_gpio.h	115;"	d
+IS_GPIO_SPEED	stm32f4xx_gpio.h	103;"	d
+IS_HASH_ALGOMODE	stm32f4xx_hash.h	116;"	d
+IS_HASH_ALGOSELECTION	stm32f4xx_hash.h	102;"	d
+IS_HASH_CLEAR_FLAG	stm32f4xx_hash.h	187;"	d
+IS_HASH_DATATYPE	stm32f4xx_hash.h	130;"	d
+IS_HASH_GET_FLAG	stm32f4xx_hash.h	181;"	d
+IS_HASH_GET_IT	stm32f4xx_hash.h	166;"	d
+IS_HASH_HMAC_KEYTYPE	stm32f4xx_hash.h	144;"	d
+IS_HASH_IT	stm32f4xx_hash.h	165;"	d
+IS_HASH_VALIDBITSNUMBER	stm32f4xx_hash.h	153;"	d
+IS_I2C_ACKNOWLEDGE_ADDRESS	stm32f4xx_i2c.h	152;"	d
+IS_I2C_ACK_STATE	stm32f4xx_i2c.h	128;"	d
+IS_I2C_ALL_PERIPH	stm32f4xx_i2c.h	82;"	d
+IS_I2C_CLEAR_FLAG	stm32f4xx_i2c.h	299;"	d
+IS_I2C_CLEAR_IT	stm32f4xx_i2c.h	251;"	d
+IS_I2C_CLOCK_SPEED	stm32f4xx_i2c.h	535;"	d
+IS_I2C_CONFIG_IT	stm32f4xx_i2c.h	227;"	d
+IS_I2C_DIGITAL_FILTER	stm32f4xx_i2c.h	90;"	d
+IS_I2C_DIRECTION	stm32f4xx_i2c.h	140;"	d
+IS_I2C_DUTY_CYCLE	stm32f4xx_i2c.h	116;"	d
+IS_I2C_EVENT	stm32f4xx_i2c.h	498;"	d
+IS_I2C_GET_FLAG	stm32f4xx_i2c.h	301;"	d
+IS_I2C_GET_IT	stm32f4xx_i2c.h	253;"	d
+IS_I2C_MODE	stm32f4xx_i2c.h	103;"	d
+IS_I2C_NACK_POSITION	stm32f4xx_i2c.h	190;"	d
+IS_I2C_OWN_ADDRESS1	stm32f4xx_i2c.h	526;"	d
+IS_I2C_PEC_POSITION	stm32f4xx_i2c.h	214;"	d
+IS_I2C_REGISTER	stm32f4xx_i2c.h	171;"	d
+IS_I2C_SMBUS_ALERT	stm32f4xx_i2c.h	202;"	d
+IS_I2S_AUDIO_FREQ	stm32f4xx_spi.h	337;"	d
+IS_I2S_CPOL	stm32f4xx_spi.h	350;"	d
+IS_I2S_DATA_FORMAT	stm32f4xx_spi.h	302;"	d
+IS_I2S_EXT_PERIPH	stm32f4xx_spi.h	143;"	d
+IS_I2S_MCLK_OUTPUT	stm32f4xx_spi.h	316;"	d
+IS_I2S_MODE	stm32f4xx_spi.h	267;"	d
+IS_I2S_STANDARD	stm32f4xx_spi.h	285;"	d
+IS_IWDG_FLAG	stm32f4xx_iwdg.h	92;"	d
+IS_IWDG_PRESCALER	stm32f4xx_iwdg.h	76;"	d
+IS_IWDG_RELOAD	stm32f4xx_iwdg.h	93;"	d
+IS_IWDG_WRITE_ACCESS	stm32f4xx_iwdg.h	60;"	d
+IS_LTDC_AAH	stm32f4xx_ltdc.h	218;"	d
+IS_LTDC_AAW	stm32f4xx_ltdc.h	217;"	d
+IS_LTDC_AHBP	stm32f4xx_ltdc.h	215;"	d
+IS_LTDC_AVBP	stm32f4xx_ltdc.h	216;"	d
+IS_LTDC_BackBlueValue	stm32f4xx_ltdc.h	297;"	d
+IS_LTDC_BackGreenValue	stm32f4xx_ltdc.h	298;"	d
+IS_LTDC_BackRedValue	stm32f4xx_ltdc.h	299;"	d
+IS_LTDC_BlendingFactor1	stm32f4xx_ltdc.h	407;"	d
+IS_LTDC_BlendingFactor2	stm32f4xx_ltdc.h	420;"	d
+IS_LTDC_CFBLL	stm32f4xx_ltdc.h	447;"	d
+IS_LTDC_CFBLNBR	stm32f4xx_ltdc.h	449;"	d
+IS_LTDC_CFBP	stm32f4xx_ltdc.h	446;"	d
+IS_LTDC_CKEYING	stm32f4xx_ltdc.h	463;"	d
+IS_LTDC_CLUTWR	stm32f4xx_ltdc.h	476;"	d
+IS_LTDC_DEFAULTCOLOR	stm32f4xx_ltdc.h	444;"	d
+IS_LTDC_DEPOL	stm32f4xx_ltdc.h	258;"	d
+IS_LTDC_FLAG	stm32f4xx_ltdc.h	372;"	d
+IS_LTDC_GET_CD	stm32f4xx_ltdc.h	339;"	d
+IS_LTDC_GET_POS	stm32f4xx_ltdc.h	312;"	d
+IS_LTDC_HCONFIGSP	stm32f4xx_ltdc.h	440;"	d
+IS_LTDC_HCONFIGST	stm32f4xx_ltdc.h	439;"	d
+IS_LTDC_HSPOL	stm32f4xx_ltdc.h	232;"	d
+IS_LTDC_HSYNC	stm32f4xx_ltdc.h	213;"	d
+IS_LTDC_IT	stm32f4xx_ltdc.h	356;"	d
+IS_LTDC_LIPOS	stm32f4xx_ltdc.h	323;"	d
+IS_LTDC_PCPOL	stm32f4xx_ltdc.h	271;"	d
+IS_LTDC_Pixelformat	stm32f4xx_ltdc.h	391;"	d
+IS_LTDC_RELOAD	stm32f4xx_ltdc.h	284;"	d
+IS_LTDC_TOTALH	stm32f4xx_ltdc.h	220;"	d
+IS_LTDC_TOTALW	stm32f4xx_ltdc.h	219;"	d
+IS_LTDC_VCONFIGSP	stm32f4xx_ltdc.h	442;"	d
+IS_LTDC_VCONFIGST	stm32f4xx_ltdc.h	441;"	d
+IS_LTDC_VSPOL	stm32f4xx_ltdc.h	245;"	d
+IS_LTDC_VSYNC	stm32f4xx_ltdc.h	214;"	d
+IS_NVIC_LP	misc.h	101;"	d
+IS_NVIC_OFFSET	misc.h	133;"	d
+IS_NVIC_PREEMPTION_PRIORITY	misc.h	129;"	d
+IS_NVIC_PRIORITY_GROUP	misc.h	123;"	d
+IS_NVIC_SUB_PRIORITY	misc.h	131;"	d
+IS_NVIC_VECTTAB	misc.h	88;"	d
+IS_OB_BOOT	stm32f4xx_flash.h	334;"	d
+IS_OB_BOR	stm32f4xx_flash.h	323;"	d
+IS_OB_IWDG_SOURCE	stm32f4xx_flash.h	290;"	d
+IS_OB_PCROP	stm32f4xx_flash.h	266;"	d
+IS_OB_PCROP_SELECT	stm32f4xx_flash.h	232;"	d
+IS_OB_RDP	stm32f4xx_flash.h	278;"	d
+IS_OB_STDBY_SOURCE	stm32f4xx_flash.h	311;"	d
+IS_OB_STOP_SOURCE	stm32f4xx_flash.h	300;"	d
+IS_OB_WRP	stm32f4xx_flash.h	222;"	d
+IS_PWR_CLEAR_FLAG	stm32f4xx_pwr.h	150;"	d
+IS_PWR_GET_FLAG	stm32f4xx_pwr.h	144;"	d
+IS_PWR_PVD_LEVEL	stm32f4xx_pwr.h	67;"	d
+IS_PWR_REGULATOR	stm32f4xx_pwr.h	86;"	d
+IS_PWR_REGULATOR_UNDERDRIVE	stm32f4xx_pwr.h	99;"	d
+IS_PWR_REGULATOR_VOLTAGE	stm32f4xx_pwr.h	122;"	d
+IS_PWR_STOP_ENTRY	stm32f4xx_pwr.h	111;"	d
+IS_RCC_AHB1_CLOCK_PERIPH	stm32f4xx_rcc.h	358;"	d
+IS_RCC_AHB1_LPMODE_PERIPH	stm32f4xx_rcc.h	360;"	d
+IS_RCC_AHB1_RESET_PERIPH	stm32f4xx_rcc.h	359;"	d
+IS_RCC_AHB2_PERIPH	stm32f4xx_rcc.h	374;"	d
+IS_RCC_AHB3_PERIPH	stm32f4xx_rcc.h	390;"	d
+IS_RCC_APB1_PERIPH	stm32f4xx_rcc.h	423;"	d
+IS_RCC_APB2_PERIPH	stm32f4xx_rcc.h	451;"	d
+IS_RCC_APB2_RESET_PERIPH	stm32f4xx_rcc.h	452;"	d
+IS_RCC_CALIBRATION_VALUE	stm32f4xx_rcc.h	528;"	d
+IS_RCC_CLEAR_IT	stm32f4xx_rcc.h	188;"	d
+IS_RCC_FLAG	stm32f4xx_rcc.h	520;"	d
+IS_RCC_GET_IT	stm32f4xx_rcc.h	184;"	d
+IS_RCC_HCLK	stm32f4xx_rcc.h	147;"	d
+IS_RCC_HSE	stm32f4xx_rcc.h	68;"	d
+IS_RCC_I2SCLK_SOURCE	stm32f4xx_rcc.h	283;"	d
+IS_RCC_IT	stm32f4xx_rcc.h	183;"	d
+IS_RCC_LSE	stm32f4xx_rcc.h	200;"	d
+IS_RCC_LSE_MODE	stm32f4xx_rcc.h	79;"	d
+IS_RCC_MCO1DIV	stm32f4xx_rcc.h	473;"	d
+IS_RCC_MCO1SOURCE	stm32f4xx_rcc.h	470;"	d
+IS_RCC_MCO2DIV	stm32f4xx_rcc.h	495;"	d
+IS_RCC_MCO2SOURCE	stm32f4xx_rcc.h	492;"	d
+IS_RCC_PCLK	stm32f4xx_rcc.h	164;"	d
+IS_RCC_PLLI2SM_VALUE	stm32f4xx_rcc.h	99;"	d
+IS_RCC_PLLI2SN_VALUE	stm32f4xx_rcc.h	97;"	d
+IS_RCC_PLLI2SQ_VALUE	stm32f4xx_rcc.h	101;"	d
+IS_RCC_PLLI2SR_VALUE	stm32f4xx_rcc.h	98;"	d
+IS_RCC_PLLI2S_DIVQ_VALUE	stm32f4xx_rcc.h	107;"	d
+IS_RCC_PLLM_VALUE	stm32f4xx_rcc.h	92;"	d
+IS_RCC_PLLN_VALUE	stm32f4xx_rcc.h	93;"	d
+IS_RCC_PLLP_VALUE	stm32f4xx_rcc.h	94;"	d
+IS_RCC_PLLQ_VALUE	stm32f4xx_rcc.h	95;"	d
+IS_RCC_PLLSAIN_VALUE	stm32f4xx_rcc.h	102;"	d
+IS_RCC_PLLSAIQ_VALUE	stm32f4xx_rcc.h	103;"	d
+IS_RCC_PLLSAIR_VALUE	stm32f4xx_rcc.h	104;"	d
+IS_RCC_PLLSAI_DIVQ_VALUE	stm32f4xx_rcc.h	106;"	d
+IS_RCC_PLLSAI_DIVR_VALUE	stm32f4xx_rcc.h	113;"	d
+IS_RCC_PLL_SOURCE	stm32f4xx_rcc.h	90;"	d
+IS_RCC_RTCCLK_SOURCE	stm32f4xx_rcc.h	241;"	d
+IS_RCC_SAIACLK_SOURCE	stm32f4xx_rcc.h	295;"	d
+IS_RCC_SAIBCLK_SOURCE	stm32f4xx_rcc.h	309;"	d
+IS_RCC_SYSCLK_SOURCE	stm32f4xx_rcc.h	128;"	d
+IS_RCC_TIMCLK_PRESCALER	stm32f4xx_rcc.h	322;"	d
+IS_RNG_CLEAR_FLAG	stm32f4xx_rng.h	65;"	d
+IS_RNG_GET_FLAG	stm32f4xx_rng.h	62;"	d
+IS_RNG_GET_IT	stm32f4xx_rng.h	78;"	d
+IS_RNG_IT	stm32f4xx_rng.h	77;"	d
+IS_RTC_ALARM	stm32f4xx_rtc.h	290;"	d
+IS_RTC_ALARM_DATE_WEEKDAY_DATE	stm32f4xx_rtc.h	242;"	d
+IS_RTC_ALARM_DATE_WEEKDAY_SEL	stm32f4xx_rtc.h	262;"	d
+IS_RTC_ALARM_DATE_WEEKDAY_WEEKDAY	stm32f4xx_rtc.h	243;"	d
+IS_RTC_ALARM_SUB_SECOND_MASK	stm32f4xx_rtc.h	333;"	d
+IS_RTC_ALARM_SUB_SECOND_VALUE	stm32f4xx_rtc.h	357;"	d
+IS_RTC_ASYNCH_PREDIV	stm32f4xx_rtc.h	144;"	d
+IS_RTC_BKP	stm32f4xx_rtc.h	679;"	d
+IS_RTC_CALIB_OUTPUT	stm32f4xx_rtc.h	441;"	d
+IS_RTC_CALIB_SIGN	stm32f4xx_rtc.h	428;"	d
+IS_RTC_CALIB_VALUE	stm32f4xx_rtc.h	430;"	d
+IS_RTC_CLEAR_FLAG	stm32f4xx_rtc.h	738;"	d
+IS_RTC_CLEAR_IT	stm32f4xx_rtc.h	757;"	d
+IS_RTC_CMD_ALARM	stm32f4xx_rtc.h	291;"	d
+IS_RTC_CONFIG_IT	stm32f4xx_rtc.h	753;"	d
+IS_RTC_DATE	stm32f4xx_rtc.h	210;"	d
+IS_RTC_DAYLIGHT_SAVING	stm32f4xx_rtc.h	493;"	d
+IS_RTC_FORMAT	stm32f4xx_rtc.h	708;"	d
+IS_RTC_GET_FLAG	stm32f4xx_rtc.h	731;"	d
+IS_RTC_GET_IT	stm32f4xx_rtc.h	754;"	d
+IS_RTC_H12	stm32f4xx_rtc.h	177;"	d
+IS_RTC_HOUR12	stm32f4xx_rtc.h	163;"	d
+IS_RTC_HOUR24	stm32f4xx_rtc.h	164;"	d
+IS_RTC_HOUR_FORMAT	stm32f4xx_rtc.h	135;"	d
+IS_RTC_MINUTES	stm32f4xx_rtc.h	165;"	d
+IS_RTC_MONTH	stm32f4xx_rtc.h	209;"	d
+IS_RTC_OUTPUT	stm32f4xx_rtc.h	402;"	d
+IS_RTC_OUTPUT_POL	stm32f4xx_rtc.h	416;"	d
+IS_RTC_OUTPUT_TYPE	stm32f4xx_rtc.h	628;"	d
+IS_RTC_SECONDS	stm32f4xx_rtc.h	166;"	d
+IS_RTC_SHIFT_ADD1S	stm32f4xx_rtc.h	640;"	d
+IS_RTC_SHIFT_SUBFS	stm32f4xx_rtc.h	649;"	d
+IS_RTC_SMOOTH_CALIB_MINUS	stm32f4xx_rtc.h	482;"	d
+IS_RTC_SMOOTH_CALIB_PERIOD	stm32f4xx_rtc.h	456;"	d
+IS_RTC_SMOOTH_CALIB_PLUS	stm32f4xx_rtc.h	472;"	d
+IS_RTC_STORE_OPERATION	stm32f4xx_rtc.h	498;"	d
+IS_RTC_SYNCH_PREDIV	stm32f4xx_rtc.h	154;"	d
+IS_RTC_TAMPER	stm32f4xx_rtc.h	595;"	d
+IS_RTC_TAMPER_FILTER	stm32f4xx_rtc.h	531;"	d
+IS_RTC_TAMPER_PIN	stm32f4xx_rtc.h	606;"	d
+IS_RTC_TAMPER_PRECHARGE_DURATION	stm32f4xx_rtc.h	583;"	d
+IS_RTC_TAMPER_SAMPLING_FREQ	stm32f4xx_rtc.h	558;"	d
+IS_RTC_TAMPER_TRIGGER	stm32f4xx_rtc.h	511;"	d
+IS_RTC_TIMESTAMP_EDGE	stm32f4xx_rtc.h	388;"	d
+IS_RTC_TIMESTAMP_PIN	stm32f4xx_rtc.h	617;"	d
+IS_RTC_WAKEUP_CLOCK	stm32f4xx_rtc.h	372;"	d
+IS_RTC_WAKEUP_COUNTER	stm32f4xx_rtc.h	378;"	d
+IS_RTC_WEEKDAY	stm32f4xx_rtc.h	227;"	d
+IS_RTC_YEAR	stm32f4xx_rtc.h	186;"	d
+IS_SAI_BLOCK_ACTIVE_FRAME	stm32f4xx_sai.h	295;"	d
+IS_SAI_BLOCK_CLEAR_FLAG	stm32f4xx_sai.h	522;"	d
+IS_SAI_BLOCK_CLOCK_STROBING	stm32f4xx_sai.h	229;"	d
+IS_SAI_BLOCK_COMPANDING_MODE	stm32f4xx_sai.h	448;"	d
+IS_SAI_BLOCK_CONFIG_IT	stm32f4xx_sai.h	491;"	d
+IS_SAI_BLOCK_DATASIZE	stm32f4xx_sai.h	201;"	d
+IS_SAI_BLOCK_FIFO_STATUS	stm32f4xx_sai.h	543;"	d
+IS_SAI_BLOCK_FIFO_THRESHOLD	stm32f4xx_sai.h	430;"	d
+IS_SAI_BLOCK_FIRSTBIT_OFFSET	stm32f4xx_sai.h	340;"	d
+IS_SAI_BLOCK_FIRST_BIT	stm32f4xx_sai.h	217;"	d
+IS_SAI_BLOCK_FRAME_LENGTH	stm32f4xx_sai.h	286;"	d
+IS_SAI_BLOCK_FS_DEFINITION	stm32f4xx_sai.h	307;"	d
+IS_SAI_BLOCK_FS_OFFSET	stm32f4xx_sai.h	331;"	d
+IS_SAI_BLOCK_FS_POLARITY	stm32f4xx_sai.h	319;"	d
+IS_SAI_BLOCK_GET_FLAG	stm32f4xx_sai.h	514;"	d
+IS_SAI_BLOCK_MASTER_DIVIDER	stm32f4xx_sai.h	277;"	d
+IS_SAI_BLOCK_MODE	stm32f4xx_sai.h	169;"	d
+IS_SAI_BLOCK_MONO_STREO_MODE	stm32f4xx_sai.h	403;"	d
+IS_SAI_BLOCK_MUTE_COUNTER	stm32f4xx_sai.h	473;"	d
+IS_SAI_BLOCK_MUTE_VALUE	stm32f4xx_sai.h	463;"	d
+IS_SAI_BLOCK_NODIVIDER	stm32f4xx_sai.h	267;"	d
+IS_SAI_BLOCK_OUTPUT_DRIVE	stm32f4xx_sai.h	253;"	d
+IS_SAI_BLOCK_PERIPH	stm32f4xx_sai.h	158;"	d
+IS_SAI_BLOCK_PROTOCOL	stm32f4xx_sai.h	184;"	d
+IS_SAI_BLOCK_SLOT_NUMBER	stm32f4xx_sai.h	363;"	d
+IS_SAI_BLOCK_SLOT_SIZE	stm32f4xx_sai.h	352;"	d
+IS_SAI_BLOCK_SYNCHRO	stm32f4xx_sai.h	241;"	d
+IS_SAI_BLOCK_TRISTATE_MANAGEMENT	stm32f4xx_sai.h	415;"	d
+IS_SAI_PERIPH	stm32f4xx_sai.h	156;"	d
+IS_SAI_SLOT_ACTIVE	stm32f4xx_sai.h	391;"	d
+IS_SDIO_BLOCK_SIZE	stm32f4xx_sdio.h	318;"	d
+IS_SDIO_BUS_WIDE	stm32f4xx_sdio.h	165;"	d
+IS_SDIO_CLEAR_FLAG	stm32f4xx_sdio.h	425;"	d
+IS_SDIO_CLEAR_IT	stm32f4xx_sdio.h	452;"	d
+IS_SDIO_CLOCK_BYPASS	stm32f4xx_sdio.h	140;"	d
+IS_SDIO_CLOCK_EDGE	stm32f4xx_sdio.h	128;"	d
+IS_SDIO_CLOCK_POWER_SAVE	stm32f4xx_sdio.h	152;"	d
+IS_SDIO_CMD_INDEX	stm32f4xx_sdio.h	233;"	d
+IS_SDIO_CPSM	stm32f4xx_sdio.h	271;"	d
+IS_SDIO_DATA_LENGTH	stm32f4xx_sdio.h	294;"	d
+IS_SDIO_DPSM	stm32f4xx_sdio.h	367;"	d
+IS_SDIO_FLAG	stm32f4xx_sdio.h	400;"	d
+IS_SDIO_GET_IT	stm32f4xx_sdio.h	427;"	d
+IS_SDIO_HARDWARE_FLOW_CONTROL	stm32f4xx_sdio.h	178;"	d
+IS_SDIO_IT	stm32f4xx_sdio.h	224;"	d
+IS_SDIO_POWER_STATE	stm32f4xx_sdio.h	190;"	d
+IS_SDIO_READWAIT_MODE	stm32f4xx_sdio.h	464;"	d
+IS_SDIO_RESP	stm32f4xx_sdio.h	284;"	d
+IS_SDIO_RESPONSE	stm32f4xx_sdio.h	245;"	d
+IS_SDIO_TRANSFER_DIR	stm32f4xx_sdio.h	343;"	d
+IS_SDIO_TRANSFER_MODE	stm32f4xx_sdio.h	355;"	d
+IS_SDIO_WAIT	stm32f4xx_sdio.h	259;"	d
+IS_SPI_23_PERIPH	stm32f4xx_spi.h	135;"	d
+IS_SPI_23_PERIPH_EXT	stm32f4xx_spi.h	138;"	d
+IS_SPI_ALL_PERIPH	stm32f4xx_spi.h	119;"	d
+IS_SPI_ALL_PERIPH_EXT	stm32f4xx_spi.h	126;"	d
+IS_SPI_BAUDRATE_PRESCALER	stm32f4xx_spi.h	235;"	d
+IS_SPI_CPHA	stm32f4xx_spi.h	205;"	d
+IS_SPI_CPOL	stm32f4xx_spi.h	193;"	d
+IS_SPI_CRC	stm32f4xx_spi.h	385;"	d
+IS_SPI_CRC_POLYNOMIAL	stm32f4xx_spi.h	458;"	d
+IS_SPI_DATASIZE	stm32f4xx_spi.h	181;"	d
+IS_SPI_DIRECTION	stm32f4xx_spi.h	396;"	d
+IS_SPI_DIRECTION_MODE	stm32f4xx_spi.h	155;"	d
+IS_SPI_FIRST_BIT	stm32f4xx_spi.h	253;"	d
+IS_SPI_I2S_CLEAR_FLAG	stm32f4xx_spi.h	444;"	d
+IS_SPI_I2S_CLEAR_IT	stm32f4xx_spi.h	420;"	d
+IS_SPI_I2S_CONFIG_IT	stm32f4xx_spi.h	412;"	d
+IS_SPI_I2S_DMAREQ	stm32f4xx_spi.h	362;"	d
+IS_SPI_I2S_GET_FLAG	stm32f4xx_spi.h	445;"	d
+IS_SPI_I2S_GET_IT	stm32f4xx_spi.h	422;"	d
+IS_SPI_MODE	stm32f4xx_spi.h	169;"	d
+IS_SPI_NSS	stm32f4xx_spi.h	217;"	d
+IS_SPI_NSS_INTERNAL	stm32f4xx_spi.h	373;"	d
+IS_SYSCFG_ETH_MEDIA_INTERFACE	stm32f4xx_syscfg.h	175;"	d
+IS_SYSCFG_MEMORY_REMAP_CONFING	stm32f4xx_syscfg.h	144;"	d
+IS_SYSCFG_MEMORY_REMAP_CONFING	stm32f4xx_syscfg.h	151;"	d
+IS_SYSCFG_MEMORY_REMAP_CONFING	stm32f4xx_syscfg.h	157;"	d
+IS_SYSTICK_CLK_SOURCE	misc.h	145;"	d
+IS_TIM_ALL_PERIPH	stm32f4xx_tim.h	175;"	d
+IS_TIM_AUTOMATIC_OUTPUT_STATE	stm32f4xx_tim.h	433;"	d
+IS_TIM_BREAK_POLARITY	stm32f4xx_tim.h	421;"	d
+IS_TIM_BREAK_STATE	stm32f4xx_tim.h	409;"	d
+IS_TIM_CCX	stm32f4xx_tim.h	385;"	d
+IS_TIM_CCXN	stm32f4xx_tim.h	397;"	d
+IS_TIM_CHANNEL	stm32f4xx_tim.h	285;"	d
+IS_TIM_CKD_DIV	stm32f4xx_tim.h	306;"	d
+IS_TIM_COMPLEMENTARY_CHANNEL	stm32f4xx_tim.h	292;"	d
+IS_TIM_COUNTER_MODE	stm32f4xx_tim.h	322;"	d
+IS_TIM_DMA_BASE	stm32f4xx_tim.h	599;"	d
+IS_TIM_DMA_LENGTH	stm32f4xx_tim.h	645;"	d
+IS_TIM_DMA_SOURCE	stm32f4xx_tim.h	678;"	d
+IS_TIM_ENCODER_MODE	stm32f4xx_tim.h	782;"	d
+IS_TIM_EVENT_SOURCE	stm32f4xx_tim.h	802;"	d
+IS_TIM_EXT_FILTER	stm32f4xx_tim.h	987;"	d
+IS_TIM_EXT_POLARITY	stm32f4xx_tim.h	745;"	d
+IS_TIM_EXT_PRESCALER	stm32f4xx_tim.h	692;"	d
+IS_TIM_FORCED_ACTION	stm32f4xx_tim.h	769;"	d
+IS_TIM_GET_FLAG	stm32f4xx_tim.h	957;"	d
+IS_TIM_GET_IT	stm32f4xx_tim.h	563;"	d
+IS_TIM_IC_FILTER	stm32f4xx_tim.h	978;"	d
+IS_TIM_IC_POLARITY	stm32f4xx_tim.h	510;"	d
+IS_TIM_IC_PRESCALER	stm32f4xx_tim.h	541;"	d
+IS_TIM_IC_SELECTION	stm32f4xx_tim.h	526;"	d
+IS_TIM_INTERNAL_TRIGGER_SELECTION	stm32f4xx_tim.h	720;"	d
+IS_TIM_IT	stm32f4xx_tim.h	561;"	d
+IS_TIM_LIST1_PERIPH	stm32f4xx_tim.h	190;"	d
+IS_TIM_LIST2_PERIPH	stm32f4xx_tim.h	204;"	d
+IS_TIM_LIST3_PERIPH	stm32f4xx_tim.h	213;"	d
+IS_TIM_LIST4_PERIPH	stm32f4xx_tim.h	220;"	d
+IS_TIM_LIST5_PERIPH	stm32f4xx_tim.h	223;"	d
+IS_TIM_LIST6_PERIPH	stm32f4xx_tim.h	232;"	d
+IS_TIM_LOCK_LEVEL	stm32f4xx_tim.h	447;"	d
+IS_TIM_MSM_STATE	stm32f4xx_tim.h	905;"	d
+IS_TIM_OCCLEAR_STATE	stm32f4xx_tim.h	853;"	d
+IS_TIM_OCFAST_STATE	stm32f4xx_tim.h	840;"	d
+IS_TIM_OCIDLE_STATE	stm32f4xx_tim.h	485;"	d
+IS_TIM_OCM	stm32f4xx_tim.h	252;"	d
+IS_TIM_OCNIDLE_STATE	stm32f4xx_tim.h	497;"	d
+IS_TIM_OCN_POLARITY	stm32f4xx_tim.h	349;"	d
+IS_TIM_OCPRELOAD_STATE	stm32f4xx_tim.h	828;"	d
+IS_TIM_OC_MODE	stm32f4xx_tim.h	246;"	d
+IS_TIM_OC_POLARITY	stm32f4xx_tim.h	337;"	d
+IS_TIM_OPM_MODE	stm32f4xx_tim.h	270;"	d
+IS_TIM_OSSI_STATE	stm32f4xx_tim.h	461;"	d
+IS_TIM_OSSR_STATE	stm32f4xx_tim.h	473;"	d
+IS_TIM_OUTPUTN_STATE	stm32f4xx_tim.h	373;"	d
+IS_TIM_OUTPUT_STATE	stm32f4xx_tim.h	361;"	d
+IS_TIM_PRESCALER_RELOAD	stm32f4xx_tim.h	757;"	d
+IS_TIM_PWMI_CHANNEL	stm32f4xx_tim.h	290;"	d
+IS_TIM_REMAP	stm32f4xx_tim.h	927;"	d
+IS_TIM_SLAVE_MODE	stm32f4xx_tim.h	891;"	d
+IS_TIM_TRGO_SOURCE	stm32f4xx_tim.h	871;"	d
+IS_TIM_TRIGGER_SELECTION	stm32f4xx_tim.h	712;"	d
+IS_TIM_UPDATE_SOURCE	stm32f4xx_tim.h	816;"	d
+IS_USART_1236_PERIPH	stm32f4xx_usart.h	119;"	d
+IS_USART_ADDRESS	stm32f4xx_usart.h	354;"	d
+IS_USART_ALL_PERIPH	stm32f4xx_usart.h	110;"	d
+IS_USART_BAUDRATE	stm32f4xx_usart.h	353;"	d
+IS_USART_CLEAR_FLAG	stm32f4xx_usart.h	351;"	d
+IS_USART_CLEAR_IT	stm32f4xx_usart.h	276;"	d
+IS_USART_CLOCK	stm32f4xx_usart.h	199;"	d
+IS_USART_CONFIG_IT	stm32f4xx_usart.h	266;"	d
+IS_USART_CPHA	stm32f4xx_usart.h	223;"	d
+IS_USART_CPOL	stm32f4xx_usart.h	211;"	d
+IS_USART_DATA	stm32f4xx_usart.h	355;"	d
+IS_USART_DMAREQ	stm32f4xx_usart.h	288;"	d
+IS_USART_FLAG	stm32f4xx_usart.h	345;"	d
+IS_USART_GET_IT	stm32f4xx_usart.h	270;"	d
+IS_USART_HARDWARE_FLOW_CONTROL	stm32f4xx_usart.h	185;"	d
+IS_USART_IRDA_MODE	stm32f4xx_usart.h	325;"	d
+IS_USART_LASTBIT	stm32f4xx_usart.h	235;"	d
+IS_USART_LIN_BREAK_DETECT_LENGTH	stm32f4xx_usart.h	312;"	d
+IS_USART_MODE	stm32f4xx_usart.h	173;"	d
+IS_USART_PARITY	stm32f4xx_usart.h	160;"	d
+IS_USART_STOPBITS	stm32f4xx_usart.h	145;"	d
+IS_USART_WAKEUP	stm32f4xx_usart.h	300;"	d
+IS_USART_WORD_LENGTH	stm32f4xx_usart.h	131;"	d
+IS_VOLTAGERANGE	stm32f4xx_flash.h	120;"	d
+IS_WWDG_COUNTER	stm32f4xx_wwdg.h	68;"	d
+IS_WWDG_PRESCALER	stm32f4xx_wwdg.h	63;"	d
+IS_WWDG_WINDOW_VALUE	stm32f4xx_wwdg.h	67;"	d
+IWDG_FLAG_PVU	stm32f4xx_iwdg.h	90;"	d
+IWDG_FLAG_RVU	stm32f4xx_iwdg.h	91;"	d
+IWDG_Prescaler_128	stm32f4xx_iwdg.h	74;"	d
+IWDG_Prescaler_16	stm32f4xx_iwdg.h	71;"	d
+IWDG_Prescaler_256	stm32f4xx_iwdg.h	75;"	d
+IWDG_Prescaler_32	stm32f4xx_iwdg.h	72;"	d
+IWDG_Prescaler_4	stm32f4xx_iwdg.h	69;"	d
+IWDG_Prescaler_64	stm32f4xx_iwdg.h	73;"	d
+IWDG_Prescaler_8	stm32f4xx_iwdg.h	70;"	d
+IWDG_WriteAccess_Disable	stm32f4xx_iwdg.h	59;"	d
+IWDG_WriteAccess_Enable	stm32f4xx_iwdg.h	58;"	d
+LINE_WATERMARK	stm32f4xx_dma2d.h	421;"	d
+LTDC_AccumulatedActiveH	stm32f4xx_ltdc.h	/^  uint32_t LTDC_AccumulatedActiveH;         \/*!< configures the accumulated active heigh. This parameter $/;"	m	struct:__anon47
+LTDC_AccumulatedActiveW	stm32f4xx_ltdc.h	/^  uint32_t LTDC_AccumulatedActiveW;         \/*!< configures the accumulated active width. This parameter $/;"	m	struct:__anon47
+LTDC_AccumulatedHBP	stm32f4xx_ltdc.h	/^  uint32_t LTDC_AccumulatedHBP;             \/*!< configures the accumulated horizontal back porch width.$/;"	m	struct:__anon47
+LTDC_AccumulatedVBP	stm32f4xx_ltdc.h	/^  uint32_t LTDC_AccumulatedVBP;             \/*!< configures the accumulated vertical back porch heigh.$/;"	m	struct:__anon47
+LTDC_Back_Color	stm32f4xx_ltdc.h	295;"	d
+LTDC_BackgroundBlueValue	stm32f4xx_ltdc.h	/^   uint32_t LTDC_BackgroundBlueValue;       \/*!< configures the background blue value.$/;"	m	struct:__anon47
+LTDC_BackgroundGreenValue	stm32f4xx_ltdc.h	/^  uint32_t LTDC_BackgroundGreenValue;       \/*!< configures the background green value.$/;"	m	struct:__anon47
+LTDC_BackgroundRedValue	stm32f4xx_ltdc.h	/^  uint32_t LTDC_BackgroundRedValue;         \/*!< configures the background red value.$/;"	m	struct:__anon47
+LTDC_BlendingFactor1_CA	stm32f4xx_ltdc.h	404;"	d
+LTDC_BlendingFactor1_PAxCA	stm32f4xx_ltdc.h	405;"	d
+LTDC_BlendingFactor2_CA	stm32f4xx_ltdc.h	417;"	d
+LTDC_BlendingFactor2_PAxCA	stm32f4xx_ltdc.h	418;"	d
+LTDC_BlendingFactor_1	stm32f4xx_ltdc.h	/^  uint32_t LTDC_BlendingFactor_1;           \/*!< Select the blending factor 1. This parameter $/;"	m	struct:__anon48
+LTDC_BlendingFactor_2	stm32f4xx_ltdc.h	/^  uint32_t LTDC_BlendingFactor_2;           \/*!< Select the blending factor 2. This parameter $/;"	m	struct:__anon48
+LTDC_BlueValue	stm32f4xx_ltdc.h	/^  uint32_t LTDC_BlueValue;                  \/*!< Configures the blue value. $/;"	m	struct:__anon52
+LTDC_BlueWidth	stm32f4xx_ltdc.h	/^  uint32_t LTDC_BlueWidth;                        \/*!< Blue width *\/$/;"	m	struct:__anon50
+LTDC_CD_HDES	stm32f4xx_ltdc.h	334;"	d
+LTDC_CD_HSYNC	stm32f4xx_ltdc.h	336;"	d
+LTDC_CD_VDES	stm32f4xx_ltdc.h	333;"	d
+LTDC_CD_VSYNC	stm32f4xx_ltdc.h	335;"	d
+LTDC_CFBLineLength	stm32f4xx_ltdc.h	/^  uint32_t LTDC_CFBLineLength;              \/*!< Configures the color frame buffer line length. $/;"	m	struct:__anon48
+LTDC_CFBLineNumber	stm32f4xx_ltdc.h	/^  uint32_t LTDC_CFBLineNumber;              \/*!< Specifies the number of line in frame buffer. $/;"	m	struct:__anon48
+LTDC_CFBPitch	stm32f4xx_ltdc.h	/^  uint32_t LTDC_CFBPitch;                   \/*!< Configures the color frame buffer pitch in bytes.$/;"	m	struct:__anon48
+LTDC_CFBStartAdress	stm32f4xx_ltdc.h	/^  uint32_t LTDC_CFBStartAdress;             \/*!< Configures the color frame buffer address *\/$/;"	m	struct:__anon48
+LTDC_CLUTAdress	stm32f4xx_ltdc.h	/^  uint32_t LTDC_CLUTAdress;                 \/*!< Configures the CLUT address.$/;"	m	struct:__anon52
+LTDC_CLUTWR	stm32f4xx_ltdc.h	474;"	d
+LTDC_CLUT_InitTypeDef	stm32f4xx_ltdc.h	/^} LTDC_CLUT_InitTypeDef;$/;"	t	typeref:struct:__anon52
+LTDC_ColorFrameBuffer	stm32f4xx_ltdc.h	436;"	d
+LTDC_ColorKeyBlue	stm32f4xx_ltdc.h	/^  uint32_t LTDC_ColorKeyBlue;               \/*!< Configures the color key blue value. $/;"	m	struct:__anon51
+LTDC_ColorKeyGreen	stm32f4xx_ltdc.h	/^  uint32_t LTDC_ColorKeyGreen;              \/*!< Configures the color key green value. $/;"	m	struct:__anon51
+LTDC_ColorKeyRed	stm32f4xx_ltdc.h	/^  uint32_t LTDC_ColorKeyRed;                \/*!< Configures the color key red value. $/;"	m	struct:__anon51
+LTDC_ColorKeying_InitTypeDef	stm32f4xx_ltdc.h	/^} LTDC_ColorKeying_InitTypeDef;$/;"	t	typeref:struct:__anon51
+LTDC_ConstantAlpha	stm32f4xx_ltdc.h	/^  uint32_t LTDC_ConstantAlpha;              \/*!< Specifies the constant alpha used for blending.$/;"	m	struct:__anon48
+LTDC_DEPolarity	stm32f4xx_ltdc.h	/^  uint32_t LTDC_DEPolarity;                 \/*!< configures the data enable polarity. This parameter can$/;"	m	struct:__anon47
+LTDC_DEPolarity_AH	stm32f4xx_ltdc.h	256;"	d
+LTDC_DEPolarity_AL	stm32f4xx_ltdc.h	255;"	d
+LTDC_DefaultColorAlpha	stm32f4xx_ltdc.h	/^  uint32_t LTDC_DefaultColorAlpha;          \/*!< Configures the default alpha value.$/;"	m	struct:__anon48
+LTDC_DefaultColorBlue	stm32f4xx_ltdc.h	/^  uint32_t LTDC_DefaultColorBlue;           \/*!< Configures the default blue value.$/;"	m	struct:__anon48
+LTDC_DefaultColorConfig	stm32f4xx_ltdc.h	435;"	d
+LTDC_DefaultColorGreen	stm32f4xx_ltdc.h	/^  uint32_t LTDC_DefaultColorGreen;          \/*!< Configures the default green value.$/;"	m	struct:__anon48
+LTDC_DefaultColorRed	stm32f4xx_ltdc.h	/^  uint32_t LTDC_DefaultColorRed;            \/*!< Configures the default red value.$/;"	m	struct:__anon48
+LTDC_FLAG_FU	stm32f4xx_ltdc.h	367;"	d
+LTDC_FLAG_LI	stm32f4xx_ltdc.h	366;"	d
+LTDC_FLAG_RR	stm32f4xx_ltdc.h	369;"	d
+LTDC_FLAG_TERR	stm32f4xx_ltdc.h	368;"	d
+LTDC_GreenValue	stm32f4xx_ltdc.h	/^  uint32_t LTDC_GreenValue;                 \/*!< Configures the green value. $/;"	m	struct:__anon52
+LTDC_GreenWidth	stm32f4xx_ltdc.h	/^  uint32_t LTDC_GreenWidth;                       \/*!< Green width *\/$/;"	m	struct:__anon50
+LTDC_HSPolarity	stm32f4xx_ltdc.h	/^  uint32_t LTDC_HSPolarity;                 \/*!< configures the horizontal synchronization polarity.$/;"	m	struct:__anon47
+LTDC_HSPolarity_AH	stm32f4xx_ltdc.h	230;"	d
+LTDC_HSPolarity_AL	stm32f4xx_ltdc.h	229;"	d
+LTDC_HorizontalSYNC	stm32f4xx_ltdc.h	210;"	d
+LTDC_HorizontalStart	stm32f4xx_ltdc.h	/^  uint32_t LTDC_HorizontalStart;            \/*!< Configures the Window Horizontal Start Position.$/;"	m	struct:__anon48
+LTDC_HorizontalStop	stm32f4xx_ltdc.h	/^  uint32_t LTDC_HorizontalStop;             \/*!< Configures the Window Horizontal Stop Position.$/;"	m	struct:__anon48
+LTDC_HorizontalSync	stm32f4xx_ltdc.h	/^  uint32_t LTDC_HorizontalSync;             \/*!< configures the number of Horizontal synchronization $/;"	m	struct:__anon47
+LTDC_IMReload	stm32f4xx_ltdc.h	281;"	d
+LTDC_IT_FU	stm32f4xx_ltdc.h	352;"	d
+LTDC_IT_LI	stm32f4xx_ltdc.h	351;"	d
+LTDC_IT_RR	stm32f4xx_ltdc.h	354;"	d
+LTDC_IT_TERR	stm32f4xx_ltdc.h	353;"	d
+LTDC_InitTypeDef	stm32f4xx_ltdc.h	/^} LTDC_InitTypeDef;$/;"	t	typeref:struct:__anon47
+LTDC_Layer_InitTypeDef	stm32f4xx_ltdc.h	/^} LTDC_Layer_InitTypeDef;$/;"	t	typeref:struct:__anon48
+LTDC_LineNumber	stm32f4xx_ltdc.h	437;"	d
+LTDC_PCPolarity	stm32f4xx_ltdc.h	/^  uint32_t LTDC_PCPolarity;                 \/*!< configures the pixel clock polarity. This parameter can$/;"	m	struct:__anon47
+LTDC_PCPolarity_IIPC	stm32f4xx_ltdc.h	269;"	d
+LTDC_PCPolarity_IPC	stm32f4xx_ltdc.h	268;"	d
+LTDC_POSX	stm32f4xx_ltdc.h	/^  uint32_t LTDC_POSX;                         \/*!<  Current X Position *\/$/;"	m	struct:__anon49
+LTDC_POSY	stm32f4xx_ltdc.h	/^  uint32_t LTDC_POSY;                         \/*!<  Current Y Position *\/$/;"	m	struct:__anon49
+LTDC_POS_CX	stm32f4xx_ltdc.h	310;"	d
+LTDC_POS_CY	stm32f4xx_ltdc.h	309;"	d
+LTDC_PixelFormat	stm32f4xx_ltdc.h	/^  uint32_t LTDC_PixelFormat;                \/*!< Specifies the pixel format. This parameter can be $/;"	m	struct:__anon48
+LTDC_Pixelformat_AL44	stm32f4xx_ltdc.h	388;"	d
+LTDC_Pixelformat_AL88	stm32f4xx_ltdc.h	389;"	d
+LTDC_Pixelformat_ARGB1555	stm32f4xx_ltdc.h	385;"	d
+LTDC_Pixelformat_ARGB4444	stm32f4xx_ltdc.h	386;"	d
+LTDC_Pixelformat_ARGB8888	stm32f4xx_ltdc.h	382;"	d
+LTDC_Pixelformat_L8	stm32f4xx_ltdc.h	387;"	d
+LTDC_Pixelformat_RGB565	stm32f4xx_ltdc.h	384;"	d
+LTDC_Pixelformat_RGB888	stm32f4xx_ltdc.h	383;"	d
+LTDC_PosTypeDef	stm32f4xx_ltdc.h	/^} LTDC_PosTypeDef;$/;"	t	typeref:struct:__anon49
+LTDC_RGBTypeDef	stm32f4xx_ltdc.h	/^} LTDC_RGBTypeDef;$/;"	t	typeref:struct:__anon50
+LTDC_RedValue	stm32f4xx_ltdc.h	/^  uint32_t LTDC_RedValue;                   \/*!< Configures the red value.$/;"	m	struct:__anon52
+LTDC_RedWidth	stm32f4xx_ltdc.h	/^  uint32_t LTDC_RedWidth;                         \/*!< Red width *\/$/;"	m	struct:__anon50
+LTDC_STARTPosition	stm32f4xx_ltdc.h	433;"	d
+LTDC_STOPPosition	stm32f4xx_ltdc.h	432;"	d
+LTDC_TotalHeigh	stm32f4xx_ltdc.h	/^  uint32_t LTDC_TotalHeigh;                 \/*!< configures the total heigh. This parameter $/;"	m	struct:__anon47
+LTDC_TotalWidth	stm32f4xx_ltdc.h	/^  uint32_t LTDC_TotalWidth;                 \/*!< configures the total width. This parameter $/;"	m	struct:__anon47
+LTDC_VBReload	stm32f4xx_ltdc.h	282;"	d
+LTDC_VSPolarity	stm32f4xx_ltdc.h	/^  uint32_t LTDC_VSPolarity;                 \/*!< configures the vertical synchronization polarity.$/;"	m	struct:__anon47
+LTDC_VSPolarity_AH	stm32f4xx_ltdc.h	243;"	d
+LTDC_VSPolarity_AL	stm32f4xx_ltdc.h	242;"	d
+LTDC_VerticalSYNC	stm32f4xx_ltdc.h	211;"	d
+LTDC_VerticalStart	stm32f4xx_ltdc.h	/^  uint32_t LTDC_VerticalStart;              \/*!< Configures the Window vertical Start Position.$/;"	m	struct:__anon48
+LTDC_VerticalStop	stm32f4xx_ltdc.h	/^  uint32_t LTDC_VerticalStop;               \/*!< Configures the Window vaertical Stop Position.$/;"	m	struct:__anon48
+LTDC_VerticalSync	stm32f4xx_ltdc.h	/^  uint32_t LTDC_VerticalSync;               \/*!< configures the number of Vertical synchronization $/;"	m	struct:__anon47
+LTDC_colorkeyingConfig	stm32f4xx_ltdc.h	461;"	d
+MODE_DECRYPT	stm32f4xx_cryp.h	260;"	d
+MODE_ENCRYPT	stm32f4xx_cryp.h	259;"	d
+NO_MODIF_ALPHA_VALUE	stm32f4xx_dma2d.h	356;"	d
+NVIC_IRQChannel	misc.h	/^  uint8_t NVIC_IRQChannel;                    \/*!< Specifies the IRQ channel to be enabled or disabled.$/;"	m	struct:__anon1
+NVIC_IRQChannelCmd	misc.h	/^  FunctionalState NVIC_IRQChannelCmd;         \/*!< Specifies whether the IRQ channel defined in NVIC_IRQChannel$/;"	m	struct:__anon1
+NVIC_IRQChannelPreemptionPriority	misc.h	/^  uint8_t NVIC_IRQChannelPreemptionPriority;  \/*!< Specifies the pre-emption priority for the IRQ channel$/;"	m	struct:__anon1
+NVIC_IRQChannelSubPriority	misc.h	/^  uint8_t NVIC_IRQChannelSubPriority;         \/*!< Specifies the subpriority level for the IRQ channel specified$/;"	m	struct:__anon1
+NVIC_InitTypeDef	misc.h	/^} NVIC_InitTypeDef;$/;"	t	typeref:struct:__anon1
+NVIC_LP_SEVONPEND	misc.h	98;"	d
+NVIC_LP_SLEEPDEEP	misc.h	99;"	d
+NVIC_LP_SLEEPONEXIT	misc.h	100;"	d
+NVIC_PriorityGroup_0	misc.h	112;"	d
+NVIC_PriorityGroup_1	misc.h	114;"	d
+NVIC_PriorityGroup_2	misc.h	116;"	d
+NVIC_PriorityGroup_3	misc.h	118;"	d
+NVIC_PriorityGroup_4	misc.h	120;"	d
+NVIC_VectTab_FLASH	misc.h	87;"	d
+NVIC_VectTab_RAM	misc.h	86;"	d
+OB_BOR_LEVEL1	stm32f4xx_flash.h	321;"	d
+OB_BOR_LEVEL2	stm32f4xx_flash.h	320;"	d
+OB_BOR_LEVEL3	stm32f4xx_flash.h	319;"	d
+OB_BOR_OFF	stm32f4xx_flash.h	322;"	d
+OB_Dual_BootDisabled	stm32f4xx_flash.h	333;"	d
+OB_Dual_BootEnabled	stm32f4xx_flash.h	332;"	d
+OB_IWDG_HW	stm32f4xx_flash.h	289;"	d
+OB_IWDG_SW	stm32f4xx_flash.h	288;"	d
+OB_PCROP_Sector_0	stm32f4xx_flash.h	240;"	d
+OB_PCROP_Sector_1	stm32f4xx_flash.h	241;"	d
+OB_PCROP_Sector_10	stm32f4xx_flash.h	250;"	d
+OB_PCROP_Sector_11	stm32f4xx_flash.h	251;"	d
+OB_PCROP_Sector_12	stm32f4xx_flash.h	252;"	d
+OB_PCROP_Sector_13	stm32f4xx_flash.h	253;"	d
+OB_PCROP_Sector_14	stm32f4xx_flash.h	254;"	d
+OB_PCROP_Sector_15	stm32f4xx_flash.h	255;"	d
+OB_PCROP_Sector_16	stm32f4xx_flash.h	256;"	d
+OB_PCROP_Sector_17	stm32f4xx_flash.h	257;"	d
+OB_PCROP_Sector_18	stm32f4xx_flash.h	258;"	d
+OB_PCROP_Sector_19	stm32f4xx_flash.h	259;"	d
+OB_PCROP_Sector_2	stm32f4xx_flash.h	242;"	d
+OB_PCROP_Sector_20	stm32f4xx_flash.h	260;"	d
+OB_PCROP_Sector_21	stm32f4xx_flash.h	261;"	d
+OB_PCROP_Sector_22	stm32f4xx_flash.h	262;"	d
+OB_PCROP_Sector_23	stm32f4xx_flash.h	263;"	d
+OB_PCROP_Sector_3	stm32f4xx_flash.h	243;"	d
+OB_PCROP_Sector_4	stm32f4xx_flash.h	244;"	d
+OB_PCROP_Sector_5	stm32f4xx_flash.h	245;"	d
+OB_PCROP_Sector_6	stm32f4xx_flash.h	246;"	d
+OB_PCROP_Sector_7	stm32f4xx_flash.h	247;"	d
+OB_PCROP_Sector_8	stm32f4xx_flash.h	248;"	d
+OB_PCROP_Sector_9	stm32f4xx_flash.h	249;"	d
+OB_PCROP_Sector_All	stm32f4xx_flash.h	264;"	d
+OB_PcROP_Disable	stm32f4xx_flash.h	230;"	d
+OB_PcROP_Enable	stm32f4xx_flash.h	231;"	d
+OB_RDP_Level_0	stm32f4xx_flash.h	274;"	d
+OB_RDP_Level_1	stm32f4xx_flash.h	275;"	d
+OB_STDBY_NoRST	stm32f4xx_flash.h	309;"	d
+OB_STDBY_RST	stm32f4xx_flash.h	310;"	d
+OB_STOP_NoRST	stm32f4xx_flash.h	298;"	d
+OB_STOP_RST	stm32f4xx_flash.h	299;"	d
+OB_WRP_Sector_0	stm32f4xx_flash.h	196;"	d
+OB_WRP_Sector_1	stm32f4xx_flash.h	197;"	d
+OB_WRP_Sector_10	stm32f4xx_flash.h	206;"	d
+OB_WRP_Sector_11	stm32f4xx_flash.h	207;"	d
+OB_WRP_Sector_12	stm32f4xx_flash.h	208;"	d
+OB_WRP_Sector_13	stm32f4xx_flash.h	209;"	d
+OB_WRP_Sector_14	stm32f4xx_flash.h	210;"	d
+OB_WRP_Sector_15	stm32f4xx_flash.h	211;"	d
+OB_WRP_Sector_16	stm32f4xx_flash.h	212;"	d
+OB_WRP_Sector_17	stm32f4xx_flash.h	213;"	d
+OB_WRP_Sector_18	stm32f4xx_flash.h	214;"	d
+OB_WRP_Sector_19	stm32f4xx_flash.h	215;"	d
+OB_WRP_Sector_2	stm32f4xx_flash.h	198;"	d
+OB_WRP_Sector_20	stm32f4xx_flash.h	216;"	d
+OB_WRP_Sector_21	stm32f4xx_flash.h	217;"	d
+OB_WRP_Sector_22	stm32f4xx_flash.h	218;"	d
+OB_WRP_Sector_23	stm32f4xx_flash.h	219;"	d
+OB_WRP_Sector_3	stm32f4xx_flash.h	199;"	d
+OB_WRP_Sector_4	stm32f4xx_flash.h	200;"	d
+OB_WRP_Sector_5	stm32f4xx_flash.h	201;"	d
+OB_WRP_Sector_6	stm32f4xx_flash.h	202;"	d
+OB_WRP_Sector_7	stm32f4xx_flash.h	203;"	d
+OB_WRP_Sector_8	stm32f4xx_flash.h	204;"	d
+OB_WRP_Sector_9	stm32f4xx_flash.h	205;"	d
+OB_WRP_Sector_All	stm32f4xx_flash.h	220;"	d
+OFFSET	stm32f4xx_dma2d.h	268;"	d
+OPTCR1_BYTE2_ADDRESS	stm32f4xx_flash.h	417;"	d
+OPTCR_BYTE0_ADDRESS	stm32f4xx_flash.h	400;"	d
+OPTCR_BYTE1_ADDRESS	stm32f4xx_flash.h	404;"	d
+OPTCR_BYTE2_ADDRESS	stm32f4xx_flash.h	408;"	d
+OPTCR_BYTE3_ADDRESS	stm32f4xx_flash.h	412;"	d
+PCLK1_Frequency	stm32f4xx_rcc.h	/^  uint32_t PCLK1_Frequency;  \/*!<  PCLK1 clock frequency expressed in Hz  *\/$/;"	m	struct:__anon53
+PCLK2_Frequency	stm32f4xx_rcc.h	/^  uint32_t PCLK2_Frequency;  \/*!<  PCLK2 clock frequency expressed in Hz  *\/$/;"	m	struct:__anon53
+PWR_FLAG_BRR	stm32f4xx_pwr.h	135;"	d
+PWR_FLAG_ODRDY	stm32f4xx_pwr.h	137;"	d
+PWR_FLAG_ODSWRDY	stm32f4xx_pwr.h	138;"	d
+PWR_FLAG_PVDO	stm32f4xx_pwr.h	134;"	d
+PWR_FLAG_REGRDY	stm32f4xx_pwr.h	142;"	d
+PWR_FLAG_SB	stm32f4xx_pwr.h	133;"	d
+PWR_FLAG_UDRDY	stm32f4xx_pwr.h	139;"	d
+PWR_FLAG_VOSRDY	stm32f4xx_pwr.h	136;"	d
+PWR_FLAG_WU	stm32f4xx_pwr.h	132;"	d
+PWR_LowPowerRegulator_ON	stm32f4xx_pwr.h	80;"	d
+PWR_LowPowerRegulator_UnderDrive_ON	stm32f4xx_pwr.h	97;"	d
+PWR_MainRegulator_ON	stm32f4xx_pwr.h	79;"	d
+PWR_MainRegulator_UnderDrive_ON	stm32f4xx_pwr.h	96;"	d
+PWR_PVDLevel_0	stm32f4xx_pwr.h	58;"	d
+PWR_PVDLevel_1	stm32f4xx_pwr.h	59;"	d
+PWR_PVDLevel_2	stm32f4xx_pwr.h	60;"	d
+PWR_PVDLevel_3	stm32f4xx_pwr.h	61;"	d
+PWR_PVDLevel_4	stm32f4xx_pwr.h	62;"	d
+PWR_PVDLevel_5	stm32f4xx_pwr.h	63;"	d
+PWR_PVDLevel_6	stm32f4xx_pwr.h	64;"	d
+PWR_PVDLevel_7	stm32f4xx_pwr.h	65;"	d
+PWR_Regulator_LowPower	stm32f4xx_pwr.h	84;"	d
+PWR_Regulator_ON	stm32f4xx_pwr.h	83;"	d
+PWR_Regulator_Voltage_Scale1	stm32f4xx_pwr.h	119;"	d
+PWR_Regulator_Voltage_Scale2	stm32f4xx_pwr.h	120;"	d
+PWR_Regulator_Voltage_Scale3	stm32f4xx_pwr.h	121;"	d
+PWR_STOPEntry_WFE	stm32f4xx_pwr.h	110;"	d
+PWR_STOPEntry_WFI	stm32f4xx_pwr.h	109;"	d
+RCC_AHB1Periph_BKPSRAM	stm32f4xx_rcc.h	345;"	d
+RCC_AHB1Periph_CCMDATARAMEN	stm32f4xx_rcc.h	347;"	d
+RCC_AHB1Periph_CRC	stm32f4xx_rcc.h	341;"	d
+RCC_AHB1Periph_DMA1	stm32f4xx_rcc.h	348;"	d
+RCC_AHB1Periph_DMA2	stm32f4xx_rcc.h	349;"	d
+RCC_AHB1Periph_DMA2D	stm32f4xx_rcc.h	350;"	d
+RCC_AHB1Periph_ETH_MAC	stm32f4xx_rcc.h	351;"	d
+RCC_AHB1Periph_ETH_MAC_PTP	stm32f4xx_rcc.h	354;"	d
+RCC_AHB1Periph_ETH_MAC_Rx	stm32f4xx_rcc.h	353;"	d
+RCC_AHB1Periph_ETH_MAC_Tx	stm32f4xx_rcc.h	352;"	d
+RCC_AHB1Periph_FLITF	stm32f4xx_rcc.h	342;"	d
+RCC_AHB1Periph_GPIOA	stm32f4xx_rcc.h	330;"	d
+RCC_AHB1Periph_GPIOB	stm32f4xx_rcc.h	331;"	d
+RCC_AHB1Periph_GPIOC	stm32f4xx_rcc.h	332;"	d
+RCC_AHB1Periph_GPIOD	stm32f4xx_rcc.h	333;"	d
+RCC_AHB1Periph_GPIOE	stm32f4xx_rcc.h	334;"	d
+RCC_AHB1Periph_GPIOF	stm32f4xx_rcc.h	335;"	d
+RCC_AHB1Periph_GPIOG	stm32f4xx_rcc.h	336;"	d
+RCC_AHB1Periph_GPIOH	stm32f4xx_rcc.h	337;"	d
+RCC_AHB1Periph_GPIOI	stm32f4xx_rcc.h	338;"	d
+RCC_AHB1Periph_GPIOJ	stm32f4xx_rcc.h	339;"	d
+RCC_AHB1Periph_GPIOK	stm32f4xx_rcc.h	340;"	d
+RCC_AHB1Periph_OTG_HS	stm32f4xx_rcc.h	355;"	d
+RCC_AHB1Periph_OTG_HS_ULPI	stm32f4xx_rcc.h	356;"	d
+RCC_AHB1Periph_SRAM1	stm32f4xx_rcc.h	343;"	d
+RCC_AHB1Periph_SRAM2	stm32f4xx_rcc.h	344;"	d
+RCC_AHB1Periph_SRAM3	stm32f4xx_rcc.h	346;"	d
+RCC_AHB2Periph_CRYP	stm32f4xx_rcc.h	370;"	d
+RCC_AHB2Periph_DCMI	stm32f4xx_rcc.h	369;"	d
+RCC_AHB2Periph_HASH	stm32f4xx_rcc.h	371;"	d
+RCC_AHB2Periph_OTG_FS	stm32f4xx_rcc.h	373;"	d
+RCC_AHB2Periph_RNG	stm32f4xx_rcc.h	372;"	d
+RCC_AHB3Periph_FMC	stm32f4xx_rcc.h	387;"	d
+RCC_AHB3Periph_FSMC	stm32f4xx_rcc.h	383;"	d
+RCC_APB1Periph_CAN1	stm32f4xx_rcc.h	417;"	d
+RCC_APB1Periph_CAN2	stm32f4xx_rcc.h	418;"	d
+RCC_APB1Periph_DAC	stm32f4xx_rcc.h	420;"	d
+RCC_APB1Periph_I2C1	stm32f4xx_rcc.h	414;"	d
+RCC_APB1Periph_I2C2	stm32f4xx_rcc.h	415;"	d
+RCC_APB1Periph_I2C3	stm32f4xx_rcc.h	416;"	d
+RCC_APB1Periph_PWR	stm32f4xx_rcc.h	419;"	d
+RCC_APB1Periph_SPI2	stm32f4xx_rcc.h	408;"	d
+RCC_APB1Periph_SPI3	stm32f4xx_rcc.h	409;"	d
+RCC_APB1Periph_TIM12	stm32f4xx_rcc.h	404;"	d
+RCC_APB1Periph_TIM13	stm32f4xx_rcc.h	405;"	d
+RCC_APB1Periph_TIM14	stm32f4xx_rcc.h	406;"	d
+RCC_APB1Periph_TIM2	stm32f4xx_rcc.h	398;"	d
+RCC_APB1Periph_TIM3	stm32f4xx_rcc.h	399;"	d
+RCC_APB1Periph_TIM4	stm32f4xx_rcc.h	400;"	d
+RCC_APB1Periph_TIM5	stm32f4xx_rcc.h	401;"	d
+RCC_APB1Periph_TIM6	stm32f4xx_rcc.h	402;"	d
+RCC_APB1Periph_TIM7	stm32f4xx_rcc.h	403;"	d
+RCC_APB1Periph_UART4	stm32f4xx_rcc.h	412;"	d
+RCC_APB1Periph_UART5	stm32f4xx_rcc.h	413;"	d
+RCC_APB1Periph_UART7	stm32f4xx_rcc.h	421;"	d
+RCC_APB1Periph_UART8	stm32f4xx_rcc.h	422;"	d
+RCC_APB1Periph_USART2	stm32f4xx_rcc.h	410;"	d
+RCC_APB1Periph_USART3	stm32f4xx_rcc.h	411;"	d
+RCC_APB1Periph_WWDG	stm32f4xx_rcc.h	407;"	d
+RCC_APB2Periph_ADC	stm32f4xx_rcc.h	435;"	d
+RCC_APB2Periph_ADC1	stm32f4xx_rcc.h	436;"	d
+RCC_APB2Periph_ADC2	stm32f4xx_rcc.h	437;"	d
+RCC_APB2Periph_ADC3	stm32f4xx_rcc.h	438;"	d
+RCC_APB2Periph_LTDC	stm32f4xx_rcc.h	449;"	d
+RCC_APB2Periph_SAI1	stm32f4xx_rcc.h	448;"	d
+RCC_APB2Periph_SDIO	stm32f4xx_rcc.h	439;"	d
+RCC_APB2Periph_SPI1	stm32f4xx_rcc.h	440;"	d
+RCC_APB2Periph_SPI4	stm32f4xx_rcc.h	441;"	d
+RCC_APB2Periph_SPI5	stm32f4xx_rcc.h	446;"	d
+RCC_APB2Periph_SPI6	stm32f4xx_rcc.h	447;"	d
+RCC_APB2Periph_SYSCFG	stm32f4xx_rcc.h	442;"	d
+RCC_APB2Periph_TIM1	stm32f4xx_rcc.h	431;"	d
+RCC_APB2Periph_TIM10	stm32f4xx_rcc.h	444;"	d
+RCC_APB2Periph_TIM11	stm32f4xx_rcc.h	445;"	d
+RCC_APB2Periph_TIM8	stm32f4xx_rcc.h	432;"	d
+RCC_APB2Periph_TIM9	stm32f4xx_rcc.h	443;"	d
+RCC_APB2Periph_USART1	stm32f4xx_rcc.h	433;"	d
+RCC_APB2Periph_USART6	stm32f4xx_rcc.h	434;"	d
+RCC_ClocksTypeDef	stm32f4xx_rcc.h	/^}RCC_ClocksTypeDef;$/;"	t	typeref:struct:__anon53
+RCC_FLAG_BORRST	stm32f4xx_rcc.h	512;"	d
+RCC_FLAG_HSERDY	stm32f4xx_rcc.h	506;"	d
+RCC_FLAG_HSIRDY	stm32f4xx_rcc.h	505;"	d
+RCC_FLAG_IWDGRST	stm32f4xx_rcc.h	516;"	d
+RCC_FLAG_LPWRRST	stm32f4xx_rcc.h	518;"	d
+RCC_FLAG_LSERDY	stm32f4xx_rcc.h	510;"	d
+RCC_FLAG_LSIRDY	stm32f4xx_rcc.h	511;"	d
+RCC_FLAG_PINRST	stm32f4xx_rcc.h	513;"	d
+RCC_FLAG_PLLI2SRDY	stm32f4xx_rcc.h	508;"	d
+RCC_FLAG_PLLRDY	stm32f4xx_rcc.h	507;"	d
+RCC_FLAG_PLLSAIRDY	stm32f4xx_rcc.h	509;"	d
+RCC_FLAG_PORRST	stm32f4xx_rcc.h	514;"	d
+RCC_FLAG_SFTRST	stm32f4xx_rcc.h	515;"	d
+RCC_FLAG_WWDGRST	stm32f4xx_rcc.h	517;"	d
+RCC_HCLK_Div1	stm32f4xx_rcc.h	159;"	d
+RCC_HCLK_Div16	stm32f4xx_rcc.h	163;"	d
+RCC_HCLK_Div2	stm32f4xx_rcc.h	160;"	d
+RCC_HCLK_Div4	stm32f4xx_rcc.h	161;"	d
+RCC_HCLK_Div8	stm32f4xx_rcc.h	162;"	d
+RCC_HSE_Bypass	stm32f4xx_rcc.h	67;"	d
+RCC_HSE_OFF	stm32f4xx_rcc.h	65;"	d
+RCC_HSE_ON	stm32f4xx_rcc.h	66;"	d
+RCC_I2S2CLKSource_Ext	stm32f4xx_rcc.h	281;"	d
+RCC_I2S2CLKSource_PLLI2S	stm32f4xx_rcc.h	280;"	d
+RCC_IT_CSS	stm32f4xx_rcc.h	181;"	d
+RCC_IT_HSERDY	stm32f4xx_rcc.h	177;"	d
+RCC_IT_HSIRDY	stm32f4xx_rcc.h	176;"	d
+RCC_IT_LSERDY	stm32f4xx_rcc.h	175;"	d
+RCC_IT_LSIRDY	stm32f4xx_rcc.h	174;"	d
+RCC_IT_PLLI2SRDY	stm32f4xx_rcc.h	179;"	d
+RCC_IT_PLLRDY	stm32f4xx_rcc.h	178;"	d
+RCC_IT_PLLSAIRDY	stm32f4xx_rcc.h	180;"	d
+RCC_LSE_Bypass	stm32f4xx_rcc.h	199;"	d
+RCC_LSE_HIGHDRIVE_MODE	stm32f4xx_rcc.h	78;"	d
+RCC_LSE_LOWPOWER_MODE	stm32f4xx_rcc.h	77;"	d
+RCC_LSE_OFF	stm32f4xx_rcc.h	197;"	d
+RCC_LSE_ON	stm32f4xx_rcc.h	198;"	d
+RCC_MCO1Div_1	stm32f4xx_rcc.h	465;"	d
+RCC_MCO1Div_2	stm32f4xx_rcc.h	466;"	d
+RCC_MCO1Div_3	stm32f4xx_rcc.h	467;"	d
+RCC_MCO1Div_4	stm32f4xx_rcc.h	468;"	d
+RCC_MCO1Div_5	stm32f4xx_rcc.h	469;"	d
+RCC_MCO1Source_HSE	stm32f4xx_rcc.h	463;"	d
+RCC_MCO1Source_HSI	stm32f4xx_rcc.h	461;"	d
+RCC_MCO1Source_LSE	stm32f4xx_rcc.h	462;"	d
+RCC_MCO1Source_PLLCLK	stm32f4xx_rcc.h	464;"	d
+RCC_MCO2Div_1	stm32f4xx_rcc.h	487;"	d
+RCC_MCO2Div_2	stm32f4xx_rcc.h	488;"	d
+RCC_MCO2Div_3	stm32f4xx_rcc.h	489;"	d
+RCC_MCO2Div_4	stm32f4xx_rcc.h	490;"	d
+RCC_MCO2Div_5	stm32f4xx_rcc.h	491;"	d
+RCC_MCO2Source_HSE	stm32f4xx_rcc.h	485;"	d
+RCC_MCO2Source_PLLCLK	stm32f4xx_rcc.h	486;"	d
+RCC_MCO2Source_PLLI2SCLK	stm32f4xx_rcc.h	484;"	d
+RCC_MCO2Source_SYSCLK	stm32f4xx_rcc.h	483;"	d
+RCC_PLLSAIDivR_Div16	stm32f4xx_rcc.h	112;"	d
+RCC_PLLSAIDivR_Div2	stm32f4xx_rcc.h	109;"	d
+RCC_PLLSAIDivR_Div4	stm32f4xx_rcc.h	110;"	d
+RCC_PLLSAIDivR_Div8	stm32f4xx_rcc.h	111;"	d
+RCC_PLLSource_HSE	stm32f4xx_rcc.h	89;"	d
+RCC_PLLSource_HSI	stm32f4xx_rcc.h	88;"	d
+RCC_RTCCLKSource_HSE_Div10	stm32f4xx_rcc.h	219;"	d
+RCC_RTCCLKSource_HSE_Div11	stm32f4xx_rcc.h	220;"	d
+RCC_RTCCLKSource_HSE_Div12	stm32f4xx_rcc.h	221;"	d
+RCC_RTCCLKSource_HSE_Div13	stm32f4xx_rcc.h	222;"	d
+RCC_RTCCLKSource_HSE_Div14	stm32f4xx_rcc.h	223;"	d
+RCC_RTCCLKSource_HSE_Div15	stm32f4xx_rcc.h	224;"	d
+RCC_RTCCLKSource_HSE_Div16	stm32f4xx_rcc.h	225;"	d
+RCC_RTCCLKSource_HSE_Div17	stm32f4xx_rcc.h	226;"	d
+RCC_RTCCLKSource_HSE_Div18	stm32f4xx_rcc.h	227;"	d
+RCC_RTCCLKSource_HSE_Div19	stm32f4xx_rcc.h	228;"	d
+RCC_RTCCLKSource_HSE_Div2	stm32f4xx_rcc.h	211;"	d
+RCC_RTCCLKSource_HSE_Div20	stm32f4xx_rcc.h	229;"	d
+RCC_RTCCLKSource_HSE_Div21	stm32f4xx_rcc.h	230;"	d
+RCC_RTCCLKSource_HSE_Div22	stm32f4xx_rcc.h	231;"	d
+RCC_RTCCLKSource_HSE_Div23	stm32f4xx_rcc.h	232;"	d
+RCC_RTCCLKSource_HSE_Div24	stm32f4xx_rcc.h	233;"	d
+RCC_RTCCLKSource_HSE_Div25	stm32f4xx_rcc.h	234;"	d
+RCC_RTCCLKSource_HSE_Div26	stm32f4xx_rcc.h	235;"	d
+RCC_RTCCLKSource_HSE_Div27	stm32f4xx_rcc.h	236;"	d
+RCC_RTCCLKSource_HSE_Div28	stm32f4xx_rcc.h	237;"	d
+RCC_RTCCLKSource_HSE_Div29	stm32f4xx_rcc.h	238;"	d
+RCC_RTCCLKSource_HSE_Div3	stm32f4xx_rcc.h	212;"	d
+RCC_RTCCLKSource_HSE_Div30	stm32f4xx_rcc.h	239;"	d
+RCC_RTCCLKSource_HSE_Div31	stm32f4xx_rcc.h	240;"	d
+RCC_RTCCLKSource_HSE_Div4	stm32f4xx_rcc.h	213;"	d
+RCC_RTCCLKSource_HSE_Div5	stm32f4xx_rcc.h	214;"	d
+RCC_RTCCLKSource_HSE_Div6	stm32f4xx_rcc.h	215;"	d
+RCC_RTCCLKSource_HSE_Div7	stm32f4xx_rcc.h	216;"	d
+RCC_RTCCLKSource_HSE_Div8	stm32f4xx_rcc.h	217;"	d
+RCC_RTCCLKSource_HSE_Div9	stm32f4xx_rcc.h	218;"	d
+RCC_RTCCLKSource_LSE	stm32f4xx_rcc.h	209;"	d
+RCC_RTCCLKSource_LSI	stm32f4xx_rcc.h	210;"	d
+RCC_SAIACLKSource_Ext	stm32f4xx_rcc.h	293;"	d
+RCC_SAIACLKSource_PLLI2S	stm32f4xx_rcc.h	292;"	d
+RCC_SAIACLKSource_PLLSAI	stm32f4xx_rcc.h	291;"	d
+RCC_SAIBCLKSource_Ext	stm32f4xx_rcc.h	307;"	d
+RCC_SAIBCLKSource_PLLI2S	stm32f4xx_rcc.h	306;"	d
+RCC_SAIBCLKSource_PLLSAI	stm32f4xx_rcc.h	305;"	d
+RCC_SYSCLKSource_HSE	stm32f4xx_rcc.h	126;"	d
+RCC_SYSCLKSource_HSI	stm32f4xx_rcc.h	125;"	d
+RCC_SYSCLKSource_PLLCLK	stm32f4xx_rcc.h	127;"	d
+RCC_SYSCLK_Div1	stm32f4xx_rcc.h	138;"	d
+RCC_SYSCLK_Div128	stm32f4xx_rcc.h	144;"	d
+RCC_SYSCLK_Div16	stm32f4xx_rcc.h	142;"	d
+RCC_SYSCLK_Div2	stm32f4xx_rcc.h	139;"	d
+RCC_SYSCLK_Div256	stm32f4xx_rcc.h	145;"	d
+RCC_SYSCLK_Div4	stm32f4xx_rcc.h	140;"	d
+RCC_SYSCLK_Div512	stm32f4xx_rcc.h	146;"	d
+RCC_SYSCLK_Div64	stm32f4xx_rcc.h	143;"	d
+RCC_SYSCLK_Div8	stm32f4xx_rcc.h	141;"	d
+RCC_TIMPrescActivated	stm32f4xx_rcc.h	320;"	d
+RCC_TIMPrescDesactivated	stm32f4xx_rcc.h	319;"	d
+RDP_KEY	stm32f4xx_flash.h	384;"	d
+REPLACE_ALPHA_VALUE	stm32f4xx_dma2d.h	357;"	d
+RNG_FLAG_CECS	stm32f4xx_rng.h	59;"	d
+RNG_FLAG_DRDY	stm32f4xx_rng.h	58;"	d
+RNG_FLAG_SECS	stm32f4xx_rng.h	60;"	d
+RNG_IT_CEI	stm32f4xx_rng.h	74;"	d
+RNG_IT_SEI	stm32f4xx_rng.h	75;"	d
+RTC_AlarmDateWeekDay	stm32f4xx_rtc.h	/^  uint8_t RTC_AlarmDateWeekDay;      \/*!< Specifies the RTC Alarm Date\/WeekDay.$/;"	m	struct:__anon57
+RTC_AlarmDateWeekDaySel	stm32f4xx_rtc.h	/^  uint32_t RTC_AlarmDateWeekDaySel;  \/*!< Specifies the RTC Alarm is on Date or WeekDay.$/;"	m	struct:__anon57
+RTC_AlarmDateWeekDaySel_Date	stm32f4xx_rtc.h	259;"	d
+RTC_AlarmDateWeekDaySel_WeekDay	stm32f4xx_rtc.h	260;"	d
+RTC_AlarmMask	stm32f4xx_rtc.h	/^  uint32_t RTC_AlarmMask;            \/*!< Specifies the RTC Alarm Masks.$/;"	m	struct:__anon57
+RTC_AlarmMask_All	stm32f4xx_rtc.h	278;"	d
+RTC_AlarmMask_DateWeekDay	stm32f4xx_rtc.h	274;"	d
+RTC_AlarmMask_Hours	stm32f4xx_rtc.h	275;"	d
+RTC_AlarmMask_Minutes	stm32f4xx_rtc.h	276;"	d
+RTC_AlarmMask_None	stm32f4xx_rtc.h	273;"	d
+RTC_AlarmMask_Seconds	stm32f4xx_rtc.h	277;"	d
+RTC_AlarmSubSecondMask_All	stm32f4xx_rtc.h	300;"	d
+RTC_AlarmSubSecondMask_None	stm32f4xx_rtc.h	331;"	d
+RTC_AlarmSubSecondMask_SS14	stm32f4xx_rtc.h	329;"	d
+RTC_AlarmSubSecondMask_SS14_1	stm32f4xx_rtc.h	303;"	d
+RTC_AlarmSubSecondMask_SS14_10	stm32f4xx_rtc.h	321;"	d
+RTC_AlarmSubSecondMask_SS14_11	stm32f4xx_rtc.h	323;"	d
+RTC_AlarmSubSecondMask_SS14_12	stm32f4xx_rtc.h	325;"	d
+RTC_AlarmSubSecondMask_SS14_13	stm32f4xx_rtc.h	327;"	d
+RTC_AlarmSubSecondMask_SS14_2	stm32f4xx_rtc.h	305;"	d
+RTC_AlarmSubSecondMask_SS14_3	stm32f4xx_rtc.h	307;"	d
+RTC_AlarmSubSecondMask_SS14_4	stm32f4xx_rtc.h	309;"	d
+RTC_AlarmSubSecondMask_SS14_5	stm32f4xx_rtc.h	311;"	d
+RTC_AlarmSubSecondMask_SS14_6	stm32f4xx_rtc.h	313;"	d
+RTC_AlarmSubSecondMask_SS14_7	stm32f4xx_rtc.h	315;"	d
+RTC_AlarmSubSecondMask_SS14_8	stm32f4xx_rtc.h	317;"	d
+RTC_AlarmSubSecondMask_SS14_9	stm32f4xx_rtc.h	319;"	d
+RTC_AlarmTime	stm32f4xx_rtc.h	/^  RTC_TimeTypeDef RTC_AlarmTime;     \/*!< Specifies the RTC Alarm Time members. *\/$/;"	m	struct:__anon57
+RTC_AlarmTypeDef	stm32f4xx_rtc.h	/^}RTC_AlarmTypeDef;$/;"	t	typeref:struct:__anon57
+RTC_Alarm_A	stm32f4xx_rtc.h	288;"	d
+RTC_Alarm_B	stm32f4xx_rtc.h	289;"	d
+RTC_AsynchPrediv	stm32f4xx_rtc.h	/^  uint32_t RTC_AsynchPrediv; \/*!< Specifies the RTC Asynchronous Predivider value.$/;"	m	struct:__anon54
+RTC_BKP_DR0	stm32f4xx_rtc.h	659;"	d
+RTC_BKP_DR1	stm32f4xx_rtc.h	660;"	d
+RTC_BKP_DR10	stm32f4xx_rtc.h	669;"	d
+RTC_BKP_DR11	stm32f4xx_rtc.h	670;"	d
+RTC_BKP_DR12	stm32f4xx_rtc.h	671;"	d
+RTC_BKP_DR13	stm32f4xx_rtc.h	672;"	d
+RTC_BKP_DR14	stm32f4xx_rtc.h	673;"	d
+RTC_BKP_DR15	stm32f4xx_rtc.h	674;"	d
+RTC_BKP_DR16	stm32f4xx_rtc.h	675;"	d
+RTC_BKP_DR17	stm32f4xx_rtc.h	676;"	d
+RTC_BKP_DR18	stm32f4xx_rtc.h	677;"	d
+RTC_BKP_DR19	stm32f4xx_rtc.h	678;"	d
+RTC_BKP_DR2	stm32f4xx_rtc.h	661;"	d
+RTC_BKP_DR3	stm32f4xx_rtc.h	662;"	d
+RTC_BKP_DR4	stm32f4xx_rtc.h	663;"	d
+RTC_BKP_DR5	stm32f4xx_rtc.h	664;"	d
+RTC_BKP_DR6	stm32f4xx_rtc.h	665;"	d
+RTC_BKP_DR7	stm32f4xx_rtc.h	666;"	d
+RTC_BKP_DR8	stm32f4xx_rtc.h	667;"	d
+RTC_BKP_DR9	stm32f4xx_rtc.h	668;"	d
+RTC_CalibOutput_1Hz	stm32f4xx_rtc.h	440;"	d
+RTC_CalibOutput_512Hz	stm32f4xx_rtc.h	439;"	d
+RTC_CalibSign_Negative	stm32f4xx_rtc.h	427;"	d
+RTC_CalibSign_Positive	stm32f4xx_rtc.h	426;"	d
+RTC_Date	stm32f4xx_rtc.h	/^  uint8_t RTC_Date;     \/*!< Specifies the RTC Date.$/;"	m	struct:__anon56
+RTC_DateTypeDef	stm32f4xx_rtc.h	/^}RTC_DateTypeDef;$/;"	t	typeref:struct:__anon56
+RTC_DayLightSaving_ADD1H	stm32f4xx_rtc.h	492;"	d
+RTC_DayLightSaving_SUB1H	stm32f4xx_rtc.h	491;"	d
+RTC_DigitalCalibCmd	stm32f4xx_rtc.h	767;"	d
+RTC_DigitalCalibConfig	stm32f4xx_rtc.h	766;"	d
+RTC_FLAG_ALRAF	stm32f4xx_rtc.h	723;"	d
+RTC_FLAG_ALRAWF	stm32f4xx_rtc.h	730;"	d
+RTC_FLAG_ALRBF	stm32f4xx_rtc.h	722;"	d
+RTC_FLAG_ALRBWF	stm32f4xx_rtc.h	729;"	d
+RTC_FLAG_INITF	stm32f4xx_rtc.h	724;"	d
+RTC_FLAG_INITS	stm32f4xx_rtc.h	726;"	d
+RTC_FLAG_RECALPF	stm32f4xx_rtc.h	717;"	d
+RTC_FLAG_RSF	stm32f4xx_rtc.h	725;"	d
+RTC_FLAG_SHPF	stm32f4xx_rtc.h	727;"	d
+RTC_FLAG_TAMP1F	stm32f4xx_rtc.h	718;"	d
+RTC_FLAG_TSF	stm32f4xx_rtc.h	720;"	d
+RTC_FLAG_TSOVF	stm32f4xx_rtc.h	719;"	d
+RTC_FLAG_WUTF	stm32f4xx_rtc.h	721;"	d
+RTC_FLAG_WUTWF	stm32f4xx_rtc.h	728;"	d
+RTC_Format_BCD	stm32f4xx_rtc.h	707;"	d
+RTC_Format_BIN	stm32f4xx_rtc.h	706;"	d
+RTC_H12	stm32f4xx_rtc.h	/^  uint8_t RTC_H12;      \/*!< Specifies the RTC AM\/PM Time.$/;"	m	struct:__anon55
+RTC_H12_AM	stm32f4xx_rtc.h	175;"	d
+RTC_H12_PM	stm32f4xx_rtc.h	176;"	d
+RTC_HourFormat	stm32f4xx_rtc.h	/^  uint32_t RTC_HourFormat;   \/*!< Specifies the RTC Hour Format.$/;"	m	struct:__anon54
+RTC_HourFormat_12	stm32f4xx_rtc.h	134;"	d
+RTC_HourFormat_24	stm32f4xx_rtc.h	133;"	d
+RTC_Hours	stm32f4xx_rtc.h	/^  uint8_t RTC_Hours;    \/*!< Specifies the RTC Time Hour.$/;"	m	struct:__anon55
+RTC_IT_ALRA	stm32f4xx_rtc.h	749;"	d
+RTC_IT_ALRB	stm32f4xx_rtc.h	748;"	d
+RTC_IT_TAMP	stm32f4xx_rtc.h	750;"	d
+RTC_IT_TAMP1	stm32f4xx_rtc.h	751;"	d
+RTC_IT_TS	stm32f4xx_rtc.h	746;"	d
+RTC_IT_WUT	stm32f4xx_rtc.h	747;"	d
+RTC_InitTypeDef	stm32f4xx_rtc.h	/^}RTC_InitTypeDef;$/;"	t	typeref:struct:__anon54
+RTC_Minutes	stm32f4xx_rtc.h	/^  uint8_t RTC_Minutes;  \/*!< Specifies the RTC Time Minutes.$/;"	m	struct:__anon55
+RTC_Month	stm32f4xx_rtc.h	/^  uint8_t RTC_Month;   \/*!< Specifies the RTC Date Month (in BCD format).$/;"	m	struct:__anon56
+RTC_Month_April	stm32f4xx_rtc.h	200;"	d
+RTC_Month_August	stm32f4xx_rtc.h	204;"	d
+RTC_Month_December	stm32f4xx_rtc.h	208;"	d
+RTC_Month_February	stm32f4xx_rtc.h	198;"	d
+RTC_Month_January	stm32f4xx_rtc.h	197;"	d
+RTC_Month_July	stm32f4xx_rtc.h	203;"	d
+RTC_Month_June	stm32f4xx_rtc.h	202;"	d
+RTC_Month_March	stm32f4xx_rtc.h	199;"	d
+RTC_Month_May	stm32f4xx_rtc.h	201;"	d
+RTC_Month_November	stm32f4xx_rtc.h	207;"	d
+RTC_Month_October	stm32f4xx_rtc.h	206;"	d
+RTC_Month_September	stm32f4xx_rtc.h	205;"	d
+RTC_OutputPolarity_High	stm32f4xx_rtc.h	414;"	d
+RTC_OutputPolarity_Low	stm32f4xx_rtc.h	415;"	d
+RTC_OutputType_OpenDrain	stm32f4xx_rtc.h	626;"	d
+RTC_OutputType_PushPull	stm32f4xx_rtc.h	627;"	d
+RTC_Output_AlarmA	stm32f4xx_rtc.h	398;"	d
+RTC_Output_AlarmB	stm32f4xx_rtc.h	399;"	d
+RTC_Output_Disable	stm32f4xx_rtc.h	397;"	d
+RTC_Output_WakeUp	stm32f4xx_rtc.h	400;"	d
+RTC_Seconds	stm32f4xx_rtc.h	/^  uint8_t RTC_Seconds;  \/*!< Specifies the RTC Time Seconds.$/;"	m	struct:__anon55
+RTC_ShiftAdd1S_Reset	stm32f4xx_rtc.h	638;"	d
+RTC_ShiftAdd1S_Set	stm32f4xx_rtc.h	639;"	d
+RTC_SmoothCalibPeriod_16sec	stm32f4xx_rtc.h	452;"	d
+RTC_SmoothCalibPeriod_32sec	stm32f4xx_rtc.h	450;"	d
+RTC_SmoothCalibPeriod_8sec	stm32f4xx_rtc.h	454;"	d
+RTC_SmoothCalibPlusPulses_Reset	stm32f4xx_rtc.h	470;"	d
+RTC_SmoothCalibPlusPulses_Set	stm32f4xx_rtc.h	467;"	d
+RTC_StoreOperation_Reset	stm32f4xx_rtc.h	496;"	d
+RTC_StoreOperation_Set	stm32f4xx_rtc.h	497;"	d
+RTC_SynchPrediv	stm32f4xx_rtc.h	/^  uint32_t RTC_SynchPrediv;  \/*!< Specifies the RTC Synchronous Predivider value.$/;"	m	struct:__anon54
+RTC_TamperFilter_2Sample	stm32f4xx_rtc.h	525;"	d
+RTC_TamperFilter_4Sample	stm32f4xx_rtc.h	527;"	d
+RTC_TamperFilter_8Sample	stm32f4xx_rtc.h	529;"	d
+RTC_TamperFilter_Disable	stm32f4xx_rtc.h	523;"	d
+RTC_TamperPin_PC13	stm32f4xx_rtc.h	604;"	d
+RTC_TamperPin_PI8	stm32f4xx_rtc.h	605;"	d
+RTC_TamperPrechargeDuration_1RTCCLK	stm32f4xx_rtc.h	574;"	d
+RTC_TamperPrechargeDuration_2RTCCLK	stm32f4xx_rtc.h	576;"	d
+RTC_TamperPrechargeDuration_4RTCCLK	stm32f4xx_rtc.h	578;"	d
+RTC_TamperPrechargeDuration_8RTCCLK	stm32f4xx_rtc.h	580;"	d
+RTC_TamperSamplingFreq_RTCCLK_Div1024	stm32f4xx_rtc.h	552;"	d
+RTC_TamperSamplingFreq_RTCCLK_Div16384	stm32f4xx_rtc.h	544;"	d
+RTC_TamperSamplingFreq_RTCCLK_Div2048	stm32f4xx_rtc.h	550;"	d
+RTC_TamperSamplingFreq_RTCCLK_Div256	stm32f4xx_rtc.h	556;"	d
+RTC_TamperSamplingFreq_RTCCLK_Div32768	stm32f4xx_rtc.h	542;"	d
+RTC_TamperSamplingFreq_RTCCLK_Div4096	stm32f4xx_rtc.h	548;"	d
+RTC_TamperSamplingFreq_RTCCLK_Div512	stm32f4xx_rtc.h	554;"	d
+RTC_TamperSamplingFreq_RTCCLK_Div8192	stm32f4xx_rtc.h	546;"	d
+RTC_TamperTrigger_FallingEdge	stm32f4xx_rtc.h	508;"	d
+RTC_TamperTrigger_HighLevel	stm32f4xx_rtc.h	510;"	d
+RTC_TamperTrigger_LowLevel	stm32f4xx_rtc.h	509;"	d
+RTC_TamperTrigger_RisingEdge	stm32f4xx_rtc.h	507;"	d
+RTC_Tamper_1	stm32f4xx_rtc.h	594;"	d
+RTC_TimeStampEdge_Falling	stm32f4xx_rtc.h	387;"	d
+RTC_TimeStampEdge_Rising	stm32f4xx_rtc.h	386;"	d
+RTC_TimeStampPin_PC13	stm32f4xx_rtc.h	615;"	d
+RTC_TimeStampPin_PI8	stm32f4xx_rtc.h	616;"	d
+RTC_TimeTypeDef	stm32f4xx_rtc.h	/^}RTC_TimeTypeDef; $/;"	t	typeref:struct:__anon55
+RTC_WakeUpClock_CK_SPRE_16bits	stm32f4xx_rtc.h	370;"	d
+RTC_WakeUpClock_CK_SPRE_17bits	stm32f4xx_rtc.h	371;"	d
+RTC_WakeUpClock_RTCCLK_Div16	stm32f4xx_rtc.h	366;"	d
+RTC_WakeUpClock_RTCCLK_Div2	stm32f4xx_rtc.h	369;"	d
+RTC_WakeUpClock_RTCCLK_Div4	stm32f4xx_rtc.h	368;"	d
+RTC_WakeUpClock_RTCCLK_Div8	stm32f4xx_rtc.h	367;"	d
+RTC_WeekDay	stm32f4xx_rtc.h	/^  uint8_t RTC_WeekDay; \/*!< Specifies the RTC Date WeekDay.$/;"	m	struct:__anon56
+RTC_Weekday_Friday	stm32f4xx_rtc.h	224;"	d
+RTC_Weekday_Monday	stm32f4xx_rtc.h	220;"	d
+RTC_Weekday_Saturday	stm32f4xx_rtc.h	225;"	d
+RTC_Weekday_Sunday	stm32f4xx_rtc.h	226;"	d
+RTC_Weekday_Thursday	stm32f4xx_rtc.h	223;"	d
+RTC_Weekday_Tuesday	stm32f4xx_rtc.h	221;"	d
+RTC_Weekday_Wednesday	stm32f4xx_rtc.h	222;"	d
+RTC_Year	stm32f4xx_rtc.h	/^  uint8_t RTC_Year;     \/*!< Specifies the RTC Date Year.$/;"	m	struct:__anon56
+RTR	stm32f4xx_can.h	/^  uint8_t RTR;     \/*!< Specifies the type of frame for the message that will $/;"	m	struct:__anon6
+RTR	stm32f4xx_can.h	/^  uint8_t RTR;     \/*!< Specifies the type of frame for the received message.$/;"	m	struct:__anon7
+SAI_AC97_Protocol	stm32f4xx_sai.h	183;"	d
+SAI_ALaw_1CPL_Companding	stm32f4xx_sai.h	445;"	d
+SAI_ALaw_2CPL_Companding	stm32f4xx_sai.h	447;"	d
+SAI_ActiveFrameLength	stm32f4xx_sai.h	/^  uint32_t SAI_ActiveFrameLength;   \/*!< Specifies the Frame synchronization active level length.$/;"	m	struct:__anon59
+SAI_Asynchronous	stm32f4xx_sai.h	239;"	d
+SAI_AudioMode	stm32f4xx_sai.h	/^  uint32_t SAI_AudioMode;           \/*!< Specifies the SAI Block Audio Mode.$/;"	m	struct:__anon58
+SAI_ClockStrobing	stm32f4xx_sai.h	/^  uint32_t SAI_ClockStrobing;       \/*!< Specifies the SAI Block clock strobing edge sensitivity.$/;"	m	struct:__anon58
+SAI_ClockStrobing_FallingEdge	stm32f4xx_sai.h	227;"	d
+SAI_ClockStrobing_RisingEdge	stm32f4xx_sai.h	228;"	d
+SAI_DataSize	stm32f4xx_sai.h	/^  uint32_t SAI_DataSize;            \/*!< Specifies the SAI Block data size.$/;"	m	struct:__anon58
+SAI_DataSize_10b	stm32f4xx_sai.h	196;"	d
+SAI_DataSize_16b	stm32f4xx_sai.h	197;"	d
+SAI_DataSize_20b	stm32f4xx_sai.h	198;"	d
+SAI_DataSize_24b	stm32f4xx_sai.h	199;"	d
+SAI_DataSize_32b	stm32f4xx_sai.h	200;"	d
+SAI_DataSize_8b	stm32f4xx_sai.h	195;"	d
+SAI_FIFOStatus_1QuarterFull	stm32f4xx_sai.h	538;"	d
+SAI_FIFOStatus_3QuartersFull	stm32f4xx_sai.h	540;"	d
+SAI_FIFOStatus_Empty	stm32f4xx_sai.h	536;"	d
+SAI_FIFOStatus_Full	stm32f4xx_sai.h	541;"	d
+SAI_FIFOStatus_HalfFull	stm32f4xx_sai.h	539;"	d
+SAI_FIFOStatus_Less1QuarterFull	stm32f4xx_sai.h	537;"	d
+SAI_FIFOThreshold	stm32f4xx_sai.h	/^  uint32_t SAI_FIFOThreshold;      \/*!< Specifies SAI Block FIFO Threshold.$/;"	m	struct:__anon58
+SAI_FIFOThreshold_1QuarterFull	stm32f4xx_sai.h	426;"	d
+SAI_FIFOThreshold_3QuartersFull	stm32f4xx_sai.h	428;"	d
+SAI_FIFOThreshold_Full	stm32f4xx_sai.h	429;"	d
+SAI_FIFOThreshold_HalfFull	stm32f4xx_sai.h	427;"	d
+SAI_FLAG_AFSDET	stm32f4xx_sai.h	511;"	d
+SAI_FLAG_CNRDY	stm32f4xx_sai.h	510;"	d
+SAI_FLAG_FREQ	stm32f4xx_sai.h	509;"	d
+SAI_FLAG_LFSDET	stm32f4xx_sai.h	512;"	d
+SAI_FLAG_MUTEDET	stm32f4xx_sai.h	507;"	d
+SAI_FLAG_OVRUDR	stm32f4xx_sai.h	506;"	d
+SAI_FLAG_WCKCFG	stm32f4xx_sai.h	508;"	d
+SAI_FSDefinition	stm32f4xx_sai.h	/^  uint32_t SAI_FSDefinition;        \/*!< Specifies the Frame Synchronization definition.$/;"	m	struct:__anon59
+SAI_FSOffset	stm32f4xx_sai.h	/^  uint32_t SAI_FSOffset;            \/*!< Specifies the Frame Synchronization Offset.$/;"	m	struct:__anon59
+SAI_FSPolarity	stm32f4xx_sai.h	/^  uint32_t SAI_FSPolarity;          \/*!< Specifies the Frame Synchronization Polarity.$/;"	m	struct:__anon59
+SAI_FS_ActiveHigh	stm32f4xx_sai.h	318;"	d
+SAI_FS_ActiveLow	stm32f4xx_sai.h	317;"	d
+SAI_FS_BeforeFirstBit	stm32f4xx_sai.h	330;"	d
+SAI_FS_FirstBit	stm32f4xx_sai.h	329;"	d
+SAI_FS_StartFrame	stm32f4xx_sai.h	305;"	d
+SAI_FirstBit	stm32f4xx_sai.h	/^  uint32_t SAI_FirstBit;            \/*!< Specifies whether data transfers start from MSB or LSB bit.$/;"	m	struct:__anon58
+SAI_FirstBitOffset	stm32f4xx_sai.h	/^  uint32_t SAI_FirstBitOffset;      \/*!< Specifies the position of first data transfer bit in the slot.$/;"	m	struct:__anon60
+SAI_FirstBit_LSB	stm32f4xx_sai.h	216;"	d
+SAI_FirstBit_MSB	stm32f4xx_sai.h	215;"	d
+SAI_FrameInitTypeDef	stm32f4xx_sai.h	/^}SAI_FrameInitTypeDef;$/;"	t	typeref:struct:__anon59
+SAI_FrameLength	stm32f4xx_sai.h	/^  uint32_t SAI_FrameLength;         \/*!< Specifies the Frame Length, the number of SCK clocks $/;"	m	struct:__anon59
+SAI_Free_Protocol	stm32f4xx_sai.h	181;"	d
+SAI_IT_AFSDET	stm32f4xx_sai.h	488;"	d
+SAI_IT_CNRDY	stm32f4xx_sai.h	487;"	d
+SAI_IT_FREQ	stm32f4xx_sai.h	486;"	d
+SAI_IT_LFSDET	stm32f4xx_sai.h	489;"	d
+SAI_IT_MUTEDET	stm32f4xx_sai.h	484;"	d
+SAI_IT_OVRUDR	stm32f4xx_sai.h	483;"	d
+SAI_IT_WCKCFG	stm32f4xx_sai.h	485;"	d
+SAI_InitTypeDef	stm32f4xx_sai.h	/^}SAI_InitTypeDef;$/;"	t	typeref:struct:__anon58
+SAI_LastSentValue	stm32f4xx_sai.h	462;"	d
+SAI_MasterDivider	stm32f4xx_sai.h	/^  uint32_t SAI_MasterDivider;       \/*!< Specifies SAI Block Master Clock Divider. $/;"	m	struct:__anon58
+SAI_MasterDivider_Disabled	stm32f4xx_sai.h	266;"	d
+SAI_MasterDivider_Enabled	stm32f4xx_sai.h	265;"	d
+SAI_Mode_MasterRx	stm32f4xx_sai.h	166;"	d
+SAI_Mode_MasterTx	stm32f4xx_sai.h	165;"	d
+SAI_Mode_SlaveRx	stm32f4xx_sai.h	168;"	d
+SAI_Mode_SlaveTx	stm32f4xx_sai.h	167;"	d
+SAI_MonoMode	stm32f4xx_sai.h	401;"	d
+SAI_NoCompanding	stm32f4xx_sai.h	443;"	d
+SAI_NoDivider	stm32f4xx_sai.h	/^  uint32_t SAI_NoDivider;            \/*!< Specifies whether Master Clock will be divided or not.$/;"	m	struct:__anon58
+SAI_OUTDRIV	stm32f4xx_sai.h	/^  uint32_t SAI_OUTDRIV;             \/*!< Specifies when SAI Block outputs are driven.$/;"	m	struct:__anon58
+SAI_OutputDrive_Disabled	stm32f4xx_sai.h	251;"	d
+SAI_OutputDrive_Enabled	stm32f4xx_sai.h	252;"	d
+SAI_Output_NotReleased	stm32f4xx_sai.h	413;"	d
+SAI_Output_Released	stm32f4xx_sai.h	414;"	d
+SAI_Protocol	stm32f4xx_sai.h	/^  uint32_t SAI_Protocol;             \/*!< Specifies the SAI Block Protocol.$/;"	m	struct:__anon58
+SAI_SPDIF_Protocol	stm32f4xx_sai.h	182;"	d
+SAI_SlotActive	stm32f4xx_sai.h	/^  uint32_t SAI_SlotActive;          \/*!< Specifies the slots in audio frame that will be activated.$/;"	m	struct:__anon60
+SAI_SlotActive_0	stm32f4xx_sai.h	373;"	d
+SAI_SlotActive_1	stm32f4xx_sai.h	374;"	d
+SAI_SlotActive_10	stm32f4xx_sai.h	383;"	d
+SAI_SlotActive_11	stm32f4xx_sai.h	384;"	d
+SAI_SlotActive_12	stm32f4xx_sai.h	385;"	d
+SAI_SlotActive_13	stm32f4xx_sai.h	386;"	d
+SAI_SlotActive_14	stm32f4xx_sai.h	387;"	d
+SAI_SlotActive_15	stm32f4xx_sai.h	388;"	d
+SAI_SlotActive_2	stm32f4xx_sai.h	375;"	d
+SAI_SlotActive_3	stm32f4xx_sai.h	376;"	d
+SAI_SlotActive_4	stm32f4xx_sai.h	377;"	d
+SAI_SlotActive_5	stm32f4xx_sai.h	378;"	d
+SAI_SlotActive_6	stm32f4xx_sai.h	379;"	d
+SAI_SlotActive_7	stm32f4xx_sai.h	380;"	d
+SAI_SlotActive_8	stm32f4xx_sai.h	381;"	d
+SAI_SlotActive_9	stm32f4xx_sai.h	382;"	d
+SAI_SlotActive_ALL	stm32f4xx_sai.h	389;"	d
+SAI_SlotInitTypeDef	stm32f4xx_sai.h	/^}SAI_SlotInitTypeDef;$/;"	t	typeref:struct:__anon60
+SAI_SlotNumber	stm32f4xx_sai.h	/^  uint32_t SAI_SlotNumber;          \/*!< Specifies the number of slot in the audio frame.$/;"	m	struct:__anon60
+SAI_SlotSize	stm32f4xx_sai.h	/^  uint32_t SAI_SlotSize;            \/*!< Specifies the Slot Size.$/;"	m	struct:__anon60
+SAI_SlotSize_16b	stm32f4xx_sai.h	350;"	d
+SAI_SlotSize_32b	stm32f4xx_sai.h	351;"	d
+SAI_SlotSize_DataSize	stm32f4xx_sai.h	349;"	d
+SAI_Slot_NotActive	stm32f4xx_sai.h	372;"	d
+SAI_StreoMode	stm32f4xx_sai.h	402;"	d
+SAI_Synchro	stm32f4xx_sai.h	/^  uint32_t SAI_Synchro;             \/*!< Specifies SAI Block synchronization$/;"	m	struct:__anon58
+SAI_Synchronous	stm32f4xx_sai.h	240;"	d
+SAI_Threshold_FIFOEmpty	stm32f4xx_sai.h	425;"	d
+SAI_ULaw_1CPL_Companding	stm32f4xx_sai.h	444;"	d
+SAI_ULaw_2CPL_Companding	stm32f4xx_sai.h	446;"	d
+SAI_ZeroValue	stm32f4xx_sai.h	461;"	d
+SDIO_Argument	stm32f4xx_sdio.h	/^  uint32_t SDIO_Argument;  \/*!< Specifies the SDIO command argument which is sent$/;"	m	struct:__anon62
+SDIO_BusWide	stm32f4xx_sdio.h	/^  uint32_t SDIO_BusWide;              \/*!< Specifies the SDIO bus width.$/;"	m	struct:__anon61
+SDIO_BusWide_1b	stm32f4xx_sdio.h	162;"	d
+SDIO_BusWide_4b	stm32f4xx_sdio.h	163;"	d
+SDIO_BusWide_8b	stm32f4xx_sdio.h	164;"	d
+SDIO_CPSM	stm32f4xx_sdio.h	/^  uint32_t SDIO_CPSM;      \/*!< Specifies whether SDIO Command path state machine (CPSM)$/;"	m	struct:__anon62
+SDIO_CPSM_Disable	stm32f4xx_sdio.h	269;"	d
+SDIO_CPSM_Enable	stm32f4xx_sdio.h	270;"	d
+SDIO_ClockBypass	stm32f4xx_sdio.h	/^  uint32_t SDIO_ClockBypass;          \/*!< Specifies whether the SDIO Clock divider bypass is$/;"	m	struct:__anon61
+SDIO_ClockBypass_Disable	stm32f4xx_sdio.h	138;"	d
+SDIO_ClockBypass_Enable	stm32f4xx_sdio.h	139;"	d
+SDIO_ClockDiv	stm32f4xx_sdio.h	/^  uint8_t SDIO_ClockDiv;              \/*!< Specifies the clock frequency of the SDIO controller.$/;"	m	struct:__anon61
+SDIO_ClockEdge	stm32f4xx_sdio.h	/^  uint32_t SDIO_ClockEdge;            \/*!< Specifies the clock transition on which the bit capture is made.$/;"	m	struct:__anon61
+SDIO_ClockEdge_Falling	stm32f4xx_sdio.h	127;"	d
+SDIO_ClockEdge_Rising	stm32f4xx_sdio.h	126;"	d
+SDIO_ClockPowerSave	stm32f4xx_sdio.h	/^  uint32_t SDIO_ClockPowerSave;       \/*!< Specifies whether SDIO Clock output is enabled or$/;"	m	struct:__anon61
+SDIO_ClockPowerSave_Disable	stm32f4xx_sdio.h	150;"	d
+SDIO_ClockPowerSave_Enable	stm32f4xx_sdio.h	151;"	d
+SDIO_CmdIndex	stm32f4xx_sdio.h	/^  uint32_t SDIO_CmdIndex;  \/*!< Specifies the SDIO command index. It must be lower than 0x40. *\/$/;"	m	struct:__anon62
+SDIO_CmdInitTypeDef	stm32f4xx_sdio.h	/^} SDIO_CmdInitTypeDef;$/;"	t	typeref:struct:__anon62
+SDIO_DPSM	stm32f4xx_sdio.h	/^  uint32_t SDIO_DPSM;           \/*!< Specifies whether SDIO Data path state machine (DPSM)$/;"	m	struct:__anon63
+SDIO_DPSM_Disable	stm32f4xx_sdio.h	365;"	d
+SDIO_DPSM_Enable	stm32f4xx_sdio.h	366;"	d
+SDIO_DataBlockSize	stm32f4xx_sdio.h	/^  uint32_t SDIO_DataBlockSize;  \/*!< Specifies the data block size for block transfer.$/;"	m	struct:__anon63
+SDIO_DataBlockSize_1024b	stm32f4xx_sdio.h	313;"	d
+SDIO_DataBlockSize_128b	stm32f4xx_sdio.h	310;"	d
+SDIO_DataBlockSize_16384b	stm32f4xx_sdio.h	317;"	d
+SDIO_DataBlockSize_16b	stm32f4xx_sdio.h	307;"	d
+SDIO_DataBlockSize_1b	stm32f4xx_sdio.h	303;"	d
+SDIO_DataBlockSize_2048b	stm32f4xx_sdio.h	314;"	d
+SDIO_DataBlockSize_256b	stm32f4xx_sdio.h	311;"	d
+SDIO_DataBlockSize_2b	stm32f4xx_sdio.h	304;"	d
+SDIO_DataBlockSize_32b	stm32f4xx_sdio.h	308;"	d
+SDIO_DataBlockSize_4096b	stm32f4xx_sdio.h	315;"	d
+SDIO_DataBlockSize_4b	stm32f4xx_sdio.h	305;"	d
+SDIO_DataBlockSize_512b	stm32f4xx_sdio.h	312;"	d
+SDIO_DataBlockSize_64b	stm32f4xx_sdio.h	309;"	d
+SDIO_DataBlockSize_8192b	stm32f4xx_sdio.h	316;"	d
+SDIO_DataBlockSize_8b	stm32f4xx_sdio.h	306;"	d
+SDIO_DataInitTypeDef	stm32f4xx_sdio.h	/^} SDIO_DataInitTypeDef;$/;"	t	typeref:struct:__anon63
+SDIO_DataLength	stm32f4xx_sdio.h	/^  uint32_t SDIO_DataLength;     \/*!< Specifies the number of data bytes to be transferred. *\/$/;"	m	struct:__anon63
+SDIO_DataTimeOut	stm32f4xx_sdio.h	/^  uint32_t SDIO_DataTimeOut;    \/*!< Specifies the data timeout period in card bus clock periods. *\/$/;"	m	struct:__anon63
+SDIO_FLAG_CCRCFAIL	stm32f4xx_sdio.h	376;"	d
+SDIO_FLAG_CEATAEND	stm32f4xx_sdio.h	399;"	d
+SDIO_FLAG_CMDACT	stm32f4xx_sdio.h	387;"	d
+SDIO_FLAG_CMDREND	stm32f4xx_sdio.h	382;"	d
+SDIO_FLAG_CMDSENT	stm32f4xx_sdio.h	383;"	d
+SDIO_FLAG_CTIMEOUT	stm32f4xx_sdio.h	378;"	d
+SDIO_FLAG_DATAEND	stm32f4xx_sdio.h	384;"	d
+SDIO_FLAG_DBCKEND	stm32f4xx_sdio.h	386;"	d
+SDIO_FLAG_DCRCFAIL	stm32f4xx_sdio.h	377;"	d
+SDIO_FLAG_DTIMEOUT	stm32f4xx_sdio.h	379;"	d
+SDIO_FLAG_RXACT	stm32f4xx_sdio.h	389;"	d
+SDIO_FLAG_RXDAVL	stm32f4xx_sdio.h	397;"	d
+SDIO_FLAG_RXFIFOE	stm32f4xx_sdio.h	395;"	d
+SDIO_FLAG_RXFIFOF	stm32f4xx_sdio.h	393;"	d
+SDIO_FLAG_RXFIFOHF	stm32f4xx_sdio.h	391;"	d
+SDIO_FLAG_RXOVERR	stm32f4xx_sdio.h	381;"	d
+SDIO_FLAG_SDIOIT	stm32f4xx_sdio.h	398;"	d
+SDIO_FLAG_STBITERR	stm32f4xx_sdio.h	385;"	d
+SDIO_FLAG_TXACT	stm32f4xx_sdio.h	388;"	d
+SDIO_FLAG_TXDAVL	stm32f4xx_sdio.h	396;"	d
+SDIO_FLAG_TXFIFOE	stm32f4xx_sdio.h	394;"	d
+SDIO_FLAG_TXFIFOF	stm32f4xx_sdio.h	392;"	d
+SDIO_FLAG_TXFIFOHE	stm32f4xx_sdio.h	390;"	d
+SDIO_FLAG_TXUNDERR	stm32f4xx_sdio.h	380;"	d
+SDIO_HardwareFlowControl	stm32f4xx_sdio.h	/^  uint32_t SDIO_HardwareFlowControl;  \/*!< Specifies whether the SDIO hardware flow control is enabled or disabled.$/;"	m	struct:__anon61
+SDIO_HardwareFlowControl_Disable	stm32f4xx_sdio.h	176;"	d
+SDIO_HardwareFlowControl_Enable	stm32f4xx_sdio.h	177;"	d
+SDIO_IT_CCRCFAIL	stm32f4xx_sdio.h	200;"	d
+SDIO_IT_CEATAEND	stm32f4xx_sdio.h	223;"	d
+SDIO_IT_CMDACT	stm32f4xx_sdio.h	211;"	d
+SDIO_IT_CMDREND	stm32f4xx_sdio.h	206;"	d
+SDIO_IT_CMDSENT	stm32f4xx_sdio.h	207;"	d
+SDIO_IT_CTIMEOUT	stm32f4xx_sdio.h	202;"	d
+SDIO_IT_DATAEND	stm32f4xx_sdio.h	208;"	d
+SDIO_IT_DBCKEND	stm32f4xx_sdio.h	210;"	d
+SDIO_IT_DCRCFAIL	stm32f4xx_sdio.h	201;"	d
+SDIO_IT_DTIMEOUT	stm32f4xx_sdio.h	203;"	d
+SDIO_IT_RXACT	stm32f4xx_sdio.h	213;"	d
+SDIO_IT_RXDAVL	stm32f4xx_sdio.h	221;"	d
+SDIO_IT_RXFIFOE	stm32f4xx_sdio.h	219;"	d
+SDIO_IT_RXFIFOF	stm32f4xx_sdio.h	217;"	d
+SDIO_IT_RXFIFOHF	stm32f4xx_sdio.h	215;"	d
+SDIO_IT_RXOVERR	stm32f4xx_sdio.h	205;"	d
+SDIO_IT_SDIOIT	stm32f4xx_sdio.h	222;"	d
+SDIO_IT_STBITERR	stm32f4xx_sdio.h	209;"	d
+SDIO_IT_TXACT	stm32f4xx_sdio.h	212;"	d
+SDIO_IT_TXDAVL	stm32f4xx_sdio.h	220;"	d
+SDIO_IT_TXFIFOE	stm32f4xx_sdio.h	218;"	d
+SDIO_IT_TXFIFOF	stm32f4xx_sdio.h	216;"	d
+SDIO_IT_TXFIFOHE	stm32f4xx_sdio.h	214;"	d
+SDIO_IT_TXUNDERR	stm32f4xx_sdio.h	204;"	d
+SDIO_InitTypeDef	stm32f4xx_sdio.h	/^} SDIO_InitTypeDef;$/;"	t	typeref:struct:__anon61
+SDIO_PowerState_OFF	stm32f4xx_sdio.h	188;"	d
+SDIO_PowerState_ON	stm32f4xx_sdio.h	189;"	d
+SDIO_RESP1	stm32f4xx_sdio.h	280;"	d
+SDIO_RESP2	stm32f4xx_sdio.h	281;"	d
+SDIO_RESP3	stm32f4xx_sdio.h	282;"	d
+SDIO_RESP4	stm32f4xx_sdio.h	283;"	d
+SDIO_ReadWaitMode_CLK	stm32f4xx_sdio.h	463;"	d
+SDIO_ReadWaitMode_DATA2	stm32f4xx_sdio.h	462;"	d
+SDIO_Response	stm32f4xx_sdio.h	/^  uint32_t SDIO_Response;  \/*!< Specifies the SDIO response type.$/;"	m	struct:__anon62
+SDIO_Response_Long	stm32f4xx_sdio.h	244;"	d
+SDIO_Response_No	stm32f4xx_sdio.h	242;"	d
+SDIO_Response_Short	stm32f4xx_sdio.h	243;"	d
+SDIO_TransferDir	stm32f4xx_sdio.h	/^  uint32_t SDIO_TransferDir;    \/*!< Specifies the data transfer direction, whether the transfer$/;"	m	struct:__anon63
+SDIO_TransferDir_ToCard	stm32f4xx_sdio.h	341;"	d
+SDIO_TransferDir_ToSDIO	stm32f4xx_sdio.h	342;"	d
+SDIO_TransferMode	stm32f4xx_sdio.h	/^  uint32_t SDIO_TransferMode;   \/*!< Specifies whether data transfer is in stream or block mode.$/;"	m	struct:__anon63
+SDIO_TransferMode_Block	stm32f4xx_sdio.h	353;"	d
+SDIO_TransferMode_Stream	stm32f4xx_sdio.h	354;"	d
+SDIO_Wait	stm32f4xx_sdio.h	/^  uint32_t SDIO_Wait;      \/*!< Specifies whether SDIO wait for interrupt request is enabled or disabled.$/;"	m	struct:__anon62
+SDIO_Wait_IT	stm32f4xx_sdio.h	257;"	d
+SDIO_Wait_No	stm32f4xx_sdio.h	256;"	d
+SDIO_Wait_Pend	stm32f4xx_sdio.h	258;"	d
+SPI_BaudRatePrescaler	stm32f4xx_spi.h	/^  uint16_t SPI_BaudRatePrescaler;   \/*!< Specifies the Baud Rate prescaler value which will be$/;"	m	struct:__anon64
+SPI_BaudRatePrescaler_128	stm32f4xx_spi.h	233;"	d
+SPI_BaudRatePrescaler_16	stm32f4xx_spi.h	230;"	d
+SPI_BaudRatePrescaler_2	stm32f4xx_spi.h	227;"	d
+SPI_BaudRatePrescaler_256	stm32f4xx_spi.h	234;"	d
+SPI_BaudRatePrescaler_32	stm32f4xx_spi.h	231;"	d
+SPI_BaudRatePrescaler_4	stm32f4xx_spi.h	228;"	d
+SPI_BaudRatePrescaler_64	stm32f4xx_spi.h	232;"	d
+SPI_BaudRatePrescaler_8	stm32f4xx_spi.h	229;"	d
+SPI_CPHA	stm32f4xx_spi.h	/^  uint16_t SPI_CPHA;                \/*!< Specifies the clock active edge for the bit capture.$/;"	m	struct:__anon64
+SPI_CPHA_1Edge	stm32f4xx_spi.h	203;"	d
+SPI_CPHA_2Edge	stm32f4xx_spi.h	204;"	d
+SPI_CPOL	stm32f4xx_spi.h	/^  uint16_t SPI_CPOL;                \/*!< Specifies the serial clock steady state.$/;"	m	struct:__anon64
+SPI_CPOL_High	stm32f4xx_spi.h	192;"	d
+SPI_CPOL_Low	stm32f4xx_spi.h	191;"	d
+SPI_CRCPolynomial	stm32f4xx_spi.h	/^  uint16_t SPI_CRCPolynomial;       \/*!< Specifies the polynomial used for the CRC calculation. *\/$/;"	m	struct:__anon64
+SPI_CRC_Rx	stm32f4xx_spi.h	384;"	d
+SPI_CRC_Tx	stm32f4xx_spi.h	383;"	d
+SPI_ClearFlag	stm32f4xx_spi.h	483;"	d
+SPI_ClearITPendingBit	stm32f4xx_spi.h	485;"	d
+SPI_DMACmd	stm32f4xx_spi.h	479;"	d
+SPI_DMAReq_Rx	stm32f4xx_spi.h	468;"	d
+SPI_DMAReq_Tx	stm32f4xx_spi.h	467;"	d
+SPI_DataSize	stm32f4xx_spi.h	/^  uint16_t SPI_DataSize;            \/*!< Specifies the SPI data size.$/;"	m	struct:__anon64
+SPI_DataSize_16b	stm32f4xx_spi.h	179;"	d
+SPI_DataSize_8b	stm32f4xx_spi.h	180;"	d
+SPI_DeInit	stm32f4xx_spi.h	477;"	d
+SPI_Direction	stm32f4xx_spi.h	/^  uint16_t SPI_Direction;           \/*!< Specifies the SPI unidirectional or bidirectional data mode.$/;"	m	struct:__anon64
+SPI_Direction_1Line_Rx	stm32f4xx_spi.h	153;"	d
+SPI_Direction_1Line_Tx	stm32f4xx_spi.h	154;"	d
+SPI_Direction_2Lines_FullDuplex	stm32f4xx_spi.h	151;"	d
+SPI_Direction_2Lines_RxOnly	stm32f4xx_spi.h	152;"	d
+SPI_Direction_Rx	stm32f4xx_spi.h	394;"	d
+SPI_Direction_Tx	stm32f4xx_spi.h	395;"	d
+SPI_FLAG_BSY	stm32f4xx_spi.h	476;"	d
+SPI_FLAG_CRCERR	stm32f4xx_spi.h	438;"	d
+SPI_FLAG_MODF	stm32f4xx_spi.h	439;"	d
+SPI_FLAG_OVR	stm32f4xx_spi.h	475;"	d
+SPI_FLAG_RXNE	stm32f4xx_spi.h	473;"	d
+SPI_FLAG_TXE	stm32f4xx_spi.h	474;"	d
+SPI_FirstBit	stm32f4xx_spi.h	/^  uint16_t SPI_FirstBit;            \/*!< Specifies whether data transfers start from MSB or LSB bit.$/;"	m	struct:__anon64
+SPI_FirstBit_LSB	stm32f4xx_spi.h	252;"	d
+SPI_FirstBit_MSB	stm32f4xx_spi.h	251;"	d
+SPI_GetFlagStatus	stm32f4xx_spi.h	482;"	d
+SPI_GetITStatus	stm32f4xx_spi.h	484;"	d
+SPI_I2S_DMAReq_Rx	stm32f4xx_spi.h	361;"	d
+SPI_I2S_DMAReq_Tx	stm32f4xx_spi.h	360;"	d
+SPI_I2S_FLAG_BSY	stm32f4xx_spi.h	441;"	d
+SPI_I2S_FLAG_OVR	stm32f4xx_spi.h	440;"	d
+SPI_I2S_FLAG_RXNE	stm32f4xx_spi.h	434;"	d
+SPI_I2S_FLAG_TIFRFE	stm32f4xx_spi.h	442;"	d
+SPI_I2S_FLAG_TXE	stm32f4xx_spi.h	435;"	d
+SPI_I2S_IT_ERR	stm32f4xx_spi.h	408;"	d
+SPI_I2S_IT_OVR	stm32f4xx_spi.h	416;"	d
+SPI_I2S_IT_RXNE	stm32f4xx_spi.h	407;"	d
+SPI_I2S_IT_TIFRFE	stm32f4xx_spi.h	410;"	d
+SPI_I2S_IT_TXE	stm32f4xx_spi.h	406;"	d
+SPI_ITConfig	stm32f4xx_spi.h	478;"	d
+SPI_IT_CRCERR	stm32f4xx_spi.h	418;"	d
+SPI_IT_ERR	stm32f4xx_spi.h	471;"	d
+SPI_IT_MODF	stm32f4xx_spi.h	417;"	d
+SPI_IT_OVR	stm32f4xx_spi.h	472;"	d
+SPI_IT_RXNE	stm32f4xx_spi.h	470;"	d
+SPI_IT_TXE	stm32f4xx_spi.h	469;"	d
+SPI_InitTypeDef	stm32f4xx_spi.h	/^}SPI_InitTypeDef;$/;"	t	typeref:struct:__anon64
+SPI_Mode	stm32f4xx_spi.h	/^  uint16_t SPI_Mode;                \/*!< Specifies the SPI operating mode.$/;"	m	struct:__anon64
+SPI_Mode_Master	stm32f4xx_spi.h	167;"	d
+SPI_Mode_Slave	stm32f4xx_spi.h	168;"	d
+SPI_NSS	stm32f4xx_spi.h	/^  uint16_t SPI_NSS;                 \/*!< Specifies whether the NSS signal is managed by$/;"	m	struct:__anon64
+SPI_NSSInternalSoft_Reset	stm32f4xx_spi.h	372;"	d
+SPI_NSSInternalSoft_Set	stm32f4xx_spi.h	371;"	d
+SPI_NSS_Hard	stm32f4xx_spi.h	216;"	d
+SPI_NSS_Soft	stm32f4xx_spi.h	215;"	d
+SPI_ReceiveData	stm32f4xx_spi.h	481;"	d
+SPI_SendData	stm32f4xx_spi.h	480;"	d
+SYSCFG_ETH_MediaInterface_MII	stm32f4xx_syscfg.h	172;"	d
+SYSCFG_ETH_MediaInterface_RMII	stm32f4xx_syscfg.h	173;"	d
+SYSCFG_MemoryRemap_FMC	stm32f4xx_syscfg.h	140;"	d
+SYSCFG_MemoryRemap_FSMC	stm32f4xx_syscfg.h	136;"	d
+SYSCFG_MemoryRemap_Flash	stm32f4xx_syscfg.h	130;"	d
+SYSCFG_MemoryRemap_SDRAM	stm32f4xx_syscfg.h	133;"	d
+SYSCFG_MemoryRemap_SRAM	stm32f4xx_syscfg.h	132;"	d
+SYSCFG_MemoryRemap_SystemFlash	stm32f4xx_syscfg.h	131;"	d
+SYSCLK_Frequency	stm32f4xx_rcc.h	/^  uint32_t SYSCLK_Frequency; \/*!<  SYSCLK clock frequency expressed in Hz *\/$/;"	m	struct:__anon53
+StdId	stm32f4xx_can.h	/^  uint32_t StdId;  \/*!< Specifies the standard identifier.$/;"	m	struct:__anon6
+StdId	stm32f4xx_can.h	/^  uint32_t StdId;  \/*!< Specifies the standard identifier.$/;"	m	struct:__anon7
+SysTick_CLKSource_HCLK	misc.h	144;"	d
+SysTick_CLKSource_HCLK_Div8	misc.h	143;"	d
+TIM11_GPIO	stm32f4xx_tim.h	924;"	d
+TIM11_HSE	stm32f4xx_tim.h	925;"	d
+TIM2_ETH_PTP	stm32f4xx_tim.h	915;"	d
+TIM2_TIM8_TRGO	stm32f4xx_tim.h	914;"	d
+TIM2_USBFS_SOF	stm32f4xx_tim.h	916;"	d
+TIM2_USBHS_SOF	stm32f4xx_tim.h	917;"	d
+TIM5_GPIO	stm32f4xx_tim.h	919;"	d
+TIM5_LSE	stm32f4xx_tim.h	921;"	d
+TIM5_LSI	stm32f4xx_tim.h	920;"	d
+TIM5_RTC	stm32f4xx_tim.h	922;"	d
+TIM_AutomaticOutput	stm32f4xx_tim.h	/^  uint16_t TIM_AutomaticOutput;  \/*!< Specifies whether the TIM Automatic Output feature is enabled or not. $/;"	m	struct:__anon69
+TIM_AutomaticOutput_Disable	stm32f4xx_tim.h	432;"	d
+TIM_AutomaticOutput_Enable	stm32f4xx_tim.h	431;"	d
+TIM_BDTRInitTypeDef	stm32f4xx_tim.h	/^} TIM_BDTRInitTypeDef;$/;"	t	typeref:struct:__anon69
+TIM_Break	stm32f4xx_tim.h	/^  uint16_t TIM_Break;            \/*!< Specifies whether the TIM Break input is enabled or not. $/;"	m	struct:__anon69
+TIM_BreakPolarity	stm32f4xx_tim.h	/^  uint16_t TIM_BreakPolarity;    \/*!< Specifies the TIM Break Input pin polarity.$/;"	m	struct:__anon69
+TIM_BreakPolarity_High	stm32f4xx_tim.h	420;"	d
+TIM_BreakPolarity_Low	stm32f4xx_tim.h	419;"	d
+TIM_Break_Disable	stm32f4xx_tim.h	408;"	d
+TIM_Break_Enable	stm32f4xx_tim.h	407;"	d
+TIM_CCxN_Disable	stm32f4xx_tim.h	396;"	d
+TIM_CCxN_Enable	stm32f4xx_tim.h	395;"	d
+TIM_CCx_Disable	stm32f4xx_tim.h	384;"	d
+TIM_CCx_Enable	stm32f4xx_tim.h	383;"	d
+TIM_CKD_DIV1	stm32f4xx_tim.h	303;"	d
+TIM_CKD_DIV2	stm32f4xx_tim.h	304;"	d
+TIM_CKD_DIV4	stm32f4xx_tim.h	305;"	d
+TIM_Channel	stm32f4xx_tim.h	/^  uint16_t TIM_Channel;      \/*!< Specifies the TIM channel.$/;"	m	struct:__anon68
+TIM_Channel_1	stm32f4xx_tim.h	280;"	d
+TIM_Channel_2	stm32f4xx_tim.h	281;"	d
+TIM_Channel_3	stm32f4xx_tim.h	282;"	d
+TIM_Channel_4	stm32f4xx_tim.h	283;"	d
+TIM_ClockDivision	stm32f4xx_tim.h	/^  uint16_t TIM_ClockDivision;     \/*!< Specifies the clock division.$/;"	m	struct:__anon66
+TIM_CounterMode	stm32f4xx_tim.h	/^  uint16_t TIM_CounterMode;       \/*!< Specifies the counter mode.$/;"	m	struct:__anon66
+TIM_CounterMode_CenterAligned1	stm32f4xx_tim.h	319;"	d
+TIM_CounterMode_CenterAligned2	stm32f4xx_tim.h	320;"	d
+TIM_CounterMode_CenterAligned3	stm32f4xx_tim.h	321;"	d
+TIM_CounterMode_Down	stm32f4xx_tim.h	318;"	d
+TIM_CounterMode_Up	stm32f4xx_tim.h	317;"	d
+TIM_DMABase_ARR	stm32f4xx_tim.h	590;"	d
+TIM_DMABase_BDTR	stm32f4xx_tim.h	596;"	d
+TIM_DMABase_CCER	stm32f4xx_tim.h	587;"	d
+TIM_DMABase_CCMR1	stm32f4xx_tim.h	585;"	d
+TIM_DMABase_CCMR2	stm32f4xx_tim.h	586;"	d
+TIM_DMABase_CCR1	stm32f4xx_tim.h	592;"	d
+TIM_DMABase_CCR2	stm32f4xx_tim.h	593;"	d
+TIM_DMABase_CCR3	stm32f4xx_tim.h	594;"	d
+TIM_DMABase_CCR4	stm32f4xx_tim.h	595;"	d
+TIM_DMABase_CNT	stm32f4xx_tim.h	588;"	d
+TIM_DMABase_CR1	stm32f4xx_tim.h	579;"	d
+TIM_DMABase_CR2	stm32f4xx_tim.h	580;"	d
+TIM_DMABase_DCR	stm32f4xx_tim.h	597;"	d
+TIM_DMABase_DIER	stm32f4xx_tim.h	582;"	d
+TIM_DMABase_EGR	stm32f4xx_tim.h	584;"	d
+TIM_DMABase_OR	stm32f4xx_tim.h	598;"	d
+TIM_DMABase_PSC	stm32f4xx_tim.h	589;"	d
+TIM_DMABase_RCR	stm32f4xx_tim.h	591;"	d
+TIM_DMABase_SMCR	stm32f4xx_tim.h	581;"	d
+TIM_DMABase_SR	stm32f4xx_tim.h	583;"	d
+TIM_DMABurstLength_10Bytes	stm32f4xx_tim.h	1005;"	d
+TIM_DMABurstLength_10Transfers	stm32f4xx_tim.h	636;"	d
+TIM_DMABurstLength_11Bytes	stm32f4xx_tim.h	1006;"	d
+TIM_DMABurstLength_11Transfers	stm32f4xx_tim.h	637;"	d
+TIM_DMABurstLength_12Bytes	stm32f4xx_tim.h	1007;"	d
+TIM_DMABurstLength_12Transfers	stm32f4xx_tim.h	638;"	d
+TIM_DMABurstLength_13Bytes	stm32f4xx_tim.h	1008;"	d
+TIM_DMABurstLength_13Transfers	stm32f4xx_tim.h	639;"	d
+TIM_DMABurstLength_14Bytes	stm32f4xx_tim.h	1009;"	d
+TIM_DMABurstLength_14Transfers	stm32f4xx_tim.h	640;"	d
+TIM_DMABurstLength_15Bytes	stm32f4xx_tim.h	1010;"	d
+TIM_DMABurstLength_15Transfers	stm32f4xx_tim.h	641;"	d
+TIM_DMABurstLength_16Bytes	stm32f4xx_tim.h	1011;"	d
+TIM_DMABurstLength_16Transfers	stm32f4xx_tim.h	642;"	d
+TIM_DMABurstLength_17Bytes	stm32f4xx_tim.h	1012;"	d
+TIM_DMABurstLength_17Transfers	stm32f4xx_tim.h	643;"	d
+TIM_DMABurstLength_18Bytes	stm32f4xx_tim.h	1013;"	d
+TIM_DMABurstLength_18Transfers	stm32f4xx_tim.h	644;"	d
+TIM_DMABurstLength_1Byte	stm32f4xx_tim.h	996;"	d
+TIM_DMABurstLength_1Transfer	stm32f4xx_tim.h	627;"	d
+TIM_DMABurstLength_2Bytes	stm32f4xx_tim.h	997;"	d
+TIM_DMABurstLength_2Transfers	stm32f4xx_tim.h	628;"	d
+TIM_DMABurstLength_3Bytes	stm32f4xx_tim.h	998;"	d
+TIM_DMABurstLength_3Transfers	stm32f4xx_tim.h	629;"	d
+TIM_DMABurstLength_4Bytes	stm32f4xx_tim.h	999;"	d
+TIM_DMABurstLength_4Transfers	stm32f4xx_tim.h	630;"	d
+TIM_DMABurstLength_5Bytes	stm32f4xx_tim.h	1000;"	d
+TIM_DMABurstLength_5Transfers	stm32f4xx_tim.h	631;"	d
+TIM_DMABurstLength_6Bytes	stm32f4xx_tim.h	1001;"	d
+TIM_DMABurstLength_6Transfers	stm32f4xx_tim.h	632;"	d
+TIM_DMABurstLength_7Bytes	stm32f4xx_tim.h	1002;"	d
+TIM_DMABurstLength_7Transfers	stm32f4xx_tim.h	633;"	d
+TIM_DMABurstLength_8Bytes	stm32f4xx_tim.h	1003;"	d
+TIM_DMABurstLength_8Transfers	stm32f4xx_tim.h	634;"	d
+TIM_DMABurstLength_9Bytes	stm32f4xx_tim.h	1004;"	d
+TIM_DMABurstLength_9Transfers	stm32f4xx_tim.h	635;"	d
+TIM_DMA_CC1	stm32f4xx_tim.h	672;"	d
+TIM_DMA_CC2	stm32f4xx_tim.h	673;"	d
+TIM_DMA_CC3	stm32f4xx_tim.h	674;"	d
+TIM_DMA_CC4	stm32f4xx_tim.h	675;"	d
+TIM_DMA_COM	stm32f4xx_tim.h	676;"	d
+TIM_DMA_Trigger	stm32f4xx_tim.h	677;"	d
+TIM_DMA_Update	stm32f4xx_tim.h	671;"	d
+TIM_DeadTime	stm32f4xx_tim.h	/^  uint16_t TIM_DeadTime;         \/*!< Specifies the delay time between the switching-off and the$/;"	m	struct:__anon69
+TIM_EncoderMode_TI1	stm32f4xx_tim.h	779;"	d
+TIM_EncoderMode_TI12	stm32f4xx_tim.h	781;"	d
+TIM_EncoderMode_TI2	stm32f4xx_tim.h	780;"	d
+TIM_EventSource_Break	stm32f4xx_tim.h	801;"	d
+TIM_EventSource_CC1	stm32f4xx_tim.h	795;"	d
+TIM_EventSource_CC2	stm32f4xx_tim.h	796;"	d
+TIM_EventSource_CC3	stm32f4xx_tim.h	797;"	d
+TIM_EventSource_CC4	stm32f4xx_tim.h	798;"	d
+TIM_EventSource_COM	stm32f4xx_tim.h	799;"	d
+TIM_EventSource_Trigger	stm32f4xx_tim.h	800;"	d
+TIM_EventSource_Update	stm32f4xx_tim.h	794;"	d
+TIM_ExtTRGPSC_DIV2	stm32f4xx_tim.h	689;"	d
+TIM_ExtTRGPSC_DIV4	stm32f4xx_tim.h	690;"	d
+TIM_ExtTRGPSC_DIV8	stm32f4xx_tim.h	691;"	d
+TIM_ExtTRGPSC_OFF	stm32f4xx_tim.h	688;"	d
+TIM_ExtTRGPolarity_Inverted	stm32f4xx_tim.h	743;"	d
+TIM_ExtTRGPolarity_NonInverted	stm32f4xx_tim.h	744;"	d
+TIM_FLAG_Break	stm32f4xx_tim.h	952;"	d
+TIM_FLAG_CC1	stm32f4xx_tim.h	946;"	d
+TIM_FLAG_CC1OF	stm32f4xx_tim.h	953;"	d
+TIM_FLAG_CC2	stm32f4xx_tim.h	947;"	d
+TIM_FLAG_CC2OF	stm32f4xx_tim.h	954;"	d
+TIM_FLAG_CC3	stm32f4xx_tim.h	948;"	d
+TIM_FLAG_CC3OF	stm32f4xx_tim.h	955;"	d
+TIM_FLAG_CC4	stm32f4xx_tim.h	949;"	d
+TIM_FLAG_CC4OF	stm32f4xx_tim.h	956;"	d
+TIM_FLAG_COM	stm32f4xx_tim.h	950;"	d
+TIM_FLAG_Trigger	stm32f4xx_tim.h	951;"	d
+TIM_FLAG_Update	stm32f4xx_tim.h	945;"	d
+TIM_ForcedAction_Active	stm32f4xx_tim.h	767;"	d
+TIM_ForcedAction_InActive	stm32f4xx_tim.h	768;"	d
+TIM_ICFilter	stm32f4xx_tim.h	/^  uint16_t TIM_ICFilter;     \/*!< Specifies the input capture filter.$/;"	m	struct:__anon68
+TIM_ICInitTypeDef	stm32f4xx_tim.h	/^} TIM_ICInitTypeDef;$/;"	t	typeref:struct:__anon68
+TIM_ICPSC_DIV1	stm32f4xx_tim.h	537;"	d
+TIM_ICPSC_DIV2	stm32f4xx_tim.h	538;"	d
+TIM_ICPSC_DIV4	stm32f4xx_tim.h	539;"	d
+TIM_ICPSC_DIV8	stm32f4xx_tim.h	540;"	d
+TIM_ICPolarity	stm32f4xx_tim.h	/^  uint16_t TIM_ICPolarity;   \/*!< Specifies the active edge of the input signal.$/;"	m	struct:__anon68
+TIM_ICPolarity_BothEdge	stm32f4xx_tim.h	509;"	d
+TIM_ICPolarity_Falling	stm32f4xx_tim.h	508;"	d
+TIM_ICPolarity_Rising	stm32f4xx_tim.h	507;"	d
+TIM_ICPrescaler	stm32f4xx_tim.h	/^  uint16_t TIM_ICPrescaler;  \/*!< Specifies the Input Capture Prescaler.$/;"	m	struct:__anon68
+TIM_ICSelection	stm32f4xx_tim.h	/^  uint16_t TIM_ICSelection;  \/*!< Specifies the input.$/;"	m	struct:__anon68
+TIM_ICSelection_DirectTI	stm32f4xx_tim.h	521;"	d
+TIM_ICSelection_IndirectTI	stm32f4xx_tim.h	523;"	d
+TIM_ICSelection_TRC	stm32f4xx_tim.h	525;"	d
+TIM_IT_Break	stm32f4xx_tim.h	560;"	d
+TIM_IT_CC1	stm32f4xx_tim.h	554;"	d
+TIM_IT_CC2	stm32f4xx_tim.h	555;"	d
+TIM_IT_CC3	stm32f4xx_tim.h	556;"	d
+TIM_IT_CC4	stm32f4xx_tim.h	557;"	d
+TIM_IT_COM	stm32f4xx_tim.h	558;"	d
+TIM_IT_Trigger	stm32f4xx_tim.h	559;"	d
+TIM_IT_Update	stm32f4xx_tim.h	553;"	d
+TIM_LOCKLevel	stm32f4xx_tim.h	/^  uint16_t TIM_LOCKLevel;        \/*!< Specifies the LOCK level parameters.$/;"	m	struct:__anon69
+TIM_LOCKLevel_1	stm32f4xx_tim.h	444;"	d
+TIM_LOCKLevel_2	stm32f4xx_tim.h	445;"	d
+TIM_LOCKLevel_3	stm32f4xx_tim.h	446;"	d
+TIM_LOCKLevel_OFF	stm32f4xx_tim.h	443;"	d
+TIM_MasterSlaveMode_Disable	stm32f4xx_tim.h	904;"	d
+TIM_MasterSlaveMode_Enable	stm32f4xx_tim.h	903;"	d
+TIM_OCClear_Disable	stm32f4xx_tim.h	852;"	d
+TIM_OCClear_Enable	stm32f4xx_tim.h	851;"	d
+TIM_OCFast_Disable	stm32f4xx_tim.h	839;"	d
+TIM_OCFast_Enable	stm32f4xx_tim.h	838;"	d
+TIM_OCIdleState	stm32f4xx_tim.h	/^  uint16_t TIM_OCIdleState;   \/*!< Specifies the TIM Output Compare pin state during Idle state.$/;"	m	struct:__anon67
+TIM_OCIdleState_Reset	stm32f4xx_tim.h	484;"	d
+TIM_OCIdleState_Set	stm32f4xx_tim.h	483;"	d
+TIM_OCInitTypeDef	stm32f4xx_tim.h	/^} TIM_OCInitTypeDef;$/;"	t	typeref:struct:__anon67
+TIM_OCMode	stm32f4xx_tim.h	/^  uint16_t TIM_OCMode;        \/*!< Specifies the TIM mode.$/;"	m	struct:__anon67
+TIM_OCMode_Active	stm32f4xx_tim.h	241;"	d
+TIM_OCMode_Inactive	stm32f4xx_tim.h	242;"	d
+TIM_OCMode_PWM1	stm32f4xx_tim.h	244;"	d
+TIM_OCMode_PWM2	stm32f4xx_tim.h	245;"	d
+TIM_OCMode_Timing	stm32f4xx_tim.h	240;"	d
+TIM_OCMode_Toggle	stm32f4xx_tim.h	243;"	d
+TIM_OCNIdleState	stm32f4xx_tim.h	/^  uint16_t TIM_OCNIdleState;  \/*!< Specifies the TIM Output Compare pin state during Idle state.$/;"	m	struct:__anon67
+TIM_OCNIdleState_Reset	stm32f4xx_tim.h	496;"	d
+TIM_OCNIdleState_Set	stm32f4xx_tim.h	495;"	d
+TIM_OCNPolarity	stm32f4xx_tim.h	/^  uint16_t TIM_OCNPolarity;   \/*!< Specifies the complementary output polarity.$/;"	m	struct:__anon67
+TIM_OCNPolarity_High	stm32f4xx_tim.h	347;"	d
+TIM_OCNPolarity_Low	stm32f4xx_tim.h	348;"	d
+TIM_OCPolarity	stm32f4xx_tim.h	/^  uint16_t TIM_OCPolarity;    \/*!< Specifies the output polarity.$/;"	m	struct:__anon67
+TIM_OCPolarity_High	stm32f4xx_tim.h	335;"	d
+TIM_OCPolarity_Low	stm32f4xx_tim.h	336;"	d
+TIM_OCPreload_Disable	stm32f4xx_tim.h	827;"	d
+TIM_OCPreload_Enable	stm32f4xx_tim.h	826;"	d
+TIM_OPMode_Repetitive	stm32f4xx_tim.h	269;"	d
+TIM_OPMode_Single	stm32f4xx_tim.h	268;"	d
+TIM_OSSIState	stm32f4xx_tim.h	/^  uint16_t TIM_OSSIState;        \/*!< Specifies the Off-State used in Idle state.$/;"	m	struct:__anon69
+TIM_OSSIState_Disable	stm32f4xx_tim.h	460;"	d
+TIM_OSSIState_Enable	stm32f4xx_tim.h	459;"	d
+TIM_OSSRState	stm32f4xx_tim.h	/^  uint16_t TIM_OSSRState;        \/*!< Specifies the Off-State selection used in Run mode.$/;"	m	struct:__anon69
+TIM_OSSRState_Disable	stm32f4xx_tim.h	472;"	d
+TIM_OSSRState_Enable	stm32f4xx_tim.h	471;"	d
+TIM_OutputNState	stm32f4xx_tim.h	/^  uint16_t TIM_OutputNState;  \/*!< Specifies the TIM complementary Output Compare state.$/;"	m	struct:__anon67
+TIM_OutputNState_Disable	stm32f4xx_tim.h	371;"	d
+TIM_OutputNState_Enable	stm32f4xx_tim.h	372;"	d
+TIM_OutputState	stm32f4xx_tim.h	/^  uint16_t TIM_OutputState;   \/*!< Specifies the TIM Output Compare state.$/;"	m	struct:__anon67
+TIM_OutputState_Disable	stm32f4xx_tim.h	359;"	d
+TIM_OutputState_Enable	stm32f4xx_tim.h	360;"	d
+TIM_PSCReloadMode_Immediate	stm32f4xx_tim.h	756;"	d
+TIM_PSCReloadMode_Update	stm32f4xx_tim.h	755;"	d
+TIM_Period	stm32f4xx_tim.h	/^  uint32_t TIM_Period;            \/*!< Specifies the period value to be loaded into the active$/;"	m	struct:__anon66
+TIM_Prescaler	stm32f4xx_tim.h	/^  uint16_t TIM_Prescaler;         \/*!< Specifies the prescaler value used to divide the TIM clock.$/;"	m	struct:__anon66
+TIM_Pulse	stm32f4xx_tim.h	/^  uint32_t TIM_Pulse;         \/*!< Specifies the pulse value to be loaded into the Capture Compare Register. $/;"	m	struct:__anon67
+TIM_RepetitionCounter	stm32f4xx_tim.h	/^  uint8_t TIM_RepetitionCounter;  \/*!< Specifies the repetition counter value. Each time the RCR downcounter$/;"	m	struct:__anon66
+TIM_SlaveMode_External1	stm32f4xx_tim.h	890;"	d
+TIM_SlaveMode_Gated	stm32f4xx_tim.h	888;"	d
+TIM_SlaveMode_Reset	stm32f4xx_tim.h	887;"	d
+TIM_SlaveMode_Trigger	stm32f4xx_tim.h	889;"	d
+TIM_TIxExternalCLK1Source_TI1	stm32f4xx_tim.h	732;"	d
+TIM_TIxExternalCLK1Source_TI1ED	stm32f4xx_tim.h	734;"	d
+TIM_TIxExternalCLK1Source_TI2	stm32f4xx_tim.h	733;"	d
+TIM_TRGOSource_Enable	stm32f4xx_tim.h	864;"	d
+TIM_TRGOSource_OC1	stm32f4xx_tim.h	866;"	d
+TIM_TRGOSource_OC1Ref	stm32f4xx_tim.h	867;"	d
+TIM_TRGOSource_OC2Ref	stm32f4xx_tim.h	868;"	d
+TIM_TRGOSource_OC3Ref	stm32f4xx_tim.h	869;"	d
+TIM_TRGOSource_OC4Ref	stm32f4xx_tim.h	870;"	d
+TIM_TRGOSource_Reset	stm32f4xx_tim.h	863;"	d
+TIM_TRGOSource_Update	stm32f4xx_tim.h	865;"	d
+TIM_TS_ETRF	stm32f4xx_tim.h	711;"	d
+TIM_TS_ITR0	stm32f4xx_tim.h	704;"	d
+TIM_TS_ITR1	stm32f4xx_tim.h	705;"	d
+TIM_TS_ITR2	stm32f4xx_tim.h	706;"	d
+TIM_TS_ITR3	stm32f4xx_tim.h	707;"	d
+TIM_TS_TI1FP1	stm32f4xx_tim.h	709;"	d
+TIM_TS_TI1F_ED	stm32f4xx_tim.h	708;"	d
+TIM_TS_TI2FP2	stm32f4xx_tim.h	710;"	d
+TIM_TimeBaseInitTypeDef	stm32f4xx_tim.h	/^} TIM_TimeBaseInitTypeDef; $/;"	t	typeref:struct:__anon66
+TIM_UpdateSource_Global	stm32f4xx_tim.h	812;"	d
+TIM_UpdateSource_Regular	stm32f4xx_tim.h	815;"	d
+USART_BaudRate	stm32f4xx_usart.h	/^  uint32_t USART_BaudRate;            \/*!< This member configures the USART communication baud rate.$/;"	m	struct:__anon70
+USART_CPHA	stm32f4xx_usart.h	/^  uint16_t USART_CPHA;    \/*!< Specifies the clock transition on which the bit capture is made.$/;"	m	struct:__anon71
+USART_CPHA_1Edge	stm32f4xx_usart.h	221;"	d
+USART_CPHA_2Edge	stm32f4xx_usart.h	222;"	d
+USART_CPOL	stm32f4xx_usart.h	/^  uint16_t USART_CPOL;    \/*!< Specifies the steady state of the serial clock.$/;"	m	struct:__anon71
+USART_CPOL_High	stm32f4xx_usart.h	210;"	d
+USART_CPOL_Low	stm32f4xx_usart.h	209;"	d
+USART_Clock	stm32f4xx_usart.h	/^  uint16_t USART_Clock;   \/*!< Specifies whether the USART clock is enabled or disabled.$/;"	m	struct:__anon71
+USART_ClockInitTypeDef	stm32f4xx_usart.h	/^} USART_ClockInitTypeDef;$/;"	t	typeref:struct:__anon71
+USART_Clock_Disable	stm32f4xx_usart.h	197;"	d
+USART_Clock_Enable	stm32f4xx_usart.h	198;"	d
+USART_DMAReq_Rx	stm32f4xx_usart.h	287;"	d
+USART_DMAReq_Tx	stm32f4xx_usart.h	286;"	d
+USART_FLAG_CTS	stm32f4xx_usart.h	335;"	d
+USART_FLAG_FE	stm32f4xx_usart.h	343;"	d
+USART_FLAG_IDLE	stm32f4xx_usart.h	340;"	d
+USART_FLAG_LBD	stm32f4xx_usart.h	336;"	d
+USART_FLAG_NE	stm32f4xx_usart.h	342;"	d
+USART_FLAG_ORE	stm32f4xx_usart.h	341;"	d
+USART_FLAG_PE	stm32f4xx_usart.h	344;"	d
+USART_FLAG_RXNE	stm32f4xx_usart.h	339;"	d
+USART_FLAG_TC	stm32f4xx_usart.h	338;"	d
+USART_FLAG_TXE	stm32f4xx_usart.h	337;"	d
+USART_HardwareFlowControl	stm32f4xx_usart.h	/^  uint16_t USART_HardwareFlowControl; \/*!< Specifies wether the hardware flow control mode is enabled$/;"	m	struct:__anon70
+USART_HardwareFlowControl_CTS	stm32f4xx_usart.h	183;"	d
+USART_HardwareFlowControl_None	stm32f4xx_usart.h	181;"	d
+USART_HardwareFlowControl_RTS	stm32f4xx_usart.h	182;"	d
+USART_HardwareFlowControl_RTS_CTS	stm32f4xx_usart.h	184;"	d
+USART_IT_CTS	stm32f4xx_usart.h	252;"	d
+USART_IT_ERR	stm32f4xx_usart.h	253;"	d
+USART_IT_FE	stm32f4xx_usart.h	256;"	d
+USART_IT_IDLE	stm32f4xx_usart.h	250;"	d
+USART_IT_LBD	stm32f4xx_usart.h	251;"	d
+USART_IT_NE	stm32f4xx_usart.h	255;"	d
+USART_IT_ORE	stm32f4xx_usart.h	261;"	d
+USART_IT_ORE_ER	stm32f4xx_usart.h	254;"	d
+USART_IT_ORE_RX	stm32f4xx_usart.h	249;"	d
+USART_IT_PE	stm32f4xx_usart.h	245;"	d
+USART_IT_RXNE	stm32f4xx_usart.h	248;"	d
+USART_IT_TC	stm32f4xx_usart.h	247;"	d
+USART_IT_TXE	stm32f4xx_usart.h	246;"	d
+USART_InitTypeDef	stm32f4xx_usart.h	/^} USART_InitTypeDef;$/;"	t	typeref:struct:__anon70
+USART_IrDAMode_LowPower	stm32f4xx_usart.h	323;"	d
+USART_IrDAMode_Normal	stm32f4xx_usart.h	324;"	d
+USART_LINBreakDetectLength_10b	stm32f4xx_usart.h	310;"	d
+USART_LINBreakDetectLength_11b	stm32f4xx_usart.h	311;"	d
+USART_LastBit	stm32f4xx_usart.h	/^  uint16_t USART_LastBit; \/*!< Specifies whether the clock pulse corresponding to the last transmitted$/;"	m	struct:__anon71
+USART_LastBit_Disable	stm32f4xx_usart.h	233;"	d
+USART_LastBit_Enable	stm32f4xx_usart.h	234;"	d
+USART_Mode	stm32f4xx_usart.h	/^  uint16_t USART_Mode;                \/*!< Specifies wether the Receive or Transmit mode is enabled or disabled.$/;"	m	struct:__anon70
+USART_Mode_Rx	stm32f4xx_usart.h	171;"	d
+USART_Mode_Tx	stm32f4xx_usart.h	172;"	d
+USART_Parity	stm32f4xx_usart.h	/^  uint16_t USART_Parity;              \/*!< Specifies the parity mode.$/;"	m	struct:__anon70
+USART_Parity_Even	stm32f4xx_usart.h	158;"	d
+USART_Parity_No	stm32f4xx_usart.h	157;"	d
+USART_Parity_Odd	stm32f4xx_usart.h	159;"	d
+USART_StopBits	stm32f4xx_usart.h	/^  uint16_t USART_StopBits;            \/*!< Specifies the number of stop bits transmitted.$/;"	m	struct:__anon70
+USART_StopBits_0_5	stm32f4xx_usart.h	142;"	d
+USART_StopBits_1	stm32f4xx_usart.h	141;"	d
+USART_StopBits_1_5	stm32f4xx_usart.h	144;"	d
+USART_StopBits_2	stm32f4xx_usart.h	143;"	d
+USART_WakeUp_AddressMark	stm32f4xx_usart.h	299;"	d
+USART_WakeUp_IdleLine	stm32f4xx_usart.h	298;"	d
+USART_WordLength	stm32f4xx_usart.h	/^  uint16_t USART_WordLength;          \/*!< Specifies the number of data bits transmitted or received in a frame.$/;"	m	struct:__anon70
+USART_WordLength_8b	stm32f4xx_usart.h	128;"	d
+USART_WordLength_9b	stm32f4xx_usart.h	129;"	d
+VoltageRange_1	stm32f4xx_flash.h	115;"	d
+VoltageRange_2	stm32f4xx_flash.h	116;"	d
+VoltageRange_3	stm32f4xx_flash.h	117;"	d
+VoltageRange_4	stm32f4xx_flash.h	118;"	d
+WWDG_Prescaler_1	stm32f4xx_wwdg.h	59;"	d
+WWDG_Prescaler_2	stm32f4xx_wwdg.h	60;"	d
+WWDG_Prescaler_4	stm32f4xx_wwdg.h	61;"	d
+WWDG_Prescaler_8	stm32f4xx_wwdg.h	62;"	d
+__MISC_H	misc.h	31;"	d
+__RAM_FUNC	stm32f4xx_flash_ramfunc.h	63;"	d
+__RAM_FUNC	stm32f4xx_flash_ramfunc.h	70;"	d
+__RAM_FUNC	stm32f4xx_flash_ramfunc.h	78;"	d
+__STM32F4xx_ADC_H	stm32f4xx_adc.h	31;"	d
+__STM32F4xx_CAN_H	stm32f4xx_can.h	31;"	d
+__STM32F4xx_CRC_H	stm32f4xx_crc.h	31;"	d
+__STM32F4xx_CRYP_H	stm32f4xx_cryp.h	31;"	d
+__STM32F4xx_DAC_H	stm32f4xx_dac.h	31;"	d
+__STM32F4xx_DBGMCU_H	stm32f4xx_dbgmcu.h	30;"	d
+__STM32F4xx_DCMI_H	stm32f4xx_dcmi.h	30;"	d
+__STM32F4xx_DMA2D_H	stm32f4xx_dma2d.h	31;"	d
+__STM32F4xx_DMA_H	stm32f4xx_dma.h	31;"	d
+__STM32F4xx_EXTI_H	stm32f4xx_exti.h	31;"	d
+__STM32F4xx_FLASH_H	stm32f4xx_flash.h	31;"	d
+__STM32F4xx_FLASH_RAMFUNC_H	stm32f4xx_flash_ramfunc.h	31;"	d
+__STM32F4xx_FMC_H	stm32f4xx_fmc.h	31;"	d
+__STM32F4xx_FSMC_H	stm32f4xx_fsmc.h	31;"	d
+__STM32F4xx_GPIO_H	stm32f4xx_gpio.h	31;"	d
+__STM32F4xx_HASH_H	stm32f4xx_hash.h	31;"	d
+__STM32F4xx_I2C_H	stm32f4xx_i2c.h	31;"	d
+__STM32F4xx_IWDG_H	stm32f4xx_iwdg.h	31;"	d
+__STM32F4xx_LTDC_H	stm32f4xx_ltdc.h	31;"	d
+__STM32F4xx_PWR_H	stm32f4xx_pwr.h	31;"	d
+__STM32F4xx_RCC_H	stm32f4xx_rcc.h	30;"	d
+__STM32F4xx_RNG_H	stm32f4xx_rng.h	31;"	d
+__STM32F4xx_RTC_H	stm32f4xx_rtc.h	31;"	d
+__STM32F4xx_SAI_H	stm32f4xx_sai.h	31;"	d
+__STM32F4xx_SDIO_H	stm32f4xx_sdio.h	31;"	d
+__STM32F4xx_SPI_H	stm32f4xx_spi.h	31;"	d
+__STM32F4xx_SYSCFG_H	stm32f4xx_syscfg.h	31;"	d
+__STM32F4xx_TIM_H	stm32f4xx_tim.h	31;"	d
+__STM32F4xx_USART_H	stm32f4xx_usart.h	31;"	d
+__STM32F4xx_WWDG_H	stm32f4xx_wwdg.h	31;"	d

@@ -25,7 +25,8 @@ static DMA_TypeDef *dma1 = DMA1;
 
 int mpu6050_init(mpu6050_init_struct *init_stru){
     int i,j,errno;
-
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA1, ENABLE);		
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2,ENABLE);   
     data_choose = init_stru->data_choose;
     p_accel_data = init_stru->accel_data;
     p_gyro_data = init_stru->gyro_data;
@@ -103,7 +104,7 @@ int mpu6050_init(mpu6050_init_struct *init_stru){
 
 #if I2Cn == 1
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C1,ENABLE);  //使能I2C时钟
+		RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C1,ENABLE);  //使能I2C时钟
     gpio_init_stru.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9;   //PB8:SCL  PB9:SDA
     GPIO_Init(GPIOB,&gpio_init_stru);
     GPIO_PinAFConfig(GPIOB,GPIO_PinSource8,GPIO_AF_I2C1);
@@ -112,7 +113,7 @@ int mpu6050_init(mpu6050_init_struct *init_stru){
 
 #elif I2Cn == 2
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOF, ENABLE);
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C2,ENABLE);  //使能I2C时钟
+		RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C2,ENABLE);  //使能I2C时钟
     gpio_init_stru.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;  //PF0:SCL  PF1:SDA
     GPIO_Init(GPIOF,&gpio_init_stru);
     GPIO_PinAFConfig(GPIOF,GPIO_PinSource0,GPIO_AF_I2C2);
@@ -251,7 +252,7 @@ int mpu6050_reg_read(u8 reg_addr,u8 *data_read){
         return -1;
     }
 	
-	I2C_GenerateSTART(MPU6050_I2CX,ENABLE); //发出起始信号
+		I2C_GenerateSTART(MPU6050_I2CX,ENABLE); //发出起始信号
     timeout = 1000000;
     while(I2C_GetFlagStatus(MPU6050_I2CX,I2C_FLAG_SB) == 0){ //等待起始信号发送完毕
         if(timeout-- == 0){
@@ -279,7 +280,7 @@ int mpu6050_reg_read(u8 reg_addr,u8 *data_read){
         }
     }
     //发出重复起始信号(该动作会使BTF位被清零),开始读数据
-	I2C_GenerateSTOP(MPU6050_I2CX,ENABLE);
+		I2C_GenerateSTOP(MPU6050_I2CX,ENABLE);
     I2C_GenerateSTART(MPU6050_I2CX,ENABLE);  
 
     timeout = 1000000;

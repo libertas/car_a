@@ -1,0 +1,969 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ADC_AnalogWatchdogCmd	stm32f4xx_adc.c	/^void ADC_AnalogWatchdogCmd(ADC_TypeDef* ADCx, uint32_t ADC_AnalogWatchdog)$/;"	f
+ADC_AnalogWatchdogSingleChannelConfig	stm32f4xx_adc.c	/^void ADC_AnalogWatchdogSingleChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel)$/;"	f
+ADC_AnalogWatchdogThresholdsConfig	stm32f4xx_adc.c	/^void ADC_AnalogWatchdogThresholdsConfig(ADC_TypeDef* ADCx, uint16_t HighThreshold,$/;"	f
+ADC_AutoInjectedConvCmd	stm32f4xx_adc.c	/^void ADC_AutoInjectedConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState)$/;"	f
+ADC_ClearFlag	stm32f4xx_adc.c	/^void ADC_ClearFlag(ADC_TypeDef* ADCx, uint8_t ADC_FLAG)$/;"	f
+ADC_ClearITPendingBit	stm32f4xx_adc.c	/^void ADC_ClearITPendingBit(ADC_TypeDef* ADCx, uint16_t ADC_IT)$/;"	f
+ADC_Cmd	stm32f4xx_adc.c	/^void ADC_Cmd(ADC_TypeDef* ADCx, FunctionalState NewState)$/;"	f
+ADC_CommonInit	stm32f4xx_adc.c	/^void ADC_CommonInit(ADC_CommonInitTypeDef* ADC_CommonInitStruct)$/;"	f
+ADC_CommonStructInit	stm32f4xx_adc.c	/^void ADC_CommonStructInit(ADC_CommonInitTypeDef* ADC_CommonInitStruct)$/;"	f
+ADC_ContinuousModeCmd	stm32f4xx_adc.c	/^void ADC_ContinuousModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState)$/;"	f
+ADC_DMACmd	stm32f4xx_adc.c	/^void ADC_DMACmd(ADC_TypeDef* ADCx, FunctionalState NewState)$/;"	f
+ADC_DMARequestAfterLastTransferCmd	stm32f4xx_adc.c	/^void ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef* ADCx, FunctionalState NewState)$/;"	f
+ADC_DeInit	stm32f4xx_adc.c	/^void ADC_DeInit(void)$/;"	f
+ADC_DiscModeChannelCountConfig	stm32f4xx_adc.c	/^void ADC_DiscModeChannelCountConfig(ADC_TypeDef* ADCx, uint8_t Number)$/;"	f
+ADC_DiscModeCmd	stm32f4xx_adc.c	/^void ADC_DiscModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState)$/;"	f
+ADC_EOCOnEachRegularChannelCmd	stm32f4xx_adc.c	/^void ADC_EOCOnEachRegularChannelCmd(ADC_TypeDef* ADCx, FunctionalState NewState)$/;"	f
+ADC_ExternalTrigInjectedConvConfig	stm32f4xx_adc.c	/^void ADC_ExternalTrigInjectedConvConfig(ADC_TypeDef* ADCx, uint32_t ADC_ExternalTrigInjecConv)$/;"	f
+ADC_ExternalTrigInjectedConvEdgeConfig	stm32f4xx_adc.c	/^void ADC_ExternalTrigInjectedConvEdgeConfig(ADC_TypeDef* ADCx, uint32_t ADC_ExternalTrigInjecConvEdge)$/;"	f
+ADC_GetConversionValue	stm32f4xx_adc.c	/^uint16_t ADC_GetConversionValue(ADC_TypeDef* ADCx)$/;"	f
+ADC_GetFlagStatus	stm32f4xx_adc.c	/^FlagStatus ADC_GetFlagStatus(ADC_TypeDef* ADCx, uint8_t ADC_FLAG)$/;"	f
+ADC_GetITStatus	stm32f4xx_adc.c	/^ITStatus ADC_GetITStatus(ADC_TypeDef* ADCx, uint16_t ADC_IT)$/;"	f
+ADC_GetInjectedConversionValue	stm32f4xx_adc.c	/^uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedChannel)$/;"	f
+ADC_GetMultiModeConversionValue	stm32f4xx_adc.c	/^uint32_t ADC_GetMultiModeConversionValue(void)$/;"	f
+ADC_GetSoftwareStartConvStatus	stm32f4xx_adc.c	/^FlagStatus ADC_GetSoftwareStartConvStatus(ADC_TypeDef* ADCx)$/;"	f
+ADC_GetSoftwareStartInjectedConvCmdStatus	stm32f4xx_adc.c	/^FlagStatus ADC_GetSoftwareStartInjectedConvCmdStatus(ADC_TypeDef* ADCx)$/;"	f
+ADC_ITConfig	stm32f4xx_adc.c	/^void ADC_ITConfig(ADC_TypeDef* ADCx, uint16_t ADC_IT, FunctionalState NewState)  $/;"	f
+ADC_Init	stm32f4xx_adc.c	/^void ADC_Init(ADC_TypeDef* ADCx, ADC_InitTypeDef* ADC_InitStruct)$/;"	f
+ADC_InjectedChannelConfig	stm32f4xx_adc.c	/^void ADC_InjectedChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t Rank, uint8_t ADC_SampleTime)$/;"	f
+ADC_InjectedDiscModeCmd	stm32f4xx_adc.c	/^void ADC_InjectedDiscModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState)$/;"	f
+ADC_InjectedSequencerLengthConfig	stm32f4xx_adc.c	/^void ADC_InjectedSequencerLengthConfig(ADC_TypeDef* ADCx, uint8_t Length)$/;"	f
+ADC_MultiModeDMARequestAfterLastTransferCmd	stm32f4xx_adc.c	/^void ADC_MultiModeDMARequestAfterLastTransferCmd(FunctionalState NewState)$/;"	f
+ADC_RegularChannelConfig	stm32f4xx_adc.c	/^void ADC_RegularChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t Rank, uint8_t ADC_SampleTime)$/;"	f
+ADC_SetInjectedOffset	stm32f4xx_adc.c	/^void ADC_SetInjectedOffset(ADC_TypeDef* ADCx, uint8_t ADC_InjectedChannel, uint16_t Offset)$/;"	f
+ADC_SoftwareStartConv	stm32f4xx_adc.c	/^void ADC_SoftwareStartConv(ADC_TypeDef* ADCx)$/;"	f
+ADC_SoftwareStartInjectedConv	stm32f4xx_adc.c	/^void ADC_SoftwareStartInjectedConv(ADC_TypeDef* ADCx)$/;"	f
+ADC_StructInit	stm32f4xx_adc.c	/^void ADC_StructInit(ADC_InitTypeDef* ADC_InitStruct)$/;"	f
+ADC_TempSensorVrefintCmd	stm32f4xx_adc.c	/^void ADC_TempSensorVrefintCmd(FunctionalState NewState)                $/;"	f
+ADC_VBATCmd	stm32f4xx_adc.c	/^void ADC_VBATCmd(FunctionalState NewState)                             $/;"	f
+AESBUSY_TIMEOUT	stm32f4xx_cryp_aes.c	68;"	d	file:
+AIRCR_VECTKEY_MASK	misc.c	89;"	d	file:
+APBAHBPrescTable	stm32f4xx_rcc.c	/^static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6, 7, 8, 9};$/;"	v	file:
+ATACMD_BitNumber	stm32f4xx_sdio.c	195;"	d	file:
+BCR_FACCEN_SET	stm32f4xx_fmc.c	61;"	d	file:
+BCR_FACCEN_SET	stm32f4xx_fsmc.c	62;"	d	file:
+BCR_MBKEN_RESET	stm32f4xx_fmc.c	60;"	d	file:
+BCR_MBKEN_RESET	stm32f4xx_fsmc.c	61;"	d	file:
+BCR_MBKEN_SET	stm32f4xx_fmc.c	59;"	d	file:
+BCR_MBKEN_SET	stm32f4xx_fsmc.c	60;"	d	file:
+BDCR_ADDRESS	stm32f4xx_rcc.c	137;"	d	file:
+BDCR_BDRST_BB	stm32f4xx_rcc.c	106;"	d	file:
+BDCR_OFFSET	stm32f4xx_rcc.c	101;"	d	file:
+BDCR_RTCEN_BB	stm32f4xx_rcc.c	103;"	d	file:
+BDRST_BitNumber	stm32f4xx_rcc.c	105;"	d	file:
+BIT_MASK	stm32f4xx_wwdg.c	110;"	d	file:
+BRE_BitNumber	stm32f4xx_pwr.c	98;"	d	file:
+CAN_CancelTransmit	stm32f4xx_can.c	/^void CAN_CancelTransmit(CAN_TypeDef* CANx, uint8_t Mailbox)$/;"	f
+CAN_ClearFlag	stm32f4xx_can.c	/^void CAN_ClearFlag(CAN_TypeDef* CANx, uint32_t CAN_FLAG)$/;"	f
+CAN_ClearITPendingBit	stm32f4xx_can.c	/^void CAN_ClearITPendingBit(CAN_TypeDef* CANx, uint32_t CAN_IT)$/;"	f
+CAN_DBGFreeze	stm32f4xx_can.c	/^void CAN_DBGFreeze(CAN_TypeDef* CANx, FunctionalState NewState)$/;"	f
+CAN_DeInit	stm32f4xx_can.c	/^void CAN_DeInit(CAN_TypeDef* CANx)$/;"	f
+CAN_FIFORelease	stm32f4xx_can.c	/^void CAN_FIFORelease(CAN_TypeDef* CANx, uint8_t FIFONumber)$/;"	f
+CAN_FLAGS_ESR	stm32f4xx_can.c	121;"	d	file:
+CAN_FLAGS_MSR	stm32f4xx_can.c	119;"	d	file:
+CAN_FLAGS_RF0R	stm32f4xx_can.c	117;"	d	file:
+CAN_FLAGS_RF1R	stm32f4xx_can.c	115;"	d	file:
+CAN_FLAGS_TSR	stm32f4xx_can.c	113;"	d	file:
+CAN_FilterInit	stm32f4xx_can.c	/^void CAN_FilterInit(CAN_FilterInitTypeDef* CAN_FilterInitStruct)$/;"	f
+CAN_GetFlagStatus	stm32f4xx_can.c	/^FlagStatus CAN_GetFlagStatus(CAN_TypeDef* CANx, uint32_t CAN_FLAG)$/;"	f
+CAN_GetITStatus	stm32f4xx_can.c	/^ITStatus CAN_GetITStatus(CAN_TypeDef* CANx, uint32_t CAN_IT)$/;"	f
+CAN_GetLSBTransmitErrorCounter	stm32f4xx_can.c	/^uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx)$/;"	f
+CAN_GetLastErrorCode	stm32f4xx_can.c	/^uint8_t CAN_GetLastErrorCode(CAN_TypeDef* CANx)$/;"	f
+CAN_GetReceiveErrorCounter	stm32f4xx_can.c	/^uint8_t CAN_GetReceiveErrorCounter(CAN_TypeDef* CANx)$/;"	f
+CAN_ITConfig	stm32f4xx_can.c	/^void CAN_ITConfig(CAN_TypeDef* CANx, uint32_t CAN_IT, FunctionalState NewState)$/;"	f
+CAN_Init	stm32f4xx_can.c	/^uint8_t CAN_Init(CAN_TypeDef* CANx, CAN_InitTypeDef* CAN_InitStruct)$/;"	f
+CAN_MODE_MASK	stm32f4xx_can.c	128;"	d	file:
+CAN_MessagePending	stm32f4xx_can.c	/^uint8_t CAN_MessagePending(CAN_TypeDef* CANx, uint8_t FIFONumber)$/;"	f
+CAN_OperatingModeRequest	stm32f4xx_can.c	/^uint8_t CAN_OperatingModeRequest(CAN_TypeDef* CANx, uint8_t CAN_OperatingMode)$/;"	f
+CAN_Receive	stm32f4xx_can.c	/^void CAN_Receive(CAN_TypeDef* CANx, uint8_t FIFONumber, CanRxMsg* RxMessage)$/;"	f
+CAN_SlaveStartBank	stm32f4xx_can.c	/^void CAN_SlaveStartBank(uint8_t CAN_BankNumber) $/;"	f
+CAN_Sleep	stm32f4xx_can.c	/^uint8_t CAN_Sleep(CAN_TypeDef* CANx)$/;"	f
+CAN_StructInit	stm32f4xx_can.c	/^void CAN_StructInit(CAN_InitTypeDef* CAN_InitStruct)$/;"	f
+CAN_TTComModeCmd	stm32f4xx_can.c	/^void CAN_TTComModeCmd(CAN_TypeDef* CANx, FunctionalState NewState)$/;"	f
+CAN_TXMAILBOX_0	stm32f4xx_can.c	124;"	d	file:
+CAN_TXMAILBOX_1	stm32f4xx_can.c	125;"	d	file:
+CAN_TXMAILBOX_2	stm32f4xx_can.c	126;"	d	file:
+CAN_Transmit	stm32f4xx_can.c	/^uint8_t CAN_Transmit(CAN_TypeDef* CANx, CanTxMsg* TxMessage)$/;"	f
+CAN_TransmitStatus	stm32f4xx_can.c	/^uint8_t CAN_TransmitStatus(CAN_TypeDef* CANx, uint8_t TransmitMailbox)$/;"	f
+CAN_WakeUp	stm32f4xx_can.c	/^uint8_t CAN_WakeUp(CAN_TypeDef* CANx)$/;"	f
+CCER_CCE_SET	stm32f4xx_tim.c	137;"	d	file:
+CCER_CCNE_SET	stm32f4xx_tim.c	138;"	d	file:
+CCMR_OC13M_MASK	stm32f4xx_tim.c	139;"	d	file:
+CCMR_OC24M_MASK	stm32f4xx_tim.c	140;"	d	file:
+CCMR_OFFSET	stm32f4xx_tim.c	136;"	d	file:
+CDR_ADDRESS	stm32f4xx_adc.c	168;"	d	file:
+CFGR_I2SSRC_BB	stm32f4xx_rcc.c	97;"	d	file:
+CFGR_MCO1_RESET_MASK	stm32f4xx_rcc.c	122;"	d	file:
+CFGR_MCO2_RESET_MASK	stm32f4xx_rcc.c	121;"	d	file:
+CFGR_OFFSET	stm32f4xx_rcc.c	95;"	d	file:
+CFR_EWI_BB	stm32f4xx_wwdg.c	104;"	d	file:
+CFR_OFFSET	stm32f4xx_wwdg.c	102;"	d	file:
+CFR_WDGTB_MASK	stm32f4xx_wwdg.c	108;"	d	file:
+CFR_W_MASK	stm32f4xx_wwdg.c	109;"	d	file:
+CIR_BYTE2_ADDRESS	stm32f4xx_rcc.c	131;"	d	file:
+CIR_BYTE3_ADDRESS	stm32f4xx_rcc.c	134;"	d	file:
+CLKCR_CLEAR_MASK	stm32f4xx_sdio.c	223;"	d	file:
+CLKCR_CLKEN_BB	stm32f4xx_sdio.c	178;"	d	file:
+CLKCR_OFFSET	stm32f4xx_sdio.c	176;"	d	file:
+CLKEN_BitNumber	stm32f4xx_sdio.c	177;"	d	file:
+CMD_ATACMD_BB	stm32f4xx_sdio.c	196;"	d	file:
+CMD_CLEAR_MASK	stm32f4xx_sdio.c	235;"	d	file:
+CMD_ENCMDCOMPL_BB	stm32f4xx_sdio.c	188;"	d	file:
+CMD_NIEN_BB	stm32f4xx_sdio.c	192;"	d	file:
+CMD_OFFSET	stm32f4xx_sdio.c	182;"	d	file:
+CMD_SDIOSUSPEND_BB	stm32f4xx_sdio.c	184;"	d	file:
+CMPCR_CMP_PD_BB	stm32f4xx_syscfg.c	83;"	d	file:
+CMPCR_OFFSET	stm32f4xx_syscfg.c	81;"	d	file:
+CMP_PD_BitNumber	stm32f4xx_syscfg.c	82;"	d	file:
+CR1_AWDCH_RESET	stm32f4xx_adc.c	125;"	d	file:
+CR1_AWDMode_RESET	stm32f4xx_adc.c	128;"	d	file:
+CR1_CLEAR_MASK	stm32f4xx_adc.c	131;"	d	file:
+CR1_CLEAR_MASK	stm32f4xx_i2c.c	107;"	d	file:
+CR1_CLEAR_MASK	stm32f4xx_sai.c	142;"	d	file:
+CR1_CLEAR_MASK	stm32f4xx_spi.c	175;"	d	file:
+CR1_CLEAR_MASK	stm32f4xx_usart.c	108;"	d	file:
+CR1_DISCNUM_RESET	stm32f4xx_adc.c	122;"	d	file:
+CR2_CLEAR_MASK	stm32f4xx_adc.c	143;"	d	file:
+CR2_CLOCK_CLEAR_MASK	stm32f4xx_usart.c	113;"	d	file:
+CR2_EXTEN_RESET	stm32f4xx_adc.c	134;"	d	file:
+CR2_JEXTEN_RESET	stm32f4xx_adc.c	137;"	d	file:
+CR2_JEXTSEL_RESET	stm32f4xx_adc.c	140;"	d	file:
+CR3_CLEAR_MASK	stm32f4xx_usart.c	117;"	d	file:
+CRC_CalcBlockCRC	stm32f4xx_crc.c	/^uint32_t CRC_CalcBlockCRC(uint32_t pBuffer[], uint32_t BufferLength)$/;"	f
+CRC_CalcCRC	stm32f4xx_crc.c	/^uint32_t CRC_CalcCRC(uint32_t Data)$/;"	f
+CRC_GetCRC	stm32f4xx_crc.c	/^uint32_t CRC_GetCRC(void)$/;"	f
+CRC_GetIDRegister	stm32f4xx_crc.c	/^uint8_t CRC_GetIDRegister(void)$/;"	f
+CRC_ResetDR	stm32f4xx_crc.c	/^void CRC_ResetDR(void)$/;"	f
+CRC_SetIDRegister	stm32f4xx_crc.c	/^void CRC_SetIDRegister(uint8_t IDValue)$/;"	f
+CRYP_AES_CBC	stm32f4xx_cryp_aes.c	/^ErrorStatus CRYP_AES_CBC(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,$/;"	f
+CRYP_AES_CCM	stm32f4xx_cryp_aes.c	/^ErrorStatus CRYP_AES_CCM(uint8_t Mode, $/;"	f
+CRYP_AES_CTR	stm32f4xx_cryp_aes.c	/^ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key, $/;"	f
+CRYP_AES_ECB	stm32f4xx_cryp_aes.c	/^ErrorStatus CRYP_AES_ECB(uint8_t Mode, uint8_t* Key, uint16_t Keysize,$/;"	f
+CRYP_AES_GCM	stm32f4xx_cryp_aes.c	/^ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],$/;"	f
+CRYP_Cmd	stm32f4xx_cryp.c	/^void CRYP_Cmd(FunctionalState NewState)$/;"	f
+CRYP_DES_CBC	stm32f4xx_cryp_des.c	/^ErrorStatus CRYP_DES_CBC(uint8_t Mode, uint8_t Key[8], uint8_t InitVectors[8],$/;"	f
+CRYP_DES_ECB	stm32f4xx_cryp_des.c	/^ErrorStatus CRYP_DES_ECB(uint8_t Mode, uint8_t Key[8], uint8_t *Input, $/;"	f
+CRYP_DMACmd	stm32f4xx_cryp.c	/^void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState)$/;"	f
+CRYP_DataIn	stm32f4xx_cryp.c	/^void CRYP_DataIn(uint32_t Data)$/;"	f
+CRYP_DataOut	stm32f4xx_cryp.c	/^uint32_t CRYP_DataOut(void)$/;"	f
+CRYP_DeInit	stm32f4xx_cryp.c	/^void CRYP_DeInit(void)$/;"	f
+CRYP_FIFOFlush	stm32f4xx_cryp.c	/^void CRYP_FIFOFlush(void)$/;"	f
+CRYP_GetCmdStatus	stm32f4xx_cryp.c	/^FunctionalState CRYP_GetCmdStatus(void)$/;"	f
+CRYP_GetFlagStatus	stm32f4xx_cryp.c	/^FlagStatus CRYP_GetFlagStatus(uint8_t CRYP_FLAG)$/;"	f
+CRYP_GetITStatus	stm32f4xx_cryp.c	/^ITStatus CRYP_GetITStatus(uint8_t CRYP_IT)$/;"	f
+CRYP_ITConfig	stm32f4xx_cryp.c	/^void CRYP_ITConfig(uint8_t CRYP_IT, FunctionalState NewState)$/;"	f
+CRYP_IVInit	stm32f4xx_cryp.c	/^void CRYP_IVInit(CRYP_IVInitTypeDef* CRYP_IVInitStruct)$/;"	f
+CRYP_IVStructInit	stm32f4xx_cryp.c	/^void CRYP_IVStructInit(CRYP_IVInitTypeDef* CRYP_IVInitStruct)$/;"	f
+CRYP_Init	stm32f4xx_cryp.c	/^void CRYP_Init(CRYP_InitTypeDef* CRYP_InitStruct)$/;"	f
+CRYP_KeyInit	stm32f4xx_cryp.c	/^void CRYP_KeyInit(CRYP_KeyInitTypeDef* CRYP_KeyInitStruct)$/;"	f
+CRYP_KeyStructInit	stm32f4xx_cryp.c	/^void CRYP_KeyStructInit(CRYP_KeyInitTypeDef* CRYP_KeyInitStruct)$/;"	f
+CRYP_PhaseConfig	stm32f4xx_cryp.c	/^void CRYP_PhaseConfig(uint32_t CRYP_Phase)$/;"	f
+CRYP_RestoreContext	stm32f4xx_cryp.c	/^void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore)  $/;"	f
+CRYP_SaveContext	stm32f4xx_cryp.c	/^ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,$/;"	f
+CRYP_StructInit	stm32f4xx_cryp.c	/^void CRYP_StructInit(CRYP_InitTypeDef* CRYP_InitStruct)$/;"	f
+CRYP_TDES_CBC	stm32f4xx_cryp_tdes.c	/^ErrorStatus CRYP_TDES_CBC(uint8_t Mode, uint8_t Key[24], uint8_t InitVectors[8],$/;"	f
+CRYP_TDES_ECB	stm32f4xx_cryp_tdes.c	/^ErrorStatus CRYP_TDES_ECB(uint8_t Mode, uint8_t Key[24], uint8_t *Input, $/;"	f
+CR_BYTE3_ADDRESS	stm32f4xx_rcc.c	128;"	d	file:
+CR_CLEAR_MASK	stm32f4xx_adc.c	171;"	d	file:
+CR_CLEAR_MASK	stm32f4xx_dac.c	147;"	d	file:
+CR_CSSON_BB	stm32f4xx_rcc.c	81;"	d	file:
+CR_DBP_BB	stm32f4xx_pwr.c	60;"	d	file:
+CR_DS_MASK	stm32f4xx_pwr.c	104;"	d	file:
+CR_FPDS_BB	stm32f4xx_pwr.c	68;"	d	file:
+CR_HSION_BB	stm32f4xx_rcc.c	78;"	d	file:
+CR_LPLVDS_BB	stm32f4xx_pwr.c	88;"	d	file:
+CR_MASK	stm32f4xx_dma2d.c	77;"	d	file:
+CR_MRLVDS_BB	stm32f4xx_pwr.c	84;"	d	file:
+CR_ODEN_BB	stm32f4xx_pwr.c	76;"	d	file:
+CR_ODSWEN_BB	stm32f4xx_pwr.c	80;"	d	file:
+CR_OFFSET	stm32f4xx_pwr.c	58;"	d	file:
+CR_OFFSET	stm32f4xx_rcc.c	76;"	d	file:
+CR_PLLI2SON_BB	stm32f4xx_rcc.c	87;"	d	file:
+CR_PLLON_BB	stm32f4xx_rcc.c	84;"	d	file:
+CR_PLLSAION_BB	stm32f4xx_rcc.c	91;"	d	file:
+CR_PLS_MASK	stm32f4xx_pwr.c	105;"	d	file:
+CR_PMODE_BB	stm32f4xx_pwr.c	72;"	d	file:
+CR_PVDE_BB	stm32f4xx_pwr.c	64;"	d	file:
+CR_VOS_MASK	stm32f4xx_pwr.c	106;"	d	file:
+CSR_BRE_BB	stm32f4xx_pwr.c	99;"	d	file:
+CSR_EWUP_BB	stm32f4xx_pwr.c	95;"	d	file:
+CSR_LSION_BB	stm32f4xx_rcc.c	112;"	d	file:
+CSR_OFFSET	stm32f4xx_pwr.c	93;"	d	file:
+CSR_OFFSET	stm32f4xx_rcc.c	110;"	d	file:
+CSSON_BitNumber	stm32f4xx_rcc.c	80;"	d	file:
+CheckITStatus	stm32f4xx_can.c	/^static ITStatus CheckITStatus(uint32_t CAN_Reg, uint32_t It_Bit)$/;"	f	file:
+DAC_ClearFlag	stm32f4xx_dac.c	/^void DAC_ClearFlag(uint32_t DAC_Channel, uint32_t DAC_FLAG)$/;"	f
+DAC_ClearITPendingBit	stm32f4xx_dac.c	/^void DAC_ClearITPendingBit(uint32_t DAC_Channel, uint32_t DAC_IT)$/;"	f
+DAC_Cmd	stm32f4xx_dac.c	/^void DAC_Cmd(uint32_t DAC_Channel, FunctionalState NewState)$/;"	f
+DAC_DMACmd	stm32f4xx_dac.c	/^void DAC_DMACmd(uint32_t DAC_Channel, FunctionalState NewState)$/;"	f
+DAC_DeInit	stm32f4xx_dac.c	/^void DAC_DeInit(void)$/;"	f
+DAC_DualSoftwareTriggerCmd	stm32f4xx_dac.c	/^void DAC_DualSoftwareTriggerCmd(FunctionalState NewState)$/;"	f
+DAC_GetDataOutputValue	stm32f4xx_dac.c	/^uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel)$/;"	f
+DAC_GetFlagStatus	stm32f4xx_dac.c	/^FlagStatus DAC_GetFlagStatus(uint32_t DAC_Channel, uint32_t DAC_FLAG)$/;"	f
+DAC_GetITStatus	stm32f4xx_dac.c	/^ITStatus DAC_GetITStatus(uint32_t DAC_Channel, uint32_t DAC_IT)$/;"	f
+DAC_ITConfig	stm32f4xx_dac.c	/^void DAC_ITConfig(uint32_t DAC_Channel, uint32_t DAC_IT, FunctionalState NewState)  $/;"	f
+DAC_Init	stm32f4xx_dac.c	/^void DAC_Init(uint32_t DAC_Channel, DAC_InitTypeDef* DAC_InitStruct)$/;"	f
+DAC_SetChannel1Data	stm32f4xx_dac.c	/^void DAC_SetChannel1Data(uint32_t DAC_Align, uint16_t Data)$/;"	f
+DAC_SetChannel2Data	stm32f4xx_dac.c	/^void DAC_SetChannel2Data(uint32_t DAC_Align, uint16_t Data)$/;"	f
+DAC_SetDualChannelData	stm32f4xx_dac.c	/^void DAC_SetDualChannelData(uint32_t DAC_Align, uint16_t Data2, uint16_t Data1)$/;"	f
+DAC_SoftwareTriggerCmd	stm32f4xx_dac.c	/^void DAC_SoftwareTriggerCmd(uint32_t DAC_Channel, FunctionalState NewState)$/;"	f
+DAC_StructInit	stm32f4xx_dac.c	/^void DAC_StructInit(DAC_InitTypeDef* DAC_InitStruct)$/;"	f
+DAC_WaveGenerationCmd	stm32f4xx_dac.c	/^void DAC_WaveGenerationCmd(uint32_t DAC_Channel, uint32_t DAC_Wave, FunctionalState NewState)$/;"	f
+DBGMCU_APB1PeriphConfig	stm32f4xx_dbgmcu.c	/^void DBGMCU_APB1PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState)$/;"	f
+DBGMCU_APB2PeriphConfig	stm32f4xx_dbgmcu.c	/^void DBGMCU_APB2PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState)$/;"	f
+DBGMCU_Config	stm32f4xx_dbgmcu.c	/^void DBGMCU_Config(uint32_t DBGMCU_Periph, FunctionalState NewState)$/;"	f
+DBGMCU_GetDEVID	stm32f4xx_dbgmcu.c	/^uint32_t DBGMCU_GetDEVID(void)$/;"	f
+DBGMCU_GetREVID	stm32f4xx_dbgmcu.c	/^uint32_t DBGMCU_GetREVID(void)$/;"	f
+DBP_BitNumber	stm32f4xx_pwr.c	59;"	d	file:
+DCKCFGR_OFFSET	stm32f4xx_rcc.c	116;"	d	file:
+DCKCFGR_TIMPRE_BB	stm32f4xx_rcc.c	118;"	d	file:
+DCMI_CROPCmd	stm32f4xx_dcmi.c	/^void DCMI_CROPCmd(FunctionalState NewState)$/;"	f
+DCMI_CROPConfig	stm32f4xx_dcmi.c	/^void DCMI_CROPConfig(DCMI_CROPInitTypeDef* DCMI_CROPInitStruct)$/;"	f
+DCMI_CaptureCmd	stm32f4xx_dcmi.c	/^void DCMI_CaptureCmd(FunctionalState NewState)$/;"	f
+DCMI_ClearFlag	stm32f4xx_dcmi.c	/^void DCMI_ClearFlag(uint16_t DCMI_FLAG)$/;"	f
+DCMI_ClearITPendingBit	stm32f4xx_dcmi.c	/^void DCMI_ClearITPendingBit(uint16_t DCMI_IT)$/;"	f
+DCMI_Cmd	stm32f4xx_dcmi.c	/^void DCMI_Cmd(FunctionalState NewState)$/;"	f
+DCMI_DeInit	stm32f4xx_dcmi.c	/^void DCMI_DeInit(void)$/;"	f
+DCMI_GetFlagStatus	stm32f4xx_dcmi.c	/^FlagStatus DCMI_GetFlagStatus(uint16_t DCMI_FLAG)$/;"	f
+DCMI_GetITStatus	stm32f4xx_dcmi.c	/^ITStatus DCMI_GetITStatus(uint16_t DCMI_IT)$/;"	f
+DCMI_ITConfig	stm32f4xx_dcmi.c	/^void DCMI_ITConfig(uint16_t DCMI_IT, FunctionalState NewState)$/;"	f
+DCMI_Init	stm32f4xx_dcmi.c	/^void DCMI_Init(DCMI_InitTypeDef* DCMI_InitStruct)$/;"	f
+DCMI_JPEGCmd	stm32f4xx_dcmi.c	/^void DCMI_JPEGCmd(FunctionalState NewState)$/;"	f
+DCMI_ReadData	stm32f4xx_dcmi.c	/^uint32_t DCMI_ReadData(void)$/;"	f
+DCMI_SetEmbeddedSynchroCodes	stm32f4xx_dcmi.c	/^void DCMI_SetEmbeddedSynchroCodes(DCMI_CodesInitTypeDef* DCMI_CodesInitStruct)$/;"	f
+DCMI_StructInit	stm32f4xx_dcmi.c	/^void DCMI_StructInit(DCMI_InitTypeDef* DCMI_InitStruct)$/;"	f
+DCTRL_CLEAR_MASK	stm32f4xx_sdio.c	231;"	d	file:
+DCTRL_DMAEN_BB	stm32f4xx_sdio.c	202;"	d	file:
+DCTRL_OFFSET	stm32f4xx_sdio.c	200;"	d	file:
+DCTRL_RWMOD_BB	stm32f4xx_sdio.c	214;"	d	file:
+DCTRL_RWSTART_BB	stm32f4xx_sdio.c	206;"	d	file:
+DCTRL_RWSTOP_BB	stm32f4xx_sdio.c	210;"	d	file:
+DCTRL_SDIOEN_BB	stm32f4xx_sdio.c	218;"	d	file:
+DEAD_MASK	stm32f4xx_dma2d.c	79;"	d	file:
+DESBUSY_TIMEOUT	stm32f4xx_cryp_des.c	62;"	d	file:
+DHR12R1_OFFSET	stm32f4xx_dac.c	154;"	d	file:
+DHR12R2_OFFSET	stm32f4xx_dac.c	155;"	d	file:
+DHR12RD_OFFSET	stm32f4xx_dac.c	156;"	d	file:
+DMA2D_AbortTransfer	stm32f4xx_dma2d.c	/^void DMA2D_AbortTransfer(void)$/;"	f
+DMA2D_BGConfig	stm32f4xx_dma2d.c	/^void DMA2D_BGConfig(DMA2D_BG_InitTypeDef* DMA2D_BG_InitStruct)$/;"	f
+DMA2D_BGStart	stm32f4xx_dma2d.c	/^void DMA2D_BGStart(FunctionalState NewState) $/;"	f
+DMA2D_BG_StructInit	stm32f4xx_dma2d.c	/^void DMA2D_BG_StructInit(DMA2D_BG_InitTypeDef* DMA2D_BG_InitStruct)$/;"	f
+DMA2D_ClearFlag	stm32f4xx_dma2d.c	/^void DMA2D_ClearFlag(uint32_t DMA2D_FLAG)$/;"	f
+DMA2D_ClearITPendingBit	stm32f4xx_dma2d.c	/^void DMA2D_ClearITPendingBit(uint32_t DMA2D_IT)$/;"	f
+DMA2D_DeInit	stm32f4xx_dma2d.c	/^void DMA2D_DeInit(void)$/;"	f
+DMA2D_DeadTimeConfig	stm32f4xx_dma2d.c	/^void DMA2D_DeadTimeConfig(uint32_t DMA2D_DeadTime, FunctionalState NewState)$/;"	f
+DMA2D_FGConfig	stm32f4xx_dma2d.c	/^void DMA2D_FGConfig(DMA2D_FG_InitTypeDef* DMA2D_FG_InitStruct)$/;"	f
+DMA2D_FGStart	stm32f4xx_dma2d.c	/^void DMA2D_FGStart(FunctionalState NewState) $/;"	f
+DMA2D_FG_StructInit	stm32f4xx_dma2d.c	/^void DMA2D_FG_StructInit(DMA2D_FG_InitTypeDef* DMA2D_FG_InitStruct)$/;"	f
+DMA2D_GetFlagStatus	stm32f4xx_dma2d.c	/^FlagStatus DMA2D_GetFlagStatus(uint32_t DMA2D_FLAG)$/;"	f
+DMA2D_GetITStatus	stm32f4xx_dma2d.c	/^ITStatus DMA2D_GetITStatus(uint32_t DMA2D_IT)$/;"	f
+DMA2D_ITConfig	stm32f4xx_dma2d.c	/^void DMA2D_ITConfig(uint32_t DMA2D_IT, FunctionalState NewState)$/;"	f
+DMA2D_Init	stm32f4xx_dma2d.c	/^void DMA2D_Init(DMA2D_InitTypeDef* DMA2D_InitStruct)$/;"	f
+DMA2D_LineWatermarkConfig	stm32f4xx_dma2d.c	/^void DMA2D_LineWatermarkConfig(uint32_t DMA2D_LWatermarkConfig)$/;"	f
+DMA2D_StartTransfer	stm32f4xx_dma2d.c	/^void DMA2D_StartTransfer(void)$/;"	f
+DMA2D_StructInit	stm32f4xx_dma2d.c	/^void DMA2D_StructInit(DMA2D_InitTypeDef* DMA2D_InitStruct)$/;"	f
+DMA2D_Suspend	stm32f4xx_dma2d.c	/^void DMA2D_Suspend(FunctionalState NewState)$/;"	f
+DMAEN_BitNumber	stm32f4xx_sdio.c	201;"	d	file:
+DMA_ClearFlag	stm32f4xx_dma.c	/^void DMA_ClearFlag(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_FLAG)$/;"	f
+DMA_ClearITPendingBit	stm32f4xx_dma.c	/^void DMA_ClearITPendingBit(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT)$/;"	f
+DMA_Cmd	stm32f4xx_dma.c	/^void DMA_Cmd(DMA_Stream_TypeDef* DMAy_Streamx, FunctionalState NewState)$/;"	f
+DMA_DeInit	stm32f4xx_dma.c	/^void DMA_DeInit(DMA_Stream_TypeDef* DMAy_Streamx)$/;"	f
+DMA_DoubleBufferModeCmd	stm32f4xx_dma.c	/^void DMA_DoubleBufferModeCmd(DMA_Stream_TypeDef* DMAy_Streamx, FunctionalState NewState)$/;"	f
+DMA_DoubleBufferModeConfig	stm32f4xx_dma.c	/^void DMA_DoubleBufferModeConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t Memory1BaseAddr,$/;"	f
+DMA_FlowControllerConfig	stm32f4xx_dma.c	/^void DMA_FlowControllerConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_FlowCtrl)$/;"	f
+DMA_GetCmdStatus	stm32f4xx_dma.c	/^FunctionalState DMA_GetCmdStatus(DMA_Stream_TypeDef* DMAy_Streamx)$/;"	f
+DMA_GetCurrDataCounter	stm32f4xx_dma.c	/^uint16_t DMA_GetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx)$/;"	f
+DMA_GetCurrentMemoryTarget	stm32f4xx_dma.c	/^uint32_t DMA_GetCurrentMemoryTarget(DMA_Stream_TypeDef* DMAy_Streamx)$/;"	f
+DMA_GetFIFOStatus	stm32f4xx_dma.c	/^uint32_t DMA_GetFIFOStatus(DMA_Stream_TypeDef* DMAy_Streamx)$/;"	f
+DMA_GetFlagStatus	stm32f4xx_dma.c	/^FlagStatus DMA_GetFlagStatus(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_FLAG)$/;"	f
+DMA_GetITStatus	stm32f4xx_dma.c	/^ITStatus DMA_GetITStatus(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT)$/;"	f
+DMA_ITConfig	stm32f4xx_dma.c	/^void DMA_ITConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT, FunctionalState NewState)$/;"	f
+DMA_Init	stm32f4xx_dma.c	/^void DMA_Init(DMA_Stream_TypeDef* DMAy_Streamx, DMA_InitTypeDef* DMA_InitStruct)$/;"	f
+DMA_MemoryTargetConfig	stm32f4xx_dma.c	/^void DMA_MemoryTargetConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t MemoryBaseAddr,$/;"	f
+DMA_PeriphIncOffsetSizeConfig	stm32f4xx_dma.c	/^void DMA_PeriphIncOffsetSizeConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_Pincos)$/;"	f
+DMA_SetCurrDataCounter	stm32f4xx_dma.c	/^void DMA_SetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx, uint16_t Counter)$/;"	f
+DMA_Stream0_IT_MASK	stm32f4xx_dma.c	143;"	d	file:
+DMA_Stream1_IT_MASK	stm32f4xx_dma.c	147;"	d	file:
+DMA_Stream2_IT_MASK	stm32f4xx_dma.c	148;"	d	file:
+DMA_Stream3_IT_MASK	stm32f4xx_dma.c	149;"	d	file:
+DMA_Stream4_IT_MASK	stm32f4xx_dma.c	150;"	d	file:
+DMA_Stream5_IT_MASK	stm32f4xx_dma.c	151;"	d	file:
+DMA_Stream6_IT_MASK	stm32f4xx_dma.c	152;"	d	file:
+DMA_Stream7_IT_MASK	stm32f4xx_dma.c	153;"	d	file:
+DMA_StructInit	stm32f4xx_dma.c	/^void DMA_StructInit(DMA_InitTypeDef* DMA_InitStruct)$/;"	f
+DOR_OFFSET	stm32f4xx_dac.c	159;"	d	file:
+DUAL_SWTRIG_RESET	stm32f4xx_dac.c	151;"	d	file:
+DUAL_SWTRIG_SET	stm32f4xx_dac.c	150;"	d	file:
+ENCMDCOMPL_BitNumber	stm32f4xx_sdio.c	187;"	d	file:
+EWI_BitNumber	stm32f4xx_wwdg.c	103;"	d	file:
+EWUP_BitNumber	stm32f4xx_pwr.c	94;"	d	file:
+EXTI_ClearFlag	stm32f4xx_exti.c	/^void EXTI_ClearFlag(uint32_t EXTI_Line)$/;"	f
+EXTI_ClearITPendingBit	stm32f4xx_exti.c	/^void EXTI_ClearITPendingBit(uint32_t EXTI_Line)$/;"	f
+EXTI_DeInit	stm32f4xx_exti.c	/^void EXTI_DeInit(void)$/;"	f
+EXTI_GenerateSWInterrupt	stm32f4xx_exti.c	/^void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line)$/;"	f
+EXTI_GetFlagStatus	stm32f4xx_exti.c	/^FlagStatus EXTI_GetFlagStatus(uint32_t EXTI_Line)$/;"	f
+EXTI_GetITStatus	stm32f4xx_exti.c	/^ITStatus EXTI_GetITStatus(uint32_t EXTI_Line)$/;"	f
+EXTI_Init	stm32f4xx_exti.c	/^void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)$/;"	f
+EXTI_LINENONE	stm32f4xx_exti.c	81;"	d	file:
+EXTI_StructInit	stm32f4xx_exti.c	/^void EXTI_StructInit(EXTI_InitTypeDef* EXTI_InitStruct)$/;"	f
+FLAG_MASK	stm32f4xx_cryp.c	178;"	d	file:
+FLAG_MASK	stm32f4xx_i2c.c	108;"	d	file:
+FLAG_MASK	stm32f4xx_rcc.c	125;"	d	file:
+FLASH_ClearFlag	stm32f4xx_flash.c	/^void FLASH_ClearFlag(uint32_t FLASH_FLAG)$/;"	f
+FLASH_DataCacheCmd	stm32f4xx_flash.c	/^void FLASH_DataCacheCmd(FunctionalState NewState)$/;"	f
+FLASH_DataCacheReset	stm32f4xx_flash.c	/^void FLASH_DataCacheReset(void)$/;"	f
+FLASH_EraseAllBank1Sectors	stm32f4xx_flash.c	/^FLASH_Status FLASH_EraseAllBank1Sectors(uint8_t VoltageRange)$/;"	f
+FLASH_EraseAllBank2Sectors	stm32f4xx_flash.c	/^FLASH_Status FLASH_EraseAllBank2Sectors(uint8_t VoltageRange)$/;"	f
+FLASH_EraseAllSectors	stm32f4xx_flash.c	/^FLASH_Status FLASH_EraseAllSectors(uint8_t VoltageRange)$/;"	f
+FLASH_EraseSector	stm32f4xx_flash.c	/^FLASH_Status FLASH_EraseSector(uint32_t FLASH_Sector, uint8_t VoltageRange)$/;"	f
+FLASH_FlashInterfaceCmd	stm32f4xx_flash_ramfunc.c	/^__RAM_FUNC FLASH_FlashInterfaceCmd(FunctionalState NewState)$/;"	f
+FLASH_FlashSleepModeCmd	stm32f4xx_flash_ramfunc.c	/^__RAM_FUNC FLASH_FlashSleepModeCmd(FunctionalState NewState)$/;"	f
+FLASH_GetFlagStatus	stm32f4xx_flash.c	/^FlagStatus FLASH_GetFlagStatus(uint32_t FLASH_FLAG)$/;"	f
+FLASH_GetStatus	stm32f4xx_flash.c	/^FLASH_Status FLASH_GetStatus(void)$/;"	f
+FLASH_ITConfig	stm32f4xx_flash.c	/^void FLASH_ITConfig(uint32_t FLASH_IT, FunctionalState NewState)$/;"	f
+FLASH_InstructionCacheCmd	stm32f4xx_flash.c	/^void FLASH_InstructionCacheCmd(FunctionalState NewState)$/;"	f
+FLASH_InstructionCacheReset	stm32f4xx_flash.c	/^void FLASH_InstructionCacheReset(void)$/;"	f
+FLASH_Lock	stm32f4xx_flash.c	/^void FLASH_Lock(void)$/;"	f
+FLASH_OB_BORConfig	stm32f4xx_flash.c	/^void FLASH_OB_BORConfig(uint8_t OB_BOR)$/;"	f
+FLASH_OB_BootConfig	stm32f4xx_flash.c	/^void FLASH_OB_BootConfig(uint8_t OB_BOOT)$/;"	f
+FLASH_OB_GetBOR	stm32f4xx_flash.c	/^uint8_t FLASH_OB_GetBOR(void)$/;"	f
+FLASH_OB_GetPCROP	stm32f4xx_flash.c	/^uint16_t FLASH_OB_GetPCROP(void)$/;"	f
+FLASH_OB_GetPCROP1	stm32f4xx_flash.c	/^uint16_t FLASH_OB_GetPCROP1(void)$/;"	f
+FLASH_OB_GetRDP	stm32f4xx_flash.c	/^FlagStatus FLASH_OB_GetRDP(void)$/;"	f
+FLASH_OB_GetUser	stm32f4xx_flash.c	/^uint8_t FLASH_OB_GetUser(void)$/;"	f
+FLASH_OB_GetWRP	stm32f4xx_flash.c	/^uint16_t FLASH_OB_GetWRP(void)$/;"	f
+FLASH_OB_GetWRP1	stm32f4xx_flash.c	/^uint16_t FLASH_OB_GetWRP1(void)$/;"	f
+FLASH_OB_Launch	stm32f4xx_flash.c	/^FLASH_Status FLASH_OB_Launch(void)$/;"	f
+FLASH_OB_Lock	stm32f4xx_flash.c	/^void FLASH_OB_Lock(void)$/;"	f
+FLASH_OB_PCROP1Config	stm32f4xx_flash.c	/^void FLASH_OB_PCROP1Config(uint32_t OB_PCROP, FunctionalState NewState)$/;"	f
+FLASH_OB_PCROPConfig	stm32f4xx_flash.c	/^void FLASH_OB_PCROPConfig(uint32_t OB_PCROP, FunctionalState NewState)$/;"	f
+FLASH_OB_PCROPSelectionConfig	stm32f4xx_flash.c	/^void FLASH_OB_PCROPSelectionConfig(uint8_t OB_PcROP)$/;"	f
+FLASH_OB_RDPConfig	stm32f4xx_flash.c	/^void FLASH_OB_RDPConfig(uint8_t OB_RDP)$/;"	f
+FLASH_OB_Unlock	stm32f4xx_flash.c	/^void FLASH_OB_Unlock(void)$/;"	f
+FLASH_OB_UserConfig	stm32f4xx_flash.c	/^void FLASH_OB_UserConfig(uint8_t OB_IWDG, uint8_t OB_STOP, uint8_t OB_STDBY)$/;"	f
+FLASH_OB_WRP1Config	stm32f4xx_flash.c	/^void FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState)$/;"	f
+FLASH_OB_WRPConfig	stm32f4xx_flash.c	/^void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState)$/;"	f
+FLASH_PrefetchBufferCmd	stm32f4xx_flash.c	/^void FLASH_PrefetchBufferCmd(FunctionalState NewState)$/;"	f
+FLASH_ProgramByte	stm32f4xx_flash.c	/^FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data)$/;"	f
+FLASH_ProgramDoubleWord	stm32f4xx_flash.c	/^FLASH_Status FLASH_ProgramDoubleWord(uint32_t Address, uint64_t Data)$/;"	f
+FLASH_ProgramHalfWord	stm32f4xx_flash.c	/^FLASH_Status FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data)$/;"	f
+FLASH_ProgramWord	stm32f4xx_flash.c	/^FLASH_Status FLASH_ProgramWord(uint32_t Address, uint32_t Data)$/;"	f
+FLASH_SetLatency	stm32f4xx_flash.c	/^void FLASH_SetLatency(uint32_t FLASH_Latency)$/;"	f
+FLASH_Unlock	stm32f4xx_flash.c	/^void FLASH_Unlock(void)$/;"	f
+FLASH_WaitForLastOperation	stm32f4xx_flash.c	/^FLASH_Status FLASH_WaitForLastOperation(void)$/;"	f
+FMC_ClearFlag	stm32f4xx_fmc.c	/^void FMC_ClearFlag(uint32_t FMC_Bank, uint32_t FMC_FLAG)$/;"	f
+FMC_ClearITPendingBit	stm32f4xx_fmc.c	/^void FMC_ClearITPendingBit(uint32_t FMC_Bank, uint32_t FMC_IT)$/;"	f
+FMC_DefaultTimingStruct	stm32f4xx_fmc.c	/^const FMC_NORSRAMTimingInitTypeDef FMC_DefaultTimingStruct = {0x0F, \/* FMC_AddressSetupTime *\/$/;"	v
+FMC_GetECC	stm32f4xx_fmc.c	/^uint32_t FMC_GetECC(uint32_t FMC_Bank)$/;"	f
+FMC_GetFlagStatus	stm32f4xx_fmc.c	/^FlagStatus FMC_GetFlagStatus(uint32_t FMC_Bank, uint32_t FMC_FLAG)$/;"	f
+FMC_GetITStatus	stm32f4xx_fmc.c	/^ITStatus FMC_GetITStatus(uint32_t FMC_Bank, uint32_t FMC_IT)$/;"	f
+FMC_GetModeStatus	stm32f4xx_fmc.c	/^uint32_t FMC_GetModeStatus(uint32_t SDRAM_Bank)$/;"	f
+FMC_ITConfig	stm32f4xx_fmc.c	/^void FMC_ITConfig(uint32_t FMC_Bank, uint32_t FMC_IT, FunctionalState NewState)$/;"	f
+FMC_NANDCmd	stm32f4xx_fmc.c	/^void FMC_NANDCmd(uint32_t FMC_Bank, FunctionalState NewState)$/;"	f
+FMC_NANDDeInit	stm32f4xx_fmc.c	/^void FMC_NANDDeInit(uint32_t FMC_Bank)$/;"	f
+FMC_NANDECCCmd	stm32f4xx_fmc.c	/^void FMC_NANDECCCmd(uint32_t FMC_Bank, FunctionalState NewState)$/;"	f
+FMC_NANDInit	stm32f4xx_fmc.c	/^void FMC_NANDInit(FMC_NANDInitTypeDef* FMC_NANDInitStruct)$/;"	f
+FMC_NANDStructInit	stm32f4xx_fmc.c	/^void FMC_NANDStructInit(FMC_NANDInitTypeDef* FMC_NANDInitStruct)$/;"	f
+FMC_NORSRAMCmd	stm32f4xx_fmc.c	/^void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState)$/;"	f
+FMC_NORSRAMDeInit	stm32f4xx_fmc.c	/^void FMC_NORSRAMDeInit(uint32_t FMC_Bank)$/;"	f
+FMC_NORSRAMInit	stm32f4xx_fmc.c	/^void FMC_NORSRAMInit(FMC_NORSRAMInitTypeDef* FMC_NORSRAMInitStruct)$/;"	f
+FMC_NORSRAMStructInit	stm32f4xx_fmc.c	/^void FMC_NORSRAMStructInit(FMC_NORSRAMInitTypeDef* FMC_NORSRAMInitStruct)$/;"	f
+FMC_PCCARDCmd	stm32f4xx_fmc.c	/^void FMC_PCCARDCmd(FunctionalState NewState)$/;"	f
+FMC_PCCARDDeInit	stm32f4xx_fmc.c	/^void FMC_PCCARDDeInit(void)$/;"	f
+FMC_PCCARDInit	stm32f4xx_fmc.c	/^void FMC_PCCARDInit(FMC_PCCARDInitTypeDef* FMC_PCCARDInitStruct)$/;"	f
+FMC_PCCARDStructInit	stm32f4xx_fmc.c	/^void FMC_PCCARDStructInit(FMC_PCCARDInitTypeDef* FMC_PCCARDInitStruct)$/;"	f
+FMC_SDRAMCmdConfig	stm32f4xx_fmc.c	/^void FMC_SDRAMCmdConfig(FMC_SDRAMCommandTypeDef* FMC_SDRAMCommandStruct)$/;"	f
+FMC_SDRAMDeInit	stm32f4xx_fmc.c	/^void FMC_SDRAMDeInit(uint32_t FMC_Bank)$/;"	f
+FMC_SDRAMInit	stm32f4xx_fmc.c	/^void FMC_SDRAMInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct)$/;"	f
+FMC_SDRAMStructInit	stm32f4xx_fmc.c	/^void FMC_SDRAMStructInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct)  $/;"	f
+FMC_SDRAMWriteProtectionConfig	stm32f4xx_fmc.c	/^void FMC_SDRAMWriteProtectionConfig(uint32_t SDRAM_Bank, FunctionalState NewState)$/;"	f
+FMC_SetAutoRefresh_Number	stm32f4xx_fmc.c	/^void FMC_SetAutoRefresh_Number(uint32_t FMC_Number)$/;"	f
+FMC_SetRefreshCount	stm32f4xx_fmc.c	/^void FMC_SetRefreshCount(uint32_t FMC_Count)$/;"	f
+FMR_FINIT	stm32f4xx_can.c	105;"	d	file:
+FPDS_BitNumber	stm32f4xx_pwr.c	67;"	d	file:
+FRCR_CLEAR_MASK	stm32f4xx_sai.c	143;"	d	file:
+FSMC_ClearFlag	stm32f4xx_fsmc.c	/^void FSMC_ClearFlag(uint32_t FSMC_Bank, uint32_t FSMC_FLAG)$/;"	f
+FSMC_ClearITPendingBit	stm32f4xx_fsmc.c	/^void FSMC_ClearITPendingBit(uint32_t FSMC_Bank, uint32_t FSMC_IT)$/;"	f
+FSMC_DefaultTimingStruct	stm32f4xx_fsmc.c	/^const FSMC_NORSRAMTimingInitTypeDef FSMC_DefaultTimingStruct = {0x0F, \/* FSMC_AddressSetupTime *\/$/;"	v
+FSMC_GetECC	stm32f4xx_fsmc.c	/^uint32_t FSMC_GetECC(uint32_t FSMC_Bank)$/;"	f
+FSMC_GetFlagStatus	stm32f4xx_fsmc.c	/^FlagStatus FSMC_GetFlagStatus(uint32_t FSMC_Bank, uint32_t FSMC_FLAG)$/;"	f
+FSMC_GetITStatus	stm32f4xx_fsmc.c	/^ITStatus FSMC_GetITStatus(uint32_t FSMC_Bank, uint32_t FSMC_IT)$/;"	f
+FSMC_ITConfig	stm32f4xx_fsmc.c	/^void FSMC_ITConfig(uint32_t FSMC_Bank, uint32_t FSMC_IT, FunctionalState NewState)$/;"	f
+FSMC_NANDCmd	stm32f4xx_fsmc.c	/^void FSMC_NANDCmd(uint32_t FSMC_Bank, FunctionalState NewState)$/;"	f
+FSMC_NANDDeInit	stm32f4xx_fsmc.c	/^void FSMC_NANDDeInit(uint32_t FSMC_Bank)$/;"	f
+FSMC_NANDECCCmd	stm32f4xx_fsmc.c	/^void FSMC_NANDECCCmd(uint32_t FSMC_Bank, FunctionalState NewState)$/;"	f
+FSMC_NANDInit	stm32f4xx_fsmc.c	/^void FSMC_NANDInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct)$/;"	f
+FSMC_NANDStructInit	stm32f4xx_fsmc.c	/^void FSMC_NANDStructInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct)$/;"	f
+FSMC_NORSRAMCmd	stm32f4xx_fsmc.c	/^void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState)$/;"	f
+FSMC_NORSRAMDeInit	stm32f4xx_fsmc.c	/^void FSMC_NORSRAMDeInit(uint32_t FSMC_Bank)$/;"	f
+FSMC_NORSRAMInit	stm32f4xx_fsmc.c	/^void FSMC_NORSRAMInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct)$/;"	f
+FSMC_NORSRAMStructInit	stm32f4xx_fsmc.c	/^void FSMC_NORSRAMStructInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct)$/;"	f
+FSMC_PCCARDCmd	stm32f4xx_fsmc.c	/^void FSMC_PCCARDCmd(FunctionalState NewState)$/;"	f
+FSMC_PCCARDDeInit	stm32f4xx_fsmc.c	/^void FSMC_PCCARDDeInit(void)$/;"	f
+FSMC_PCCARDInit	stm32f4xx_fsmc.c	/^void FSMC_PCCARDInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct)$/;"	f
+FSMC_PCCARDStructInit	stm32f4xx_fsmc.c	/^void FSMC_PCCARDStructInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct)$/;"	f
+GCR_MASK	stm32f4xx_ltdc.c	95;"	d	file:
+GPIO_DeInit	stm32f4xx_gpio.c	/^void GPIO_DeInit(GPIO_TypeDef* GPIOx)$/;"	f
+GPIO_Init	stm32f4xx_gpio.c	/^void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct)$/;"	f
+GPIO_PinAFConfig	stm32f4xx_gpio.c	/^void GPIO_PinAFConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_PinSource, uint8_t GPIO_AF)$/;"	f
+GPIO_PinLockConfig	stm32f4xx_gpio.c	/^void GPIO_PinLockConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)$/;"	f
+GPIO_ReadInputData	stm32f4xx_gpio.c	/^uint16_t GPIO_ReadInputData(GPIO_TypeDef* GPIOx)$/;"	f
+GPIO_ReadInputDataBit	stm32f4xx_gpio.c	/^uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)$/;"	f
+GPIO_ReadOutputData	stm32f4xx_gpio.c	/^uint16_t GPIO_ReadOutputData(GPIO_TypeDef* GPIOx)$/;"	f
+GPIO_ReadOutputDataBit	stm32f4xx_gpio.c	/^uint8_t GPIO_ReadOutputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)$/;"	f
+GPIO_ResetBits	stm32f4xx_gpio.c	/^void GPIO_ResetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)$/;"	f
+GPIO_SetBits	stm32f4xx_gpio.c	/^void GPIO_SetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)$/;"	f
+GPIO_StructInit	stm32f4xx_gpio.c	/^void GPIO_StructInit(GPIO_InitTypeDef* GPIO_InitStruct)$/;"	f
+GPIO_ToggleBits	stm32f4xx_gpio.c	/^void GPIO_ToggleBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)$/;"	f
+GPIO_Write	stm32f4xx_gpio.c	/^void GPIO_Write(GPIO_TypeDef* GPIOx, uint16_t PortVal)$/;"	f
+GPIO_WriteBit	stm32f4xx_gpio.c	/^void GPIO_WriteBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, BitAction BitVal)$/;"	f
+HASH_AutoStartDigest	stm32f4xx_hash.c	/^void HASH_AutoStartDigest(FunctionalState NewState)$/;"	f
+HASH_ClearFlag	stm32f4xx_hash.c	/^void HASH_ClearFlag(uint32_t HASH_FLAG)$/;"	f
+HASH_ClearITPendingBit	stm32f4xx_hash.c	/^void HASH_ClearITPendingBit(uint32_t HASH_IT)$/;"	f
+HASH_DMACmd	stm32f4xx_hash.c	/^void HASH_DMACmd(FunctionalState NewState)$/;"	f
+HASH_DataIn	stm32f4xx_hash.c	/^void HASH_DataIn(uint32_t Data)$/;"	f
+HASH_DeInit	stm32f4xx_hash.c	/^void HASH_DeInit(void)$/;"	f
+HASH_GetDigest	stm32f4xx_hash.c	/^void HASH_GetDigest(HASH_MsgDigest* HASH_MessageDigest)$/;"	f
+HASH_GetFlagStatus	stm32f4xx_hash.c	/^FlagStatus HASH_GetFlagStatus(uint32_t HASH_FLAG)$/;"	f
+HASH_GetITStatus	stm32f4xx_hash.c	/^ITStatus HASH_GetITStatus(uint32_t HASH_IT)$/;"	f
+HASH_GetInFIFOWordsNbr	stm32f4xx_hash.c	/^uint8_t HASH_GetInFIFOWordsNbr(void)$/;"	f
+HASH_ITConfig	stm32f4xx_hash.c	/^void HASH_ITConfig(uint32_t HASH_IT, FunctionalState NewState)$/;"	f
+HASH_Init	stm32f4xx_hash.c	/^void HASH_Init(HASH_InitTypeDef* HASH_InitStruct)$/;"	f
+HASH_MD5	stm32f4xx_hash_md5.c	/^ErrorStatus HASH_MD5(uint8_t *Input, uint32_t Ilen, uint8_t Output[16])$/;"	f
+HASH_Reset	stm32f4xx_hash.c	/^void HASH_Reset(void)$/;"	f
+HASH_RestoreContext	stm32f4xx_hash.c	/^void HASH_RestoreContext(HASH_Context* HASH_ContextRestore)  $/;"	f
+HASH_SHA1	stm32f4xx_hash_sha1.c	/^ErrorStatus HASH_SHA1(uint8_t *Input, uint32_t Ilen, uint8_t Output[20])$/;"	f
+HASH_SaveContext	stm32f4xx_hash.c	/^void HASH_SaveContext(HASH_Context* HASH_ContextSave)$/;"	f
+HASH_SetLastWordValidBitsNbr	stm32f4xx_hash.c	/^void HASH_SetLastWordValidBitsNbr(uint16_t ValidNumber)$/;"	f
+HASH_StartDigest	stm32f4xx_hash.c	/^void HASH_StartDigest(void)$/;"	f
+HASH_StructInit	stm32f4xx_hash.c	/^void HASH_StructInit(HASH_InitTypeDef* HASH_InitStruct)$/;"	f
+HIGH_ISR_MASK	stm32f4xx_dma.c	155;"	d	file:
+HMAC_MD5	stm32f4xx_hash_md5.c	/^ErrorStatus HMAC_MD5(uint8_t *Key, uint32_t Keylen, uint8_t *Input, $/;"	f
+HMAC_SHA1	stm32f4xx_hash_sha1.c	/^ErrorStatus HMAC_SHA1(uint8_t *Key, uint32_t Keylen, uint8_t *Input,$/;"	f
+HSION_BitNumber	stm32f4xx_rcc.c	77;"	d	file:
+I2C_ARPCmd	stm32f4xx_i2c.c	/^void I2C_ARPCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2C_AcknowledgeConfig	stm32f4xx_i2c.c	/^void I2C_AcknowledgeConfig(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2C_AnalogFilterCmd	stm32f4xx_i2c.c	/^void I2C_AnalogFilterCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2C_CalculatePEC	stm32f4xx_i2c.c	/^void I2C_CalculatePEC(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2C_CheckEvent	stm32f4xx_i2c.c	/^ErrorStatus I2C_CheckEvent(I2C_TypeDef* I2Cx, uint32_t I2C_EVENT)$/;"	f
+I2C_ClearFlag	stm32f4xx_i2c.c	/^void I2C_ClearFlag(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG)$/;"	f
+I2C_ClearITPendingBit	stm32f4xx_i2c.c	/^void I2C_ClearITPendingBit(I2C_TypeDef* I2Cx, uint32_t I2C_IT)$/;"	f
+I2C_Cmd	stm32f4xx_i2c.c	/^void I2C_Cmd(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2C_DMACmd	stm32f4xx_i2c.c	/^void I2C_DMACmd(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2C_DMALastTransferCmd	stm32f4xx_i2c.c	/^void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2C_DeInit	stm32f4xx_i2c.c	/^void I2C_DeInit(I2C_TypeDef* I2Cx)$/;"	f
+I2C_DigitalFilterConfig	stm32f4xx_i2c.c	/^void I2C_DigitalFilterConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DigitalFilter)$/;"	f
+I2C_DualAddressCmd	stm32f4xx_i2c.c	/^void I2C_DualAddressCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2C_FastModeDutyCycleConfig	stm32f4xx_i2c.c	/^void I2C_FastModeDutyCycleConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DutyCycle)$/;"	f
+I2C_GeneralCallCmd	stm32f4xx_i2c.c	/^void I2C_GeneralCallCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2C_GenerateSTART	stm32f4xx_i2c.c	/^void I2C_GenerateSTART(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2C_GenerateSTOP	stm32f4xx_i2c.c	/^void I2C_GenerateSTOP(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2C_GetFlagStatus	stm32f4xx_i2c.c	/^FlagStatus I2C_GetFlagStatus(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG)$/;"	f
+I2C_GetITStatus	stm32f4xx_i2c.c	/^ITStatus I2C_GetITStatus(I2C_TypeDef* I2Cx, uint32_t I2C_IT)$/;"	f
+I2C_GetLastEvent	stm32f4xx_i2c.c	/^uint32_t I2C_GetLastEvent(I2C_TypeDef* I2Cx)$/;"	f
+I2C_GetPEC	stm32f4xx_i2c.c	/^uint8_t I2C_GetPEC(I2C_TypeDef* I2Cx)$/;"	f
+I2C_ITConfig	stm32f4xx_i2c.c	/^void I2C_ITConfig(I2C_TypeDef* I2Cx, uint16_t I2C_IT, FunctionalState NewState)$/;"	f
+I2C_Init	stm32f4xx_i2c.c	/^void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct)$/;"	f
+I2C_NACKPositionConfig	stm32f4xx_i2c.c	/^void I2C_NACKPositionConfig(I2C_TypeDef* I2Cx, uint16_t I2C_NACKPosition)$/;"	f
+I2C_OwnAddress2Config	stm32f4xx_i2c.c	/^void I2C_OwnAddress2Config(I2C_TypeDef* I2Cx, uint8_t Address)$/;"	f
+I2C_PECPositionConfig	stm32f4xx_i2c.c	/^void I2C_PECPositionConfig(I2C_TypeDef* I2Cx, uint16_t I2C_PECPosition)$/;"	f
+I2C_ReadRegister	stm32f4xx_i2c.c	/^uint16_t I2C_ReadRegister(I2C_TypeDef* I2Cx, uint8_t I2C_Register)$/;"	f
+I2C_ReceiveData	stm32f4xx_i2c.c	/^uint8_t I2C_ReceiveData(I2C_TypeDef* I2Cx)$/;"	f
+I2C_SMBusAlertConfig	stm32f4xx_i2c.c	/^void I2C_SMBusAlertConfig(I2C_TypeDef* I2Cx, uint16_t I2C_SMBusAlert)$/;"	f
+I2C_Send7bitAddress	stm32f4xx_i2c.c	/^void I2C_Send7bitAddress(I2C_TypeDef* I2Cx, uint8_t Address, uint8_t I2C_Direction)$/;"	f
+I2C_SendData	stm32f4xx_i2c.c	/^void I2C_SendData(I2C_TypeDef* I2Cx, uint8_t Data)$/;"	f
+I2C_SoftwareResetCmd	stm32f4xx_i2c.c	/^void I2C_SoftwareResetCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2C_StretchClockCmd	stm32f4xx_i2c.c	/^void I2C_StretchClockCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2C_StructInit	stm32f4xx_i2c.c	/^void I2C_StructInit(I2C_InitTypeDef* I2C_InitStruct)$/;"	f
+I2C_TransmitPEC	stm32f4xx_i2c.c	/^void I2C_TransmitPEC(I2C_TypeDef* I2Cx, FunctionalState NewState)$/;"	f
+I2SCFGR_CLEAR_MASK	stm32f4xx_spi.c	176;"	d	file:
+I2SSRC_BitNumber	stm32f4xx_rcc.c	96;"	d	file:
+I2S_Cmd	stm32f4xx_spi.c	/^void I2S_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState)$/;"	f
+I2S_FullDuplexConfig	stm32f4xx_spi.c	/^void I2S_FullDuplexConfig(SPI_TypeDef* I2Sxext, I2S_InitTypeDef* I2S_InitStruct)$/;"	f
+I2S_Init	stm32f4xx_spi.c	/^void I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct)$/;"	f
+I2S_StructInit	stm32f4xx_spi.c	/^void I2S_StructInit(I2S_InitTypeDef* I2S_InitStruct)$/;"	f
+IDCODE_DEVID_MASK	stm32f4xx_dbgmcu.c	42;"	d	file:
+INAK_TIMEOUT	stm32f4xx_can.c	108;"	d	file:
+INITMODE_TIMEOUT	stm32f4xx_rtc.c	310;"	d	file:
+ITEN_MASK	stm32f4xx_i2c.c	109;"	d	file:
+IT_MASK	stm32f4xx_usart.c	120;"	d	file:
+IWDG_Enable	stm32f4xx_iwdg.c	/^void IWDG_Enable(void)$/;"	f
+IWDG_GetFlagStatus	stm32f4xx_iwdg.c	/^FlagStatus IWDG_GetFlagStatus(uint16_t IWDG_FLAG)$/;"	f
+IWDG_ReloadCounter	stm32f4xx_iwdg.c	/^void IWDG_ReloadCounter(void)$/;"	f
+IWDG_SetPrescaler	stm32f4xx_iwdg.c	/^void IWDG_SetPrescaler(uint8_t IWDG_Prescaler)$/;"	f
+IWDG_SetReload	stm32f4xx_iwdg.c	/^void IWDG_SetReload(uint16_t Reload)$/;"	f
+IWDG_WriteAccessCmd	stm32f4xx_iwdg.c	/^void IWDG_WriteAccessCmd(uint16_t IWDG_WriteAccess)$/;"	f
+JDR_OFFSET	stm32f4xx_adc.c	165;"	d	file:
+JSQR_JL_RESET	stm32f4xx_adc.c	158;"	d	file:
+JSQR_JL_SET	stm32f4xx_adc.c	157;"	d	file:
+JSQR_JSQ_SET	stm32f4xx_adc.c	154;"	d	file:
+KR_KEY_ENABLE	stm32f4xx_iwdg.c	101;"	d	file:
+KR_KEY_RELOAD	stm32f4xx_iwdg.c	100;"	d	file:
+LPLVDS_BitNumber	stm32f4xx_pwr.c	87;"	d	file:
+LSION_BitNumber	stm32f4xx_rcc.c	111;"	d	file:
+LTDC_CLUTCmd	stm32f4xx_ltdc.c	/^void LTDC_CLUTCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState)$/;"	f
+LTDC_CLUTInit	stm32f4xx_ltdc.c	/^void LTDC_CLUTInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_CLUT_InitTypeDef* LTDC_CLUT_InitStruct)$/;"	f
+LTDC_CLUTStructInit	stm32f4xx_ltdc.c	/^void LTDC_CLUTStructInit(LTDC_CLUT_InitTypeDef* LTDC_CLUT_InitStruct)$/;"	f
+LTDC_ClearFlag	stm32f4xx_ltdc.c	/^void LTDC_ClearFlag(uint32_t LTDC_FLAG)$/;"	f
+LTDC_ClearITPendingBit	stm32f4xx_ltdc.c	/^void LTDC_ClearITPendingBit(uint32_t LTDC_IT)$/;"	f
+LTDC_Cmd	stm32f4xx_ltdc.c	/^void LTDC_Cmd(FunctionalState NewState)$/;"	f
+LTDC_ColorKeyingConfig	stm32f4xx_ltdc.c	/^void LTDC_ColorKeyingConfig(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_ColorKeying_InitTypeDef* LTDC_colorkeying_InitStruct, FunctionalState NewState)$/;"	f
+LTDC_ColorKeyingStructInit	stm32f4xx_ltdc.c	/^void LTDC_ColorKeyingStructInit(LTDC_ColorKeying_InitTypeDef* LTDC_colorkeying_InitStruct)$/;"	f
+LTDC_DeInit	stm32f4xx_ltdc.c	/^void LTDC_DeInit(void)$/;"	f
+LTDC_DitherCmd	stm32f4xx_ltdc.c	/^void LTDC_DitherCmd(FunctionalState NewState)$/;"	f
+LTDC_GetCDStatus	stm32f4xx_ltdc.c	/^FlagStatus LTDC_GetCDStatus(uint32_t LTDC_CD)$/;"	f
+LTDC_GetFlagStatus	stm32f4xx_ltdc.c	/^FlagStatus LTDC_GetFlagStatus(uint32_t LTDC_FLAG)$/;"	f
+LTDC_GetITStatus	stm32f4xx_ltdc.c	/^ITStatus LTDC_GetITStatus(uint32_t LTDC_IT)$/;"	f
+LTDC_GetPosStatus	stm32f4xx_ltdc.c	/^LTDC_PosTypeDef LTDC_GetPosStatus(void)$/;"	f
+LTDC_GetRGBWidth	stm32f4xx_ltdc.c	/^LTDC_RGBTypeDef LTDC_GetRGBWidth(void)$/;"	f
+LTDC_ITConfig	stm32f4xx_ltdc.c	/^void LTDC_ITConfig(uint32_t LTDC_IT, FunctionalState NewState)$/;"	f
+LTDC_Init	stm32f4xx_ltdc.c	/^void LTDC_Init(LTDC_InitTypeDef* LTDC_InitStruct)$/;"	f
+LTDC_LIPConfig	stm32f4xx_ltdc.c	/^void LTDC_LIPConfig(uint32_t LTDC_LIPositionConfig)$/;"	f
+LTDC_LayerAddress	stm32f4xx_ltdc.c	/^void LTDC_LayerAddress(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Address)$/;"	f
+LTDC_LayerAlpha	stm32f4xx_ltdc.c	/^void LTDC_LayerAlpha(LTDC_Layer_TypeDef* LTDC_Layerx, uint8_t ConstantAlpha)$/;"	f
+LTDC_LayerCmd	stm32f4xx_ltdc.c	/^void LTDC_LayerCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState)$/;"	f
+LTDC_LayerInit	stm32f4xx_ltdc.c	/^void LTDC_LayerInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_Layer_InitTypeDef* LTDC_Layer_InitStruct)$/;"	f
+LTDC_LayerPixelFormat	stm32f4xx_ltdc.c	/^void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat)$/;"	f
+LTDC_LayerPosition	stm32f4xx_ltdc.c	/^void LTDC_LayerPosition(LTDC_Layer_TypeDef* LTDC_Layerx, uint16_t OffsetX, uint16_t OffsetY)$/;"	f
+LTDC_LayerSize	stm32f4xx_ltdc.c	/^void LTDC_LayerSize(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Width, uint32_t Height)$/;"	f
+LTDC_LayerStructInit	stm32f4xx_ltdc.c	/^void LTDC_LayerStructInit(LTDC_Layer_InitTypeDef * LTDC_Layer_InitStruct)$/;"	f
+LTDC_PosStructInit	stm32f4xx_ltdc.c	/^void LTDC_PosStructInit(LTDC_PosTypeDef* LTDC_Pos_InitStruct)$/;"	f
+LTDC_RGBStructInit	stm32f4xx_ltdc.c	/^void LTDC_RGBStructInit(LTDC_RGBTypeDef* LTDC_RGB_InitStruct)$/;"	f
+LTDC_ReloadConfig	stm32f4xx_ltdc.c	/^void LTDC_ReloadConfig(uint32_t LTDC_Reload)$/;"	f
+LTDC_StructInit	stm32f4xx_ltdc.c	/^void LTDC_StructInit(LTDC_InitTypeDef* LTDC_InitStruct)$/;"	f
+MAX_TIMEOUT	stm32f4xx_cryp.c	179;"	d	file:
+MCR_DBF	stm32f4xx_can.c	99;"	d	file:
+MD5BUSY_TIMEOUT	stm32f4xx_hash_md5.c	60;"	d	file:
+MEMRMP_OFFSET	stm32f4xx_syscfg.c	68;"	d	file:
+MII_RMII_SEL_BitNumber	stm32f4xx_syscfg.c	76;"	d	file:
+MRLVDS_BitNumber	stm32f4xx_pwr.c	83;"	d	file:
+NIEN_BitNumber	stm32f4xx_sdio.c	191;"	d	file:
+NVIC_Init	misc.c	/^void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct)$/;"	f
+NVIC_PriorityGroupConfig	misc.c	/^void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)$/;"	f
+NVIC_SetVectorTable	misc.c	/^void NVIC_SetVectorTable(uint32_t NVIC_VectTab, uint32_t Offset)$/;"	f
+NVIC_SystemLPConfig	misc.c	/^void NVIC_SystemLPConfig(uint8_t LowPowerMode, FunctionalState NewState)$/;"	f
+ODEN_BitNumber	stm32f4xx_pwr.c	75;"	d	file:
+ODSWEN_BitNumber	stm32f4xx_pwr.c	79;"	d	file:
+PCR_ECCEN_RESET	stm32f4xx_fmc.c	67;"	d	file:
+PCR_ECCEN_RESET	stm32f4xx_fsmc.c	68;"	d	file:
+PCR_ECCEN_SET	stm32f4xx_fmc.c	66;"	d	file:
+PCR_ECCEN_SET	stm32f4xx_fsmc.c	67;"	d	file:
+PCR_MEMORYTYPE_NAND	stm32f4xx_fmc.c	68;"	d	file:
+PCR_MEMORYTYPE_NAND	stm32f4xx_fsmc.c	69;"	d	file:
+PCR_PBKEN_RESET	stm32f4xx_fmc.c	65;"	d	file:
+PCR_PBKEN_RESET	stm32f4xx_fsmc.c	66;"	d	file:
+PCR_PBKEN_SET	stm32f4xx_fmc.c	64;"	d	file:
+PCR_PBKEN_SET	stm32f4xx_fsmc.c	65;"	d	file:
+PFCCR_MASK	stm32f4xx_dma2d.c	78;"	d	file:
+PLLCFGR_PPLN_MASK	stm32f4xx_spi.c	180;"	d	file:
+PLLCFGR_PPLR_MASK	stm32f4xx_spi.c	179;"	d	file:
+PLLI2SON_BitNumber	stm32f4xx_rcc.c	86;"	d	file:
+PLLON_BitNumber	stm32f4xx_rcc.c	83;"	d	file:
+PLLSAION_BitNumber	stm32f4xx_rcc.c	90;"	d	file:
+PMC_MII_RMII_SEL_BB	stm32f4xx_syscfg.c	77;"	d	file:
+PMC_OFFSET	stm32f4xx_syscfg.c	75;"	d	file:
+PMODE_BitNumber	stm32f4xx_pwr.c	71;"	d	file:
+PVDE_BitNumber	stm32f4xx_pwr.c	63;"	d	file:
+PWR_BackupAccessCmd	stm32f4xx_pwr.c	/^void PWR_BackupAccessCmd(FunctionalState NewState)$/;"	f
+PWR_BackupRegulatorCmd	stm32f4xx_pwr.c	/^void PWR_BackupRegulatorCmd(FunctionalState NewState)$/;"	f
+PWR_ClearFlag	stm32f4xx_pwr.c	/^void PWR_ClearFlag(uint32_t PWR_FLAG)$/;"	f
+PWR_DeInit	stm32f4xx_pwr.c	/^void PWR_DeInit(void)$/;"	f
+PWR_EnterSTANDBYMode	stm32f4xx_pwr.c	/^void PWR_EnterSTANDBYMode(void)$/;"	f
+PWR_EnterSTOPMode	stm32f4xx_pwr.c	/^void PWR_EnterSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry)$/;"	f
+PWR_EnterUnderDriveSTOPMode	stm32f4xx_pwr.c	/^void PWR_EnterUnderDriveSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry)$/;"	f
+PWR_FlashPowerDownCmd	stm32f4xx_pwr.c	/^void PWR_FlashPowerDownCmd(FunctionalState NewState)$/;"	f
+PWR_GetFlagStatus	stm32f4xx_pwr.c	/^FlagStatus PWR_GetFlagStatus(uint32_t PWR_FLAG)$/;"	f
+PWR_LowRegulatorLowVoltageCmd	stm32f4xx_pwr.c	/^void PWR_LowRegulatorLowVoltageCmd(FunctionalState NewState)$/;"	f
+PWR_MainRegulatorLowVoltageCmd	stm32f4xx_pwr.c	/^void PWR_MainRegulatorLowVoltageCmd(FunctionalState NewState)$/;"	f
+PWR_MainRegulatorModeConfig	stm32f4xx_pwr.c	/^void PWR_MainRegulatorModeConfig(uint32_t PWR_Regulator_Voltage)$/;"	f
+PWR_OFFSET	stm32f4xx_pwr.c	53;"	d	file:
+PWR_OverDriveCmd	stm32f4xx_pwr.c	/^void PWR_OverDriveCmd(FunctionalState NewState)$/;"	f
+PWR_OverDriveSWCmd	stm32f4xx_pwr.c	/^void PWR_OverDriveSWCmd(FunctionalState NewState)$/;"	f
+PWR_PVDCmd	stm32f4xx_pwr.c	/^void PWR_PVDCmd(FunctionalState NewState)$/;"	f
+PWR_PVDLevelConfig	stm32f4xx_pwr.c	/^void PWR_PVDLevelConfig(uint32_t PWR_PVDLevel)$/;"	f
+PWR_PWRCTRL_MASK	stm32f4xx_sdio.c	227;"	d	file:
+PWR_UnderDriveCmd	stm32f4xx_pwr.c	/^void PWR_UnderDriveCmd(FunctionalState NewState)$/;"	f
+PWR_WakeUpPinCmd	stm32f4xx_pwr.c	/^void PWR_WakeUpPinCmd(FunctionalState NewState)$/;"	f
+RCC_AHB1PeriphClockCmd	stm32f4xx_rcc.c	/^void RCC_AHB1PeriphClockCmd(uint32_t RCC_AHB1Periph, FunctionalState NewState)$/;"	f
+RCC_AHB1PeriphClockLPModeCmd	stm32f4xx_rcc.c	/^void RCC_AHB1PeriphClockLPModeCmd(uint32_t RCC_AHB1Periph, FunctionalState NewState)$/;"	f
+RCC_AHB1PeriphResetCmd	stm32f4xx_rcc.c	/^void RCC_AHB1PeriphResetCmd(uint32_t RCC_AHB1Periph, FunctionalState NewState)$/;"	f
+RCC_AHB2PeriphClockCmd	stm32f4xx_rcc.c	/^void RCC_AHB2PeriphClockCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState)$/;"	f
+RCC_AHB2PeriphClockLPModeCmd	stm32f4xx_rcc.c	/^void RCC_AHB2PeriphClockLPModeCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState)$/;"	f
+RCC_AHB2PeriphResetCmd	stm32f4xx_rcc.c	/^void RCC_AHB2PeriphResetCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState)$/;"	f
+RCC_AHB3PeriphClockCmd	stm32f4xx_rcc.c	/^void RCC_AHB3PeriphClockCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState)$/;"	f
+RCC_AHB3PeriphClockLPModeCmd	stm32f4xx_rcc.c	/^void RCC_AHB3PeriphClockLPModeCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState)$/;"	f
+RCC_AHB3PeriphResetCmd	stm32f4xx_rcc.c	/^void RCC_AHB3PeriphResetCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState)$/;"	f
+RCC_APB1PeriphClockCmd	stm32f4xx_rcc.c	/^void RCC_APB1PeriphClockCmd(uint32_t RCC_APB1Periph, FunctionalState NewState)$/;"	f
+RCC_APB1PeriphClockLPModeCmd	stm32f4xx_rcc.c	/^void RCC_APB1PeriphClockLPModeCmd(uint32_t RCC_APB1Periph, FunctionalState NewState)$/;"	f
+RCC_APB1PeriphResetCmd	stm32f4xx_rcc.c	/^void RCC_APB1PeriphResetCmd(uint32_t RCC_APB1Periph, FunctionalState NewState)$/;"	f
+RCC_APB2PeriphClockCmd	stm32f4xx_rcc.c	/^void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState)$/;"	f
+RCC_APB2PeriphClockLPModeCmd	stm32f4xx_rcc.c	/^void RCC_APB2PeriphClockLPModeCmd(uint32_t RCC_APB2Periph, FunctionalState NewState)$/;"	f
+RCC_APB2PeriphResetCmd	stm32f4xx_rcc.c	/^void RCC_APB2PeriphResetCmd(uint32_t RCC_APB2Periph, FunctionalState NewState)$/;"	f
+RCC_AdjustHSICalibrationValue	stm32f4xx_rcc.c	/^void RCC_AdjustHSICalibrationValue(uint8_t HSICalibrationValue)$/;"	f
+RCC_BackupResetCmd	stm32f4xx_rcc.c	/^void RCC_BackupResetCmd(FunctionalState NewState)$/;"	f
+RCC_ClearFlag	stm32f4xx_rcc.c	/^void RCC_ClearFlag(void)$/;"	f
+RCC_ClearITPendingBit	stm32f4xx_rcc.c	/^void RCC_ClearITPendingBit(uint8_t RCC_IT)$/;"	f
+RCC_ClockSecuritySystemCmd	stm32f4xx_rcc.c	/^void RCC_ClockSecuritySystemCmd(FunctionalState NewState)$/;"	f
+RCC_DeInit	stm32f4xx_rcc.c	/^void RCC_DeInit(void)$/;"	f
+RCC_GetClocksFreq	stm32f4xx_rcc.c	/^void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks)$/;"	f
+RCC_GetFlagStatus	stm32f4xx_rcc.c	/^FlagStatus RCC_GetFlagStatus(uint8_t RCC_FLAG)$/;"	f
+RCC_GetITStatus	stm32f4xx_rcc.c	/^ITStatus RCC_GetITStatus(uint8_t RCC_IT)$/;"	f
+RCC_GetSYSCLKSource	stm32f4xx_rcc.c	/^uint8_t RCC_GetSYSCLKSource(void)$/;"	f
+RCC_HCLKConfig	stm32f4xx_rcc.c	/^void RCC_HCLKConfig(uint32_t RCC_SYSCLK)$/;"	f
+RCC_HSEConfig	stm32f4xx_rcc.c	/^void RCC_HSEConfig(uint8_t RCC_HSE)$/;"	f
+RCC_HSICmd	stm32f4xx_rcc.c	/^void RCC_HSICmd(FunctionalState NewState)$/;"	f
+RCC_I2SCLKConfig	stm32f4xx_rcc.c	/^void RCC_I2SCLKConfig(uint32_t RCC_I2SCLKSource)$/;"	f
+RCC_ITConfig	stm32f4xx_rcc.c	/^void RCC_ITConfig(uint8_t RCC_IT, FunctionalState NewState)$/;"	f
+RCC_LSEConfig	stm32f4xx_rcc.c	/^void RCC_LSEConfig(uint8_t RCC_LSE)$/;"	f
+RCC_LSEModeConfig	stm32f4xx_rcc.c	/^void RCC_LSEModeConfig(uint8_t Mode)$/;"	f
+RCC_LSICmd	stm32f4xx_rcc.c	/^void RCC_LSICmd(FunctionalState NewState)$/;"	f
+RCC_LTDCCLKDivConfig	stm32f4xx_rcc.c	/^void RCC_LTDCCLKDivConfig(uint32_t RCC_PLLSAIDivR)$/;"	f
+RCC_MCO1Config	stm32f4xx_rcc.c	/^void RCC_MCO1Config(uint32_t RCC_MCO1Source, uint32_t RCC_MCO1Div)$/;"	f
+RCC_MCO2Config	stm32f4xx_rcc.c	/^void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div)$/;"	f
+RCC_OFFSET	stm32f4xx_rcc.c	73;"	d	file:
+RCC_PCLK1Config	stm32f4xx_rcc.c	/^void RCC_PCLK1Config(uint32_t RCC_HCLK)$/;"	f
+RCC_PCLK2Config	stm32f4xx_rcc.c	/^void RCC_PCLK2Config(uint32_t RCC_HCLK)$/;"	f
+RCC_PLLCmd	stm32f4xx_rcc.c	/^void RCC_PLLCmd(FunctionalState NewState)$/;"	f
+RCC_PLLConfig	stm32f4xx_rcc.c	/^void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, uint32_t PLLP, uint32_t PLLQ)$/;"	f
+RCC_PLLI2SCmd	stm32f4xx_rcc.c	/^void RCC_PLLI2SCmd(FunctionalState NewState)$/;"	f
+RCC_PLLI2SConfig	stm32f4xx_rcc.c	/^void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SQ, uint32_t PLLI2SR)$/;"	f
+RCC_PLLI2SConfig	stm32f4xx_rcc.c	/^void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR)$/;"	f
+RCC_PLLI2SConfig	stm32f4xx_rcc.c	/^void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR, uint32_t PLLI2SM)$/;"	f
+RCC_PLLSAICmd	stm32f4xx_rcc.c	/^void RCC_PLLSAICmd(FunctionalState NewState)$/;"	f
+RCC_PLLSAIConfig	stm32f4xx_rcc.c	/^void RCC_PLLSAIConfig(uint32_t PLLSAIN, uint32_t PLLSAIQ, uint32_t PLLSAIR)$/;"	f
+RCC_RTCCLKCmd	stm32f4xx_rcc.c	/^void RCC_RTCCLKCmd(FunctionalState NewState)$/;"	f
+RCC_RTCCLKConfig	stm32f4xx_rcc.c	/^void RCC_RTCCLKConfig(uint32_t RCC_RTCCLKSource)$/;"	f
+RCC_SAIBlockACLKConfig	stm32f4xx_rcc.c	/^void RCC_SAIBlockACLKConfig(uint32_t RCC_SAIBlockACLKSource)$/;"	f
+RCC_SAIBlockBCLKConfig	stm32f4xx_rcc.c	/^void RCC_SAIBlockBCLKConfig(uint32_t RCC_SAIBlockBCLKSource)$/;"	f
+RCC_SAIPLLI2SClkDivConfig	stm32f4xx_rcc.c	/^void RCC_SAIPLLI2SClkDivConfig(uint32_t RCC_PLLI2SDivQ)  $/;"	f
+RCC_SAIPLLSAIClkDivConfig	stm32f4xx_rcc.c	/^void RCC_SAIPLLSAIClkDivConfig(uint32_t RCC_PLLSAIDivQ)  $/;"	f
+RCC_SYSCLKConfig	stm32f4xx_rcc.c	/^void RCC_SYSCLKConfig(uint32_t RCC_SYSCLKSource)$/;"	f
+RCC_TIMCLKPresConfig	stm32f4xx_rcc.c	/^void RCC_TIMCLKPresConfig(uint32_t RCC_TIMCLKPrescaler)$/;"	f
+RCC_WaitForHSEStartUp	stm32f4xx_rcc.c	/^ErrorStatus RCC_WaitForHSEStartUp(void)$/;"	f
+RECALPF_TIMEOUT	stm32f4xx_rtc.c	312;"	d	file:
+RESERVED_MASK	stm32f4xx_dma.c	156;"	d	file:
+RNG_ClearFlag	stm32f4xx_rng.c	/^void RNG_ClearFlag(uint8_t RNG_FLAG)$/;"	f
+RNG_ClearITPendingBit	stm32f4xx_rng.c	/^void RNG_ClearITPendingBit(uint8_t RNG_IT)$/;"	f
+RNG_Cmd	stm32f4xx_rng.c	/^void RNG_Cmd(FunctionalState NewState)$/;"	f
+RNG_DeInit	stm32f4xx_rng.c	/^void RNG_DeInit(void)$/;"	f
+RNG_GetFlagStatus	stm32f4xx_rng.c	/^FlagStatus RNG_GetFlagStatus(uint8_t RNG_FLAG)$/;"	f
+RNG_GetITStatus	stm32f4xx_rng.c	/^ITStatus RNG_GetITStatus(uint8_t RNG_IT)$/;"	f
+RNG_GetRandomNumber	stm32f4xx_rng.c	/^uint32_t RNG_GetRandomNumber(void)$/;"	f
+RNG_ITConfig	stm32f4xx_rng.c	/^void RNG_ITConfig(FunctionalState NewState)$/;"	f
+RTCEN_BitNumber	stm32f4xx_rcc.c	102;"	d	file:
+RTC_AlarmCmd	stm32f4xx_rtc.c	/^ErrorStatus RTC_AlarmCmd(uint32_t RTC_Alarm, FunctionalState NewState)$/;"	f
+RTC_AlarmStructInit	stm32f4xx_rtc.c	/^void RTC_AlarmStructInit(RTC_AlarmTypeDef* RTC_AlarmStruct)$/;"	f
+RTC_AlarmSubSecondConfig	stm32f4xx_rtc.c	/^void RTC_AlarmSubSecondConfig(uint32_t RTC_Alarm, uint32_t RTC_AlarmSubSecondValue, uint32_t RTC_AlarmSubSecondMask)$/;"	f
+RTC_Bcd2ToByte	stm32f4xx_rtc.c	/^static uint8_t RTC_Bcd2ToByte(uint8_t Value)$/;"	f	file:
+RTC_BypassShadowCmd	stm32f4xx_rtc.c	/^void RTC_BypassShadowCmd(FunctionalState NewState)$/;"	f
+RTC_ByteToBcd2	stm32f4xx_rtc.c	/^static uint8_t RTC_ByteToBcd2(uint8_t Value)$/;"	f	file:
+RTC_CalibOutputCmd	stm32f4xx_rtc.c	/^void RTC_CalibOutputCmd(FunctionalState NewState)$/;"	f
+RTC_CalibOutputConfig	stm32f4xx_rtc.c	/^void RTC_CalibOutputConfig(uint32_t RTC_CalibOutput)$/;"	f
+RTC_ClearFlag	stm32f4xx_rtc.c	/^void RTC_ClearFlag(uint32_t RTC_FLAG)$/;"	f
+RTC_ClearITPendingBit	stm32f4xx_rtc.c	/^void RTC_ClearITPendingBit(uint32_t RTC_IT)$/;"	f
+RTC_CoarseCalibCmd	stm32f4xx_rtc.c	/^ErrorStatus RTC_CoarseCalibCmd(FunctionalState NewState)$/;"	f
+RTC_CoarseCalibConfig	stm32f4xx_rtc.c	/^ErrorStatus RTC_CoarseCalibConfig(uint32_t RTC_CalibSign, uint32_t Value)$/;"	f
+RTC_DR_RESERVED_MASK	stm32f4xx_rtc.c	301;"	d	file:
+RTC_DateStructInit	stm32f4xx_rtc.c	/^void RTC_DateStructInit(RTC_DateTypeDef* RTC_DateStruct)$/;"	f
+RTC_DayLightSavingConfig	stm32f4xx_rtc.c	/^void RTC_DayLightSavingConfig(uint32_t RTC_DayLightSaving, uint32_t RTC_StoreOperation)$/;"	f
+RTC_DeInit	stm32f4xx_rtc.c	/^ErrorStatus RTC_DeInit(void)$/;"	f
+RTC_EnterInitMode	stm32f4xx_rtc.c	/^ErrorStatus RTC_EnterInitMode(void)$/;"	f
+RTC_ExitInitMode	stm32f4xx_rtc.c	/^void RTC_ExitInitMode(void)$/;"	f
+RTC_FLAGS_MASK	stm32f4xx_rtc.c	304;"	d	file:
+RTC_GetAlarm	stm32f4xx_rtc.c	/^void RTC_GetAlarm(uint32_t RTC_Format, uint32_t RTC_Alarm, RTC_AlarmTypeDef* RTC_AlarmStruct)$/;"	f
+RTC_GetAlarmSubSecond	stm32f4xx_rtc.c	/^uint32_t RTC_GetAlarmSubSecond(uint32_t RTC_Alarm)$/;"	f
+RTC_GetDate	stm32f4xx_rtc.c	/^void RTC_GetDate(uint32_t RTC_Format, RTC_DateTypeDef* RTC_DateStruct)$/;"	f
+RTC_GetFlagStatus	stm32f4xx_rtc.c	/^FlagStatus RTC_GetFlagStatus(uint32_t RTC_FLAG)$/;"	f
+RTC_GetITStatus	stm32f4xx_rtc.c	/^ITStatus RTC_GetITStatus(uint32_t RTC_IT)$/;"	f
+RTC_GetStoreOperation	stm32f4xx_rtc.c	/^uint32_t RTC_GetStoreOperation(void)$/;"	f
+RTC_GetSubSecond	stm32f4xx_rtc.c	/^uint32_t RTC_GetSubSecond(void)$/;"	f
+RTC_GetTime	stm32f4xx_rtc.c	/^void RTC_GetTime(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_TimeStruct)$/;"	f
+RTC_GetTimeStamp	stm32f4xx_rtc.c	/^void RTC_GetTimeStamp(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_StampTimeStruct, $/;"	f
+RTC_GetTimeStampSubSecond	stm32f4xx_rtc.c	/^uint32_t RTC_GetTimeStampSubSecond(void)$/;"	f
+RTC_GetWakeUpCounter	stm32f4xx_rtc.c	/^uint32_t RTC_GetWakeUpCounter(void)$/;"	f
+RTC_INIT_MASK	stm32f4xx_rtc.c	302;"	d	file:
+RTC_ITConfig	stm32f4xx_rtc.c	/^void RTC_ITConfig(uint32_t RTC_IT, FunctionalState NewState)$/;"	f
+RTC_Init	stm32f4xx_rtc.c	/^ErrorStatus RTC_Init(RTC_InitTypeDef* RTC_InitStruct)$/;"	f
+RTC_OutputConfig	stm32f4xx_rtc.c	/^void RTC_OutputConfig(uint32_t RTC_Output, uint32_t RTC_OutputPolarity)$/;"	f
+RTC_OutputTypeConfig	stm32f4xx_rtc.c	/^void RTC_OutputTypeConfig(uint32_t RTC_OutputType)$/;"	f
+RTC_RSF_MASK	stm32f4xx_rtc.c	303;"	d	file:
+RTC_ReadBackupRegister	stm32f4xx_rtc.c	/^uint32_t RTC_ReadBackupRegister(uint32_t RTC_BKP_DR)$/;"	f
+RTC_RefClockCmd	stm32f4xx_rtc.c	/^ErrorStatus RTC_RefClockCmd(FunctionalState NewState)$/;"	f
+RTC_SetAlarm	stm32f4xx_rtc.c	/^void RTC_SetAlarm(uint32_t RTC_Format, uint32_t RTC_Alarm, RTC_AlarmTypeDef* RTC_AlarmStruct)$/;"	f
+RTC_SetDate	stm32f4xx_rtc.c	/^ErrorStatus RTC_SetDate(uint32_t RTC_Format, RTC_DateTypeDef* RTC_DateStruct)$/;"	f
+RTC_SetTime	stm32f4xx_rtc.c	/^ErrorStatus RTC_SetTime(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_TimeStruct)$/;"	f
+RTC_SetWakeUpCounter	stm32f4xx_rtc.c	/^void RTC_SetWakeUpCounter(uint32_t RTC_WakeUpCounter)$/;"	f
+RTC_SmoothCalibConfig	stm32f4xx_rtc.c	/^ErrorStatus RTC_SmoothCalibConfig(uint32_t RTC_SmoothCalibPeriod,$/;"	f
+RTC_StructInit	stm32f4xx_rtc.c	/^void RTC_StructInit(RTC_InitTypeDef* RTC_InitStruct)$/;"	f
+RTC_SynchroShiftConfig	stm32f4xx_rtc.c	/^ErrorStatus RTC_SynchroShiftConfig(uint32_t RTC_ShiftAdd1S, uint32_t RTC_ShiftSubFS)$/;"	f
+RTC_TR_RESERVED_MASK	stm32f4xx_rtc.c	300;"	d	file:
+RTC_TamperCmd	stm32f4xx_rtc.c	/^void RTC_TamperCmd(uint32_t RTC_Tamper, FunctionalState NewState)$/;"	f
+RTC_TamperFilterConfig	stm32f4xx_rtc.c	/^void RTC_TamperFilterConfig(uint32_t RTC_TamperFilter)$/;"	f
+RTC_TamperPinSelection	stm32f4xx_rtc.c	/^void RTC_TamperPinSelection(uint32_t RTC_TamperPin)$/;"	f
+RTC_TamperPinsPrechargeDuration	stm32f4xx_rtc.c	/^void RTC_TamperPinsPrechargeDuration(uint32_t RTC_TamperPrechargeDuration)$/;"	f
+RTC_TamperPullUpCmd	stm32f4xx_rtc.c	/^void RTC_TamperPullUpCmd(FunctionalState NewState)$/;"	f
+RTC_TamperSamplingFreqConfig	stm32f4xx_rtc.c	/^void RTC_TamperSamplingFreqConfig(uint32_t RTC_TamperSamplingFreq)$/;"	f
+RTC_TamperTriggerConfig	stm32f4xx_rtc.c	/^void RTC_TamperTriggerConfig(uint32_t RTC_Tamper, uint32_t RTC_TamperTrigger)$/;"	f
+RTC_TimeStampCmd	stm32f4xx_rtc.c	/^void RTC_TimeStampCmd(uint32_t RTC_TimeStampEdge, FunctionalState NewState)$/;"	f
+RTC_TimeStampOnTamperDetectionCmd	stm32f4xx_rtc.c	/^void RTC_TimeStampOnTamperDetectionCmd(FunctionalState NewState)$/;"	f
+RTC_TimeStampPinSelection	stm32f4xx_rtc.c	/^void RTC_TimeStampPinSelection(uint32_t RTC_TimeStampPin)$/;"	f
+RTC_TimeStructInit	stm32f4xx_rtc.c	/^void RTC_TimeStructInit(RTC_TimeTypeDef* RTC_TimeStruct)$/;"	f
+RTC_WaitForSynchro	stm32f4xx_rtc.c	/^ErrorStatus RTC_WaitForSynchro(void)$/;"	f
+RTC_WakeUpClockConfig	stm32f4xx_rtc.c	/^void RTC_WakeUpClockConfig(uint32_t RTC_WakeUpClock)$/;"	f
+RTC_WakeUpCmd	stm32f4xx_rtc.c	/^ErrorStatus RTC_WakeUpCmd(FunctionalState NewState)$/;"	f
+RTC_WriteBackupRegister	stm32f4xx_rtc.c	/^void RTC_WriteBackupRegister(uint32_t RTC_BKP_DR, uint32_t Data)$/;"	f
+RTC_WriteProtectionCmd	stm32f4xx_rtc.c	/^void RTC_WriteProtectionCmd(FunctionalState NewState)$/;"	f
+RWMOD_BitNumber	stm32f4xx_sdio.c	213;"	d	file:
+RWSTART_BitNumber	stm32f4xx_sdio.c	205;"	d	file:
+RWSTOP_BitNumber	stm32f4xx_sdio.c	209;"	d	file:
+SAI_ClearFlag	stm32f4xx_sai.c	/^void SAI_ClearFlag(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_FLAG)$/;"	f
+SAI_ClearITPendingBit	stm32f4xx_sai.c	/^void SAI_ClearITPendingBit(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT)$/;"	f
+SAI_Cmd	stm32f4xx_sai.c	/^void SAI_Cmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState)$/;"	f
+SAI_CompandingModeConfig	stm32f4xx_sai.c	/^void SAI_CompandingModeConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_CompandingMode)$/;"	f
+SAI_DMACmd	stm32f4xx_sai.c	/^void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState)$/;"	f
+SAI_DeInit	stm32f4xx_sai.c	/^void SAI_DeInit(SAI_TypeDef* SAIx)$/;"	f
+SAI_FlushFIFO	stm32f4xx_sai.c	/^void SAI_FlushFIFO(SAI_Block_TypeDef* SAI_Block_x)$/;"	f
+SAI_FrameInit	stm32f4xx_sai.c	/^void SAI_FrameInit(SAI_Block_TypeDef* SAI_Block_x, SAI_FrameInitTypeDef* SAI_FrameInitStruct)$/;"	f
+SAI_FrameStructInit	stm32f4xx_sai.c	/^void SAI_FrameStructInit(SAI_FrameInitTypeDef* SAI_FrameInitStruct)$/;"	f
+SAI_GetCmdStatus	stm32f4xx_sai.c	/^FunctionalState SAI_GetCmdStatus(SAI_Block_TypeDef* SAI_Block_x)$/;"	f
+SAI_GetFIFOStatus	stm32f4xx_sai.c	/^uint32_t SAI_GetFIFOStatus(SAI_Block_TypeDef* SAI_Block_x)$/;"	f
+SAI_GetFlagStatus	stm32f4xx_sai.c	/^FlagStatus SAI_GetFlagStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_FLAG)$/;"	f
+SAI_GetITStatus	stm32f4xx_sai.c	/^ITStatus SAI_GetITStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT)$/;"	f
+SAI_ITConfig	stm32f4xx_sai.c	/^void SAI_ITConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT, FunctionalState NewState)$/;"	f
+SAI_Init	stm32f4xx_sai.c	/^void SAI_Init(SAI_Block_TypeDef* SAI_Block_x, SAI_InitTypeDef* SAI_InitStruct)$/;"	f
+SAI_MonoModeConfig	stm32f4xx_sai.c	/^void SAI_MonoModeConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_Mono_StreoMode)$/;"	f
+SAI_MuteFrameCounterConfig	stm32f4xx_sai.c	/^void SAI_MuteFrameCounterConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_MuteCounter)$/;"	f
+SAI_MuteModeCmd	stm32f4xx_sai.c	/^void SAI_MuteModeCmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState)$/;"	f
+SAI_MuteValueConfig	stm32f4xx_sai.c	/^void SAI_MuteValueConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_MuteValue)$/;"	f
+SAI_ReceiveData	stm32f4xx_sai.c	/^uint32_t SAI_ReceiveData(SAI_Block_TypeDef* SAI_Block_x)$/;"	f
+SAI_SendData	stm32f4xx_sai.c	/^void SAI_SendData(SAI_Block_TypeDef* SAI_Block_x, uint32_t Data)$/;"	f
+SAI_SlotInit	stm32f4xx_sai.c	/^void SAI_SlotInit(SAI_Block_TypeDef* SAI_Block_x, SAI_SlotInitTypeDef* SAI_SlotInitStruct)$/;"	f
+SAI_SlotStructInit	stm32f4xx_sai.c	/^void SAI_SlotStructInit(SAI_SlotInitTypeDef* SAI_SlotInitStruct)$/;"	f
+SAI_StructInit	stm32f4xx_sai.c	/^void SAI_StructInit(SAI_InitTypeDef* SAI_InitStruct)$/;"	f
+SAI_TRIStateConfig	stm32f4xx_sai.c	/^void SAI_TRIStateConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_TRIState)$/;"	f
+SDCMR_CTB1_2_RESET	stm32f4xx_fmc.c	76;"	d	file:
+SDCMR_CTB1_RESET	stm32f4xx_fmc.c	74;"	d	file:
+SDCMR_CTB2_RESET	stm32f4xx_fmc.c	75;"	d	file:
+SDCR_WriteProtection_RESET	stm32f4xx_fmc.c	71;"	d	file:
+SDIOEN_BitNumber	stm32f4xx_sdio.c	217;"	d	file:
+SDIOSUSPEND_BitNumber	stm32f4xx_sdio.c	183;"	d	file:
+SDIO_CEATAITCmd	stm32f4xx_sdio.c	/^void SDIO_CEATAITCmd(FunctionalState NewState)$/;"	f
+SDIO_ClearFlag	stm32f4xx_sdio.c	/^void SDIO_ClearFlag(uint32_t SDIO_FLAG)$/;"	f
+SDIO_ClearITPendingBit	stm32f4xx_sdio.c	/^void SDIO_ClearITPendingBit(uint32_t SDIO_IT)$/;"	f
+SDIO_ClockCmd	stm32f4xx_sdio.c	/^void SDIO_ClockCmd(FunctionalState NewState)$/;"	f
+SDIO_CmdStructInit	stm32f4xx_sdio.c	/^void SDIO_CmdStructInit(SDIO_CmdInitTypeDef* SDIO_CmdInitStruct)$/;"	f
+SDIO_CommandCompletionCmd	stm32f4xx_sdio.c	/^void SDIO_CommandCompletionCmd(FunctionalState NewState)$/;"	f
+SDIO_DMACmd	stm32f4xx_sdio.c	/^void SDIO_DMACmd(FunctionalState NewState)$/;"	f
+SDIO_DataConfig	stm32f4xx_sdio.c	/^void SDIO_DataConfig(SDIO_DataInitTypeDef* SDIO_DataInitStruct)$/;"	f
+SDIO_DataStructInit	stm32f4xx_sdio.c	/^void SDIO_DataStructInit(SDIO_DataInitTypeDef* SDIO_DataInitStruct)$/;"	f
+SDIO_DeInit	stm32f4xx_sdio.c	/^void SDIO_DeInit(void)$/;"	f
+SDIO_GetCommandResponse	stm32f4xx_sdio.c	/^uint8_t SDIO_GetCommandResponse(void)$/;"	f
+SDIO_GetDataCounter	stm32f4xx_sdio.c	/^uint32_t SDIO_GetDataCounter(void)$/;"	f
+SDIO_GetFIFOCount	stm32f4xx_sdio.c	/^uint32_t SDIO_GetFIFOCount(void)$/;"	f
+SDIO_GetFlagStatus	stm32f4xx_sdio.c	/^FlagStatus SDIO_GetFlagStatus(uint32_t SDIO_FLAG)$/;"	f
+SDIO_GetITStatus	stm32f4xx_sdio.c	/^ITStatus SDIO_GetITStatus(uint32_t SDIO_IT)$/;"	f
+SDIO_GetPowerState	stm32f4xx_sdio.c	/^uint32_t SDIO_GetPowerState(void)$/;"	f
+SDIO_GetResponse	stm32f4xx_sdio.c	/^uint32_t SDIO_GetResponse(uint32_t SDIO_RESP)$/;"	f
+SDIO_ITConfig	stm32f4xx_sdio.c	/^void SDIO_ITConfig(uint32_t SDIO_IT, FunctionalState NewState)$/;"	f
+SDIO_Init	stm32f4xx_sdio.c	/^void SDIO_Init(SDIO_InitTypeDef* SDIO_InitStruct)$/;"	f
+SDIO_OFFSET	stm32f4xx_sdio.c	172;"	d	file:
+SDIO_RESP_ADDR	stm32f4xx_sdio.c	238;"	d	file:
+SDIO_ReadData	stm32f4xx_sdio.c	/^uint32_t SDIO_ReadData(void)$/;"	f
+SDIO_SendCEATACmd	stm32f4xx_sdio.c	/^void SDIO_SendCEATACmd(FunctionalState NewState)$/;"	f
+SDIO_SendCommand	stm32f4xx_sdio.c	/^void SDIO_SendCommand(SDIO_CmdInitTypeDef *SDIO_CmdInitStruct)$/;"	f
+SDIO_SendSDIOSuspendCmd	stm32f4xx_sdio.c	/^void SDIO_SendSDIOSuspendCmd(FunctionalState NewState)$/;"	f
+SDIO_SetPowerState	stm32f4xx_sdio.c	/^void SDIO_SetPowerState(uint32_t SDIO_PowerState)$/;"	f
+SDIO_SetSDIOOperation	stm32f4xx_sdio.c	/^void SDIO_SetSDIOOperation(FunctionalState NewState)$/;"	f
+SDIO_SetSDIOReadWaitMode	stm32f4xx_sdio.c	/^void SDIO_SetSDIOReadWaitMode(uint32_t SDIO_ReadWaitMode)$/;"	f
+SDIO_StartSDIOReadWait	stm32f4xx_sdio.c	/^void SDIO_StartSDIOReadWait(FunctionalState NewState)$/;"	f
+SDIO_StopSDIOReadWait	stm32f4xx_sdio.c	/^void SDIO_StopSDIOReadWait(FunctionalState NewState)$/;"	f
+SDIO_StructInit	stm32f4xx_sdio.c	/^void SDIO_StructInit(SDIO_InitTypeDef* SDIO_InitStruct)$/;"	f
+SDIO_WriteData	stm32f4xx_sdio.c	/^void SDIO_WriteData(uint32_t Data)$/;"	f
+SECTOR_MASK	stm32f4xx_flash.c	85;"	d	file:
+SHA1BUSY_TIMEOUT	stm32f4xx_hash_sha1.c	60;"	d	file:
+SHPF_TIMEOUT	stm32f4xx_rtc.c	313;"	d	file:
+SLAK_TIMEOUT	stm32f4xx_can.c	110;"	d	file:
+SLOTR_CLEAR_MASK	stm32f4xx_sai.c	144;"	d	file:
+SMCR_ETR_MASK	stm32f4xx_tim.c	135;"	d	file:
+SMPR1_SMP_SET	stm32f4xx_adc.c	161;"	d	file:
+SMPR2_SMP_SET	stm32f4xx_adc.c	162;"	d	file:
+SPI_BiDirectionalLineConfig	stm32f4xx_spi.c	/^void SPI_BiDirectionalLineConfig(SPI_TypeDef* SPIx, uint16_t SPI_Direction)$/;"	f
+SPI_CR2_FRF	stm32f4xx_spi.c	182;"	d	file:
+SPI_CalculateCRC	stm32f4xx_spi.c	/^void SPI_CalculateCRC(SPI_TypeDef* SPIx, FunctionalState NewState)$/;"	f
+SPI_Cmd	stm32f4xx_spi.c	/^void SPI_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState)$/;"	f
+SPI_DataSizeConfig	stm32f4xx_spi.c	/^void SPI_DataSizeConfig(SPI_TypeDef* SPIx, uint16_t SPI_DataSize)$/;"	f
+SPI_GetCRC	stm32f4xx_spi.c	/^uint16_t SPI_GetCRC(SPI_TypeDef* SPIx, uint8_t SPI_CRC)$/;"	f
+SPI_GetCRCPolynomial	stm32f4xx_spi.c	/^uint16_t SPI_GetCRCPolynomial(SPI_TypeDef* SPIx)$/;"	f
+SPI_I2S_ClearFlag	stm32f4xx_spi.c	/^void SPI_I2S_ClearFlag(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG)$/;"	f
+SPI_I2S_ClearITPendingBit	stm32f4xx_spi.c	/^void SPI_I2S_ClearITPendingBit(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT)$/;"	f
+SPI_I2S_DMACmd	stm32f4xx_spi.c	/^void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState NewState)$/;"	f
+SPI_I2S_DeInit	stm32f4xx_spi.c	/^void SPI_I2S_DeInit(SPI_TypeDef* SPIx)$/;"	f
+SPI_I2S_GetFlagStatus	stm32f4xx_spi.c	/^FlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG)$/;"	f
+SPI_I2S_GetITStatus	stm32f4xx_spi.c	/^ITStatus SPI_I2S_GetITStatus(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT)$/;"	f
+SPI_I2S_ITConfig	stm32f4xx_spi.c	/^void SPI_I2S_ITConfig(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT, FunctionalState NewState)$/;"	f
+SPI_I2S_ReceiveData	stm32f4xx_spi.c	/^uint16_t SPI_I2S_ReceiveData(SPI_TypeDef* SPIx)$/;"	f
+SPI_I2S_SendData	stm32f4xx_spi.c	/^void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data)$/;"	f
+SPI_Init	stm32f4xx_spi.c	/^void SPI_Init(SPI_TypeDef* SPIx, SPI_InitTypeDef* SPI_InitStruct)$/;"	f
+SPI_NSSInternalSoftwareConfig	stm32f4xx_spi.c	/^void SPI_NSSInternalSoftwareConfig(SPI_TypeDef* SPIx, uint16_t SPI_NSSInternalSoft)$/;"	f
+SPI_SR_TIFRFE	stm32f4xx_spi.c	183;"	d	file:
+SPI_SSOutputCmd	stm32f4xx_spi.c	/^void SPI_SSOutputCmd(SPI_TypeDef* SPIx, FunctionalState NewState)$/;"	f
+SPI_StructInit	stm32f4xx_spi.c	/^void SPI_StructInit(SPI_InitTypeDef* SPI_InitStruct)$/;"	f
+SPI_TIModeCmd	stm32f4xx_spi.c	/^void SPI_TIModeCmd(SPI_TypeDef* SPIx, FunctionalState NewState)$/;"	f
+SPI_TransmitCRC	stm32f4xx_spi.c	/^void SPI_TransmitCRC(SPI_TypeDef* SPIx)$/;"	f
+SQR1_L_RESET	stm32f4xx_adc.c	151;"	d	file:
+SQR1_SQ_SET	stm32f4xx_adc.c	148;"	d	file:
+SQR2_SQ_SET	stm32f4xx_adc.c	147;"	d	file:
+SQR3_SQ_SET	stm32f4xx_adc.c	146;"	d	file:
+SYNCHRO_TIMEOUT	stm32f4xx_rtc.c	311;"	d	file:
+SYSCFG_CompensationCellCmd	stm32f4xx_syscfg.c	/^void SYSCFG_CompensationCellCmd(FunctionalState NewState)$/;"	f
+SYSCFG_DeInit	stm32f4xx_syscfg.c	/^void SYSCFG_DeInit(void)$/;"	f
+SYSCFG_ETH_MediaInterfaceConfig	stm32f4xx_syscfg.c	/^void SYSCFG_ETH_MediaInterfaceConfig(uint32_t SYSCFG_ETH_MediaInterface) $/;"	f
+SYSCFG_EXTILineConfig	stm32f4xx_syscfg.c	/^void SYSCFG_EXTILineConfig(uint8_t EXTI_PortSourceGPIOx, uint8_t EXTI_PinSourcex)$/;"	f
+SYSCFG_GetCompensationCellStatus	stm32f4xx_syscfg.c	/^FlagStatus SYSCFG_GetCompensationCellStatus(void)$/;"	f
+SYSCFG_MemoryRemapConfig	stm32f4xx_syscfg.c	/^void SYSCFG_MemoryRemapConfig(uint8_t SYSCFG_MemoryRemap)$/;"	f
+SYSCFG_MemorySwappingBank	stm32f4xx_syscfg.c	/^void SYSCFG_MemorySwappingBank(FunctionalState NewState)$/;"	f
+SYSCFG_OFFSET	stm32f4xx_syscfg.c	65;"	d	file:
+SysTick_CLKSourceConfig	misc.c	/^void SysTick_CLKSourceConfig(uint32_t SysTick_CLKSource)$/;"	f
+TDESBUSY_TIMEOUT	stm32f4xx_cryp_tdes.c	62;"	d	file:
+TI1_Config	stm32f4xx_tim.c	/^static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
+TI2_Config	stm32f4xx_tim.c	/^static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
+TI3_Config	stm32f4xx_tim.c	/^static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
+TI4_Config	stm32f4xx_tim.c	/^static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
+TIMPRE_BitNumber	stm32f4xx_rcc.c	117;"	d	file:
+TIM_ARRPreloadConfig	stm32f4xx_tim.c	/^void TIM_ARRPreloadConfig(TIM_TypeDef* TIMx, FunctionalState NewState)$/;"	f
+TIM_BDTRConfig	stm32f4xx_tim.c	/^void TIM_BDTRConfig(TIM_TypeDef* TIMx, TIM_BDTRInitTypeDef *TIM_BDTRInitStruct)$/;"	f
+TIM_BDTRStructInit	stm32f4xx_tim.c	/^void TIM_BDTRStructInit(TIM_BDTRInitTypeDef* TIM_BDTRInitStruct)$/;"	f
+TIM_CCPreloadControl	stm32f4xx_tim.c	/^void TIM_CCPreloadControl(TIM_TypeDef* TIMx, FunctionalState NewState)$/;"	f
+TIM_CCxCmd	stm32f4xx_tim.c	/^void TIM_CCxCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCx)$/;"	f
+TIM_CCxNCmd	stm32f4xx_tim.c	/^void TIM_CCxNCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCxN)$/;"	f
+TIM_ClearFlag	stm32f4xx_tim.c	/^void TIM_ClearFlag(TIM_TypeDef* TIMx, uint16_t TIM_FLAG)$/;"	f
+TIM_ClearITPendingBit	stm32f4xx_tim.c	/^void TIM_ClearITPendingBit(TIM_TypeDef* TIMx, uint16_t TIM_IT)$/;"	f
+TIM_ClearOC1Ref	stm32f4xx_tim.c	/^void TIM_ClearOC1Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear)$/;"	f
+TIM_ClearOC2Ref	stm32f4xx_tim.c	/^void TIM_ClearOC2Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear)$/;"	f
+TIM_ClearOC3Ref	stm32f4xx_tim.c	/^void TIM_ClearOC3Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear)$/;"	f
+TIM_ClearOC4Ref	stm32f4xx_tim.c	/^void TIM_ClearOC4Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear)$/;"	f
+TIM_Cmd	stm32f4xx_tim.c	/^void TIM_Cmd(TIM_TypeDef* TIMx, FunctionalState NewState)$/;"	f
+TIM_CounterModeConfig	stm32f4xx_tim.c	/^void TIM_CounterModeConfig(TIM_TypeDef* TIMx, uint16_t TIM_CounterMode)$/;"	f
+TIM_CtrlPWMOutputs	stm32f4xx_tim.c	/^void TIM_CtrlPWMOutputs(TIM_TypeDef* TIMx, FunctionalState NewState)$/;"	f
+TIM_DMACmd	stm32f4xx_tim.c	/^void TIM_DMACmd(TIM_TypeDef* TIMx, uint16_t TIM_DMASource, FunctionalState NewState)$/;"	f
+TIM_DMAConfig	stm32f4xx_tim.c	/^void TIM_DMAConfig(TIM_TypeDef* TIMx, uint16_t TIM_DMABase, uint16_t TIM_DMABurstLength)$/;"	f
+TIM_DeInit	stm32f4xx_tim.c	/^void TIM_DeInit(TIM_TypeDef* TIMx)$/;"	f
+TIM_ETRClockMode1Config	stm32f4xx_tim.c	/^void TIM_ETRClockMode1Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,$/;"	f
+TIM_ETRClockMode2Config	stm32f4xx_tim.c	/^void TIM_ETRClockMode2Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler, $/;"	f
+TIM_ETRConfig	stm32f4xx_tim.c	/^void TIM_ETRConfig(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,$/;"	f
+TIM_EncoderInterfaceConfig	stm32f4xx_tim.c	/^void TIM_EncoderInterfaceConfig(TIM_TypeDef* TIMx, uint16_t TIM_EncoderMode,$/;"	f
+TIM_ForcedOC1Config	stm32f4xx_tim.c	/^void TIM_ForcedOC1Config(TIM_TypeDef* TIMx, uint16_t TIM_ForcedAction)$/;"	f
+TIM_ForcedOC2Config	stm32f4xx_tim.c	/^void TIM_ForcedOC2Config(TIM_TypeDef* TIMx, uint16_t TIM_ForcedAction)$/;"	f
+TIM_ForcedOC3Config	stm32f4xx_tim.c	/^void TIM_ForcedOC3Config(TIM_TypeDef* TIMx, uint16_t TIM_ForcedAction)$/;"	f
+TIM_ForcedOC4Config	stm32f4xx_tim.c	/^void TIM_ForcedOC4Config(TIM_TypeDef* TIMx, uint16_t TIM_ForcedAction)$/;"	f
+TIM_GenerateEvent	stm32f4xx_tim.c	/^void TIM_GenerateEvent(TIM_TypeDef* TIMx, uint16_t TIM_EventSource)$/;"	f
+TIM_GetCapture1	stm32f4xx_tim.c	/^uint32_t TIM_GetCapture1(TIM_TypeDef* TIMx)$/;"	f
+TIM_GetCapture2	stm32f4xx_tim.c	/^uint32_t TIM_GetCapture2(TIM_TypeDef* TIMx)$/;"	f
+TIM_GetCapture3	stm32f4xx_tim.c	/^uint32_t TIM_GetCapture3(TIM_TypeDef* TIMx)$/;"	f
+TIM_GetCapture4	stm32f4xx_tim.c	/^uint32_t TIM_GetCapture4(TIM_TypeDef* TIMx)$/;"	f
+TIM_GetCounter	stm32f4xx_tim.c	/^uint32_t TIM_GetCounter(TIM_TypeDef* TIMx)$/;"	f
+TIM_GetFlagStatus	stm32f4xx_tim.c	/^FlagStatus TIM_GetFlagStatus(TIM_TypeDef* TIMx, uint16_t TIM_FLAG)$/;"	f
+TIM_GetITStatus	stm32f4xx_tim.c	/^ITStatus TIM_GetITStatus(TIM_TypeDef* TIMx, uint16_t TIM_IT)$/;"	f
+TIM_GetPrescaler	stm32f4xx_tim.c	/^uint16_t TIM_GetPrescaler(TIM_TypeDef* TIMx)$/;"	f
+TIM_ICInit	stm32f4xx_tim.c	/^void TIM_ICInit(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct)$/;"	f
+TIM_ICStructInit	stm32f4xx_tim.c	/^void TIM_ICStructInit(TIM_ICInitTypeDef* TIM_ICInitStruct)$/;"	f
+TIM_ITConfig	stm32f4xx_tim.c	/^void TIM_ITConfig(TIM_TypeDef* TIMx, uint16_t TIM_IT, FunctionalState NewState)$/;"	f
+TIM_ITRxExternalClockConfig	stm32f4xx_tim.c	/^void TIM_ITRxExternalClockConfig(TIM_TypeDef* TIMx, uint16_t TIM_InputTriggerSource)$/;"	f
+TIM_InternalClockConfig	stm32f4xx_tim.c	/^void TIM_InternalClockConfig(TIM_TypeDef* TIMx)$/;"	f
+TIM_OC1FastConfig	stm32f4xx_tim.c	/^void TIM_OC1FastConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCFast)$/;"	f
+TIM_OC1Init	stm32f4xx_tim.c	/^void TIM_OC1Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct)$/;"	f
+TIM_OC1NPolarityConfig	stm32f4xx_tim.c	/^void TIM_OC1NPolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCNPolarity)$/;"	f
+TIM_OC1PolarityConfig	stm32f4xx_tim.c	/^void TIM_OC1PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity)$/;"	f
+TIM_OC1PreloadConfig	stm32f4xx_tim.c	/^void TIM_OC1PreloadConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPreload)$/;"	f
+TIM_OC2FastConfig	stm32f4xx_tim.c	/^void TIM_OC2FastConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCFast)$/;"	f
+TIM_OC2Init	stm32f4xx_tim.c	/^void TIM_OC2Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct)$/;"	f
+TIM_OC2NPolarityConfig	stm32f4xx_tim.c	/^void TIM_OC2NPolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCNPolarity)$/;"	f
+TIM_OC2PolarityConfig	stm32f4xx_tim.c	/^void TIM_OC2PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity)$/;"	f
+TIM_OC2PreloadConfig	stm32f4xx_tim.c	/^void TIM_OC2PreloadConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPreload)$/;"	f
+TIM_OC3FastConfig	stm32f4xx_tim.c	/^void TIM_OC3FastConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCFast)$/;"	f
+TIM_OC3Init	stm32f4xx_tim.c	/^void TIM_OC3Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct)$/;"	f
+TIM_OC3NPolarityConfig	stm32f4xx_tim.c	/^void TIM_OC3NPolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCNPolarity)$/;"	f
+TIM_OC3PolarityConfig	stm32f4xx_tim.c	/^void TIM_OC3PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity)$/;"	f
+TIM_OC3PreloadConfig	stm32f4xx_tim.c	/^void TIM_OC3PreloadConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPreload)$/;"	f
+TIM_OC4FastConfig	stm32f4xx_tim.c	/^void TIM_OC4FastConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCFast)$/;"	f
+TIM_OC4Init	stm32f4xx_tim.c	/^void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct)$/;"	f
+TIM_OC4PolarityConfig	stm32f4xx_tim.c	/^void TIM_OC4PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity)$/;"	f
+TIM_OC4PreloadConfig	stm32f4xx_tim.c	/^void TIM_OC4PreloadConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPreload)$/;"	f
+TIM_OCStructInit	stm32f4xx_tim.c	/^void TIM_OCStructInit(TIM_OCInitTypeDef* TIM_OCInitStruct)$/;"	f
+TIM_PWMIConfig	stm32f4xx_tim.c	/^void TIM_PWMIConfig(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct)$/;"	f
+TIM_PrescalerConfig	stm32f4xx_tim.c	/^void TIM_PrescalerConfig(TIM_TypeDef* TIMx, uint16_t Prescaler, uint16_t TIM_PSCReloadMode)$/;"	f
+TIM_RemapConfig	stm32f4xx_tim.c	/^void TIM_RemapConfig(TIM_TypeDef* TIMx, uint16_t TIM_Remap)$/;"	f
+TIM_SelectCCDMA	stm32f4xx_tim.c	/^void TIM_SelectCCDMA(TIM_TypeDef* TIMx, FunctionalState NewState)$/;"	f
+TIM_SelectCOM	stm32f4xx_tim.c	/^void TIM_SelectCOM(TIM_TypeDef* TIMx, FunctionalState NewState)$/;"	f
+TIM_SelectHallSensor	stm32f4xx_tim.c	/^void TIM_SelectHallSensor(TIM_TypeDef* TIMx, FunctionalState NewState)$/;"	f
+TIM_SelectInputTrigger	stm32f4xx_tim.c	/^void TIM_SelectInputTrigger(TIM_TypeDef* TIMx, uint16_t TIM_InputTriggerSource)$/;"	f
+TIM_SelectMasterSlaveMode	stm32f4xx_tim.c	/^void TIM_SelectMasterSlaveMode(TIM_TypeDef* TIMx, uint16_t TIM_MasterSlaveMode)$/;"	f
+TIM_SelectOCxM	stm32f4xx_tim.c	/^void TIM_SelectOCxM(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_OCMode)$/;"	f
+TIM_SelectOnePulseMode	stm32f4xx_tim.c	/^void TIM_SelectOnePulseMode(TIM_TypeDef* TIMx, uint16_t TIM_OPMode)$/;"	f
+TIM_SelectOutputTrigger	stm32f4xx_tim.c	/^void TIM_SelectOutputTrigger(TIM_TypeDef* TIMx, uint16_t TIM_TRGOSource)$/;"	f
+TIM_SelectSlaveMode	stm32f4xx_tim.c	/^void TIM_SelectSlaveMode(TIM_TypeDef* TIMx, uint16_t TIM_SlaveMode)$/;"	f
+TIM_SetAutoreload	stm32f4xx_tim.c	/^void TIM_SetAutoreload(TIM_TypeDef* TIMx, uint32_t Autoreload)$/;"	f
+TIM_SetClockDivision	stm32f4xx_tim.c	/^void TIM_SetClockDivision(TIM_TypeDef* TIMx, uint16_t TIM_CKD)$/;"	f
+TIM_SetCompare1	stm32f4xx_tim.c	/^void TIM_SetCompare1(TIM_TypeDef* TIMx, uint32_t Compare1)$/;"	f
+TIM_SetCompare2	stm32f4xx_tim.c	/^void TIM_SetCompare2(TIM_TypeDef* TIMx, uint32_t Compare2)$/;"	f
+TIM_SetCompare3	stm32f4xx_tim.c	/^void TIM_SetCompare3(TIM_TypeDef* TIMx, uint32_t Compare3)$/;"	f
+TIM_SetCompare4	stm32f4xx_tim.c	/^void TIM_SetCompare4(TIM_TypeDef* TIMx, uint32_t Compare4)$/;"	f
+TIM_SetCounter	stm32f4xx_tim.c	/^void TIM_SetCounter(TIM_TypeDef* TIMx, uint32_t Counter)$/;"	f
+TIM_SetIC1Prescaler	stm32f4xx_tim.c	/^void TIM_SetIC1Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC)$/;"	f
+TIM_SetIC2Prescaler	stm32f4xx_tim.c	/^void TIM_SetIC2Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC)$/;"	f
+TIM_SetIC3Prescaler	stm32f4xx_tim.c	/^void TIM_SetIC3Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC)$/;"	f
+TIM_SetIC4Prescaler	stm32f4xx_tim.c	/^void TIM_SetIC4Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC)$/;"	f
+TIM_TIxExternalClockConfig	stm32f4xx_tim.c	/^void TIM_TIxExternalClockConfig(TIM_TypeDef* TIMx, uint16_t TIM_TIxExternalCLKSource,$/;"	f
+TIM_TimeBaseInit	stm32f4xx_tim.c	/^void TIM_TimeBaseInit(TIM_TypeDef* TIMx, TIM_TimeBaseInitTypeDef* TIM_TimeBaseInitStruct)$/;"	f
+TIM_TimeBaseStructInit	stm32f4xx_tim.c	/^void TIM_TimeBaseStructInit(TIM_TimeBaseInitTypeDef* TIM_TimeBaseInitStruct)$/;"	f
+TIM_UpdateDisableConfig	stm32f4xx_tim.c	/^void TIM_UpdateDisableConfig(TIM_TypeDef* TIMx, FunctionalState NewState)$/;"	f
+TIM_UpdateRequestConfig	stm32f4xx_tim.c	/^void TIM_UpdateRequestConfig(TIM_TypeDef* TIMx, uint16_t TIM_UpdateSource)$/;"	f
+TMIDxR_TXRQ	stm32f4xx_can.c	102;"	d	file:
+TRANSFER_IT_ENABLE_MASK	stm32f4xx_dma.c	140;"	d	file:
+TRANSFER_IT_MASK	stm32f4xx_dma.c	154;"	d	file:
+UFB_MODE_BB	stm32f4xx_syscfg.c	70;"	d	file:
+UFB_MODE_BitNumber	stm32f4xx_syscfg.c	69;"	d	file:
+USART_ClearFlag	stm32f4xx_usart.c	/^void USART_ClearFlag(USART_TypeDef* USARTx, uint16_t USART_FLAG)$/;"	f
+USART_ClearITPendingBit	stm32f4xx_usart.c	/^void USART_ClearITPendingBit(USART_TypeDef* USARTx, uint16_t USART_IT)$/;"	f
+USART_ClockInit	stm32f4xx_usart.c	/^void USART_ClockInit(USART_TypeDef* USARTx, USART_ClockInitTypeDef* USART_ClockInitStruct)$/;"	f
+USART_ClockStructInit	stm32f4xx_usart.c	/^void USART_ClockStructInit(USART_ClockInitTypeDef* USART_ClockInitStruct)$/;"	f
+USART_Cmd	stm32f4xx_usart.c	/^void USART_Cmd(USART_TypeDef* USARTx, FunctionalState NewState)$/;"	f
+USART_DMACmd	stm32f4xx_usart.c	/^void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState NewState)$/;"	f
+USART_DeInit	stm32f4xx_usart.c	/^void USART_DeInit(USART_TypeDef* USARTx)$/;"	f
+USART_GetFlagStatus	stm32f4xx_usart.c	/^FlagStatus USART_GetFlagStatus(USART_TypeDef* USARTx, uint16_t USART_FLAG)$/;"	f
+USART_GetITStatus	stm32f4xx_usart.c	/^ITStatus USART_GetITStatus(USART_TypeDef* USARTx, uint16_t USART_IT)$/;"	f
+USART_HalfDuplexCmd	stm32f4xx_usart.c	/^void USART_HalfDuplexCmd(USART_TypeDef* USARTx, FunctionalState NewState)$/;"	f
+USART_ITConfig	stm32f4xx_usart.c	/^void USART_ITConfig(USART_TypeDef* USARTx, uint16_t USART_IT, FunctionalState NewState)$/;"	f
+USART_Init	stm32f4xx_usart.c	/^void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct)$/;"	f
+USART_IrDACmd	stm32f4xx_usart.c	/^void USART_IrDACmd(USART_TypeDef* USARTx, FunctionalState NewState)$/;"	f
+USART_IrDAConfig	stm32f4xx_usart.c	/^void USART_IrDAConfig(USART_TypeDef* USARTx, uint16_t USART_IrDAMode)$/;"	f
+USART_LINBreakDetectLengthConfig	stm32f4xx_usart.c	/^void USART_LINBreakDetectLengthConfig(USART_TypeDef* USARTx, uint16_t USART_LINBreakDetectLength)$/;"	f
+USART_LINCmd	stm32f4xx_usart.c	/^void USART_LINCmd(USART_TypeDef* USARTx, FunctionalState NewState)$/;"	f
+USART_OneBitMethodCmd	stm32f4xx_usart.c	/^void USART_OneBitMethodCmd(USART_TypeDef* USARTx, FunctionalState NewState)$/;"	f
+USART_OverSampling8Cmd	stm32f4xx_usart.c	/^void USART_OverSampling8Cmd(USART_TypeDef* USARTx, FunctionalState NewState)$/;"	f
+USART_ReceiveData	stm32f4xx_usart.c	/^uint16_t USART_ReceiveData(USART_TypeDef* USARTx)$/;"	f
+USART_ReceiverWakeUpCmd	stm32f4xx_usart.c	/^void USART_ReceiverWakeUpCmd(USART_TypeDef* USARTx, FunctionalState NewState)$/;"	f
+USART_SendBreak	stm32f4xx_usart.c	/^void USART_SendBreak(USART_TypeDef* USARTx)$/;"	f
+USART_SendData	stm32f4xx_usart.c	/^void USART_SendData(USART_TypeDef* USARTx, uint16_t Data)$/;"	f
+USART_SetAddress	stm32f4xx_usart.c	/^void USART_SetAddress(USART_TypeDef* USARTx, uint8_t USART_Address)$/;"	f
+USART_SetGuardTime	stm32f4xx_usart.c	/^void USART_SetGuardTime(USART_TypeDef* USARTx, uint8_t USART_GuardTime)$/;"	f
+USART_SetPrescaler	stm32f4xx_usart.c	/^void USART_SetPrescaler(USART_TypeDef* USARTx, uint8_t USART_Prescaler)$/;"	f
+USART_SmartCardCmd	stm32f4xx_usart.c	/^void USART_SmartCardCmd(USART_TypeDef* USARTx, FunctionalState NewState)$/;"	f
+USART_SmartCardNACKCmd	stm32f4xx_usart.c	/^void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState)$/;"	f
+USART_StructInit	stm32f4xx_usart.c	/^void USART_StructInit(USART_InitTypeDef* USART_InitStruct)$/;"	f
+USART_WakeUpConfig	stm32f4xx_usart.c	/^void USART_WakeUpConfig(USART_TypeDef* USARTx, uint16_t USART_WakeUp)$/;"	f
+WWDG_ClearFlag	stm32f4xx_wwdg.c	/^void WWDG_ClearFlag(void)$/;"	f
+WWDG_DeInit	stm32f4xx_wwdg.c	/^void WWDG_DeInit(void)$/;"	f
+WWDG_Enable	stm32f4xx_wwdg.c	/^void WWDG_Enable(uint8_t Counter)$/;"	f
+WWDG_EnableIT	stm32f4xx_wwdg.c	/^void WWDG_EnableIT(void)$/;"	f
+WWDG_GetFlagStatus	stm32f4xx_wwdg.c	/^FlagStatus WWDG_GetFlagStatus(void)$/;"	f
+WWDG_OFFSET	stm32f4xx_wwdg.c	100;"	d	file:
+WWDG_SetCounter	stm32f4xx_wwdg.c	/^void WWDG_SetCounter(uint8_t Counter)$/;"	f
+WWDG_SetPrescaler	stm32f4xx_wwdg.c	/^void WWDG_SetPrescaler(uint32_t WWDG_Prescaler)$/;"	f
+WWDG_SetWindowValue	stm32f4xx_wwdg.c	/^void WWDG_SetWindowValue(uint8_t WindowValue)$/;"	f

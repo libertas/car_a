@@ -1,0 +1,409 @@
+* [33m81dd73e[m modi mpu6050.c mpu6050.h ; add acar.c acar.h
+*   [33mc18d7b1[m Merge branch 'dev'
+[32m|[m[33m\[m  
+[32m|[m * [33mbc6415a[m remove wrong files
+[32m|[m * [33mb701ee2[m commit fan
+[32m|[m * [33m18c88b2[m changed gpio of switch,etc
+[32m|[m * [33m7e84bcc[m chupeng switch change pc3 to pe8
+[32m|[m * [33m9cc76f7[m pwm change at mag_near/mag_far
+[32m|[m * [33m62bc3bb[m pwm duty change at mag_near/mag_far
+* [33m|[m   [33m7b377ce[m Merge branch 'dev'
+[34m|[m[33m\[m [33m\[m  
+[34m|[m [33m|[m[33m/[m  
+[34m|[m * [33m8eebfa7[m update pwm duties
+[34m|[m * [33meece407[m Add encoder_test()  Changes to be committed: 	modified:   USER/encoder.c 	modified:   USER/encoder.h
+[34m|[m * [33m8fd3a6d[m update
+[34m|[m * [33m1741e2b[m Fix bug of fan_roll
+[34m|[m * [33mcf24f5a[m fix bug of move_up
+[34m|[m * [33mfb08934[m fix bug of the fan
+[34m|[m * [33m131b7b4[m Fix pwm bugs  Changes to be committed: 	modified:   USER/pwm.c
+[34m|[m * [33ma7406bb[m Change default speed of four_wheel Debug push_rod
+[34m|[m * [33m2b786af[m push_rod ..out can use GPIO_WriteBit PUSHPorts..
+[34m|[m * [33m6a2eb11[m dipan
+[34m|[m * [33mad008d7[m push_rod increase, pwm comments
+[34m|[m * [33m2c49984[m duoji wushua gpio change
+* [35m|[m [33mc66074d[m use float
+[35m|[m[35m/[m  
+* [33m50214fc[m bug of f_rotate_c fixed
+* [33mddb1d8d[m remove useless arguments
+* [33m596caa9[m bug of four wheel fixed
+* [33m3b24574[m fix a bug of four_wheel
+* [33m95709d9[m change pwm settings
+* [33m27c0d23[m Change the io pins of the encoders  Changes to be committed: 	modified:   USER/encoder.c
+* [33m9a5ca6b[m encoder delete it/ e****.h
+* [33m209c5e0[m delete encoder tim2//jlink chongtu
+* [33me4fd546[m length of the car in movement.h
+*   [33mc1a48d2[m Merge branch 'dev' of github.com:libertas/car_a into dev
+[36m|[m[1;31m\[m  
+[36m|[m * [33m0192996[m db complete
+[36m|[m * [33m02acb13[m update db_queue_exec
+[36m|[m * [33m1835d62[m improve db_read
+[36m|[m * [33mbf4060d[m Make the database self-consistent  Changes to be committed: 	modified:   USER/database.c 	modified:   USER/database.h 	modified:   USER/main.c
+[36m|[m * [33mfb68d0e[m add db_exec,not completed
+[36m|[m * [33m76316ee[m db_save can now modify data existed
+[36m|[m * [33m1ef40a2[m add db_delete
+[36m|[m * [33m929ca19[m add db_find
+[36m|[m * [33m56c7cb4[m database complete
+* [1;31m|[m   [33mead877d[m Merge branch 'dev' of github.com:libertas/car_a into dev
+[1;32m|[m[1;31m\[m [1;31m\[m  
+[1;32m|[m [1;31m|[m[1;31m/[m  
+[1;32m|[m * [33m84fe5bd[m change stack_size
+[1;32m|[m * [33m61338b1[m change stack_size and heap_size
+[1;32m|[m * [33mf715b12[m add database but hardfault occured
+* [1;33m|[m   [33m520e6d2[m Merge branch 'dev' of github.com:libertas/car_a into dev
+[1;34m|[m[1;33m\[m [1;33m\[m  
+[1;34m|[m [1;33m|[m[1;33m/[m  
+[1;34m|[m * [33m3b62ed8[m add flash
+* [1;35m|[m   [33ma0b80cf[m Merge branch 'dev' of github.com:libertas/car_a into dev
+[1;36m|[m[1;35m\[m [1;35m\[m  
+[1;36m|[m [1;35m|[m[1;35m/[m  
+[1;36m|[m * [33m0f84337[m bug of spi fixed
+[1;36m|[m * [33m92262c3[m Multi-processing based on SPI complete but is still buggy  Changes to be committed: 	modified:   USER/main.c 	new file:   USER/multi_processing.c 	new file:   USER/multi_processing.h 	modified:   USER/spi.c 	modified:   USER/stm32f4xx_it.c
+[1;36m|[m * [33mb2aba90[m use spi instead of spi_i2s
+* [31m|[m   [33m1a3e1d9[m Merge branch 'dev' of github.com:libertas/car_a into dev
+[32m|[m[31m\[m [31m\[m  
+[32m|[m [31m|[m[31m/[m  
+[32m|[m * [33md228094[m interrupt of spi2 complete
+[32m|[m * [33md308019[m add spi2
+* [33m|[m   [33m749d58d[m Merge branch 'dev' of github.com:libertas/car_a into dev
+[34m|[m[33m\[m [33m\[m  
+[34m|[m [33m|[m[33m/[m  
+[34m|[m * [33m4ea2d10[m change VECT_W2
+* [35m|[m [33mf53929b[m debug printf add wheel5
+* [35m|[m [33mb45e3f2[m dipan wheel number change
+[35m|[m[35m/[m  
+* [33mf3416b4[m brake on boot
+* [33m0b376eb[m unify the movements of three_wheel.c
+* [33mb930465[m add basic instructions for auto_control
+* [33m9837211[m change the speed of fan_up
+* [33m2b2e928[m add mag_updown_stop to the interpreter
+* [33mf9c60cc[m change nvic priorities
+* [33mbabbd8d[m ignore uvoptx file
+* [33m7f4a415[m make fan_up faster
+* [33m260a3f0[m PUSH_ROD_TIME  300ms to 100ms
+* [33m3fa2e8a[m tim14 to delay
+*   [33m6f9b6f9[m Merge branch 'dev' of github.com:libertas/car_a into dev
+[36m|[m[1;31m\[m  
+[36m|[m * [33m31e89ac[m Add template auto_control  Changes to be committed: 	new file:   USER/auto_control.c 	new file:   USER/auto_control.h 	modified:   USER/main.c
+[36m|[m * [33m461fad3[m update us100
+[36m|[m * [33m265c2da[m remove useless code
+[36m|[m * [33mbed8133[m us100 complete
+[36m|[m * [33m539bd9f[m add suprintf
+[36m|[m *   [33mcf90381[m Merge branch 'dev' of github.com:libertas/car_a into dev
+[36m|[m [1;32m|[m[1;33m\[m  
+[36m|[m * [1;33m|[m [33m0fc2bd2[m TX of SUART complete There is only one bug left unfixed: it must delay_ms(2) after sending some short words  Changes to be committed: 	modified:   USER/main.c 	modified:   USER/suart.c
+[36m|[m * [1;33m|[m [33mcc8f49b[m update suart, buggy
+[36m|[m * [1;33m|[m [33m456ba55[m suart can now be compiled but still buggy  Changes to be committed: 	modified:   USER/suart.c 	modified:   USER/suart.h
+[36m|[m * [1;33m|[m [33m222256e[m add suart but not completed
+* [1;33m|[m [1;33m|[m [33mce592b3[m format of array in encoder.c
+* [1;33m|[m [1;33m|[m [33m8e58659[m change format of array in encoder.c/switch.c
+[1;33m|[m [1;33m|[m[1;33m/[m  
+[1;33m|[m[1;33m/[m[1;33m|[m   
+* [1;33m|[m [33m0f7ac4a[m encoder use array
+[1;33m|[m[1;33m/[m  
+*   [33me48305c[m Merge branch 'switch' into dev
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * [33md47e7d8[m exti 2 change huilai
+[1;34m|[m *   [33m44517cd[m Merge branch 'switch' of github.com:libertas/car_a into switch
+[1;34m|[m [1;36m|[m[31m\[m  
+[1;34m|[m * [31m|[m [33m933f0f9[m guang dian switch at pf0 pf1
+[1;34m|[m * [31m|[m [33meabee75[m wanna reset
+* [31m|[m [31m|[m [33ma5b7e2a[m remove useless code
+* [31m|[m [31m|[m [33m5d3d079[m remove the code for slow starting, which is not that usable
+* [31m|[m [31m|[m [33m622edd9[m bug of use abs for float variables fixed
+* [31m|[m [31m|[m [33m19c38a3[m Use abs in the lib instead of the macro ABS  Changes to be committed: 	modified:   USER/fan.c 	modified:   USER/three_wheel.c 	modified:   USER/utils.h
+[31m|[m [31m|[m[31m/[m  
+[31m|[m[31m/[m[31m|[m   
+* [31m|[m [33mc093b0a[m Avoid many warnings Move global variables into the functions  Changes to be committed: 	modified:   USER/interpreter.c
+[31m|[m[31m/[m  
+* [33m33b1e0b[m guangdian switch attention main delete
+* [33m901e8b0[m slow qidong
+* [33m7da18c8[m bug of mag_up() fixed
+* [33md7426a2[m add mag_down to the interpreter but not complete
+* [33mdd9aef8[m remove useless code
+*   [33m9ba81be[m Merge branch 'dev' of github.com:libertas/car_a into dev
+[32m|[m[33m\[m  
+[32m|[m * [33m4b23241[m main printf timx zhengqi
+[32m|[m * [33m3c16e92[m encoder at tim1/2/3/4/5/9/12 ..9/12 useless
+* [33m|[m [33mbcffcca[m add magnet functions to the interpreter
+* [33m|[m [33m114ef5f[m the fan works better
+* [33m|[m [33me8b9b58[m remove useless code
+[33m|[m[33m/[m  
+* [33m7c77083[m tim12 mapan at pb14/pb15
+* [33m24314af[m remove useless code
+* [33m802e024[m add toggle_fan()
+* [33m17502a0[m push_rod_time
+* [33mfdb2a65[m push_rod time
+* [33m7af465a[m move up/down xishu
+* [33mff03e4e[m bug of push_rod fixed
+* [33m682d400[m bug of push_rod fixed
+* [33md15f298[m push_rod increased
+* [33m5d18d28[m change some error msg
+* [33m90826ed[m add push_rod to the commands
+* [33m941075e[m add move_down() to the commands
+* [33mc78380c[m bug of the encoder fixed
+* [33md0293a4[m tim2 mapan
+*   [33ma6fa80b[m Merge branch 'dev' of github.com:libertas/car_a into dev
+[34m|[m[35m\[m  
+[34m|[m * [33mcb68a87[m uart5 is ok
+* [35m|[m [33m2b6c352[m print error msg -1 of the interpreter
+[35m|[m[35m/[m  
+* [33mb66d4e1[m fourwheel stop/rotate/move_xy
+* [33md02cde3[m Vital bug of the circular queue of the interpreter fixed
+* [33m682bf04[m Add debug msg for the watchdog
+* [33m34bf220[m Enlarge CMD_BUF_LEN of the interpreter
+* [33m9249e51[m change the speeds of the wheels
+* [33maceb99d[m  Changes to be committed: 	modified:   USER/push_rod.c
+*   [33m336ea09[m Merge branch 'watchdog' of /media/libertas/475B33D33741F7C0/car_a into dev
+[36m|[m[1;31m\[m  
+[36m|[m * [33m28c0600[m tim13 prescaler to 30ms\watchdog 102ms
+* [1;31m|[m [33m9b86f25[m Add declarations to avoid warnings
+* [1;31m|[m   [33m4e48277[m Merge branch 'watchdog' of /media/libertas/475B33D33741F7C0/car_a into dev
+[1;32m|[m[1;31m\[m [1;31m\[m  
+[1;32m|[m [1;31m|[m[1;31m/[m  
+[1;32m|[m * [33mda4b921[m watchdog is ok
+[1;32m|[m * [33m0b1020f[m watchdog in watchdog.c/it at tim13
+* [1;33m|[m [33m24ac2cf[m Add debug macro for interpreter  Changes to be committed: 	modified:   USER/debug.h 	modified:   USER/interpreter.c
+* [1;33m|[m [33m54c6c09[m Add relative up and down movements to the fan  Changes to be committed: 	modified:   USER/fan.c 	modified:   USER/interpreter.c
+* [1;33m|[m [33m8502250[m make the fan faster
+* [1;33m|[m [33m704a613[m change speed
+* [1;33m|[m [33m62326c1[m bug of fan_kowtow fixed
+* [1;33m|[m [33m276617a[m add fan_down to cmd
+* [1;33m|[m [33mc8fe9c6[m Add debug msg to brake  Changes to be committed: 	modified:   USER/brake.c 	modified:   USER/debug.h 	modified:   USER/stm32f4xx_it.c
+* [1;33m|[m   [33mfa321de[m Merge branch 'io_change' of Wang into pwm_io
+[1;34m|[m[1;33m\[m [1;33m\[m  
+[1;34m|[m [1;33m|[m[1;33m/[m  
+[1;34m|[m * [33mce06659[m switch 0.7
+[1;34m|[m * [33m1cc7724[m switch 0.6
+[1;34m|[m * [33m07856b5[m switch full 0.5
+[1;34m|[m * [33m266c6a8[m switch first full
+[1;34m|[m * [33m64d3b36[m it for switch
+[1;34m|[m * [33m8bbf83e[m brake
+* [1;35m|[m [33m5556274[m Add uvguix files to .gitignore
+* [1;35m|[m [33med3c3e1[m Add more time to delay while starting the fan  Changes to be committed: 	modified:   USER/fan.c 	modified:   USER/main.c
+* [1;35m|[m [33m7e46262[m duty of servo changed
+* [1;35m|[m [33m0f282d7[m bug of compilling errors fixed
+* [1;35m|[m [33mc6bc2a3[m IO ports of PWM channels are all modified and to be tested  Changes to be committed: 	modified:   USER/fan.c 	modified:   USER/fan.h 	modified:   USER/pwm.c
+[1;35m|[m[1;35m/[m  
+* [33mf5eac05[m Use float instead of double for pwm  Changes to be committed: 	modified:   USER/fan.c 	modified:   USER/hpwm.c 	modified:   USER/pwm.c 	modified:   USER/pwm.h
+* [33m847b29b[m change a vector
+* [33m2773056[m Add new commands to the interpreter  Changes to be committed: 	modified:   USER/interpreter.c
+* [33me7c8c84[m change the vectors of encoders
+* [33m6a78353[m Adjust the rolling servo of the fan  Changes to be committed: 	modified:   USER/fan.c 	modified:   USER/main.c 	modified:   USER/pwm.c
+* [33m91af237[m Add relative movements to fan and interpreter,which have NOT been tested
+* [33m1930879[m bug of endian fixed
+* [33m4650c0d[m bug of pwm config fixed
+*   [33m9485a9b[m merged
+[1;36m|[m[31m\[m  
+[1;36m|[m * [33mbf9219d[m three_wheel zhushi
+[1;36m|[m * [33mb8337a9[m change w2 arg_x xishu
+* [31m|[m [33m26c8036[m not use cmd 0x00
+* [31m|[m   [33m641189c[m merged
+[32m|[m[31m\[m [31m\[m  
+[32m|[m [31m|[m[31m/[m  
+[32m|[m * [33mb30a595[m slow qidong and change three_wheel xishu
+* [33m|[m [33m1ac8320[m add fan cmd to interpreter
+* [33m|[m   [33me5656c5[m merged from 6s
+[34m|[m[33m\[m [33m\[m  
+[34m|[m [33m|[m[33m/[m  
+[34m|[m * [33mea7c9cb[m move_xy_c x/y direction
+[34m|[m * [33mfbbac47[m change t_move_xy_c xishu
+[34m|[m * [33m16bf483[m delete check_cmd
+[34m|[m * [33mdffd450[m test three wheel
+* [35m|[m [33m624b492[m add cmd rotate_c
+* [35m|[m [33m78e0666[m rotate_c complete
+[35m|[m[35m/[m  
+* [33m79a35e7[m three_wheel
+* [33m76a3353[m PUSH_ROD_TIME
+*   [33m2db7c53[m Merge branch 'dev' into 6s
+[36m|[m[1;31m\[m  
+[36m|[m * [33ma9b316f[m new bug of tw fixed
+* [1;31m|[m   [33m5d9e14e[m Merge branch 'dev' into 6s
+[1;32m|[m[1;31m\[m [1;31m\[m  
+[1;32m|[m [1;31m|[m[1;31m/[m  
+[1;32m|[m * [33mdd2c26f[m bug of three_wheel fixed
+[1;32m|[m * [33m316379e[m add new cmd
+* [1;33m|[m [33m17ea1c8[m test push rod
+* [1;33m|[m   [33m0e42485[m Merge branch 'dev' into 6s
+[1;34m|[m[1;33m\[m [1;33m\[m  
+[1;34m|[m [1;33m|[m[1;33m/[m  
+[1;34m|[m * [33md2e5a30[m add new cmd
+[1;34m|[m * [33mc70fbc7[m update cmd
+[1;34m|[m * [33m95ceb69[m bug fixed
+[1;34m|[m * [33md59c334[m update
+[1;34m|[m * [33ma548c49[m update move_xy_c
+[1;34m|[m * [33m9b37015[m update
+[1;34m|[m * [33m91f810b[m add move_xy_c,buggy
+* [1;35m|[m [33md8c0928[m guizhidao
+* [1;35m|[m   [33mbd1d3e2[m Merge branch 'dev' into 6s
+[1;36m|[m[1;35m\[m [1;35m\[m  
+[1;36m|[m [1;35m|[m[1;35m/[m  
+[1;36m|[m * [33m3a8ac53[m bug of dbuf fixed
+[1;36m|[m * [33mff46e03[m change the apis in interpreter.c
+[1;36m|[m * [33mbe3c84c[m update interpreter
+* [31m|[m   [33m0d0f61b[m merged dev to 6s
+[32m|[m[31m\[m [31m\[m  
+[32m|[m [31m|[m[31m/[m  
+[32m|[m * [33md442b14[m remove errors
+[32m|[m *   [33mf80c506[m Merge branch 'dev' of github.com:libertas/car_a into dev
+[32m|[m [34m|[m[35m\[m  
+[32m|[m [34m|[m * [33m46589db[m update inter
+[32m|[m [34m|[m *   [33m1cde54d[m Merge branch 'dev' of github.com:libertas/car_a into dev
+[32m|[m [34m|[m [36m|[m[1;31m\[m  
+[32m|[m * [36m|[m [1;31m|[m [33m184faf9[m bug fixed
+[32m|[m [36m|[m[36m/[m [1;31m/[m  
+[32m|[m * [1;31m|[m [33m412800f[m update
+[32m|[m * [1;31m|[m [33m6508805[m interpreter complete
+* [1;31m|[m [1;31m|[m [33m323203a[m first 6s commit
+[1;31m|[m [1;31m|[m[1;31m/[m  
+[1;31m|[m[1;31m/[m[1;31m|[m   
+* [1;31m|[m [33mf274203[m main.c sth
+* [1;31m|[m   [33m9aa8d66[m merged sbxd
+[1;31m|[m[1;33m\[m [1;31m\[m  
+[1;31m|[m [1;33m|[m[1;31m/[m  
+[1;31m|[m[1;31m/[m[1;33m|[m   
+[1;31m|[m * [33mda92a56[m push_rod ,test move_up
+[1;31m|[m * [33m74e9a9a[m push_rod second
+[1;31m|[m * [33ma6971bc[m push_rod first
+* [1;33m|[m [33m56671fa[m removed the uninitialized pointer in interpreter.c
+* [1;33m|[m [33m6ec83aa[m update interpreter and now with a massive of bugs
+* [1;33m|[m [33m127136d[m update char_queue
+* [1;33m|[m [33md0fb61d[m add char_queue
+* [1;33m|[m [33ma4922f2[m brake of the fan complete
+* [1;33m|[m [33mb76c6b9[m bug of magnet fixed again
+* [1;33m|[m [33m9f5d10b[m update magnet
+[1;33m|[m[1;33m/[m  
+* [33m736fa4a[m add magnet
+* [33m5bae31a[m update default pwm args
+* [33ma914afe[m update
+* [33mb68cb9f[m adjust args of pwm
+* [33m722e7da[m change the value of ZERO
+* [33m3cd5da4[m adjust args of the fan
+* [33m32bf00f[m add fan_roll
+* [33ma19ca76[m update fan pos
+* [33m785baa0[m make kowtow faster
+* [33m181456e[m can now kowtow but still buggy
+* [33mcf50fec[m update kowtow,buggy
+* [33m11ca688[m add kowtow,buggy
+* [33mf5e7863[m update brake,buggy
+* [33mf529882[m arguments of pwm updated
+* [33m61c85fd[m use soft pwm because of the buggy hpwm
+* [33m3e0f517[m update, pwm buggy
+* [33m42ac3d0[m update
+*   [33m2e7e8ec[m Merge branch 'dev' of https://github.com/libertas/car_a into dev
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * [33mc3a42a2[m update interpreter
+[1;34m|[m * [33m33fd696[m merged new clock settings
+* [1;35m|[m [33me34328b[m brake
+[1;35m|[m[1;35m/[m  
+*   [33m9412de5[m Merge branch 'dev' of https://github.com/libertas/car_a into dev
+[1;36m|[m[31m\[m  
+[1;36m|[m * [33md16ee1e[m use systeme internaltional
+* [31m|[m [33m85e004a[m shenmewanyier
+* [31m|[m [33md7ee9b6[m test system_clk_config(main usart)
+* [31m|[m [33ma5693b7[m system clk config
+* [31m|[m   [33mc45eac7[m merged
+[32m|[m[31m\[m [31m\[m  
+[32m|[m [31m|[m[31m/[m  
+[32m|[m * [33m969f2d0[m can now walk
+[32m|[m * [33mc40db37[m first debugging on car
+[32m|[m * [33m3a0d679[m update
+[32m|[m * [33m152b14d[m add mpu6050, not usable now
+[32m|[m * [33mf4b3c18[m add i2c
+[32m|[m * [33mafc429d[m add move_x()
+[32m|[m * [33m3c50ec5[m update three_wheel
+[32m|[m * [33m289ab2a[m read the encoders more often
+[32m|[m * [33m557c755[m hpwm is more accurate
+[32m|[m * [33m48170f8[m bug of hpwm fixed
+[32m|[m * [33m84a361c[m bug of software pwm fixed
+[32m|[m * [33m08d2c5b[m hpwm_config() to pwm_config()
+* [33m|[m [33m2bd760e[m PWM centerAligned1
+[33m|[m[33m/[m  
+*   [33m4a85266[m swicth merged
+[34m|[m[35m\[m  
+[34m|[m * [33m99b9959[m exti dont change
+[34m|[m * [33mdad664b[m exti 10 to 15 all pfx
+[34m|[m * [33mc7b4ebb[m exti15_10_irqHandler must two if and at least one delay
+[34m|[m * [33m6efdcf9[m main printf
+[34m|[m * [33m10b973d[m uart_config (uart1 to 4 config)
+[34m|[m * [33mcb75371[m exti delete something
+[34m|[m * [33mf12f8ea[m only this exti11 is right //two if(set == getITStatus)and (0 == GPIO_ReadInputData...)
+[34m|[m * [33m2f7908a[m sth
+[34m|[m * [33m9fef711[m something
+[34m|[m * [33md0877a3[m delay_ms 10
+[34m|[m * [33mafda243[m 200ms delay  at exti
+[34m|[m * [33m34b1acc[m exti pf11
+[34m|[m * [33ma1be8e2[m 3 exti pf0 pf1 pf2
+[34m|[m * [33mf264fce[m exti pf0
+* [35m|[m [33mc627a5b[m bug of tim8 pwm fixed
+* [35m|[m [33m91fb4d1[m hardware pwm complete
+* [35m|[m [33me7ea8b4[m add timer1 for hardware pwm
+* [35m|[m   [33mba2201b[m merged from w
+[36m|[m[1;31m\[m [35m\[m  
+[36m|[m * [35m|[m [33m7d872dd[m hpwm tim9 ended
+[36m|[m * [35m|[m [33mc8cb5ba[m 50MHz to 2MHz
+[36m|[m * [35m|[m [33m7095868[m see duty hhh
+[36m|[m * [35m|[m [33mc1dbac3[m hpwm configuration gaicuo
+[36m|[m * [35m|[m [33mdd039ba[m 100MHz to 50MHz//hpwm
+[36m|[m * [35m|[m [33m9cf2b97[m gpio_pinAFConfig errorgit add USER/hpwm.c
+[36m|[m * [35m|[m [33madd425f[m zhushi pe6... only pe5 output one:
+[36m|[m * [35m|[m [33m53e3de0[m changed 84 to 168
+[36m|[m * [35m|[m [33ma84a8e0[m delete zhushi
+[36m|[m * [35m|[m [33ma5bd3d8[m hardware pwm
+* [1;31m|[m [35m|[m [33m1c222a4[m update
+[35m|[m [1;31m|[m[35m/[m  
+[35m|[m[35m/[m[1;31m|[m   
+* [1;31m|[m [33m9fbf809[m add fan
+* [1;31m|[m [33mfac8b60[m update
+* [1;31m|[m [33mc6510cd[m adjust pwm args
+* [1;31m|[m [33m9777a38[m update movement
+* [1;31m|[m [33m9fe3e7a[m add stop
+* [1;31m|[m [33mc40132b[m add stop_move_up():
+* [1;31m|[m [33mc9eb501[m use E2 as EXTI2
+* [1;31m|[m [33mb4d5594[m add move_up()
+* [1;31m|[m [33m93d958c[m use timer6 to generate pwm instead of 9
+* [1;31m|[m [33m5e7890c[m use timer7 to get msg of encoder instead of 2
+* [1;31m|[m [33mec8870c[m add encoder for the fan
+* [1;31m|[m [33md83cb7d[m update movement
+* [1;31m|[m [33m17b4f5f[m better pwm
+* [1;31m|[m [33me73c99c[m use two encoders
+* [1;31m|[m [33ma9b7872[m add encoder
+* [1;31m|[m [33mefc54a2[m update movement
+* [1;31m|[m [33ma253981[m add three wheel
+* [1;31m|[m [33m5c333ea[m update pwm
+* [1;31m|[m [33m63b66d5[m change arguments of usart
+* [1;31m|[m [33m8a8c210[m buf of pwm fixed while 0 duty is not usable
+* [1;31m|[m [33m97fc271[m update headers
+* [1;31m|[m [33m6e85482[m add uart4
+* [1;31m|[m [33m751b00f[m remap usart
+* [1;31m|[m [33m938fcf9[m add usart2,3 while pwm disabled
+* [1;31m|[m [33m64a85b2[m multi-channel pwm complete
+* [1;31m|[m [33mf22192c[m adjust zero point
+* [1;31m|[m [33m1e2f3b1[m use tim9 to generate pwm
+* [1;31m|[m [33m3a042bd[m new pwm
+* [1;31m|[m [33m5939e74[m software pwm complete
+* [1;31m|[m [33m2209e67[m add pwm,not usable now
+* [1;31m|[m [33m5b4096f[m merge printf
+* [1;31m|[m [33ma3637fe[m test printf
+[1;31m|[m[1;31m/[m  
+* [33m8b948c7[m delay complete
+* [33m2542e05[m update .gitignore
+*   [33mc6d1dc5[m merge master
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33m05f2e60[m add .gitignore
+* [1;33m|[m [33mefb3893[m delay init
+* [1;33m|[m [33m901db8a[m use licheng delay
+* [1;33m|[m [33me566b06[m temp delay
+* [1;33m|[m [33md721d77[m temp delay
+* [1;33m|[m [33m326e214[m use licheng fputc
+* [1;33m|[m [33m2b33499[m use licheng fputc
+[1;33m|[m[1;33m/[m  
+* [33mb91e1e0[m basic functions complete
+* [33m6b6340d[m improve usart1
+* [33mcb64fb0[m clean useless code
+* [33mb2a7baf[m can now enter systick int
+* [33mc6f4651[m use SystemCoreClock
+* [33m35bfde5[m add systick while interruption is not usable now
+* [33m13aee3c[m add fputc for printf,not usable now
+* [33mc03d164[m add usart1
+* [33m0d963dd[m first commit

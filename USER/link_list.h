@@ -1,16 +1,12 @@
-#include "stdlib.h"
-#include "stdio.h"
-#include "string.h"
-#include "global.h"
+#include "stm32f4xx.h"
 
 #define PARAM_NAME_LENGTH 32
 #define PARAM_GROUP_LENGTH 3
-
+//链表节点的数据
 typedef struct{
     char param_name[PARAM_NAME_LENGTH];
     float param_value[PARAM_GROUP_LENGTH];   //有三组参数
 }param;
-
 
 typedef struct node{
     param *data;

@@ -1,4 +1,8 @@
 #include "link_list.h"
+#include "global.h"
+#include "stdlib.h"
+#include "stdio.h"
+#include "string.h"
 
 
 
@@ -118,8 +122,8 @@ void list_copy(link_list *dest,link_list *src){
 void list_print(USART_TypeDef *USARTx,link_list  *first,int param_group){
     int i,j;
     if((*first)->link != NULL){
-        myprintf(USARTx,"[P#%s#%4f]",(*first)->link->data->param_name,(*first)->link->data->param_value[param_group]);
-        myprintf(USARTx,"\n");
+        uprintf(USARTx,"%s=%3.2f",(*first)->link->data->param_name,(*first)->link->data->param_value[param_group]);
+        uprintf(USARTx,"\n");
 //				for(i = 0;i < 10;i++)
 //					for(j = 0;j < 100;j++); //延迟那么一小会儿
         list_print(USARTx,&((*first)->link),param_group);  //递归

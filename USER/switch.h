@@ -1,4 +1,4 @@
-#define SWITCH_CHANNEL_NUM 2
+#define SWITCH_CHANNEL_NUM 3
 extern int8_t g_switch_flag;
 void switch_config(void);
 /*

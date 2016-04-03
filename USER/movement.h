@@ -53,6 +53,7 @@ void t_stop(void);
 extern int16_t arg_speeds[4];
 
 void f_move_arc(float y, float rad);
+void f_move_xy(float x, float y);
 void f_move_xy_c(int8_t spd_x, int8_t spd_y);
 void f_rotate_c(int8_t spd);
 void f_stop(void);
@@ -66,6 +67,7 @@ void move_x(float x);
 void move_x_c(int16_t arg_spd);
 void move_y(float y);
 void move_y_c(int16_t arg_spd);
+void move_xy(float x, float y);
 void move_xy_c(int8_t spd_x, int8_t spd_y);
 
 void rotate_c(int8_t arg_spd);

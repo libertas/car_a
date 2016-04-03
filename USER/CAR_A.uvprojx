@@ -523,6 +523,11 @@
               <FileType>1</FileType>
               <FilePath>.\mti.c</FilePath>
             </File>
+            <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mpu6050.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

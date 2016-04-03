@@ -1,7 +1,4 @@
 
-//#define USE_PID_INC
-
-#ifndef USE_PID_INC
 typedef struct {
     float set_value;
     float actual_value;
@@ -9,10 +6,10 @@ typedef struct {
     float error_old;
     float kp,ki,kd;
     float sum;
-}pid_inittypedef;
-#endif
+}pid_t;
 
-#ifdef USE_PID_INC
+
+
 typedef struct {
     float set_value;
     float actual_value;
@@ -21,11 +18,12 @@ typedef struct {
     float error_old;
     float kp,ki,kd;
     float sum;
-}pid_inittypedef;
-#endif
+}pid_inc_t;
 
-void pid_config(pid_inittypedef* pid_initstruct);
-float pid_realize(pid_inittypedef* pid);
+void pid_config(pid_t* pid_initstruct);
+float pid_realize(pid_t* pid);
+void pid_inc_config(pid_inc_t* pid_inc_initstruct);
+float pid_inc_realize(pid_inc_t* pid);
 
 /*example**************usage like GPIO_Init*******
 #include "pid.h"
@@ -33,7 +31,7 @@ float pid_realize(pid_inittypedef* pid);
 int main()
 {
     printf("System begin \n");
-    pid_inittypedef pid_initstructure;
+    pid_t pid_initstructure;
 
     pid_initstructure.set_value = 100.0;
     pid_initstructure.kp = 0.2;

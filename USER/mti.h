@@ -10,4 +10,4 @@ extern uint8_t mti_value_flag;
 
 float mti(void);
 int btol(uint8_t buffer[]);
-float mti_value(void);
+float get_mti_value(void);

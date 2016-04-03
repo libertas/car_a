@@ -297,12 +297,13 @@ void TIM1_TRG_COM_TIM11_IRQHandler(void)
 void DMA1_Stream2_IRQHandler(void)
 {
 	if(SET == DMA_GetITStatus(DMA1_Stream2, DMA_IT_TCIF2) ) {
-		uprintf(UART5,"RECOK\r\n");//≤‚ ‘”√
 		DMA_Cmd(DMA1_Stream2, DISABLE);
-		float angle = mti();
-		uprintf(UART5,"%f\r\n",angle);
+		mti_angle = mti();
+		mti_value_flag = 1;
+		//uprintf(UART5,"angle%f\r\n",mti_angle);//≤‚ ‘”√
 		DMA_ClearITPendingBit(DMA1_Stream2, DMA_IT_TCIF2);
 		DMA_Cmd(DMA1_Stream2, ENABLE);
+		mti_value_flag = 0;
 	}
 }
 

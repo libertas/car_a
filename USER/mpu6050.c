@@ -19,7 +19,7 @@ static float pre_gyro_data[3];   //量化的陀螺仪积分数据(未换算成�
 static float *p_accel_data;
 static float *p_gyro_data;
 static float *p_temp_data;
-static DMA_TypeDef *dma1 = DMA1;
+// static DMA_TypeDef *dma1 = DMA1;
 
 
 
@@ -170,6 +170,7 @@ int mpu6050_fast_init(float *gyro_data){
 		mpu6050_ist.data_choose = CHOOSE_GYRO;
 		mpu6050_ist.gyro_dimension = GYRO_DIMEN_ANGLE;
 		mpu6050_init(&mpu6050_ist);
+		return 0;
 }
 
 
@@ -183,7 +184,6 @@ int mpu6050_fast_init(float *gyro_data){
  */
 int mpu6050_reg_write(u8 reg_addr,u8 data_write){
     u32 timeout;
-    u16 i2c_sr1_temp,i2c_sr2_temp;
     if(mpu6050_cycleread_flag == 1){   //如果处于连续读取MPU6050数据的状态，则终止函数的执行，返回错误码
         return -1;
     }
@@ -208,8 +208,8 @@ int mpu6050_reg_write(u8 reg_addr,u8 data_write){
     timeout = 1000;
     while(timeout--);  //等一会儿
     //清ADDR(通过读取状态寄存器SR1 SR2 )
-    i2c_sr1_temp = I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR1);
-    i2c_sr2_temp = I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR2);
+    I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR1);
+    I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR2);
     I2C_SendData(MPU6050_I2CX,reg_addr);  //发送寄存器地址
     
     timeout = 1000000;
@@ -243,9 +243,7 @@ int mpu6050_reg_write(u8 reg_addr,u8 data_write){
  * 
  */
 int mpu6050_reg_read(u8 reg_addr,u8 *data_read){
-    u16 i2c_sr1_temp,i2c_sr2_temp;
     u32 timeout;
-    int i,j;
 
     if(mpu6050_cycleread_flag == 1){
         return -1;
@@ -268,8 +266,8 @@ int mpu6050_reg_read(u8 reg_addr,u8 *data_read){
         }
     }
     //清ADDR(通过读取状态寄存器SR1 SR2 )
-    i2c_sr1_temp = I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR1);
-    i2c_sr2_temp = I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR2);
+    I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR1);
+    I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR2);
     I2C_SendData(MPU6050_I2CX,mpu6050_regaddr_start);  //发送寄存器地址
 
     timeout = 1000000;
@@ -303,8 +301,8 @@ int mpu6050_reg_read(u8 reg_addr,u8 *data_read){
     //设置STOP位
     I2C_GenerateSTOP(MPU6050_I2CX,ENABLE);
     //清ADDR(通过读取状态寄存器SR1 SR2 )
-    i2c_sr1_temp = I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR1);
-    i2c_sr2_temp = I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR2);
+    I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR1);
+    I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR2);
 
     //等待目标寄存器数据接收完毕
     timeout = 1000000;
@@ -335,7 +333,6 @@ int mpu6050_reg_read(u8 reg_addr,u8 *data_read){
  */
 
 int mpu6050_read_start(){
-    u16 i2c_sr1_temp,i2c_sr2_temp;
     u32 timeout,i,j;
 
 
@@ -361,8 +358,8 @@ int mpu6050_read_start(){
         }
     }
     //清ADDR(通过读取状态寄存器SR1 SR2 )
-    i2c_sr1_temp = I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR1);
-    i2c_sr2_temp = I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR2);
+    I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR1);
+    I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR2);
     I2C_SendData(MPU6050_I2CX,mpu6050_regaddr_start);  //发送寄存器地址
 
     timeout = 1000000;
@@ -396,8 +393,8 @@ int mpu6050_read_start(){
     MPU6050_DMA->CR |= (0x01 << 0);  //使能DMA
     while((MPU6050_DMA->CR & 1) == 0);
     //清ADDR(通过读取状态寄存器SR1 SR2 ),一定要清除ADDR，不然SCL是不会被释放的
-    i2c_sr1_temp = I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR1);
-    i2c_sr2_temp = I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR2);
+    I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR1);
+    I2C_ReadRegister(MPU6050_I2CX,I2C_Register_SR2);
     return 0;
 }
 
@@ -442,7 +439,6 @@ int mpu6050_cycleread_stop(){
  */
 
 int mpu6050_gyro_reset(u8 gyro_reset_sel){
-    int i;
     if(gyro_reset_sel != MPU6050_GYRO_ALL){
         gyro_centre[gyro_reset_sel] = gyro_v[gyro_reset_sel];
         pre_gyro_data[gyro_reset_sel] = 0;
@@ -577,9 +573,9 @@ void DMA1_Stream2_IRQHandler(){
                     p_gyro_data[2] = pre_gyro_data[2]*(GYRO_ADJ_ANGLE/gyro_adj_cnt[2]);
                     break;
                 case GYRO_DIMEN_RADIAN:
-                    p_gyro_data[0] = ((pre_gyro_data[0]*(GYRO_ADJ_ANGLE/gyro_adj_cnt[0]))/180.f)*PI;
-                    p_gyro_data[1] = ((pre_gyro_data[1]*(GYRO_ADJ_ANGLE/gyro_adj_cnt[1]))/180.f)*PI;
-                    p_gyro_data[2] = ((pre_gyro_data[2]*(GYRO_ADJ_ANGLE/gyro_adj_cnt[2]))/180.f)*PI;
+                    p_gyro_data[0] = ((pre_gyro_data[0]*(GYRO_ADJ_ANGLE/gyro_adj_cnt[0]))/180.f)*(float)PI;
+                    p_gyro_data[1] = ((pre_gyro_data[1]*(GYRO_ADJ_ANGLE/gyro_adj_cnt[1]))/180.f)*(float)PI;
+                    p_gyro_data[2] = ((pre_gyro_data[2]*(GYRO_ADJ_ANGLE/gyro_adj_cnt[2]))/180.f)*(float)PI;
                     break;
                 case GYRO_DIMEN_ORIGINAL:
                     p_gyro_data[0] = pre_gyro_data[0];

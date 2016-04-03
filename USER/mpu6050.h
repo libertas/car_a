@@ -106,12 +106,12 @@ int mpu6050_init(mpu6050_init_struct *init_stru);
 int mpu6050_fast_init(float *gyro_data);  //快速初始化,仅仅使用陀螺仪的数据,量纲是角度..
 int mpu6050_reg_write(u8 reg_addr,u8 data_write);
 int mpu6050_reg_read(u8 reg_addr,u8 *data_read);
-int mpu6050_read_start();  //开始读数据
+int mpu6050_read_start(void);  //开始读数据
 int mpu6050_gyro_reset(u8 gyro_reset_sel);   //复位陀螺仪角度
 int mpu6050_gyro_adj(u8 gyro_adj_sel);  //陀螺仪角度调整
 void mpu6050_set_gyro_adj(u8 gyro_adj_sel,float gyro_adj);  //手动设置陀螺仪校正值
 float mpu6050_get_gyro_adj(u8 gyro_adj_sel); //获取当前陀螺仪校正值
-u8 mpu6050_gyro_adj_status();  //获取陀螺仪校正状态（判断是否处于校正状态）
-int mpu6050_cycleread_start();   //循环读取数据
-int mpu6050_cycleread_stop();  //结束循环读数据
+u8 mpu6050_gyro_adj_status(void);  //获取陀螺仪校正状态（判断是否处于校正状态）
+int mpu6050_cycleread_start(void);   //循环读取数据
+int mpu6050_cycleread_stop(void);  //结束循环读数据
 

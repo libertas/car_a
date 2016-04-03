@@ -33,7 +33,7 @@ int main(void)
 
 	interpreter_config();
 	uart_config(115200);
-	dma_config();
+	//dma_config();
 	spi_config();
 	suart_config();
 
@@ -43,8 +43,6 @@ int main(void)
 	push_rod_config();
 	pwm_config();
 	// watchdog_config();
-
-	move_arc(2, PI / 2);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {

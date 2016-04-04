@@ -409,6 +409,11 @@
           <GroupName>USER</GroupName>
           <Files>
             <File>
+              <FileName>auto_control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\auto_control.c</FilePath>
+            </File>
+            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
@@ -497,11 +502,6 @@
               <FileName>suart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\suart.c</FilePath>
-            </File>
-            <File>
-              <FileName>auto_control.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\auto_control.c</FilePath>
             </File>
             <File>
               <FileName>multi_processing.c</FileName>

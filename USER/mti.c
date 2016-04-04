@@ -33,7 +33,7 @@ int btol(uint8_t buffer[])
 	return 	( ((((int)buffer[0]<<24) | ((int)buffer[1]<<16)) | ((int)buffer[2]<<8)) | ((int)buffer[3]));
 }
 
-float mti_value(void)
+float get_mti_value(void)
 {
 		return mti_angle;
 }

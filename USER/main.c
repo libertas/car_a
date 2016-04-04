@@ -29,11 +29,11 @@ int main(void)
 {
 	system_clk_set();
 	systick_config();
-	// db_init();
+	db_init();
 
 	interpreter_config();
 	uart_config(115200);
-	//dma_config();
+	dma_config();
 	spi_config();
 	suart_config();
 
@@ -43,6 +43,8 @@ int main(void)
 	push_rod_config();
 	pwm_config();
 	// watchdog_config();
+	
+	auto_control();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {

@@ -12,8 +12,10 @@ void auto_start(void)
 {
 	printf("\nAuto controlling.\n");
 	auto_flag = true;
-	delay_ms(2000);
-	start_fan();
+
+	move_xy(1, 1);
+	//move_arc(3, PI / 4);
+	//move_arc(3, -PI / 4);
 }
 
 void auto_stop(void)

@@ -6,6 +6,7 @@
 #include "debug.h"
 #include "encoder.h"
 #include "movement.h"
+#include "mti.h"
 #include "utils.h"
 
 #ifdef USE_FOUR_WHEEL
@@ -52,11 +53,13 @@ void f_rotate_c(int8_t spd)
 		);
 }
 
+#define ZERO_ARC 0.1F
 void f_move_arc(float y, float rad)
 {
+	float old_rad = get_mti_value();
 	float r = y / sinf(fabsf(rad));
 	float r1, r2, rt;
-	float coe_y = CAR_X_LENGTH / (sqrtf( pow( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
+	float coe_y = CAR_X_LENGTH / (sqrtf( powf( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
 	float div_rad;
 
 	int16_t arg_y = DEFAULT_ARG_SPEED;
@@ -108,6 +111,25 @@ void f_move_arc(float y, float rad)
 		arg_speeds[2],\
 		arg_speeds[3]\
 		);
+	
+	while(fabs(get_mti_value() - rad - old_rad) > ZERO_ARC);
+	stop();
+}
+
+void f_move_xy(float x, float y)
+{
+	float dest_x = get_pos_x() + x, dest_y = get_pos_y() + y;
+	float t = x + y;
+	f_move_xy_c(100 * x / t, 100 * y / t);
+
+	printf("x:%f\ty:%f\n", get_pos_x(), get_pos_y());
+	while(get_pos_x() - dest_x > ZERO || get_pos_y() - dest_y > ZERO) {
+		#ifdef DEBUG
+		printf("x:%f\ty:%f\n", get_pos_x(), get_pos_y());
+		#endif
+	}
+	
+	stop();
 }
 
 void f_move_xy_c(int8_t spd_x, int8_t spd_y)

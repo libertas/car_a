@@ -53,6 +53,18 @@ void move_xy_c(int8_t spd_x, int8_t spd_y)
 	#endif
 }
 
+
+void move_xy(float x, float y)
+{
+	#ifdef DEBUG
+	printf("\nmove_xy(%f, %f)\n", x, y);
+	#endif
+
+	#ifdef USE_FOUR_WHEEL
+	f_move_xy(x, y);
+	#endif
+}
+
 void move_x(float x)
 {
 	#ifdef DEBUG

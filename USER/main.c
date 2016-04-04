@@ -37,10 +37,13 @@ int main(void)
 	brake_config();
 	encoder_config();
 	switch_config();
+	push_rod_config();
 	pwm_config();
 	// watchdog_config();
 
-	fan_up();
+
+	auto_control();
+
 	printf("\n\nEntering main loop\n\n");
 	while(1)
 	{

@@ -9,7 +9,6 @@
 int32_t g_rotary_x = 0;
 int32_t g_rotary_y = 0;
 int32_t g_rotary_fan = 0;
-int32_t g_rotary_fan_updown = 0;
 int32_t g_rotary_magnet = 0;
 int32_t g_rotary_tim8 = 0;
 

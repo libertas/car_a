@@ -28,6 +28,19 @@ void f_stop(void)
 		);
 }
 
+void f_rotate(float rad)
+{
+	float old_rad = get_mti_value();
+	if(rad > 0) {
+		f_rotate_c(100);
+		while(get_mti_value() < rad + old_rad);
+	} else if (rad < 0) {
+		f_rotate_c(-100);
+		while(get_mti_value() > rad + old_rad);
+	}
+	stop();
+}
+
 void f_rotate_c(int8_t spd)
 {
 	int16_t arg_spd = (float) spd / 128 * DEFAULT_ARG_SPEED;
@@ -52,7 +65,6 @@ void f_rotate_c(int8_t spd)
 		arg_speeds[3]\
 		);
 }
-
 
 void f_move_arc(float y, float rad)
 {

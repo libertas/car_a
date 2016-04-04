@@ -16,6 +16,13 @@ void stop_all(void)
 	delay_ms(10);
 }
 
+void rotate(float rad)
+{
+	#ifdef USE_FOUR_WHEEL
+	f_rotate(rad);
+	#endif
+}
+
 void rotate_c(int8_t arg_spd)
 {
 	#ifdef DEBUG

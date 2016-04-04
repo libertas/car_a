@@ -362,7 +362,7 @@ void TIM8_UP_TIM13_IRQHandler(void)
 }
 
 /*
-	exti8 exti11 exti2
+	exti8 exti11 exti3
 	switch 0\1\2
 	fan_down_stop\fan_up_stop\light_electricity
 */
@@ -404,6 +404,14 @@ void EXTI2_IRQHandler(void)
 		stop_all();
 	}
 	EXTI_ClearITPendingBit(EXTI_Line2);
+}
+void EXTI3_IRQHandler(void)
+{
+	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_3)) {
+		/*stop car*/
+		stop_all();
+	}
+	EXTI_ClearITPendingBit(EXTI_Line3);
 }
 
 /******************************************************************************/

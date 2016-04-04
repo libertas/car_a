@@ -77,7 +77,7 @@ float get_pos_y(void)
 }
 
 /*
-	100 degree
+	meter
 */
 float get_pos_fan(void)
 {

@@ -5,38 +5,38 @@
 /*
 	0 PE8  fan_down_stop
 	1 PF11 fan_up_stop
-	2 PF1 light_electricity
+	2 PA2  light_electricity(5V)
 */
 
 int8_t g_switch_flag = 0;
 
 const uint32_t SwitchAHBPorts[SWITCH_CHANNEL_NUM] = {\
 				RCC_AHB1Periph_GPIOE, RCC_AHB1Periph_GPIOF,\
-				RCC_AHB1Periph_GPIOF\
+				RCC_AHB1Periph_GPIOA\
 				};
 const uint16_t SwitchPins[SWITCH_CHANNEL_NUM] = {\
 				GPIO_Pin_8, GPIO_Pin_11,\
-				GPIO_Pin_5\
+				GPIO_Pin_2\
 				};
 GPIO_TypeDef *SwitchPorts[SWITCH_CHANNEL_NUM] = {\
 				GPIOE, GPIOF,\
-				GPIOF\
+				GPIOA\
 				};
 const uint8_t SwitchEXTIPorts[SWITCH_CHANNEL_NUM] = {\
 				EXTI_PortSourceGPIOE, EXTI_PortSourceGPIOF,\
-				EXTI_PortSourceGPIOF\
+				EXTI_PortSourceGPIOA\
 				};
 const uint8_t SwitchEXTIPinsources[SWITCH_CHANNEL_NUM] = {\
 				EXTI_PinSource8, EXTI_PinSource11,\
-				EXTI_PinSource5\
+				EXTI_PinSource2\
 				};
 const uint32_t SwitchEXTILines[SWITCH_CHANNEL_NUM] = {\
 				EXTI_Line8, EXTI_Line11,\
-				EXTI_Line5\
+				EXTI_Line2\
 				};
 const enum IRQn SwitchNVICPins[SWITCH_CHANNEL_NUM] = {\
 				EXTI9_5_IRQn, EXTI15_10_IRQn,\
-				EXTI9_5_IRQn\
+				EXTI2_IRQn\
 				};
 
 
@@ -56,16 +56,6 @@ void switch_gpio_config(void)
 		GPIO_InitStructure.GPIO_Pin = SwitchPins[i];
 		GPIO_Init(SwitchPorts[i], &GPIO_InitStructure);
 	}
-	
-	
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
-	GPIO_Init(GPIOE, &GPIO_InitStructure);
-
-	GPIO_WriteBit(GPIOE, GPIO_Pin_9, Bit_RESET);
 }
 
 void switch_exti_config(void)

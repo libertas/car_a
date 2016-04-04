@@ -362,7 +362,7 @@ void TIM8_UP_TIM13_IRQHandler(void)
 }
 
 /*
-	exti8 exti11 exti1
+	exti8 exti11 exti2
 	switch 0\1\2
 	fan_down_stop\fan_up_stop\light_electricity
 */
@@ -379,21 +379,8 @@ void EXTI9_5_IRQHandler(void)
 			printf("\nstop_fan_up_down()\n");
 			#endif
 		}
+		EXTI_ClearITPendingBit(EXTI_Line8);
 	}
-	if(SET == EXTI_GetITStatus(EXTI_Line5)) {
-		if(1 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_5)) {
-		g_switch_flag = 1;
-		uprintf(UART5,"\r\nswitch = %d",g_switch_flag);
-		GPIO_WriteBit(GPIOE, GPIO_Pin_9, Bit_RESET);
-		}
-		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_5)) {
-		g_switch_flag = 0;
-		uprintf(UART5,"\r\nswitch = %d",g_switch_flag);
-		GPIO_WriteBit(GPIOE, GPIO_Pin_9, Bit_SET);
-		}
-	}
-	EXTI_ClearITPendingBit(EXTI_Line8);
-	EXTI_ClearITPendingBit(EXTI_Line5);
 }
 
 void EXTI15_10_IRQHandler(void)
@@ -409,20 +396,16 @@ void EXTI15_10_IRQHandler(void)
 		EXTI_ClearITPendingBit(EXTI_Line11);
 	}
 }
-
-#include "switch.h"
+#include "movement.h"
 void EXTI2_IRQHandler(void)
 {
-	//delay_ms(10);
-	if(1 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_2)) {
-		g_switch_flag = 1;
-		uprintf(UART5,"\r\nswitch = %d",g_switch_flag);
-		GPIO_WriteBit(GPIOE, GPIO_Pin_9, Bit_SET);
-	}
-	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_2)) {
+	if(1 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
 		g_switch_flag = 0;
-		uprintf(UART5,"\r\nswitch = %d",g_switch_flag);
-		GPIO_WriteBit(GPIOE, GPIO_Pin_9, Bit_RESET);
+	}
+	if(0 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
+		g_switch_flag = 1;
+		/*stop car*/
+		stop_all();
 	}
 	EXTI_ClearITPendingBit(EXTI_Line2);
 }

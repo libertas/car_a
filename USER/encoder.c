@@ -81,7 +81,7 @@ float get_pos_y(void)
 */
 float get_pos_fan(void)
 {
-	return (float)((double)g_rotary_fan / 2000 * PI * VECT_EFAN);
+	return (float)((double)g_rotary_fan / 2000 * F_DIAMETER * PI * VECT_EFAN);
 }
 
 /*

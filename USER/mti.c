@@ -6,7 +6,7 @@ float mti_roll = 0;
 float mti_pitch = 0;
 float mti_yaw = 0;
 uint8_t mti_value_flag = 0;
-float mti_angle = 1;
+float mti_angle = 0, mti_angle_old = 0, mti_angle_new;
 
 float mti(void)
 {

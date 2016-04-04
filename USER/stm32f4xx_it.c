@@ -34,6 +34,7 @@
 
 #include "clock.h"
 #include "debug.h"
+#include "movement.h"
 #include "multi_processing.h"
 #include "pwm.h"
 #include "usart.h"
@@ -298,7 +299,19 @@ void DMA1_Stream2_IRQHandler(void)
 {
 	if(SET == DMA_GetITStatus(DMA1_Stream2, DMA_IT_TCIF2) ) {
 		DMA_Cmd(DMA1_Stream2, DISABLE);
-		mti_angle = mti();
+		
+		mti_angle_new = mti();
+		
+		mti_angle += mti_angle_new - mti_angle_old;;
+		
+		if(mti_angle_new < -PI / 2 && mti_angle_old > PI / 2) {
+			mti_angle += 2 * PI;
+		} else if(mti_angle_new > PI / 2 && mti_angle_old < - PI / 2) {
+			mti_angle += -2 * PI;
+		}
+		
+		mti_angle_old = mti_angle_new;
+		
 		mti_value_flag = 1;
 		//uprintf(UART5,"angle%f\r\n",mti_angle);//²âÊÔÓÃ
 		DMA_ClearITPendingBit(DMA1_Stream2, DMA_IT_TCIF2);

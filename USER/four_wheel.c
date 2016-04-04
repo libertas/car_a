@@ -53,7 +53,7 @@ void f_rotate_c(int8_t spd)
 		);
 }
 
-#define ZERO_ARC 0.1F
+
 void f_move_arc(float y, float rad)
 {
 	float old_rad = get_mti_value();

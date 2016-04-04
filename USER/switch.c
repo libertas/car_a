@@ -8,8 +8,6 @@
 	2 PA2  light_electricity(5V)
 */
 
-int8_t g_switch_flag = 0;
-
 const uint32_t SwitchAHBPorts[SWITCH_CHANNEL_NUM] = {\
 				RCC_AHB1Periph_GPIOE, RCC_AHB1Periph_GPIOF,\
 				RCC_AHB1Periph_GPIOA\

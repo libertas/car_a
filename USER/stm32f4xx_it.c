@@ -399,11 +399,7 @@ void EXTI15_10_IRQHandler(void)
 #include "movement.h"
 void EXTI2_IRQHandler(void)
 {
-	if(1 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
-		g_switch_flag = 0;
-	}
 	if(0 == GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)) {
-		g_switch_flag = 1;
 		/*stop car*/
 		stop_all();
 	}

@@ -112,7 +112,11 @@ void f_move_arc(float y, float rad)
 		arg_speeds[3]\
 		);
 	
-	while(fabs(get_mti_value() - rad - old_rad) > ZERO_ARC);
+	if(rad > 0) {
+		while(get_mti_value() < rad + old_rad);
+	} else if(rad < 0) {
+		while(get_mti_value() > rad + old_rad);
+	}
 	stop();
 }
 

@@ -18,8 +18,8 @@ void auto_start(void)
 	
 	uprintf(USART1, "\rAC10000\r");
 
-	move_arc(1.5, PI / 4);
-	move_arc(1.2, -PI / 4);
+	move_arc(1.2f, PI * 0.2f);
+	move_arc(1.2f, -PI * 0.2f);
 }
 
 void auto_stop(void)

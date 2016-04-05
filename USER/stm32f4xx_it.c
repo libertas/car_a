@@ -256,6 +256,7 @@ void TIM1_UP_TIM10_IRQHandler(void)
 				else stop_fan_up_down();
 			}
 		}
+		stop_fan_up_down();
 		i %= 10;
 		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
 	}

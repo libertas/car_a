@@ -12,22 +12,6 @@ void auto_start(void)
 {
 	printf("\nAuto controlling.\n");
 	auto_flag = true;
-
-	uprintf(USART1, "\rAC15\r");
-	move_xy(3, 0);
-
-	uprintf(USART1, "\rAC10000\r");
-	move_arc(1.2f, PI * 0.2f);
-	move_arc(1.2f, -PI * 0.2f);
-
-	uprintf(USART1, "\rAC15\r");
-	move_xy(0, 2.3);
-
-	uprintf(USART1, "\rAC10000\r");
-	move_arc(1.42f, -PI / 2);
-	
-	uprintf(USART1, "\rAC15\r");
-	rotate(-PI / 2);
 }
 
 void auto_stop(void)
@@ -45,8 +29,34 @@ void auto_stop(void)
 
 void step1(void)
 {
+	uprintf(USART1, "\rAC15\r");
+	move_xy(3, 0);
 }
 
+void step2(void)
+{
+	uprintf(USART1, "\rAC10000\r");
+	move_arc(1.2f, PI * 0.2f);
+	move_arc(1.2f, -PI * 0.2f);
+}
+
+void step3(void)
+{
+	uprintf(USART1, "\rAC15\r");
+	move_xy(0, 2.3);
+}
+
+void step4(void)
+{
+	uprintf(USART1, "\rAC10000\r");
+	move_arc(1.42f, -PI / 2);
+}
+
+void step5(void)
+{
+	uprintf(USART1, "\rAC15\r");
+	rotate(-PI / 2);
+}
 
 void tim10_config(void)
 {
@@ -97,7 +107,7 @@ void tim14_config(void)
 }
 
 
-void (*auto_steps[])(void) = {auto_start, step1, auto_stop, 0};
+void (*auto_steps[])(void) = {auto_start, step1, step2, step3, step4, step5, auto_stop, 0};
 
 void auto_control(void)
 {

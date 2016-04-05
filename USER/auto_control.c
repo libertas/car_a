@@ -37,9 +37,17 @@ void step1(void)
 void step2(void)
 {
 	start_fan();
+
 	uprintf(USART1, "\rAC10000\r");
+	fan_up_auto(FAN_UP_LENGTH);
+
 	move_arc(1.2f, PI * 0.2f);
+
+	fan_up_auto(FAN_UP_LENGTH);
+
 	move_arc(1.2f, -PI * 0.2f);
+
+	fan_up_stop_auto();
 	stop_fan();
 }
 

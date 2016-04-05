@@ -124,15 +124,29 @@ void f_move_arc(float y, float rad)
 
 void f_move_xy(float x, float y)
 {
-	float dest_x = get_pos_x() + x, dest_y = get_pos_y() + y;
-	float t = x + y;
-	f_move_xy_c(100 * x / t, 100 * y / t);
+	if(x == 0 && y == 0) {
+		stop();
+		return;
+	}
 
-	printf("x:%f\ty:%f\n", get_pos_x(), get_pos_y());
-	while(get_pos_x() - dest_x > ZERO || get_pos_y() - dest_y > ZERO) {
-		#ifdef DEBUG
-		printf("x:%f\ty:%f\n", get_pos_x(), get_pos_y());
-		#endif
+	float dest_x = get_pos_x() + x, dest_y = get_pos_y() + y;
+
+	if(0 == x) {
+		if(y > 0) {
+			f_move_xy_c(0, 100);
+			while(get_pos_y() < dest_y);
+		} else {
+			f_move_xy_c(0, -100);
+			while(get_pos_y() > dest_y);
+		}
+	} else if(0 == y) {
+		if(x > 0) {
+			f_move_xy_c(100, 0);
+			while(get_pos_x() < dest_x);
+		} else {
+			f_move_xy_c(-100, 0);
+			while(get_pos_x() > dest_x);
+		}
 	}
 	
 	stop();

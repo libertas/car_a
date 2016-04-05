@@ -9,6 +9,11 @@
 #define VECT_EMAGNET (+1)	// encoder for the up and down movements of the magnet at tim1
 #define VECT_ETIM8 (+1)	// encoder for the tim8
 
+#define ECX_X
+#define ECX_Y
+#define ECY_X
+#define ECY_Y
+
 
 extern int32_t g_rotary_x;
 extern int32_t g_rotary_y;

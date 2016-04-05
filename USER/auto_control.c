@@ -5,6 +5,7 @@
 #include "fan.h"
 #include "interpreter.h"
 #include "movement.h"
+#include "mti.h"
 
 bool auto_flag = false;
 
@@ -35,12 +36,20 @@ void step1(void)
 
 void step2(void)
 {
+	start_fan();
+
 	uprintf(USART1, "\rAC10000\r");
-	fan_up_auto(FAN_UP_LENGTH);
+	
+	fan_up_auto(0.4F);
+
 	move_arc(1.2f, PI * 0.2f);
-	fan_up_auto(0.3F);
+
+	fan_up_auto(0.2F);
+
 	move_arc(1.2f, -PI * 0.2f);
+
 	fan_up_stop_auto();
+	stop_fan();
 }
 
 void step3(void)
@@ -53,19 +62,19 @@ void step3(void)
 void step4(void)
 {
 	uprintf(USART1, "\rAC10000\r");
-	move_arc(1.42f, -PI / 2);
+	move_arc(1.5f, -PI / 2);
 	delay_ms(500);
 }
 
 void step5(void)
 {
 	uprintf(USART1, "\rAC15\r");
-	rotate(-PI * 3 / 8);
+	rotate(-PI * 5 / 16);
 	
 	delay_ms(500);
-	
+
+	move_xy(0, -0.15);
 	move_xy(-1.5, 0);
-	move_xy(0, 0.15);
 }
 
 void tim10_config(void)

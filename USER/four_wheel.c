@@ -149,7 +149,13 @@ void f_move_xy(float x, float y)
 		}
 	}
 	
+	float rad = get_mti_value();
+	
 	stop();
+	
+	delay_ms(500);
+	
+	f_rotate(rad - get_mti_value());
 }
 
 void f_move_xy_c(int8_t spd_x, int8_t spd_y)

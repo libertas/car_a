@@ -16,12 +16,8 @@ void auto_start(void)
 	uprintf(USART1, "\rAC15\r");
 	move_xy(3, 0);
 	
-	delay_ms(500);
-	
 	uprintf(USART1, "\rAC10000\r");
-	
-	delay_ms(500);
-	
+
 	move_arc(1.5, PI / 4);
 	move_arc(1.2, -PI / 4);
 }

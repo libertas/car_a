@@ -251,8 +251,8 @@ void TIM1_UP_TIM10_IRQHandler(void)
 		i++;
 		if(10 == i) {
 			if(1 == fan_up_flag) {
-				if(((get_pos_fan() - g_fan_height) > (fan_up_length + FAN_THOLD)) || ((get_pos_fan() - g_fan_height)< (fan_up_length - FAN_THOLD)))
-					(get_pos_fan() < fan_up_length) ? fan_up() : fan_down();
+				if(((get_pos_fan() - g_fan_height) > (fan_up_length + FAN_THOLD)) || ((get_pos_fan() - g_fan_height) < (fan_up_length - FAN_THOLD)))
+					((get_pos_fan() - g_fan_height) < fan_up_length) ? fan_up() : fan_down();
 				else stop_fan_up_down();
 			}
 		}
@@ -409,9 +409,10 @@ void EXTI9_5_IRQHandler(void)
 	delay_ms(10);
 	if(SET == EXTI_GetITStatus(EXTI_Line8)){
 		if(0 == GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_8)) {
-			i++;
-			if(2 == i) stop_fan_up_down();
-			i %= 2;
+//			i++;
+//			if(2 == i) stop_fan_up_down();
+//			i %= 2;
+			if(get_pos_fan() > get_pos_fan()) stop_fan_up_down();
 			#ifdef DEBUG
 			printf("\nstop_fan_up_down()\n");
 			#endif

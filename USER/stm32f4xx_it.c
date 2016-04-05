@@ -249,7 +249,7 @@ void TIM1_UP_TIM10_IRQHandler(void)
 	if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
 		if(1 == fan_up_flag) {
 			if(((get_pos_fan() - g_fan_height) > (fan_up_length + FAN_THOLD)) || ((get_pos_fan() - g_fan_height)< (fan_up_length - FAN_THOLD)))
-				(get_pos_fan() < FAN_UP_LENGTH) ? fan_up() : fan_down();
+				(get_pos_fan() < fan_up_length) ? fan_up() : fan_down();
 			else stop_fan_up_down();
 		}
 		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);

@@ -5,7 +5,7 @@
 #define FAN_ROLL_CHANNEL 2
 #define FAN_RMOVE_DIST ((float) 0.1)
 #define FAN_RROLL_DIST ((float) 0.1)
-#define FAN_THOLD 0.0005F
+#define FAN_THOLD 0.005F
 #define FAN_UP_LENGTH 0.4F
 
 extern uint8_t fan_up_flag;

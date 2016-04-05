@@ -297,6 +297,8 @@ void TIM1_TRG_COM_TIM11_IRQHandler(void)
 #include "mti.h"
 void DMA1_Stream2_IRQHandler(void)
 {
+	static bool mti_init_flag = false;
+
 	if(SET == DMA_GetITStatus(DMA1_Stream2, DMA_IT_TCIF2) ) {
 		DMA_Cmd(DMA1_Stream2, DISABLE);
 		
@@ -311,6 +313,11 @@ void DMA1_Stream2_IRQHandler(void)
 		}
 		
 		mti_angle_old = mti_angle_new;
+		
+		if(!mti_init_flag) {
+			mti_angle = 0;
+			mti_init_flag = true;
+		}
 		
 		mti_value_flag = 1;
 		//uprintf(UART5,"angle%f\r\n",mti_angle);//≤‚ ‘”√

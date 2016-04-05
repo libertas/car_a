@@ -29,7 +29,7 @@ int main(void)
 {
 	system_clk_set();
 	systick_config();
-	db_init();
+	//db_init();
 
 	interpreter_config();
 	uart_config(115200);
@@ -44,10 +44,11 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 	
-	auto_control();
+	//auto_control();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
+		printf("%f\n", get_mti_value());
 		check_cmd();
 	}
 

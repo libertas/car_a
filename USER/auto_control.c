@@ -13,7 +13,8 @@ void auto_start(void)
 	printf("\nAuto controlling.\n");
 	auto_flag = true;
 
-	move_xy(1, 1);
+	rotate(PI / 2);
+	//move_xy(1, 1);
 	//move_arc(3, PI / 4);
 	//move_arc(3, -PI / 4);
 }

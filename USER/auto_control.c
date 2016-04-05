@@ -7,6 +7,8 @@
 #include "movement.h"
 
 bool auto_flag = false;
+float old_pos_x = 0, old_pos_y = 0, old_rad = 0;
+float dest_pos_x = 0, dest_pos_y = 0, dest_rad = 0;
 
 void auto_start(void)
 {

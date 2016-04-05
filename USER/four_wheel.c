@@ -13,6 +13,17 @@
 
 int16_t arg_speeds[4] = {0};
 
+void f_send(void)
+{
+	uprintf(USART1,\
+		"\r0V%d\r1V%d\r2V%d\r5V%d\r",\
+		arg_speeds[0],\
+		arg_speeds[1],\
+		arg_speeds[2],\
+		arg_speeds[3]\
+		);
+}
+
 void f_stop(void)
 {
 	for(uint8_t i = 0; i < 4; i++){

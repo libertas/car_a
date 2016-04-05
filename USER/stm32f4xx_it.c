@@ -250,9 +250,29 @@ void TIM1_UP_TIM10_IRQHandler(void)
 	}
 }
 
+
+/*
+Used for the control of the wheels
+*/
+#include "auto_control.h"
+#include "encoder.h"
+#include "mti.h"
 void TIM8_TRG_COM_TIM14_IRQHandler(void)
 {
+	float pos_x, pos_y, rad;
 	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
+		pos_x = get_pos_x();
+		pos_y = get_pos_y();
+		rad = get_mti_value();
+		
+		#ifdef USE_FOUR_WHEEL
+		f_send();
+		#endif
+		
+		old_pos_x = pos_x;
+		old_pos_y = pos_y;
+		old_rad = rad;
+		
 		TIM_ClearITPendingBit(TIM14, TIM_IT_Update);
 	}
 }

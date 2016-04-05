@@ -15,11 +15,19 @@ void auto_start(void)
 
 	uprintf(USART1, "\rAC15\r");
 	move_xy(3, 0);
-	
-	uprintf(USART1, "\rAC10000\r");
 
+	uprintf(USART1, "\rAC10000\r");
 	move_arc(1.2f, PI * 0.2f);
 	move_arc(1.2f, -PI * 0.2f);
+
+	uprintf(USART1, "\rAC15\r");
+	move_xy(0, 2.3);
+
+	uprintf(USART1, "\rAC10000\r");
+	move_arc(1.42f, -PI / 2);
+	
+	uprintf(USART1, "\rAC15\r");
+	rotate(-PI / 2);
 }
 
 void auto_stop(void)

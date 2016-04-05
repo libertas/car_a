@@ -17,7 +17,8 @@ The world view:
 #define ZERO ((float) (1E-1))
 #define PI 3.141592653589793F
 
-#define W_DIAMETER ((float) 0.12)  // meter
+#define W_DIAMETER ((float) 0.05)  // meter
+#define F_DIAMETER ((float) 0.032)  // meter
 
 #define USE_FOUR_WHEEL
 

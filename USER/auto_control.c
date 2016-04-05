@@ -44,18 +44,25 @@ void step3(void)
 {
 	uprintf(USART1, "\rAC15\r");
 	move_xy(0, 2.3);
+	delay_ms(500);
 }
 
 void step4(void)
 {
 	uprintf(USART1, "\rAC10000\r");
 	move_arc(1.42f, -PI / 2);
+	delay_ms(500);
 }
 
 void step5(void)
 {
 	uprintf(USART1, "\rAC15\r");
-	rotate(-PI / 2);
+	rotate(-PI * 3 / 8);
+	
+	delay_ms(500);
+	
+	move_xy(-1.5, 0);
+	move_xy(0, 0.15);
 }
 
 void tim10_config(void)

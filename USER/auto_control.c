@@ -12,11 +12,16 @@ void auto_start(void)
 {
 	printf("\nAuto controlling.\n");
 	auto_flag = true;
+
+	uprintf(USART1, "\rAC15\r");
+	move_xy(3, 0);
+	
+	delay_ms(500);
 	
 	uprintf(USART1, "\rAC10000\r");
-
-	//rotate(PI / 2);
-	//move_xy(1, 1);
+	
+	delay_ms(500);
+	
 	move_arc(1.5, PI / 4);
 	move_arc(1.2, -PI / 4);
 }

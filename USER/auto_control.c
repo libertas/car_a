@@ -38,7 +38,7 @@ void step2(void)
 	uprintf(USART1, "\rAC10000\r");
 	fan_up_auto(FAN_UP_LENGTH);
 	move_arc(1.2f, PI * 0.2f);
-	fan_up_auto(FAN_UP_LENGTH);
+	fan_up_auto(0.3F);
 	move_arc(1.2f, -PI * 0.2f);
 	fan_up_stop_auto();
 }

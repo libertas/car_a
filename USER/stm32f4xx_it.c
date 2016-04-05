@@ -246,12 +246,17 @@ void UART5_IRQHandler(void)
 #include "encoder.h"
 void TIM1_UP_TIM10_IRQHandler(void)
 {
+	static uint8_t i = 0;
 	if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
-		if(1 == fan_up_flag) {
-			if(((get_pos_fan() - g_fan_height) > (fan_up_length + FAN_THOLD)) || ((get_pos_fan() - g_fan_height)< (fan_up_length - FAN_THOLD)))
-				(get_pos_fan() < fan_up_length) ? fan_up() : fan_down();
-			else stop_fan_up_down();
+		i++;
+		if(10 == i) {
+			if(1 == fan_up_flag) {
+				if(((get_pos_fan() - g_fan_height) > (fan_up_length + FAN_THOLD)) || ((get_pos_fan() - g_fan_height)< (fan_up_length - FAN_THOLD)))
+					(get_pos_fan() < fan_up_length) ? fan_up() : fan_down();
+				else stop_fan_up_down();
+			}
 		}
+		i %= 10;
 		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
 	}
 }
@@ -405,6 +410,7 @@ void EXTI9_5_IRQHandler(void)
 		if(0 == GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_8)) {
 			i++;
 			if(2 == i) stop_fan_up_down();
+			i %= 2;
 			#ifdef DEBUG
 			printf("\nstop_fan_up_down()\n");
 			#endif

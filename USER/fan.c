@@ -10,6 +10,9 @@
 #include "utils.h"
 
 uint8_t fan_status = 0;
+uint8_t fan_up_flag = 0;
+float g_fan_height = 0;
+float fan_up_length = 0;
 
 void start_fan(void)
 {
@@ -83,4 +86,16 @@ void stop_fan_up_down(void)
 {
 	set_duty(FAN_UPDOWN_CHANNEL, 0.071);
 	brake(0);
+}
+
+void fan_up_auto(float pos)
+{
+	fan_up_flag = 1;
+	g_fan_height = get_pos_fan();
+	fan_up_length = pos;
+}
+
+void fan_up_stop_auto(void)
+{
+	fan_up_flag = 0;
 }

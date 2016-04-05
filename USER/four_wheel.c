@@ -72,19 +72,9 @@ void f_move_arc(float y, float rad)
 	float r = y / sinf(fabsf(rad));
 	float r1, r2, rt;
 	float coe_y = CAR_X_LENGTH / (sqrtf( powf( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
-	float div_rad;
+	float div_rad = 1;
 
 	int16_t arg_y = DEFAULT_ARG_SPEED;
-	
-	if(true == db_read("div_rad", (uint8_t*)&div_rad)) {
-		#ifdef DEBUG
-		printf("div_rad:%x\n", *(uint32_t*)&div_rad);
-		printf("div_rad*10:%d\n", (uint32_t)(div_rad * 10));
-	} else {
-		printf("Please set div_rad\n");
-		return;
-		#endif
-	}
 
 	if(rad > 0) {
 		r1 = (r - (float)CAR_X_LENGTH / 2000) / r;

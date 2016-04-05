@@ -29,7 +29,6 @@ int main(void)
 {
 	system_clk_set();
 	systick_config();
-	//db_init();
 
 	interpreter_config();
 	uart_config(115200);
@@ -42,7 +41,7 @@ int main(void)
 	switch_config();
 	push_rod_config();
 	pwm_config();
-	// watchdog_config();
+	watchdog_config();
 	
 	auto_control();
 

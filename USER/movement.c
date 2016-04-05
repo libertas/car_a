@@ -113,6 +113,11 @@ void stop(void)
 	#ifdef USE_THREE_WHEEL
 	t_stop();
 	#endif
+
+	#ifdef USE_FOUR_WHEEL
+	f_stop();
+	#endif
+
 	delay_ms(10);
 }
 

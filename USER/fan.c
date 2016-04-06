@@ -16,7 +16,7 @@ float fan_up_length = 0;
 
 void start_fan(void)
 {
-	set_duty(FAN_CHANNEL, 0.065);
+	set_duty(FAN_CHANNEL, 0.066);
 	fan_status = 1;
 }
 

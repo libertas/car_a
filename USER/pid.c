@@ -14,6 +14,7 @@ void pid_config(pid_t* pid_initstruct)
 float pid_realize(pid_t* pid)
 {
     int8_t index = 0;
+	float out = 0;
     if(abs(pid->error) > (pid->set_value * 1.5F)) {
         index = 0;
     }
@@ -22,11 +23,11 @@ float pid_realize(pid_t* pid)
         pid->sum += pid->error;
     }
 	pid->error = pid->set_value - pid->actual_value;
-	pid->actual_value = pid->kp * (pid->error)\
+	out = pid->kp * (pid->error)\
                       + pid->ki * (pid->sum) * (index)\
                       + pid->kd * (pid->error - pid->error_old);
 	pid->error_old = pid->error;
-	return pid->actual_value;
+	return out;
 }
 
 

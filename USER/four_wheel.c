@@ -7,6 +7,7 @@
 #include "encoder.h"
 #include "movement.h"
 #include "mti.h"
+#include "pid.h"
 #include "utils.h"
 
 #ifdef USE_FOUR_WHEEL
@@ -28,16 +29,37 @@ void f_stop(void)
 		);
 }
 
+#define ROTATE_ERR 0.05f
 void f_rotate(float rad)
 {
+	pid_t rp;
+	rp.kp = 50;
+	rp.kd = 1;
+	rp.ki = 0;
+	pid_config(&rp);
+	
 	float old_rad = get_mti_value();
+	
+	rp.set_value = old_rad + rad;
+	
 	if(rad > 0) {
-		f_rotate_c(100);
-		while(get_mti_value() < rad + old_rad);
+		rp.set_value += ROTATE_ERR;
+
+		while(get_mti_value() < rad + old_rad) {
+			rp.actual_value = get_mti_value();
+			rotate_c(pid_realize(&rp));
+			delay_ms(10);
+		}
 	} else if (rad < 0) {
-		f_rotate_c(-100);
-		while(get_mti_value() > rad + old_rad);
+		rp.set_value -= ROTATE_ERR;
+
+		while(get_mti_value() > rad + old_rad) {
+			rp.actual_value = get_mti_value();
+			rotate_c(pid_realize(&rp));
+			delay_ms(10);
+		}
 	}
+
 	stop();
 }
 

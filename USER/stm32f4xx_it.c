@@ -413,9 +413,6 @@ void EXTI9_5_IRQHandler(void)
 	delay_ms(10);
 	if(SET == EXTI_GetITStatus(EXTI_Line8)){
 		if(0 == GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_8)) {
-//			i++;
-//			if(2 == i) stop_fan_up_down();
-//			i %= 2;
 			if(get_pos_fan() > get_pos_fan()) stop_fan_up_down();
 			#ifdef DEBUG
 			printf("\nstop_fan_up_down()\n");
@@ -431,6 +428,7 @@ void EXTI15_10_IRQHandler(void)
 	if(SET == EXTI_GetITStatus(EXTI_Line11)){
 		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_11)) {
 			stop_fan_up_down();
+			fan_up_stop_auto();
 			#ifdef DEBUG
 			printf("\nstop_fan_up_down()\n");
 			#endif

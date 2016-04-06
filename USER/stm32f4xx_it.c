@@ -246,18 +246,22 @@ void UART5_IRQHandler(void)
 #include "encoder.h"
 void TIM1_UP_TIM10_IRQHandler(void)
 {
-	static uint8_t i = 0;
+	static uint16_t count0 = 0;
+	const uint16_t count_num = 2000;
 	if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
-		i++;
-		if(10 == i) {
-			if(1 == fan_up_flag) {
-				if(((get_pos_fan() - g_fan_height) > (fan_up_length + FAN_THOLD)) || ((get_pos_fan() - g_fan_height) < (fan_up_length - FAN_THOLD)))
-					((get_pos_fan() - g_fan_height) < fan_up_length) ? fan_up() : fan_down();
-				else stop_fan_up_down();
+		count0++;
+		if(count0 <= count_num / 2) {
+			if(0 == count0 % count_num / 10) {
+				if(1 == fan_up_flag) {
+					if(((get_pos_fan() - g_fan_height) > (fan_up_length + FAN_THOLD)) || ((get_pos_fan() - g_fan_height) < (fan_up_length - FAN_THOLD)))
+						((get_pos_fan() - g_fan_height) < fan_up_length) ? fan_up() : fan_down();
+					else stop_fan_up_down();
+				}
 			}
 		}
-		stop_fan_up_down();
-		i %= 10;
+		if(count0 > count_num / 2)
+			stop_fan_up_down();
+		count0 %= count_num;
 		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
 	}
 }

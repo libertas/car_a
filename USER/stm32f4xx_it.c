@@ -409,7 +409,6 @@ void TIM8_UP_TIM13_IRQHandler(void)
 #include "switch.h"
 void EXTI9_5_IRQHandler(void)
 {
-	static uint8_t i = 0;
 	delay_ms(10);
 	if(SET == EXTI_GetITStatus(EXTI_Line8)){
 		if(0 == GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_8)) {

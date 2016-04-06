@@ -77,7 +77,7 @@ void step5(void)
 	rotate(-PI - get_mti_value());
 	delay_ms(500);
 	
-	move_xy(-2, 0);
+	move_xy(-1.5, 0);
 }
 
 void tim10_config(void)

@@ -16,7 +16,7 @@ float fan_up_length = 0;
 
 void start_fan(void)
 {
-	set_duty(FAN_CHANNEL, 0.066);
+	set_duty(FAN_CHANNEL, 0.065);
 	fan_status = 1;
 }
 
@@ -59,7 +59,7 @@ void fan_roll_r(int8_t dir)
 void fan_up(void)
 {
 	brake_release(0);
-	set_duty(FAN_UPDOWN_CHANNEL, 0.065);
+	set_duty(FAN_UPDOWN_CHANNEL, 0.066);
 }
 
 void fan_up_r(void)

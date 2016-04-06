@@ -49,7 +49,7 @@ void step2(void)
 
 	move_arc(1.2f, PI * 0.20f);
 
-	fan_up_auto(0.2f);
+	fan_up_auto(0.15f);
 	
 	move_arc(1.8f, -PI * 0.15f);
 

@@ -32,6 +32,11 @@ void step1(void)
 {
 	uprintf(USART1, "\rAC15\r");
 	move_xy(3, 0);
+
+	uprintf(USART1, "\rAC15\r");
+	delay_ms(500);
+	f_rotate(0 - get_mti_value());
+	delay_ms(500);
 }
 
 void step2(void)
@@ -39,23 +44,23 @@ void step2(void)
 	start_fan();
 
 	uprintf(USART1, "\rAC10000\r");
-	
-	fan_up_auto(0.4F);
 
-	move_arc(1.2f, PI * 0.2f);
+	move_arc(1.2f, PI * 0.20f);
 
-	fan_up_auto(0.2F);
+	move_arc(1.8f, -PI * 0.15f);
 
-	move_arc(1.2f, -PI * 0.2f);
-
-	fan_up_stop_auto();
 	stop_fan();
+	
+	uprintf(USART1, "\rAC15\r");
+	delay_ms(500);
+	f_rotate(0 - get_mti_value());
+	delay_ms(500);
 }
 
 void step3(void)
 {
 	uprintf(USART1, "\rAC15\r");
-	move_xy(0, 2.3);
+	move_xy(0, 2.5);
 	delay_ms(500);
 }
 
@@ -63,18 +68,16 @@ void step4(void)
 {
 	uprintf(USART1, "\rAC10000\r");
 	move_arc(1.5f, -PI / 2);
-	delay_ms(500);
 }
 
 void step5(void)
 {
 	uprintf(USART1, "\rAC15\r");
-	rotate(-PI * 5 / 16);
-	
 	delay_ms(500);
-
-	move_xy(0, -0.15);
-	move_xy(-1.5, 0);
+	rotate(-PI - get_mti_value());
+	delay_ms(500);
+	
+	move_xy(-2, 0);
 }
 
 void tim10_config(void)

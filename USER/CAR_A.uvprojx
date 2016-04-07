@@ -528,6 +528,11 @@
               <FileType>1</FileType>
               <FilePath>.\mpu6050.c</FilePath>
             </File>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\pid.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

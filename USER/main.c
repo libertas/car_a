@@ -42,7 +42,7 @@ int main(void)
 	push_rod_config();
 	pwm_config();
 	watchdog_config();
-	
+
 	auto_control();
 
 	printf("\n\nEntering main loop\n\n");

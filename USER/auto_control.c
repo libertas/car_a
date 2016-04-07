@@ -13,6 +13,8 @@ void auto_start(void)
 {
 	printf("\nAuto controlling.\n");
 	auto_flag = true;
+	
+	uprintf(USART1, "\rDEC100\r");
 }
 
 void auto_stop(void)
@@ -31,7 +33,7 @@ void auto_stop(void)
 void step1(void)
 {
 	uprintf(USART1, "\rAC15\r");
-	move_xy(3, 0);
+	move_xy(3.3, 0);
 
 	uprintf(USART1, "\rAC15\r");
 	delay_ms(500);
@@ -45,11 +47,7 @@ void step2(void)
 
 	uprintf(USART1, "\rAC10000\r");
 
-	fan_up_auto(0.3f);
-
 	move_arc(1.2f, PI * 0.20f);
-
-	fan_up_auto(0.15f);
 	
 	move_arc(1.8f, -PI * 0.15f);
 

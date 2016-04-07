@@ -29,9 +29,10 @@ void f_stop(void)
 		);
 }
 
-#define ROTATE_ERR 0.05f
+#define ROTATE_ERR 0.07f
 void f_rotate(float rad)
 {
+	float tmp;
 	pid_t rp;
 	rp.kp = 50;
 	rp.kd = 1;
@@ -55,7 +56,13 @@ void f_rotate(float rad)
 
 		while(get_mti_value() > rad + old_rad) {
 			rp.actual_value = get_mti_value();
-			rotate_c(pid_realize(&rp));
+			tmp = pid_realize(&rp);
+			tmp *= 2;
+			if(tmp > 127)
+					tmp = 127;
+				if(tmp < -127)
+					tmp = -127;
+			rotate_c(tmp);
 			delay_ms(10);
 		}
 	}
@@ -144,12 +151,20 @@ void f_move_arc(float y, float rad)
 	stop();
 }
 
+#define MOVE_XY_ERR 0.1f
 void f_move_xy(float x, float y)
 {
 	if(x == 0 && y == 0) {
 		stop();
 		return;
 	}
+
+	float tmp;
+	pid_t mp;
+	mp.kp = 50;
+	mp.kd = 1;
+	mp.ki = 0;
+	pid_config(&mp);
 
 	float dest_x = get_pos_x() + x, dest_y = get_pos_y() + y;
 
@@ -163,8 +178,20 @@ void f_move_xy(float x, float y)
 		}
 	} else if(0 == y) {
 		if(x > 0) {
-			f_move_xy_c(100, 0);
-			while(get_pos_x() < dest_x);
+			mp.set_value = dest_x + MOVE_XY_ERR;
+			// f_move_xy_c(100, 0);
+			while(get_pos_x() < dest_x) {
+				mp.actual_value = get_pos_x();
+				tmp = pid_realize(&mp);
+				printf("%f\n", tmp);
+				tmp *= 2;
+				if(tmp > 127)
+					tmp = 127;
+				if(tmp < -127)
+					tmp = -127;
+				f_move_xy_c(tmp, 0);
+				delay_ms(10);
+			}
 		} else {
 			f_move_xy_c(-100, 0);
 			while(get_pos_x() > dest_x);

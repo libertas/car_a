@@ -1,4 +1,7 @@
 
+#ifndef _PID_H
+#define _PID_H
+
 typedef struct {
     float set_value;
     float actual_value;
@@ -25,6 +28,8 @@ void pid_config(pid_t* pid_initstruct);
 float pid_realize(pid_t* pid);
 void pid_inc_config(pid_inc_t* pid_inc_initstruct);
 float pid_inc_realize(pid_inc_t* pid);
+
+#endif
 
 /*example**************usage like GPIO_Init*******
 #include "pid.h"

@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include "pid.h"
 
 #define FAN_CHANNEL 0
 #define FAN_UPDOWN_CHANNEL 1
@@ -9,16 +10,18 @@
 
 
 extern uint8_t fan_up_flag;
-extern float g_fan_height;
+extern float fan_height;
 extern float fan_up_length;
+extern pid_t fp;
+
 
 void start_fan(void);
 void stop_fan(void);
 void toggle_fan(void);
 
-void fan_up(void);
+void fan_up(float speed);
 void fan_up_r(void);
-void fan_down(void);
+void fan_down(float speed);
 void fan_down_r(void);
 void stop_fan_up_down(void);
 void fan_up_auto(float pos);

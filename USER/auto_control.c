@@ -84,6 +84,15 @@ void step5(void)
 	move_xy(-1.5, 0);
 }
 
+void step_search(void)
+{
+	
+}
+
+void step_up(void)
+{
+}
+
 void tim10_config(void)
 {
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
@@ -133,7 +142,7 @@ void tim14_config(void)
 }
 
 
-void (*auto_steps[])(void) = {auto_start, step1, step2, step3, step4, step5, auto_stop, 0};
+void (*auto_steps[])(void) = {auto_start, step1, step2, step3, step4, step5, step_search, step_up, auto_stop, 0};
 
 void auto_control(void)
 {

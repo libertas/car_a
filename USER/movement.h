@@ -72,6 +72,7 @@ void move_y_c(int16_t arg_spd);
 void move_xy(float x, float y);
 void move_xy_c(int8_t spd_x, int8_t spd_y);
 
+void rotate(float rad);
 void rotate_r(float rad);
 void rotate_c(int8_t arg_spd);
 

@@ -30,7 +30,7 @@ void f_stop(void)
 }
 
 #define ROTATE_ERR 0.07f
-void f_rotate(float rad)
+void f_rotate_r(float rad)
 {
 	float tmp;
 	pid_t rp;
@@ -70,7 +70,7 @@ void f_rotate(float rad)
 	stop();
 }
 
-void f_rotate_c(int8_t spd)
+void f_rotate_r_c(int8_t spd)
 {
 	int16_t arg_spd = (float) spd / 128 * DEFAULT_ARG_SPEED;
 	arg_speeds[0] = VECT_W0 * arg_spd;

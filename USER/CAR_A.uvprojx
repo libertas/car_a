@@ -533,6 +533,11 @@
               <FileType>1</FileType>
               <FilePath>.\pid.c</FilePath>
             </File>
+            <File>
+              <FileName>us100.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\us100.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

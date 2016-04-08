@@ -37,7 +37,7 @@ void step1(void)
 
 	uprintf(USART1, "\rAC15\r");
 	delay_ms(500);
-	f_rotate(0 - get_mti_value());
+	rotate_r(0 - get_mti_value());
 	delay_ms(500);
 }
 
@@ -57,7 +57,7 @@ void step2(void)
 	
 	uprintf(USART1, "\rAC15\r");
 	delay_ms(500);
-	f_rotate(0 - get_mti_value());
+	rotate_r(0 - get_mti_value());
 	delay_ms(500);
 }
 
@@ -78,7 +78,7 @@ void step5(void)
 {
 	uprintf(USART1, "\rAC15\r");
 	delay_ms(500);
-	rotate(-PI - get_mti_value());
+	rotate_r(-PI - get_mti_value());
 	delay_ms(500);
 	
 	move_xy(-1.5, 0);

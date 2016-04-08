@@ -16,10 +16,10 @@ void stop_all(void)
 	delay_ms(10);
 }
 
-void rotate(float rad)
+void rotate_r(float rad)
 {
 	#ifdef USE_FOUR_WHEEL
-	f_rotate(rad);
+	f_rotate_r(rad);
 	#endif
 }
 
@@ -34,7 +34,7 @@ void rotate_c(int8_t arg_spd)
 	#endif
 	
 	#ifdef USE_FOUR_WHEEL
-	f_rotate_c(arg_spd);
+	f_rotate_r_c(arg_spd);
 	#endif
 }
 

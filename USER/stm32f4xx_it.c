@@ -209,7 +209,6 @@ void UART4_IRQHandler(void)
 void UART5_IRQHandler(void)
 {
 	char data;
-	char tmp;
 
 	if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET)
 	{

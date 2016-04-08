@@ -170,8 +170,20 @@ void f_move_xy(float x, float y)
 
 	if(0 == x) {
 		if(y > 0) {
-			f_move_xy_c(0, 100);
-			while(get_pos_y() < dest_y);
+			mp.set_value = dest_y + MOVE_XY_ERR;
+			// f_move_xy_c(0, 100)
+			while(get_pos_y() < dest_y) {
+				mp.actual_value = get_pos_y();
+				tmp = pid_realize(&mp);
+				printf("%f\n", tmp);
+				tmp *= 2;
+				if(tmp > 127)
+					tmp = 127;
+				if(tmp < -127)
+					tmp = -127;
+				f_move_xy_c(0, tmp);
+				delay_ms(10);
+			}
 		} else {
 			f_move_xy_c(0, -100);
 			while(get_pos_y() > dest_y);

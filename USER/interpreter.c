@@ -1,3 +1,4 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,7 +9,7 @@
 #include "magnet.h"
 #include "movement.h"
 #include "push_rod.h"
-#include "math.h"
+#include "whiteline.h"
 
 
 char cmd_buf[CMD_BUF_LEN] = {0};
@@ -87,13 +88,16 @@ command list:
 		(byte) 0x43 (float) [rad]
 	
 	fan_roll_r(int8_t dir)
-		(byte) 0x11 (int8_t) dir
+		(byte) 0x11 (int8_t) [dir]
 	
 	fan_kowtow_r(int8_t dir)
-		(byte) 0x12 (int8_t) dir
+		(byte) 0x12 (int8_t) [dir]
 	
 	push_rod(uint8_t dir, uint8_t channel_num)
-		(byte) 0x13 (4-bit) dir (4-bit) num
+		(byte) 0x13 (4-bit) [dir] (4-bit) [num]
+	
+	set_wl_err(float wl_err)
+		(byte) 0x44 (float) [err]
 */
 int run_cmd(void)
 {
@@ -106,6 +110,7 @@ int run_cmd(void)
 	uint16_t dbuf = 0;
 	uint32_t qbuf = 0;
 
+	float flbuf;
 	float x, y, rad;
 
 
@@ -118,6 +123,15 @@ int run_cmd(void)
 
 			break;
 		
+		case 0x44:
+			for(i = 0; i < 4; i++) {
+				out_char_queue(&cmd_queue, (char*) &buf);
+				qbuf |= buf << i * 8;
+			}
+			memcpy(&flbuf, &qbuf, 4);
+			set_wl_err(flbuf);
+			break;
+
 		case 0x14:
 			
 			#ifdef DEBUG_INTPRT

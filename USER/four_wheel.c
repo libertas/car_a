@@ -44,8 +44,7 @@ void f_rotate(float rad)
 	float old_rad = get_mti_value();
 	if(rad > 0) {
 		f_rotate_c(100);
-		while(get_mti_value() < rad + old_rad)
-			printf("%f %f\t%f %f\t%f\n", get_gps_x(), get_pos_x(), get_gps_y(), get_pos_y(), get_gps_rad());
+		while(get_mti_value() < rad + old_rad);
 	} else if (rad < 0) {
 		f_rotate_c(-100);
 		while(get_mti_value() > rad + old_rad);

@@ -4,6 +4,7 @@
 #include <stm32f4xx_tim.h>
 
 #include "automove.h"
+#include "debug.h"
 #include "encoder.h"
 #include "movement.h"
 
@@ -18,16 +19,43 @@ void auto_clr_spd(void)
 	}
 }
 
+#define ROTATE_DEFAULT_SPD 100
 void auto_rotate(float now_rad, float dest_rad)
 {
+	float drad = dest_rad - now_rad;
+	int8_t dir = drad / fabsf(drad);
+	arg_speeds[0] += VECT_W0 * dir * ROTATE_DEFAULT_SPD;
+	arg_speeds[1] += VECT_W1 * dir * ROTATE_DEFAULT_SPD;
+	arg_speeds[2] += -VECT_W2 * dir * ROTATE_DEFAULT_SPD;
+	arg_speeds[3] += -VECT_W3 * dir * ROTATE_DEFAULT_SPD;
 }
 
+#define XY_DEFAULT_SPD 200
 void auto_move_xy(float x, float y, float dest_x, float dest_y)
 {
+	float coe_x = CAR_Y_LENGTH / (sqrtf(powf(CAR_X_LENGTH, 2) + powf(CAR_Y_LENGTH, 2)));
+	float coe_y = CAR_X_LENGTH / (sqrtf(powf(CAR_X_LENGTH, 2) + powf(CAR_Y_LENGTH, 2)));
+	float dx = dest_x - x, dy = dest_y - y;
+	float dir_x = dx / fabsf(dx), dir_y = dy / fabsf(dy);
+
+	arg_speeds[0] += VECT_W0 * (coe_x * dir_x * XY_DEFAULT_SPD + coe_y * dir_y * XY_DEFAULT_SPD);
+	arg_speeds[1] += VECT_W1 * (-coe_x * dir_x * XY_DEFAULT_SPD + coe_y * dir_y * XY_DEFAULT_SPD);
+	arg_speeds[2] += VECT_W2 * (coe_x * dir_x * XY_DEFAULT_SPD + coe_y * dir_y * XY_DEFAULT_SPD);
+	arg_speeds[3] += VECT_W3 * (-coe_x * dir_x * XY_DEFAULT_SPD + coe_y * dir_y * XY_DEFAULT_SPD);
 }
 
 void auto_send(void)
 {
+	#ifdef DEBUG_AUTO
+	printf("arg_speeds:\n");
+	printf("\t0:%d\n", arg_speeds[0]);
+	printf("\t1:%d\n", arg_speeds[1]);
+	printf("\t2:%d\n", arg_speeds[2]);
+	printf("\t3:%d\n", arg_speeds[3]);
+	#endif
+
+	uprintf(USART1, "\rAC10000\rDEC10000\r");
+
 	uprintf(USART1,\
 		"\r0V%d\r1V%d\r2V%d\r5V%d\r",\
 		arg_speeds[0],\
@@ -41,6 +69,13 @@ void auto_send(void)
 
 float gps_dest_x = 0, gps_dest_y = 0, gps_dest_rad = 0;
 float gps_x = 0, gps_y = 0, gps_rad = 0;
+
+void set_auto_dest(float x, float y, float rad)
+{
+	gps_dest_x = x;
+	gps_dest_y = y;
+	gps_dest_rad = rad;
+}
 
 void automove_daemon(void)
 {
@@ -59,10 +94,10 @@ void automove_daemon(void)
 	gps_y = y;
 	gps_rad = rad;
 
-	//auto_clr_spd();
+	auto_clr_spd();
 	auto_rotate(gps_rad, gps_dest_rad);
 	auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y);
-	//auto_send();
+	auto_send();
 }
 
 float get_gps_x(void)

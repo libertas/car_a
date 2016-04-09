@@ -40,7 +40,7 @@ void uart1_config(uint32_t baud)
 	
 	USART_Cmd(USART1, ENABLE);
 
-	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+	// USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
 
 	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;

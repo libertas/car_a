@@ -2,6 +2,7 @@
 
 #include "stm32f4xx.h"
 
+#include "automove.h"
 #include "auto_control.h"
 #include "brake.h"
 #include "clock.h"
@@ -43,7 +44,9 @@ int main(void)
 	pwm_config();
 	watchdog_config();
 	
-	auto_control();
+	//auto_control();
+	automove_config();
+	rotate(PI);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {

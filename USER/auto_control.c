@@ -99,7 +99,6 @@ void (*auto_steps[])(void) = {auto_start, step1, step2, step3, step4, step5, aut
 
 void auto_control(void)
 {
-	tim10_config();
 	tim14_config();
 
 	for(uint16_t i = 0; auto_steps[i] != 0; i++) {

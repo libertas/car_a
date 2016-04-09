@@ -49,20 +49,35 @@ void automove_daemon(void)
 
 	rad = get_mti_value();
 	
-	tmp = rad * (powf(EX_X, 2) + powf(EX_Y, 2)) / EX_Y;
+	tmp = rad * (EX_X * EX_X + EX_Y * EX_Y) / EX_Y;
 	x = get_pos_x() - tmp;
 
-	tmp = rad * (powf(EY_X, 2) + powf(EY_Y, 2)) / EY_Y;
+	tmp = rad * (EY_X * EY_X + EY_Y * EY_Y) / EY_Y;
 	y = get_pos_y() - tmp;
-
-	auto_clr_spd();
-	auto_rotate(gps_rad, gps_dest_rad);
-	auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y);
-	auto_send();
-
+	
 	gps_x = x;
 	gps_y = y;
 	gps_rad = rad;
+
+	//auto_clr_spd();
+	auto_rotate(gps_rad, gps_dest_rad);
+	auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y);
+	//auto_send();
+}
+
+float get_gps_x(void)
+{
+	return gps_x;
+}
+
+float get_gps_y(void)
+{
+	return gps_y;
+}
+
+float get_gps_rad(void)
+{
+	return gps_rad;
 }
 
 void tim10_config(void)

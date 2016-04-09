@@ -46,9 +46,6 @@ int main(void)
 	
 	//auto_control();
 	automove_config();
-	
-	delay_ms(2000);
-	set_auto_dest(0, 0, PI/2);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {

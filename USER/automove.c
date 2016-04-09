@@ -7,8 +7,8 @@
 #include "debug.h"
 #include "encoder.h"
 #include "movement.h"
-
 #include "mti.h"
+#include "pid.h"
 
 #ifdef USE_FOUR_WHEEL
 
@@ -19,29 +19,56 @@ void auto_clr_spd(void)
 	}
 }
 
-#define ROTATE_DEFAULT_SPD 100
+#define ROTATE_DEFAULT_SPD 200
 void auto_rotate(float now_rad, float dest_rad)
 {
 	float drad = dest_rad - now_rad;
 	int8_t dir = drad / fabsf(drad);
-	arg_speeds[0] += VECT_W0 * dir * ROTATE_DEFAULT_SPD;
-	arg_speeds[1] += VECT_W1 * dir * ROTATE_DEFAULT_SPD;
-	arg_speeds[2] += -VECT_W2 * dir * ROTATE_DEFAULT_SPD;
-	arg_speeds[3] += -VECT_W3 * dir * ROTATE_DEFAULT_SPD;
+
+	static pid_t pr;
+	pr.kp = 1;
+	pr.kd = 0;
+	pr.ki = 0;
+	pr.set_value = dest_rad;
+	pr.actual_value = now_rad;
+
+	float prout = pid_realize(&pr);
+
+	arg_speeds[0] += VECT_W0 * dir * prout * ROTATE_DEFAULT_SPD;
+	arg_speeds[1] += VECT_W1 * dir * prout * ROTATE_DEFAULT_SPD;
+	arg_speeds[2] += -VECT_W2 * dir * prout * ROTATE_DEFAULT_SPD;
+	arg_speeds[3] += -VECT_W3 * dir * prout * ROTATE_DEFAULT_SPD;
 }
 
-#define XY_DEFAULT_SPD 200
+#define XY_DEFAULT_SPD 400
 void auto_move_xy(float x, float y, float dest_x, float dest_y)
 {
 	float coe_x = CAR_Y_LENGTH / (sqrtf(powf(CAR_X_LENGTH, 2) + powf(CAR_Y_LENGTH, 2)));
 	float coe_y = CAR_X_LENGTH / (sqrtf(powf(CAR_X_LENGTH, 2) + powf(CAR_Y_LENGTH, 2)));
 	float dx = dest_x - x, dy = dest_y - y;
 	float dir_x = dx / fabsf(dx), dir_y = dy / fabsf(dy);
+	
+	static pid_t px, py;
+	float pxout, pyout;
 
-	arg_speeds[0] += VECT_W0 * (coe_x * dir_x * XY_DEFAULT_SPD + coe_y * dir_y * XY_DEFAULT_SPD);
-	arg_speeds[1] += VECT_W1 * (-coe_x * dir_x * XY_DEFAULT_SPD + coe_y * dir_y * XY_DEFAULT_SPD);
-	arg_speeds[2] += VECT_W2 * (coe_x * dir_x * XY_DEFAULT_SPD + coe_y * dir_y * XY_DEFAULT_SPD);
-	arg_speeds[3] += VECT_W3 * (-coe_x * dir_x * XY_DEFAULT_SPD + coe_y * dir_y * XY_DEFAULT_SPD);
+	px.kp = 1;
+	px.kd = 0;
+	px.ki = 0;
+	px.set_value = dest_x;
+	px.actual_value = x;
+	pxout = pid_realize(&px);
+
+	py.kp = 1;
+	py.kd = 0;
+	py.ki = 0;
+	py.set_value = dest_y;
+	py.actual_value = y;
+	pyout = pid_realize(&py);
+
+	arg_speeds[0] += VECT_W0 * (coe_x * dir_x * pxout * XY_DEFAULT_SPD + coe_y * dir_y * pyout * XY_DEFAULT_SPD);
+	arg_speeds[1] += VECT_W1 * (-coe_x * dir_x * pxout * XY_DEFAULT_SPD + coe_y * dir_y * pyout * XY_DEFAULT_SPD);
+	arg_speeds[2] += VECT_W2 * (coe_x * dir_x * pxout * XY_DEFAULT_SPD + coe_y * dir_y * pyout * XY_DEFAULT_SPD);
+	arg_speeds[3] += VECT_W3 * (-coe_x * dir_x * pxout * XY_DEFAULT_SPD + coe_y * dir_y * pyout * XY_DEFAULT_SPD);
 }
 
 void auto_send(void)

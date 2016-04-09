@@ -528,6 +528,11 @@
               <FileType>1</FileType>
               <FilePath>.\mpu6050.c</FilePath>
             </File>
+            <File>
+              <FileName>automove.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\automove.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -748,6 +753,11 @@
         <Group>
           <GroupName>Headers</GroupName>
           <Files>
+            <File>
+              <FileName>automove.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\automove.h</FilePath>
+            </File>
             <File>
               <FileName>multi_processing.h</FileName>
               <FileType>5</FileType>

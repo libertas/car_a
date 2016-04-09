@@ -2,7 +2,7 @@
 
 /*
 Auto control will use:
-	TIM10 TIM14
+	TIM14
 	The main thread
 */
 

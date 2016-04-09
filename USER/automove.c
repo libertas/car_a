@@ -1,12 +1,68 @@
+#include <math.h>
+
 #include <misc.h>
 #include <stm32f4xx_tim.h>
 
 #include "automove.h"
 #include "encoder.h"
+#include "movement.h"
+
+#include "mti.h"
+
+#ifdef USE_FOUR_WHEEL
+
+void auto_clr_spd(void)
+{
+	for(uint8_t i = 0; i < 4; i++) {
+		arg_speeds[i] = 0;
+	}
+}
+
+void auto_rotate(float now_rad, float dest_rad)
+{
+}
+
+void auto_move_xy(float x, float y, float dest_x, float dest_y)
+{
+}
+
+void auto_send(void)
+{
+	uprintf(USART1,\
+		"\r0V%d\r1V%d\r2V%d\r5V%d\r",\
+		arg_speeds[0],\
+		arg_speeds[1],\
+		arg_speeds[2],\
+		arg_speeds[3]\
+		);
+}
+
+#endif
+
+float gps_dest_x = 0, gps_dest_y = 0, gps_dest_rad = 0;
+float gps_x = 0, gps_y = 0, gps_rad = 0;
 
 void automove_daemon(void)
 {
+	float x, y, rad;
+	float tmp;
+
+	rad = get_mti_value();
 	
+	tmp = rad * (powf(EX_X, 2) + powf(EX_Y, 2)) / EX_Y;
+	x = get_pos_x() - tmp;
+
+	tmp = rad * (powf(EY_X, 2) + powf(EY_Y, 2)) / EY_Y;
+	y = get_pos_y() - tmp;
+
+	auto_clr_spd();
+	auto_rotate(gps_rad, gps_dest_rad);
+	auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y);
+	auto_send();
+
+	gps_x = x;
+	gps_y = y;
+	gps_rad = rad;
 }
 
 void tim10_config(void)

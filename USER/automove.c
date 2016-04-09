@@ -2,9 +2,11 @@
 #include <stm32f4xx_tim.h>
 
 #include "automove.h"
+#include "encoder.h"
 
 void automove_daemon(void)
 {
+	
 }
 
 void tim10_config(void)
@@ -14,7 +16,7 @@ void tim10_config(void)
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM10, ENABLE);
 	
-	TIM_TimeBaseInitStructure.TIM_Period = 1000 - 1;
+	TIM_TimeBaseInitStructure.TIM_Period = AUTOMOVE_DAEMON_TIME * 1000 - 1;
 	TIM_TimeBaseInitStructure.TIM_Prescaler = 168 - 1;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;

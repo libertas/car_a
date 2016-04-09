@@ -13,6 +13,7 @@ typedef struct {
 typedef struct {
     float set_value;
     float actual_value;
+	float out;
     float error;
     float error_oold;
     float error_old;

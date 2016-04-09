@@ -22,11 +22,11 @@ float pid_realize(pid_t* pid)
         pid->sum += pid->error;
     }
 	pid->error = pid->set_value - pid->actual_value;
-	pid->actual_value = pid->kp * (pid->error)\
-                      + pid->ki * (pid->sum) * (index)\
-                      + pid->kd * (pid->error - pid->error_old);
+	float out = pid->kp * (pid->error)\
+              + pid->ki * (pid->sum) * (index)\
+              + pid->kd * (pid->error - pid->error_old);
 	pid->error_old = pid->error;
-	return pid->actual_value;
+	return out;
 }
 
 
@@ -46,8 +46,8 @@ float pid_inc_realize(pid_inc_t* pid)
     float increment = pid->kp * (pid->error - pid->error_old)\
                     + pid->ki * (pid->error)\
                     + pid->kd * (pid->error - 2 * pid->error_old + pid->error_oold);
-    pid->actual_value += increment;
+    pid->out += increment;
     pid->error_oold = pid->error_old;
     pid->error_old = pid->error;
-return pid->actual_value;
+	return pid->out;
 }

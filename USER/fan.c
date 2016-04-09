@@ -44,7 +44,7 @@ inline void toggle_fan(void)
 
 void fan_roll(float rad)
 {
-	set_duty(FAN_ROLL_CHANNEL, (float)((float)0.14 - (float)0.06 * rad / ((float)PI / 2)));
+	set_duty(FAN_ROLL_CHANNEL, (float)((float)0.12 - (float)0.06 * rad / ((float)PI / 2)));
 	
 	#ifdef DEBUG
 	printf("\nfan_roll(%f)\n", rad);

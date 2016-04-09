@@ -888,6 +888,11 @@
               <FileType>5</FileType>
               <FilePath>.\database.h</FilePath>
             </File>
+            <File>
+              <FileName>whiteline.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\whiteline.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

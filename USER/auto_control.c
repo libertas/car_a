@@ -44,14 +44,37 @@ void step1(void)
 void step2(void)
 {
 	start_fan();
-
+	
+	uprintf(USART1, "\rAC15\r");
+	move_xy(0, 0.7);
+	
+	uprintf(USART1, "\rAC15\r");
+	delay_ms(500);
+	rotate(0);
+	delay_ms(500);
+	
+	fan_up_auto(0.3f);
+	
 	uprintf(USART1, "\rAC10000\r");
 
-	move_arc(1.2f, PI * 0.20f);
+	move_arc(1.2f, PI * 0.25f);
 	
-	move_arc(1.8f, -PI * 0.15f);
+	fan_up_auto(0.6f);
+	
+	move_arc(1.2f, -PI * 0.25f);
 
 	fan_up_stop_auto();
+	
+	fan_roll(PI / 2);
+	
+	delay_ms(1000);
+}
+
+void step3(void)
+{
+	uprintf(USART1, "\rAC15\r");
+	move_xy(0, 2.5);
+	delay_ms(500);
 	
 	stop_fan();
 	
@@ -61,17 +84,10 @@ void step2(void)
 	delay_ms(500);
 }
 
-void step3(void)
-{
-	uprintf(USART1, "\rAC15\r");
-	move_xy(0, 2.5);
-	delay_ms(500);
-}
-
 void step4(void)
 {
 	uprintf(USART1, "\rAC10000\r");
-	move_arc(1.5f, -PI / 2);
+	move_arc(1.5f, -PI / 2 - 0.2f);
 }
 
 void step5(void)

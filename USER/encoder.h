@@ -4,7 +4,7 @@
 #define ENCODER_CHANNEL_NUM 5
 
 #define VECT_EX (-1)  // encoder of x
-#define VECT_EY (-1)  // encoder of y
+#define VECT_EY (+1)  // encoder of y
 #define VECT_EFAN (-1)  // encoder for the fan
 #define VECT_EMAGNET (+1)	// encoder for the up and down movements of the magnet at tim1
 #define VECT_ETIM8 (+1)	// encoder for the tim8

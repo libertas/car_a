@@ -46,7 +46,7 @@ int main(void)
 	
 	//auto_control();
 	automove_config();
-	rotate(PI);
+	rotate(2 * PI);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {

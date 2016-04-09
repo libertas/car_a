@@ -49,10 +49,10 @@ void automove_daemon(void)
 
 	rad = get_mti_value();
 	
-	tmp = rad * (EX_X * EX_X + EX_Y * EX_Y) / EX_Y;
+	tmp = (cosf(fabsf(rad)) - 1) * fabsf(EX_X) + rad * fabsf(EX_Y);
 	x = get_pos_x() - tmp;
 
-	tmp = rad * (EY_X * EY_X + EY_Y * EY_Y) / EY_Y;
+	tmp = (cosf(fabsf(rad)) - 1) * fabsf(EY_Y) + rad * fabsf(EY_X);
 	y = get_pos_y() - tmp;
 	
 	gps_x = x;

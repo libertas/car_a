@@ -75,20 +75,12 @@ void auto_move_xy(float x, float y, float dest_x, float dest_y)
 
 void auto_send(void)
 {
-	#ifdef DEBUG_AUTO
-	printf("arg_speeds:\n");
-	printf("\t0:%d\n", arg_speeds[0]);
-	printf("\t1:%d\n", arg_speeds[1]);
-	printf("\t2:%d\n", arg_speeds[2]);
-	printf("\t3:%d\n", arg_speeds[3]);
-	#endif
-
 	uprintf(USART1, "\rAC10000\rDEC10000\r");
 	
-	while(arg_speeds[0] > MAX_SPD\
-		|| arg_speeds[1] > MAX_SPD\
-		|| arg_speeds[2] > MAX_SPD\
-		|| arg_speeds[3] > MAX_SPD) {
+	while(fabsf(arg_speeds[0]) > MAX_SPD\
+		|| fabsf(arg_speeds[1]) > MAX_SPD\
+		|| fabsf(arg_speeds[2]) > MAX_SPD\
+		|| fabsf(arg_speeds[3]) > MAX_SPD) {
 			for(uint8_t i = 0; i < 4; i++) {
 				arg_speeds[i] >>= 1;
 			}	
@@ -101,6 +93,14 @@ void auto_send(void)
 		arg_speeds[2],\
 		arg_speeds[3]\
 		);
+	
+	#ifdef DEBUG_AUTO
+	printf("arg_speeds:\n");
+	printf("\t0:%d\n", arg_speeds[0]);
+	printf("\t1:%d\n", arg_speeds[1]);
+	printf("\t2:%d\n", arg_speeds[2]);
+	printf("\t3:%d\n", arg_speeds[3]);
+	#endif
 }
 
 #endif

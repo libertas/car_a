@@ -177,15 +177,19 @@ void USART1_IRQHandler(void)
 	}
 }
 
+#include "interpreter.h"
 void USART2_IRQHandler(void)
 {
+	char data;
+
 	if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)
 	{
-		USART_SendData(UART5, USART_ReceiveData(USART2));
+		data = USART_ReceiveData(USART2);
+		
+		in_char_queue(&cmd_queue, data);
 	}
 }
 
-#include "interpreter.h"
 void USART3_IRQHandler(void)
 {
 	char data;

@@ -24,6 +24,7 @@
 #include "spi.h"
 #include "suart.h"
 #include "watchdog.h"
+#include "whiteline.h"
 
 int main(void)
 {
@@ -48,6 +49,7 @@ int main(void)
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
 		check_cmd();
+		printf("%f\t%f\n", wl_x, wl_y);
 	}
 
 	return 0;

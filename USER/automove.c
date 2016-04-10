@@ -134,7 +134,7 @@ void automove_daemon(void)
 
 	auto_clr_spd();
 	auto_rotate(gps_rad, gps_dest_rad);
-	//auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y);
+	auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y);
 	auto_send();
 	
 	#ifdef DEBUG_AUTO

@@ -4,6 +4,7 @@ Auto control will use:
 */
 
 #define AUTOMOVE_DAEMON_TIME 100
+#define MAX_SPD 2000
 
 void automove_config(void);
 void automove_daemon(void);

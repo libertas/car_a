@@ -43,7 +43,7 @@ void auto_rotate(float now_rad, float dest_rad)
 	arg_speeds[3] += -VECT_W3 * prout * ROTATE_DEFAULT_SPD;
 }
 
-#define XY_DEFAULT_SPD 2000
+#define XY_DEFAULT_SPD 1000
 void auto_move_xy(float x, float y, float dest_x, float dest_y)
 {
 	float coe_x = CAR_Y_LENGTH / (sqrtf(powf(CAR_X_LENGTH, 2) + powf(CAR_Y_LENGTH, 2)));
@@ -84,6 +84,15 @@ void auto_send(void)
 	#endif
 
 	uprintf(USART1, "\rAC10000\rDEC10000\r");
+	
+	while(arg_speeds[0] > MAX_SPD\
+		|| arg_speeds[1] > MAX_SPD\
+		|| arg_speeds[2] > MAX_SPD\
+		|| arg_speeds[3] > MAX_SPD) {
+			for(uint8_t i = 0; i < 4; i++) {
+				arg_speeds[i] >>= 1;
+			}	
+	}
 
 	uprintf(USART1,\
 		"\r0V%d\r1V%d\r2V%d\r5V%d\r",\

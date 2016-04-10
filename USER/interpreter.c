@@ -96,8 +96,8 @@ command list:
 	push_rod(uint8_t dir, uint8_t channel_num)
 		(byte) 0x13 (4-bit) [dir] (4-bit) [num]
 	
-	set_wl_err(float wl_err)
-		(byte) 0x44 (float) [err]
+	set_wl_value(float x, float y)
+		(byte) 0x80	(4-byte) [x] (4-byte) [y]
 */
 int run_cmd(void)
 {
@@ -110,7 +110,7 @@ int run_cmd(void)
 	uint16_t dbuf = 0;
 	uint32_t qbuf = 0;
 
-	float flbuf;
+	float flbuf, flbuf1;
 	float x, y, rad;
 
 
@@ -123,13 +123,27 @@ int run_cmd(void)
 
 			break;
 		
-		case 0x44:
+		case 0x80:
+
+			qbuf = 0;
 			for(i = 0; i < 4; i++) {
 				out_char_queue(&cmd_queue, (char*) &buf);
 				qbuf |= buf << i * 8;
 			}
 			memcpy(&flbuf, &qbuf, 4);
-			set_wl_err(flbuf);
+
+			qbuf = 0;
+			for(i = 0; i < 4; i++) {
+				out_char_queue(&cmd_queue, (char*) &buf);
+				qbuf |= buf << i * 8;
+			}
+			memcpy(&flbuf1, &qbuf, 4);
+
+			set_wl_value(flbuf, flbuf1);
+
+			#ifdef DEBUG_INTPRT
+			printf("set_wl_value(%f,%f)\n");
+			#endif
 			break;
 
 		case 0x14:

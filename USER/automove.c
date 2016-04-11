@@ -117,6 +117,8 @@ void set_auto_dest(float x, float y, float rad)
 
 void automove_daemon(void)
 {
+	static float old_x = 0, old_y = 0;
+	float dx, dy;
 	float x, y, rad;
 	float tmp;
 
@@ -126,15 +128,20 @@ void automove_daemon(void)
 	// tmp = (cosf(fabsf(rad)) - 1) * fabsf(EX_X) + rad * fabsf(EX_Y);
 	tmp = 0.511f * rad / 2 / PI;
 	x = get_pos_x() - tmp;
+	dx = x - old_x;
 
 	// value in theory
 	// tmp = (cosf(fabsf(rad)) - 1) * fabsf(EY_Y) + rad * fabsf(EY_X);
 	
 	tmp = 1.195f * rad / 2 / PI;
 	y = get_pos_y() - tmp;
+	dy = y - old_y;
 
-	gps_x = x;
-	gps_y = y;
+	old_x = x;
+	old_y = y;
+
+	gps_x += -dy * sinf(rad) + dx * cosf(rad);
+	gps_y += dy * cosf(rad) + dx * sinf(rad);
 	gps_rad = rad;
 
 	auto_clr_spd();

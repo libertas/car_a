@@ -14,12 +14,6 @@
 
 int16_t arg_speeds[4] = {0};
 
-void f_clear_speed(void)
-{
-	for(uint8_t i = 0; i < 4; i++) {
-		arg_speeds[i] = 0;
-	}
-}
 
 void f_stop(void)
 {
@@ -34,6 +28,32 @@ void f_stop(void)
 		arg_speeds[2],\
 		arg_speeds[3]\
 		);
+}
+
+void f_run_c(int8_t spd_x, int8_t spd_y, int8_t spd_c)
+{
+	int16_t arg_x, arg_y, arg_c;
+	
+	float coe_x = CAR_Y_LENGTH / (sqrtf( powf( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
+	float coe_y = CAR_X_LENGTH / (sqrtf( powf( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
+	float coe_c = 0.5;
+
+	arg_x = (int16_t) (((float) spd_x) / 128 * DEFAULT_ARG_SPEED);
+	arg_y = (int16_t) (((float) spd_y) / 128 * DEFAULT_ARG_SPEED);
+	arg_c = (int16_t) (((float) spd_c) / 128 * DEFAULT_ARG_SPEED);
+
+	arg_speeds[0] = VECT_W0 * (+coe_x * arg_x + coe_y * arg_y + coe_c * arg_c);
+	arg_speeds[1] = VECT_W1 * (-coe_x * arg_x + coe_y * arg_y + coe_c * arg_c);
+	arg_speeds[2] = VECT_W2 * (+coe_x * arg_x + coe_y * arg_y - coe_c * arg_c);
+	arg_speeds[3] = VECT_W3 * (-coe_x * arg_x + coe_y * arg_y - coe_c * arg_c);
+	
+	#ifdef DEBUG
+	printf("arg_speeds:\n");
+	printf("\t0:%d\n", arg_speeds[0]);
+	printf("\t1:%d\n", arg_speeds[1]);
+	printf("\t2:%d\n", arg_speeds[2]);
+	printf("\t3:%d\n", arg_speeds[3]);
+	#endif
 }
 
 #define ROTATE_ERR 0.07f

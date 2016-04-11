@@ -122,10 +122,15 @@ void automove_daemon(void)
 
 	rad = get_mti_value();
 
-	tmp = (cosf(fabsf(rad)) - 1) * fabsf(EX_X) + rad * fabsf(EX_Y);
+	// value in theory
+	// tmp = (cosf(fabsf(rad)) - 1) * fabsf(EX_X) + rad * fabsf(EX_Y);
+	tmp = 0.511f * rad / 2 / PI;
 	x = get_pos_x() - tmp;
 
-	tmp = (cosf(fabsf(rad)) - 1) * fabsf(EY_Y) + rad * fabsf(EY_X);
+	// value in theory
+	// tmp = (cosf(fabsf(rad)) - 1) * fabsf(EY_Y) + rad * fabsf(EY_X);
+	
+	tmp = 1.195f * rad / 2 / PI;
 	y = get_pos_y() - tmp;
 
 	gps_x = x;

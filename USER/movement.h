@@ -59,6 +59,7 @@ void f_move_xy_c(int8_t spd_x, int8_t spd_y);
 void f_rotate_r(float rad);
 void f_rotate_r_c(int8_t spd);
 void f_stop(void);
+void f_send_speed(void);
 
 #endif
 

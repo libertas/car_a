@@ -14,6 +14,13 @@
 
 int16_t arg_speeds[4] = {0};
 
+void f_clear_speed(void)
+{
+	for(uint8_t i = 0; i < 4; i++) {
+		arg_speeds[i] = 0;
+	}
+}
+
 void f_stop(void)
 {
 	for(uint8_t i = 0; i < 4; i++){
@@ -244,6 +251,27 @@ void f_move_xy_c(int8_t spd_x, int8_t spd_y)
 		arg_speeds[2],\
 		arg_speeds[3]\
 		);
+}
+
+void f_send_speed(void)
+{
+	uprintf(USART1, "\rAC10000\rDEC10000\r");
+
+	uprintf(USART1,\
+		"\r0V%d\r1V%d\r2V%d\r5V%d\r",\
+		arg_speeds[0],\
+		arg_speeds[1],\
+		arg_speeds[2],\
+		arg_speeds[3]\
+		);
+	
+	#ifdef DEBUG_AUTO
+	printf("arg_speeds:\n");
+	printf("\t0:%d\n", arg_speeds[0]);
+	printf("\t1:%d\n", arg_speeds[1]);
+	printf("\t2:%d\n", arg_speeds[2]);
+	printf("\t3:%d\n", arg_speeds[3]);
+	#endif
 }
 
 #endif

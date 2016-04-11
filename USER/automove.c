@@ -125,17 +125,17 @@ void automove_daemon(void)
 	rad = get_mti_value();
 
 	// theoretical value
-	tmp = (cosf(fabsf(rad)) - 1) * fabsf(EX_X) + rad * fabsf(EX_Y);
+	// tmp = (cosf(fabsf(rad)) - 1) * fabsf(EX_X) + rad * fabsf(EX_Y);
 	// measured value
-	// tmp = 0.511f * rad / 2 / PI;
+	tmp = 0.511f * rad / 2 / PI;
 
 	x = get_pos_x() - tmp;
 	dx = x - old_x;
 
 	// theoretical value
-	tmp = (cosf(fabsf(rad)) - 1) * fabsf(EY_Y) + rad * fabsf(EY_X);
+	// tmp = (cosf(fabsf(rad)) - 1) * fabsf(EY_Y) + rad * fabsf(EY_X);
 	// measured value
-	// tmp = 1.195f * rad / 2 / PI;
+	tmp = 1.195f * rad / 2 / PI;
 
 	y = get_pos_y() - tmp;
 	dy = y - old_y;
@@ -149,9 +149,8 @@ void automove_daemon(void)
 
 	auto_clr_spd();
 	auto_rotate(gps_rad, gps_dest_rad);
-	if(fabsf(gps_rad - gps_dest_rad) < 0.1f) {
-		auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y);
-	}
+	auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y);
+
 	auto_send();
 	
 	#ifdef DEBUG_AUTO

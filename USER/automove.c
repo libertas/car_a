@@ -118,6 +118,17 @@ void set_auto_dest(float x, float y, float rad)
 	gps_dest_rad = rad;
 }
 
+bool near_auto_dest(void)
+{
+	if(fabsf(gps_dest_x - gps_x) <= AUTO_NEAR_DIST\
+		&& fabsf(gps_dest_y - gps_y) <= AUTO_NEAR_DIST\
+		&& fabsf(gps_dest_rad - gps_rad) <= AUTO_NEAR_DIST) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 void automove_daemon(void)
 {
 	static float old_x = 0, old_y = 0;

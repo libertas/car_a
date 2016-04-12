@@ -34,40 +34,24 @@ void auto_stop(void)
 
 void step1(void)
 {
-	uprintf(USART1, "\rAC15\r");
-	move_xy(3, 0);
+	set_auto_dest(3, 0, 0);
+	while(!near_auto_dest());
 }
 
 void step2(void)
 {
-	uprintf(USART1, "\rAC10000\r");
-	move_arc(1.2f, PI * 0.2f);
-	move_arc(1.2f, -PI * 0.2f);
 }
 
 void step3(void)
 {
-	uprintf(USART1, "\rAC15\r");
-	move_xy(0, 2.3);
-	delay_ms(500);
 }
 
 void step4(void)
 {
-	uprintf(USART1, "\rAC10000\r");
-	move_arc(1.42f, -PI / 2);
-	delay_ms(500);
 }
 
 void step5(void)
 {
-	uprintf(USART1, "\rAC15\r");
-	rotate(-PI * 3 / 8);
-	
-	delay_ms(500);
-	
-	move_xy(-1.5, 0);
-	move_xy(0, 0.15);
 }
 
 void tim14_config(void)

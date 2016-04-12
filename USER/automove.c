@@ -69,12 +69,11 @@ void auto_move_xy(float x, float y, float dest_x, float dest_y, float now_rad)
 
 	float spd_x = coe_x * pxout * XY_DEFAULT_SPD;
 	float spd_y = coe_y * pyout * XY_DEFAULT_SPD;
-	
 
-	arg_speeds[0] += VECT_W0 * (-spd_x * sinf(now_rad) + spd_y * cosf(now_rad));
-	arg_speeds[1] += VECT_W1 * (spd_x * sinf(now_rad) + spd_y * cosf(now_rad));
-	arg_speeds[2] += VECT_W2 * (-spd_x * sinf(now_rad) + spd_y * cosf(now_rad));
-	arg_speeds[3] += VECT_W3 * (spd_x * sinf(now_rad) + spd_y * cosf(now_rad));
+	arg_speeds[0] += VECT_W0 * ((spd_x * cosf(now_rad) + spd_y * sinf(now_rad)) + (-spd_x * sinf(now_rad) + spd_y * cosf(now_rad)));
+	arg_speeds[1] += VECT_W1 * (-(spd_x * cosf(now_rad) + spd_y * sinf(now_rad)) + (-spd_x * sinf(now_rad) + spd_y * cosf(now_rad)));
+	arg_speeds[2] += VECT_W2 * ((spd_x * cosf(now_rad) + spd_y * sinf(now_rad)) + (-spd_x * sinf(now_rad) + spd_y * cosf(now_rad)));
+	arg_speeds[3] += VECT_W3 * (-(spd_x * cosf(now_rad) + spd_y * sinf(now_rad)) + (-spd_x * sinf(now_rad) + spd_y * cosf(now_rad)));
 }
 
 void auto_send(void)

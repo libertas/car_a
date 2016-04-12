@@ -86,7 +86,7 @@ void auto_move_xy(float x, float y, float dest_x, float dest_y, float now_rad)
 
 void auto_send(void)
 {
-	uprintf(USART1, "\rAC10000\rDEC10000\r");
+	uprintf(USART1, "\rAC10000\rDEC50\r");
 
 	uprintf(USART1,\
 		"\r0V%d\r1V%d\r2V%d\r5V%d\r",\

@@ -44,7 +44,7 @@ void auto_rotate(float now_rad, float dest_rad)
 }
 
 #define XY_DEFAULT_SPD 1000
-void auto_move_xy(float x, float y, float dest_x, float dest_y)
+void auto_move_xy(float x, float y, float dest_x, float dest_y, float now_rad)
 {
 	float coe_x = CAR_Y_LENGTH / (sqrtf(powf(CAR_X_LENGTH, 2) + powf(CAR_Y_LENGTH, 2)));
 	float coe_y = CAR_X_LENGTH / (sqrtf(powf(CAR_X_LENGTH, 2) + powf(CAR_Y_LENGTH, 2)));
@@ -67,10 +67,14 @@ void auto_move_xy(float x, float y, float dest_x, float dest_y)
 	py.actual_value = y;
 	pyout = pid_realize(&py);
 
-	arg_speeds[0] += VECT_W0 * (coe_x * pxout * XY_DEFAULT_SPD + coe_y * pyout * XY_DEFAULT_SPD);
-	arg_speeds[1] += VECT_W1 * (-coe_x * pxout * XY_DEFAULT_SPD + coe_y * pyout * XY_DEFAULT_SPD);
-	arg_speeds[2] += VECT_W2 * (coe_x * pxout * XY_DEFAULT_SPD + coe_y * pyout * XY_DEFAULT_SPD);
-	arg_speeds[3] += VECT_W3 * (-coe_x * pxout * XY_DEFAULT_SPD + coe_y * pyout * XY_DEFAULT_SPD);
+	float spd_x = coe_x * pxout * XY_DEFAULT_SPD;
+	float spd_y = coe_y * pyout * XY_DEFAULT_SPD;
+	
+
+	arg_speeds[0] += VECT_W0 * (-spd_x * sinf(now_rad) + spd_y * cosf(now_rad));
+	arg_speeds[1] += VECT_W1 * (spd_x * sinf(now_rad) + spd_y * cosf(now_rad));
+	arg_speeds[2] += VECT_W2 * (-spd_x * sinf(now_rad) + spd_y * cosf(now_rad));
+	arg_speeds[3] += VECT_W3 * (spd_x * sinf(now_rad) + spd_y * cosf(now_rad));
 }
 
 void auto_send(void)
@@ -149,7 +153,7 @@ void automove_daemon(void)
 
 	auto_clr_spd();
 	auto_rotate(gps_rad, gps_dest_rad);
-	auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y);
+	auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
 
 	auto_send();
 	

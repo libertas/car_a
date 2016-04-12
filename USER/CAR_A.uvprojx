@@ -528,6 +528,16 @@
               <FileType>1</FileType>
               <FilePath>.\mpu6050.c</FilePath>
             </File>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\pid.c</FilePath>
+            </File>
+            <File>
+              <FileName>us100.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\us100.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -877,6 +887,11 @@
               <FileName>database.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\database.h</FilePath>
+            </File>
+            <File>
+              <FileName>whiteline.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\whiteline.h</FilePath>
             </File>
           </Files>
         </Group>

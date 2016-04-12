@@ -13,6 +13,8 @@ void auto_start(void)
 {
 	printf("\nAuto controlling.\n");
 	auto_flag = true;
+	
+	uprintf(USART1, "\rDEC100\r");
 }
 
 void auto_stop(void)
@@ -31,36 +33,41 @@ void auto_stop(void)
 void step1(void)
 {
 	uprintf(USART1, "\rAC15\r");
-	move_xy(3, 0);
+	move_xy(3.3, 0);
 
 	uprintf(USART1, "\rAC15\r");
 	delay_ms(500);
-	f_rotate(0 - get_mti_value());
+	rotate(0);
 	delay_ms(500);
 }
 
 void step2(void)
 {
 	start_fan();
-
-	uprintf(USART1, "\rAC10000\r");
-
-	fan_up_auto(0.3f);
-
-	move_arc(1.2f, PI * 0.20f);
-
-	fan_up_auto(0.15f);
 	
-	move_arc(1.8f, -PI * 0.15f);
-
-	fan_up_stop_auto();
-	
-	stop_fan();
+	uprintf(USART1, "\rAC15\r");
+	move_xy(0, 0.7);
 	
 	uprintf(USART1, "\rAC15\r");
 	delay_ms(500);
-	f_rotate(0 - get_mti_value());
+	rotate(0);
 	delay_ms(500);
+	
+	fan_up_auto(0.3f);
+	
+	uprintf(USART1, "\rAC10000\r");
+
+	move_arc(1.2f, PI * 0.25f);
+	
+	fan_up_auto(0.6f);
+	
+	move_arc(1.2f, -PI * 0.25f);
+
+	fan_up_stop_auto();
+	
+	fan_roll(PI / 2);
+	
+	delay_ms(1000);
 }
 
 void step3(void)
@@ -68,22 +75,38 @@ void step3(void)
 	uprintf(USART1, "\rAC15\r");
 	move_xy(0, 2.5);
 	delay_ms(500);
+	
+	stop_fan();
+	
+	uprintf(USART1, "\rAC15\r");
+	delay_ms(500);
+	rotate(0);
+	delay_ms(500);
 }
 
 void step4(void)
 {
 	uprintf(USART1, "\rAC10000\r");
-	move_arc(1.5f, -PI / 2);
+	move_arc(1.5f, -PI / 2 - 0.2f);
 }
 
 void step5(void)
 {
 	uprintf(USART1, "\rAC15\r");
 	delay_ms(500);
-	rotate(-PI - get_mti_value());
+	rotate(-PI);
 	delay_ms(500);
 	
 	move_xy(-1.5, 0);
+}
+
+void step_search(void)
+{
+	
+}
+
+void step_up(void)
+{
 }
 
 void tim10_config(void)
@@ -135,7 +158,7 @@ void tim14_config(void)
 }
 
 
-void (*auto_steps[])(void) = {auto_start, step1, step2, step3, step4, step5, auto_stop, 0};
+void (*auto_steps[])(void) = {auto_start, step1, step2, step3, step4, step5, step_search, step_up, auto_stop, 0};
 
 void auto_control(void)
 {

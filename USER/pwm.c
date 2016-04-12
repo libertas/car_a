@@ -13,7 +13,7 @@ uint32_t PWMTotal[PWM_CHANNEL_NUM];
 /*
 	0 fan 涵道风扇
 	1 fan_updown 无刷
-	2 fan_roll 舵机 0.5 - 0.21, 100Hz
+	2 fan_roll 舵机 0.6 - 0.12, 100Hz
 	3 mag_in/out 舵机	0.045 - 0.103
 	4 mag_near/far 舵机  0.05(end) - 0.09(start)
 	*无刷0.71stop,0.76/0.65正/反转
@@ -36,7 +36,7 @@ void rcc_io_config(void)
 
 void pwm_config(void)
 {
-	float duties[PWM_CHANNEL_NUM] = {0.05, 0.071, 0.21, 0.103, 0.09};
+	float duties[PWM_CHANNEL_NUM] = {0.05, 0.071, 0.12, 0.103, 0.09};
 	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 50, 50, 50, 50};
 	
 	uint8_t i;

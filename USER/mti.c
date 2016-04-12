@@ -1,3 +1,4 @@
+#include "debug.h"
 #include "mti.h"
 #include "usart.h"
 
@@ -35,5 +36,8 @@ int btol(uint8_t buffer[])
 
 float get_mti_value(void)
 {
-		return mti_angle;
+	#ifdef DEBUG_MTI
+	printf("mti:%f\n", mti_angle);
+	#endif
+	return mti_angle;
 }

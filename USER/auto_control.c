@@ -34,8 +34,8 @@ void auto_stop(void)
 
 void step1(void)
 {
-	set_auto_dest(3, 0, 0);
-	while(!near_auto_dest());
+	//set_auto_dest(3, 0, 0);
+	//while(!near_auto_dest());
 }
 
 void step2(void)

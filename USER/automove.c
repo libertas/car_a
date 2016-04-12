@@ -37,10 +37,14 @@ void auto_rotate(float now_rad, float dest_rad)
 	printf("pr:%f\n", prout);
 	#endif
 
-	arg_speeds[0] += VECT_W0 * prout * ROTATE_DEFAULT_SPD;
-	arg_speeds[1] += VECT_W1 * prout * ROTATE_DEFAULT_SPD;
-	arg_speeds[2] += -VECT_W2 * prout * ROTATE_DEFAULT_SPD;
-	arg_speeds[3] += -VECT_W3 * prout * ROTATE_DEFAULT_SPD;
+	float spd_r = prout * ROTATE_DEFAULT_SPD;
+	if(spd_r > MAX_ROTATE_SPD)
+		spd_r = MAX_ROTATE_SPD;
+
+	arg_speeds[0] += VECT_W0 * spd_r;
+	arg_speeds[1] += VECT_W1 * spd_r;
+	arg_speeds[2] += -VECT_W2 * spd_r;
+	arg_speeds[3] += -VECT_W3 * spd_r;
 }
 
 #define XY_DEFAULT_SPD 1000
@@ -69,6 +73,10 @@ void auto_move_xy(float x, float y, float dest_x, float dest_y, float now_rad)
 
 	float spd_x = coe_x * pxout * XY_DEFAULT_SPD;
 	float spd_y = coe_y * pyout * XY_DEFAULT_SPD;
+	if(spd_x > MAX_XY_SPD)
+		spd_x = MAX_XY_SPD;
+	if(spd_y > MAX_XY_SPD)
+		spd_y = MAX_XY_SPD;
 
 	arg_speeds[0] += VECT_W0 * ((spd_x * cosf(now_rad) + spd_y * sinf(now_rad)) + (-spd_x * sinf(now_rad) + spd_y * cosf(now_rad)));
 	arg_speeds[1] += VECT_W1 * (-(spd_x * cosf(now_rad) + spd_y * sinf(now_rad)) + (-spd_x * sinf(now_rad) + spd_y * cosf(now_rad)));
@@ -79,15 +87,6 @@ void auto_move_xy(float x, float y, float dest_x, float dest_y, float now_rad)
 void auto_send(void)
 {
 	uprintf(USART1, "\rAC10000\rDEC10000\r");
-	
-	while(fabsf(arg_speeds[0]) > MAX_SPD\
-		|| fabsf(arg_speeds[1]) > MAX_SPD\
-		|| fabsf(arg_speeds[2]) > MAX_SPD\
-		|| fabsf(arg_speeds[3]) > MAX_SPD) {
-			for(uint8_t i = 0; i < 4; i++) {
-				arg_speeds[i] >>= 1;
-			}	
-	}
 
 	uprintf(USART1,\
 		"\r0V%d\r1V%d\r2V%d\r5V%d\r",\

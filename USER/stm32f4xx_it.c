@@ -260,40 +260,7 @@ Used for the control of the wheels
 #include "mti.h"
 void TIM8_TRG_COM_TIM14_IRQHandler(void)
 {
-	const static float krad = 10, kx = 10, ky = 10;
-	float pos_x, pos_y, rad;
 	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
-		#ifdef USE_FOUR_WHEEL
-		
-		pos_x = get_pos_x();
-		pos_y = get_pos_y();
-		rad = get_mti_value();
-		
-		arg_speeds[0] = (dest_rad - rad) * krad;
-		arg_speeds[1] = (dest_rad - rad) * krad;
-		arg_speeds[2] = -(dest_rad - rad) * krad;
-		arg_speeds[3] = -(dest_rad - rad) * krad;
-
-		float coe_x = CAR_Y_LENGTH / (sqrtf( powf( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
-		float coe_y = CAR_X_LENGTH / (sqrtf( powf( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
-
-		/*
-		pos_x and pos_y must be modified here
-		*/
-		
-		arg_speeds[0] = VECT_W0 * (coe_x * pos_x * kx + coe_y * pos_y * ky);
-		arg_speeds[1] = VECT_W1 * (-coe_x * pos_x * kx + coe_y * pos_y * ky);
-		arg_speeds[2] = VECT_W2 * (coe_x * pos_x  * kx+ coe_y * pos_y * ky);
-		arg_speeds[3] = VECT_W3 * (-coe_x * pos_x * kx + coe_y * pos_y * ky);
-		
-		f_send();
-		
-		old_pos_x = pos_x;
-		old_pos_y = pos_y;
-		old_rad = rad;
-		
-		#endif
-		
 		TIM_ClearITPendingBit(TIM14, TIM_IT_Update);
 	}
 }

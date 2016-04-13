@@ -11,12 +11,32 @@ bool auto_flag = false;
 float old_pos_x = 0, old_pos_y = 0, old_rad = 0;
 float dest_pos_x = 0, dest_pos_y = 0, dest_rad = 0;
 
+float a[][3] = {\
+	{2812.9, 0, 0 },\
+	{2812.9, 1072.85, PI/12 },\
+	{2550.44, 2133.29, PI/6},\
+	{2130.4, 2860.83, PI/4 },\
+	{1361.84, 3647.91, PI/6 },\
+	{537.75, 5090.82, PI/12 },\
+	{500, 6734.66, 0},\
+	{500, 9500, 0 },\
+	{1500, 10500, 0},\
+	{3000, 12900, 0},\
+	{3000, 12900, -PI },\
+	{4960, 12900, -PI }
+};
+
 void auto_start(void)
 {
 	automove_config();
 
 	printf("\nAuto controlling.\n");
 	auto_flag = true;
+
+	for(int i = 0; i < 12; i++) {
+		set_auto_dest(a[i][0] / 1000, a[i][1] / 1000, a[i][2]);
+		while(!near_auto_dest());
+	}
 }
 
 void auto_stop(void)

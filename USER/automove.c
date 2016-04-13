@@ -57,14 +57,14 @@ void auto_move_xy(float x, float y, float dest_x, float dest_y, float now_rad)
 	static pid_t px, py;
 	float pxout, pyout;
 
-	px.kp = 1;
+	px.kp = 1.5;
 	px.kd = 0;
 	px.ki = 0;
 	px.set_value = dest_x;
 	px.actual_value = x;
 	pxout = pid_realize(&px);
 
-	py.kp = 1;
+	py.kp = 1.5;
 	py.kd = 0;
 	py.ki = 0;
 	py.set_value = dest_y;

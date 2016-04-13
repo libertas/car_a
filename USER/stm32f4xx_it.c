@@ -209,6 +209,7 @@ void UART4_IRQHandler(void)
 void UART5_IRQHandler(void)
 {
 	char data;
+	char tmp;
 
 	if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET)
 	{
@@ -241,30 +242,22 @@ void UART5_IRQHandler(void)
 	}
 }
 
-#include "fan.h"
-#include "encoder.h"
+#include "automove.h"
 void TIM1_UP_TIM10_IRQHandler(void)
 {
-	static uint16_t count0 = 0;
-	const uint16_t count_num = 2000;
 	if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
-		count0++;
-		if(count0 <= count_num / 2) {
-			if(0 == count0 % count_num / 10) {
-				if(1 == fan_up_flag) {
-					if(((get_pos_fan() - g_fan_height) > (fan_up_length + FAN_THOLD)) || ((get_pos_fan() - g_fan_height) < (fan_up_length - FAN_THOLD)))
-						((get_pos_fan() - g_fan_height) < fan_up_length) ? fan_up() : fan_down();
-					else stop_fan_up_down();
-				}
-			}
-		}
-		if(count0 > count_num / 2)
-			stop_fan_up_down();
-		count0 %= count_num;
+		automove_daemon();
 		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
 	}
 }
 
+
+/*
+Used for the control of the wheels
+*/
+#include "auto_control.h"
+#include "encoder.h"
+#include "mti.h"
 void TIM8_TRG_COM_TIM14_IRQHandler(void)
 {
 	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {

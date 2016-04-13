@@ -1,5 +1,6 @@
 #include <stdint.h>
 
+#include "automove.h"
 #include "auto_control.h"
 #include "clock.h"
 #include "fan.h"
@@ -8,13 +9,38 @@
 #include "mti.h"
 
 bool auto_flag = false;
+float old_pos_x = 0, old_pos_y = 0, old_rad = 0;
+float dest_pos_x = 0, dest_pos_y = 0, dest_rad = 0;
+
+float a[][3] = {\
+	{2812.9, 0, 0 },\
+	{2812.9, 1072.85, PI/12},\
+	{2550.44, 2133.29, PI/6},\
+	{2130.4, 2860.83, PI/4},\
+	{1361.84, 3647.91, PI/6},\
+	{537.75, 5090.82, PI/12},\
+	{500, 6734.66, 0},\
+	{500, 9500, 0},\
+	{1500, 10500, 0},\
+	{3000, 12000, 0},\
+	{4000, 12000, 0},\
+	{4960, 12000, 0},\
+	{5900, 12000, PI},\
+	{6200, 12000, PI},\
+	{7000, 12000, PI}
+};
 
 void auto_start(void)
 {
+	automove_config();
+
 	printf("\nAuto controlling.\n");
 	auto_flag = true;
-	
-	uprintf(USART1, "\rDEC100\r");
+
+	for(int i = 0; i < 15; i++) {
+		set_auto_dest(a[i][0] / 1000, a[i][1] / 1000, a[i][2]);
+		while(!near_auto_dest());
+	}
 }
 
 void auto_stop(void)
@@ -28,109 +54,6 @@ void auto_stop(void)
 	while(1) {
 		check_cmd();
 	}
-}
-
-void step1(void)
-{
-	uprintf(USART1, "\rAC15\r");
-	move_xy(3.3, 0);
-
-	uprintf(USART1, "\rAC15\r");
-	delay_ms(500);
-	rotate(0);
-	delay_ms(500);
-}
-
-void step2(void)
-{
-	start_fan();
-	
-	uprintf(USART1, "\rAC15\r");
-	move_xy(0, 0.7);
-	
-	uprintf(USART1, "\rAC15\r");
-	delay_ms(500);
-	rotate(0);
-	delay_ms(500);
-	
-	fan_up_auto(0.3f);
-	
-	uprintf(USART1, "\rAC10000\r");
-
-	move_arc(1.2f, PI * 0.25f);
-	
-	fan_up_auto(0.6f);
-	
-	move_arc(1.2f, -PI * 0.25f);
-
-	fan_up_stop_auto();
-	
-	fan_roll(PI / 2);
-	
-	delay_ms(1000);
-}
-
-void step3(void)
-{
-	uprintf(USART1, "\rAC15\r");
-	move_xy(0, 2.5);
-	delay_ms(500);
-	
-	stop_fan();
-	
-	uprintf(USART1, "\rAC15\r");
-	delay_ms(500);
-	rotate(0);
-	delay_ms(500);
-}
-
-void step4(void)
-{
-	uprintf(USART1, "\rAC10000\r");
-	move_arc(1.5f, -PI / 2 - 0.2f);
-}
-
-void step5(void)
-{
-	uprintf(USART1, "\rAC15\r");
-	delay_ms(500);
-	rotate(-PI);
-	delay_ms(500);
-	
-	move_xy(-1.5, 0);
-}
-
-void step_search(void)
-{
-	
-}
-
-void step_up(void)
-{
-}
-
-void tim10_config(void)
-{
-	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
-	NVIC_InitTypeDef NVIC_InitStructure;
-	
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM10, ENABLE);
-	
-	TIM_TimeBaseInitStructure.TIM_Period = 1000 - 1;
-	TIM_TimeBaseInitStructure.TIM_Prescaler = 168 - 1;
-	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
-	
-	TIM_TimeBaseInit(TIM10, &TIM_TimeBaseInitStructure);
-	
-	TIM_ITConfig(TIM10, TIM_IT_Update, ENABLE);
-	TIM_Cmd(TIM10, ENABLE);
-	
-	NVIC_InitStructure.NVIC_IRQChannel = TIM1_UP_TIM10_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
 }
 
 void tim14_config(void)
@@ -158,11 +81,10 @@ void tim14_config(void)
 }
 
 
-void (*auto_steps[])(void) = {auto_start, step1, step2, step3, step4, step5, step_search, step_up, auto_stop, 0};
+void (*auto_steps[])(void) = {auto_start, auto_stop, 0};
 
 void auto_control(void)
 {
-	tim10_config();
 	tim14_config();
 
 	for(uint16_t i = 0; auto_steps[i] != 0; i++) {

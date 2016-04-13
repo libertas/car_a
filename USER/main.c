@@ -2,6 +2,7 @@
 
 #include "stm32f4xx.h"
 
+#include "automove.h"
 #include "auto_control.h"
 #include "brake.h"
 #include "clock.h"

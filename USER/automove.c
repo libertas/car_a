@@ -26,7 +26,7 @@ void auto_rotate(float now_rad, float dest_rad)
 
 	static pid_t pr;
 	pr.kp = 1;
-	pr.kd = 0;
+	pr.kd = 0.1f;
 	pr.ki = 0;
 	pr.set_value = dest_rad;
 	pr.actual_value = now_rad;
@@ -58,14 +58,14 @@ void auto_move_xy(float x, float y, float dest_x, float dest_y, float now_rad)
 	float pxout, pyout;
 
 	px.kp = 3;
-	px.kd = 0;
+	px.kd = 0.1f;
 	px.ki = 0;
 	px.set_value = dest_x;
 	px.actual_value = x;
 	pxout = pid_realize(&px);
 
 	py.kp = 3;
-	py.kd = 0;
+	py.kd = 0.1f;
 	py.ki = 0;
 	py.set_value = dest_y;
 	py.actual_value = y;

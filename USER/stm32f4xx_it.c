@@ -419,7 +419,7 @@ void TIM8_UP_TIM13_IRQHandler(void)
 void EXTI9_5_IRQHandler(void)
 {
 	delay_ms(10);
-	if(SET == EXTI_GetITStatus(EXTI_Line8)){
+	if(SET == EXTI_GetITStatus(EXTI_Line8)) {
 		if(0 == GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_8)) {
 			if(get_pos_fan() > get_pos_fan()) stop_fan_up_down();
 			#ifdef DEBUG
@@ -427,6 +427,9 @@ void EXTI9_5_IRQHandler(void)
 			#endif
 		}
 		EXTI_ClearITPendingBit(EXTI_Line8);
+	}
+	if(SET == EXTI_GetITStatus(EXTI_Line9)) {
+		EXTI_ClearITPendingBit(EXTI_Line9);
 	}
 }
 

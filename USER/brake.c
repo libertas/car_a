@@ -5,7 +5,7 @@
 #include "brake.h"
 #include "debug.h"
 
-uint16_t brake_pins[BRAKE_CHANNEL_NUM] = {GPIO_Pin_12};
+uint16_t brake_pins[BRAKE_CHANNEL_NUM] = {GPIO_Pin_12, GPIO_Pin_14};
 
 void brake_config(void)
 {
@@ -42,5 +42,12 @@ void brake_release(uint8_t channel)
 	
 	#ifdef DEBUG_BRAKE
 	printf("brake_release(%d)\n", channel);
+	#endif
+}
+
+void emergency_stop(uint8_t channel)
+{
+	#ifdef DEBUG_BRAKE
+	printf("emergency_stop(%d)\n", channel);
 	#endif
 }

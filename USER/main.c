@@ -45,7 +45,10 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 
-	auto_control();
+	//auto_control();
+	rotate_c(50);
+	delay_ms(1000);
+	emergency_stop(1);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {

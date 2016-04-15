@@ -47,6 +47,7 @@ void brake_release(uint8_t channel)
 
 void emergency_stop(uint8_t channel)
 {
+	GPIO_WriteBit(GPIOG, brake_pins[channel], Bit_RESET);
 	#ifdef DEBUG_BRAKE
 	printf("emergency_stop(%d)\n", channel);
 	#endif

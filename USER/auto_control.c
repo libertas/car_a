@@ -12,8 +12,15 @@ bool auto_flag = false;
 float old_pos_x = 0, old_pos_y = 0, old_rad = 0;
 float dest_pos_x = 0, dest_pos_y = 0, dest_rad = 0;
 
-float a[][3] = {\
-	{2812.9, 0, 0 },\
+struct coordinate_t {
+	float x;
+	float y;
+	float rad;
+	void (*callback)(void);
+};
+
+struct coordinate_t coord[] = {
+	{2812.9, 0, 0},\
 	{2812.9, 1072.85, PI/12},\
 	{2550.44, 2133.29, PI/6},\
 	{2130.4, 2860.83, PI/4},\
@@ -26,7 +33,7 @@ float a[][3] = {\
 	{5900, 11800, PI - 0.2f},\
 	{6500, 11800, PI - 0.4f},\
 	{7100, 11800, PI - 0.6f},\
-	{0}
+	{0, 0, 0}
 };
 
 void auto_start(void)
@@ -36,8 +43,8 @@ void auto_start(void)
 	printf("\nAuto controlling.\n");
 	auto_flag = true;
 
-	for(int i = 0; 0 != a[i][0]; i++) {
-		set_auto_dest(a[i][0] / 1000, a[i][1] / 1000, a[i][2]);
+	for(int i = 0; 0 != coord[i].x || 0 != coord[i].y || 0 != coord[i].rad || 0 != coord[i].callback; i++) {
+		set_auto_dest(coord[i].x / 1000, coord[i].y / 1000, coord[i].rad);
 		while(!near_auto_dest());
 	}
 }

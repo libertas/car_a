@@ -45,6 +45,7 @@ void t_stop(void);
 
 #define DEFAULT_ARG_SPEED 4000
 #define DEFAULT_MANUAL_ARG_SPEED 2000
+#define DEFAULT_MANUAL_ROTATE_ARG_SPEED 1000
 #define CAR_X_LENGTH 500
 #define CAR_Y_LENGTH 650
 #define VECT_W0 (-1)

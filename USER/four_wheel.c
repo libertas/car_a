@@ -40,7 +40,7 @@ void f_run_c(int8_t spd_x, int8_t spd_y, int8_t spd_c)
 
 	arg_x = (int16_t) (((float) spd_x) / 128 * DEFAULT_MANUAL_ARG_SPEED);
 	arg_y = (int16_t) (((float) spd_y) / 128 * DEFAULT_MANUAL_ARG_SPEED);
-	arg_c = (int16_t) (((float) spd_c) / 128 * DEFAULT_MANUAL_ARG_SPEED);
+	arg_c = (int16_t) (((float) spd_c) / 128 * DEFAULT_MANUAL_ROTATE_ARG_SPEED);
 
 	arg_speeds[0] = VECT_W0 * (+coe_x * arg_x + coe_y * arg_y + coe_c * arg_c);
 	arg_speeds[1] = VECT_W1 * (-coe_x * arg_x + coe_y * arg_y + coe_c * arg_c);

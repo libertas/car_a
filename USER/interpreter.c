@@ -94,6 +94,9 @@ command list:
 	
 	push_rod(uint8_t dir, uint8_t channel_num)
 		(byte) 0x13 (4-bit) dir (4-bit) num
+	
+	f_run_c(int8_t spd_x, int8_t spd_y, int8_t spd_c) + f_send_speed(void)
+		£¨byte) 0x30 (int8_t) [spd_x] (int8_t) [spd_y] (int8_t) [spd_c]
 */
 int run_cmd(void)
 {
@@ -102,7 +105,7 @@ int run_cmd(void)
 
 	uint8_t i;
 
-	uint8_t buf = 0, buf1 = 0;
+	uint8_t buf = 0, buf1 = 0, buf2 = 0;
 	uint16_t dbuf = 0;
 	uint32_t qbuf = 0;
 
@@ -116,6 +119,14 @@ int run_cmd(void)
 			printf("\nUnknown command:%x\n", cmd);
 			#endif
 
+			break;
+		
+		case 0x30:
+			out_char_queue(&cmd_queue, (char*) &buf);
+			out_char_queue(&cmd_queue, (char*) &buf1);
+			out_char_queue(&cmd_queue, (char*) &buf2);
+			f_run_c(buf, buf1, buf2);
+			f_send_speed();
 			break;
 		
 		case 0x14:

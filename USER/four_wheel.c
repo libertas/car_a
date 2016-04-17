@@ -36,7 +36,7 @@ void f_run_c(int8_t spd_x, int8_t spd_y, int8_t spd_c)
 	
 	float coe_x = CAR_Y_LENGTH / (sqrtf( powf( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
 	float coe_y = CAR_X_LENGTH / (sqrtf( powf( CAR_X_LENGTH, 2) + powf( CAR_Y_LENGTH, 2)));
-	float coe_c = 0.5;
+	float coe_c = 1;
 
 	arg_x = (int16_t) (((float) spd_x) / 128 * DEFAULT_ARG_SPEED);
 	arg_y = (int16_t) (((float) spd_y) / 128 * DEFAULT_ARG_SPEED);

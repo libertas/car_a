@@ -2,6 +2,7 @@
 
 #include "stm32f4xx.h"
 
+#include "automove.h"
 #include "auto_control.h"
 #include "brake.h"
 #include "clock.h"
@@ -30,6 +31,7 @@ int main(void)
 	system_clk_set();
 	systick_config();
 
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	interpreter_config();
 	uart_config(115200);
 	dma_config();

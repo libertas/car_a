@@ -30,6 +30,7 @@ void f_stop(void)
 		);
 }
 
+
 void f_run_c(int8_t spd_x, int8_t spd_y, int8_t spd_c)
 {
 	int16_t arg_x, arg_y, arg_c;
@@ -55,6 +56,7 @@ void f_run_c(int8_t spd_x, int8_t spd_y, int8_t spd_c)
 	printf("\t3:%d\n", arg_speeds[3]);
 	#endif
 }
+
 
 #define ROTATE_ERR 0.07f
 void f_rotate_r(float rad)

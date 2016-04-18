@@ -5,7 +5,7 @@
 #include "brake.h"
 #include "debug.h"
 
-uint16_t brake_pins[BRAKE_CHANNEL_NUM] = {GPIO_Pin_12, GPIO_Pin_15};
+uint16_t brake_pins[BRAKE_CHANNEL_NUM] = {GPIO_Pin_12};
 
 void brake_config(void)
 {
@@ -17,14 +17,23 @@ void brake_config(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	for(uint8_t i = 0; i < 3;i++) {
+	for(uint8_t i = 0; i < BRAKE_CHANNEL_NUM;i++) {
 		GPIO_InitStructure.GPIO_Pin = brake_pins[i];
 		GPIO_Init(GPIOG, &GPIO_InitStructure);
 	}
 	
 	for(uint8_t i = 0; i < BRAKE_CHANNEL_NUM; i++) {
-		GPIO_WriteBit(GPIOG, brake_pins[i], Bit_RESET);
+		GPIO_WriteBit(GPIOG, brake_pins[i], Bit_SET);
 	}
+	
+	//emergency_stop
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
+	GPIO_Init(GPIOG, &GPIO_InitStructure);
+	GPIO_WriteBit(GPIOG, GPIO_Pin_15, Bit_RESET);
 }
 
 void brake(uint8_t channel)
@@ -45,10 +54,10 @@ void brake_release(uint8_t channel)
 	#endif
 }
 
-void emergency_stop(uint8_t channel)
+void emergency_stop()
 {
-	GPIO_WriteBit(GPIOG, brake_pins[channel], Bit_SET);
+	GPIO_WriteBit(GPIOG, GPIO_Pin_15, Bit_SET);
 	#ifdef DEBUG_BRAKE
-	printf("emergency_stop(%d)\n", channel);
+	printf("emergency_stop\n");
 	#endif
 }

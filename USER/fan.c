@@ -1,5 +1,6 @@
 #include <math.h>
 
+#include "auto_control.h"
 #include "brake.h"
 #include "clock.h"
 #include "debug.h"
@@ -100,6 +101,7 @@ void stop_fan_up_down(void)
 
 void fan_up_auto(float pos)
 {
+	tim14_config();
 	fan_up_flag = 1;
 	fan_height = get_pos_fan();
 	fan_up_length = pos;

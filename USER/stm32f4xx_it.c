@@ -259,26 +259,22 @@ Used for the control of the wheels
 #include "encoder.h"
 void TIM8_TRG_COM_TIM14_IRQHandler(void)
 {
+	static uint16_t count0 = 0;
+	const uint16_t count_num = 2000;
 	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
 		TIM_ClearITPendingBit(TIM14, TIM_IT_Update);
-		static uint16_t count0 = 0;
-		const uint16_t count_num = 2000;
-		if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
-			count0++;
-			if(count0 <= count_num / 2) {
-				if(0 == count0 % count_num / 10) {
-					if(1 == fan_up_flag) {
-						if(((get_pos_fan() - fan_height) > (fan_up_length + FAN_THOLD)) || ((get_pos_fan() - fan_height) < (fan_up_length - FAN_THOLD)))
-							((get_pos_fan() - fan_height) < fan_up_length) ? fan_up(10) : fan_down(10);
-						else stop_fan_up_down();
-					}
+		//if(count0 <= count_num / 2) {
+			if(0 == count0 % count_num / 10) {
+				if(1 == fan_up_flag) {
+					if(((get_pos_fan() - fan_height) > (fan_up_length + FAN_THOLD)) || ((get_pos_fan() - fan_height) < (fan_up_length - FAN_THOLD)))
+						((get_pos_fan() - fan_height) < fan_up_length) ? fan_up(10) : fan_down(10);
+					else stop_fan_up_down();
 				}
 			}
-			if(count0 > count_num / 2)
-				stop_fan_up_down();
-			count0 %= count_num;
-			TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
-	}
+		//}
+		count0++;
+		count0 %= count_num;
+		TIM_ClearITPendingBit(TIM14, TIM_IT_Update);
 	}
 }
 

@@ -300,7 +300,7 @@ int run_cmd(void)
 		case 0x07:
 			
 			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x06\n");
+			printf("\ncmd\t0x07\n");
 			#endif
 		
 			fan_up_r();
@@ -309,7 +309,7 @@ int run_cmd(void)
 		case 0x08:
 			
 			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x06\n");
+			printf("\ncmd\t0x08\n");
 			#endif
 		
 			fan_down_r();
@@ -318,7 +318,7 @@ int run_cmd(void)
 		case 0x0a:
 			
 			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x06\n");
+			printf("\ncmd\t0x0a\n");
 			#endif
 		
 			toggle_fan();

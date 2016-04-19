@@ -329,10 +329,6 @@ void DMA1_Stream2_IRQHandler(void)
 		
 		mti_angle_new = mti();
 		
-		if(0 == mti_angle_new) {
-			while(1);
-		}
-		
 		mti_angle += mti_angle_new - mti_angle_old;;
 		
 		if(mti_angle_new < -PI / 2 && mti_angle_old > PI / 2) {

@@ -198,11 +198,39 @@ void USART3_IRQHandler(void)
 	}
 }
 
+#include "mti.h"
 void UART4_IRQHandler(void)
 {
-	if(USART_GetITStatus(UART4, USART_IT_RXNE) != RESET)
-	{
-		USART_SendData(UART5, USART_ReceiveData(UART4));
+	static bool mti_init_flag = false;
+	static uint8_t mti_count = 0;
+
+	if(USART_GetITStatus(UART4, USART_IT_RXNE) != RESET) {
+		if(mti_count >= MTI_BUF_SIZE) {
+			mti_count = 0;
+
+			mti_angle_new = mti();
+			
+			mti_angle += mti_angle_new - mti_angle_old;;
+			
+			if(mti_angle_new < -PI / 2 && mti_angle_old > PI / 2) {
+				mti_angle += 2 * PI;
+			} else if(mti_angle_new > PI / 2 && mti_angle_old < - PI / 2) {
+				mti_angle += -2 * PI;
+			}
+			
+			mti_angle_old = mti_angle_new;
+			
+			if(!mti_init_flag) {
+				mti_angle = 0;
+				mti_init_flag = true;
+			}
+			
+			mti_value_flag = 1;
+			//uprintf(UART5,"angle%f\r\n",mti_angle);//²âÊÔÓÃ
+		}
+		
+		mti_buffer[mti_count] = USART_ReceiveData(UART4);
+		mti_count++;
 	}
 }
 

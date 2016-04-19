@@ -538,6 +538,11 @@
               <FileType>1</FileType>
               <FilePath>.\us100.c</FilePath>
             </File>
+            <File>
+              <FileName>automove.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\automove.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -759,6 +764,11 @@
           <GroupName>Headers</GroupName>
           <Files>
             <File>
+              <FileName>mti.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mti.h</FilePath>
+            </File>
+            <File>
               <FileName>multi_processing.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\multi_processing.h</FilePath>
@@ -892,6 +902,11 @@
               <FileName>whiteline.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\whiteline.h</FilePath>
+            </File>
+            <File>
+              <FileName>dma.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\dma.h</FilePath>
             </File>
           </Files>
         </Group>

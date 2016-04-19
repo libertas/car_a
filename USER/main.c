@@ -34,7 +34,6 @@ int main(void)
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	interpreter_config();
 	uart_config(115200);
-	dma_config();
 	spi_config();
 	suart_config();
 

@@ -230,7 +230,16 @@ void UART4_IRQHandler(void)
 		}
 		
 		mti_buffer[mti_count] = USART_ReceiveData(UART4);
-		mti_count++;
+		
+		if(mti_count < 4) {
+			if(mti_buffer[mti_count] == mti_flag[mti_count]) {
+				mti_count++;
+			} else {
+				mti_count = 0;
+			}
+		} else {
+			mti_count++;
+		}
 	}
 }
 

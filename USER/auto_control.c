@@ -39,6 +39,12 @@ void fan_up_3(void)
 void roll_fan_1(void)
 {
 	fan_roll(PI / 2);
+	fan_up_stop_auto();
+}
+
+void stop_fan_1(void)
+{
+	stop_fan();
 }
 
 struct coordinate_t coord[] = {
@@ -49,7 +55,7 @@ struct coordinate_t coord[] = {
 	{1361.84, 3647.91, PI/6},\
 	{800, 5090.82, PI/12, fan_up_3},\
 	{700, 6734.66, 0, roll_fan_1},\
-	{700, 9500, 0, fan_up_stop_auto},\
+	{700, 9500, 0, stop_fan_1},\
 	{1500, 10500, PI},\
 	{4960, 11800, PI},\
 	{5900, 11800, PI - 0.2f},\

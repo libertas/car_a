@@ -25,7 +25,7 @@ struct coordinate_t {
 void start_fan_1(void)
 {
 	start_fan();
-	delay_ms(1000);
+	delay_ms(2000);
 }
 void fan_up_1(void)
 {
@@ -44,14 +44,19 @@ void fan_up_3(void)
 
 void roll_fan_1(void)
 {
+	stop_fan();
 	set_duty(2, 0.05f);
 	fan_up_stop_auto();
+	delay_ms(300);
+	set_duty(FAN_CHANNEL, 0.06);
+	delay_ms(1700);
+	set_duty(FAN_CHANNEL, 0.065);
 	delay_ms(1000);
+	stop_fan();
 }
 
-void stop_fan_1(void)
+void fan_down_1(void)
 {
-	stop_fan();
 	fan_down(10);
 }
 
@@ -63,7 +68,7 @@ struct coordinate_t coord[] = {
 	{1361.84, 3647.91, PI/6},\
 	{800, 5090.82, PI/12, fan_up_3},\
 	{700, 6734.66, 0, roll_fan_1},\
-	{700, 9500, 0, stop_fan_1},\
+	{700, 9500, 0, fan_down_1},\
 	{1500, 10500, PI},\
 	{4960, 11800, PI},\
 	{5900, 11800, PI - 0.2f},\

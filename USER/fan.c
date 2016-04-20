@@ -1,5 +1,6 @@
 #include <math.h>
 
+#include "auto_control.h"
 #include "brake.h"
 #include "clock.h"
 #include "debug.h"

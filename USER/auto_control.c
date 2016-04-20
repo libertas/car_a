@@ -5,8 +5,10 @@
 #include "clock.h"
 #include "fan.h"
 #include "interpreter.h"
+#include "magnet.h"
 #include "movement.h"
 #include "mti.h"
+#include "push_rod.h"
 
 bool auto_flag = false;
 float old_pos_x = 0, old_pos_y = 0, old_rad = 0;
@@ -33,6 +35,7 @@ void fan_up_3(void)
 {
 	fan_up_auto(0.1f);
 }
+
 
 struct coordinate_t coord[] = {
 	{2812.9, 0, 0},\

@@ -19,14 +19,29 @@ struct coordinate_t {
 	void (*callback)(void);
 };
 
+void fan_up_1(void)
+{
+	fan_up_auto(0.2f);
+}
+
+void fan_up_2(void)
+{
+	fan_up_auto(0.2f);
+}
+
+void fan_up_3(void)
+{
+	fan_up_auto(0.1f);
+}
+
 struct coordinate_t coord[] = {
 	{2812.9, 0, 0},\
-	{2812.9, 1072.85, PI/12},\
+	{2812.9, 1072.85, PI/12, fan_up_1},\
 	{2550.44, 2133.29, PI/6},\
-	{2130.4, 2860.83, PI/4},\
+	{2130.4, 2860.83, PI/4, fan_up_2},\
 	{1361.84, 3647.91, PI/6},\
-	{800, 5090.82, PI/12},\
-	{700, 6734.66, 0},\
+	{800, 5090.82, PI/12, fan_up_3},\
+	{700, 6734.66, 0, fan_up_stop_auto},\
 	{700, 9500, 0},\
 	{1500, 10500, PI},\
 	{4960, 11800, PI},\

@@ -9,6 +9,7 @@
 #include "movement.h"
 #include "mti.h"
 #include "push_rod.h"
+#include "pwm.h"
 
 bool auto_flag = false;
 float old_pos_x = 0, old_pos_y = 0, old_rad = 0;
@@ -21,6 +22,11 @@ struct coordinate_t {
 	void (*callback)(void);
 };
 
+void start_fan_1(void)
+{
+	start_fan();
+	delay_ms(1000);
+}
 void fan_up_1(void)
 {
 	fan_up_auto(0.2f);
@@ -38,17 +44,19 @@ void fan_up_3(void)
 
 void roll_fan_1(void)
 {
-	fan_roll(PI / 2);
+	set_duty(2, 0.05f);
 	fan_up_stop_auto();
+	delay_ms(1000);
 }
 
 void stop_fan_1(void)
 {
 	stop_fan();
+	fan_down(10);
 }
 
 struct coordinate_t coord[] = {
-	{2812.9, 0, 0, start_fan},\
+	{2812.9, 0, 0, start_fan_1},\
 	{2812.9, 1072.85, PI/12, fan_up_1},\
 	{2550.44, 2133.29, PI/6},\
 	{2130.4, 2860.83, PI/4, fan_up_2},\

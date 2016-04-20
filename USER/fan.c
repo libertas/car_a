@@ -1,5 +1,6 @@
 #include <math.h>
 
+#include "auto_control.h"
 #include "brake.h"
 #include "clock.h"
 #include "debug.h"
@@ -46,7 +47,7 @@ inline void toggle_fan(void)
 
 void fan_roll(float rad)
 {
-	set_duty(FAN_ROLL_CHANNEL, (float)((float)0.12 - (float)0.06 * rad / ((float)PI / 2)));
+	set_duty(FAN_ROLL_CHANNEL, (float)((float)0.12 - (float)0.05 * rad / ((float)PI / 2)));
 	
 	#ifdef DEBUG
 	printf("\nfan_roll(%f)\n", rad);
@@ -55,7 +56,7 @@ void fan_roll(float rad)
 
 void fan_roll_r(int8_t dir)
 {
-	set_duty(FAN_ROLL_CHANNEL, 0.13F + dir * 0.08F);
+	set_duty(FAN_ROLL_CHANNEL, 0.06F + dir * 0.06F);
 }
 
 void fan_up(float speed)
@@ -65,7 +66,7 @@ void fan_up(float speed)
 		set_duty(FAN_UPDOWN_CHANNEL, 0.065);
 	else if(speed < -10)
 		set_duty(FAN_UPDOWN_CHANNEL, 0.077);
-	else set_duty(FAN_UPDOWN_CHANNEL, 0.071f - 0.006f * speed);
+	else set_duty(FAN_UPDOWN_CHANNEL, 0.071f - 0.0006f * speed);
 }
 
 void fan_up_r(void)
@@ -82,7 +83,7 @@ void fan_down(float speed)
 		set_duty(FAN_UPDOWN_CHANNEL, 0.065);
 	else if(speed < -10)
 		set_duty(FAN_UPDOWN_CHANNEL, 0.077);
-	else set_duty(FAN_UPDOWN_CHANNEL, 0.071f + 0.006f * speed);
+	else set_duty(FAN_UPDOWN_CHANNEL, 0.071f + 0.0006f * speed);
 }
 
 void fan_down_r(void)

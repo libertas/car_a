@@ -31,14 +31,14 @@ extern link_list g_param_list;    //参数链表
     }                                                     \
 					
 					
-void param_init();
-void param_update_all();
+void param_init(param_struct **param);
+void param_update_all(void);
 void param_print(int param_group);
 int param_set(char *param_name,float param_value);
-int param_save_to_flash();
-int	param_ld_from_flash();
-int param_list_reset();
+int param_save_to_flash(void);
+int	param_ld_from_flash(void);
+int param_list_reset(void);
 int param_switch(int group_num);  //切换参数组
-int param_group_now();  //获得参数组数
+int param_group_now(void);  //获得参数组数
 list_node* get_param_list(void);
 param_struct* get_param_struct(void);

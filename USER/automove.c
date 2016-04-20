@@ -9,8 +9,11 @@
 #include "movement.h"
 #include "mti.h"
 #include "pid.h"
+#include "parameter.h"
 
 #ifdef USE_FOUR_WHEEL
+
+param_struct *automove_param;
 
 void auto_clr_spd(void)
 {
@@ -213,4 +216,5 @@ void tim10_config(void)
 void automove_config(void)
 {
 	tim10_config();
+	param_init(&automove_param);
 }

@@ -3,7 +3,7 @@
 #include "usart.h"
 #include "cmd_func.h"    //命令调用函数声明文件
 #include "stdlib.h"
-
+#include "string.h"
 
 static param_struct **g_control_param;   //存放控制参数的结构体
 static param_struct control_param_array[PARAM_GROUP_LENGTH];   //定义参数组
@@ -12,7 +12,7 @@ static int group_now;
 
 
 //在自定义结构体param_struct里添加成员参数之后，需要在这个函数里添加相应的宏PARAM_UPDATE()
-void param_update_all(){
+void param_update_all(void){
     float param_value_array[PARAM_GROUP_LENGTH];
 
 		PARAM_UPDATE(g_param_list,control_param_array,group); //这个是组别的参数，不要删
@@ -39,7 +39,7 @@ list_node* get_param_list(){   //获得参数列表
     return g_param_list;
 }
 //
-int param_list_reset(){
+int param_list_reset(void){
     if(g_param_list != NULL){
         list_clear(&g_param_list);
     }else{				
@@ -50,7 +50,7 @@ int param_list_reset(){
     return 1;
 }
 
-int param_group_now(){
+int param_group_now(void){
     return group_now;
 }
 //通过串口输出指定参数组的参数值
@@ -76,7 +76,7 @@ int param_switch(int group_num){
 }
 
 //从FLASH加载控制参数到链表，并且更新参数结构体的成员
-int param_ld_from_flash(){
+int param_ld_from_flash(void){
     static char param_name[PARAM_NAME_LENGTH];  //估计栈空间被占用了。。。
     float *param_value;
     char c_read_temp;
@@ -128,7 +128,7 @@ int param_set(char param_name[PARAM_NAME_LENGTH],float param_value){
     return 0;
 }
 
-int param_save_to_flash(){
+int param_save_to_flash(void){
     char *param_name;
     char param_end[] = "end";
     u8 *c_write;

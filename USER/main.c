@@ -26,9 +26,8 @@
 #include "suart.h"
 #include "watchdog.h"
 #include "cmd.h"
-#include "parameter.h"
 
-param_struct *my_param;
+
 
 int main(void)
 {
@@ -39,8 +38,7 @@ int main(void)
 	interpreter_config();
 	uart_config(115200);
 	cmd_init();
-	param_init(&my_param);
-	uprintf(UART5,"test haha:%f\r\n",my_param->haha);
+	//uprintf(UART5,"test haha:%f\r\n",my_param->haha);
 	dma_config();
 	spi_config();
 	suart_config();

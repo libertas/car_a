@@ -36,16 +36,20 @@ void fan_up_3(void)
 	fan_up_auto(0.1f);
 }
 
+void roll_fan_1(void)
+{
+	fan_roll(PI / 2);
+}
 
 struct coordinate_t coord[] = {
-	{2812.9, 0, 0},\
+	{2812.9, 0, 0, start_fan},\
 	{2812.9, 1072.85, PI/12, fan_up_1},\
 	{2550.44, 2133.29, PI/6},\
 	{2130.4, 2860.83, PI/4, fan_up_2},\
 	{1361.84, 3647.91, PI/6},\
 	{800, 5090.82, PI/12, fan_up_3},\
-	{700, 6734.66, 0, fan_up_stop_auto},\
-	{700, 9500, 0},\
+	{700, 6734.66, 0, roll_fan_1},\
+	{700, 9500, 0, fan_up_stop_auto},\
 	{1500, 10500, PI},\
 	{4960, 11800, PI},\
 	{5900, 11800, PI - 0.2f},\
@@ -64,6 +68,8 @@ void auto_start(void)
 	for(int i = 0; 0 != coord[i].x || 0 != coord[i].y || 0 != coord[i].rad || 0 != coord[i].callback; i++) {
 		set_auto_dest(coord[i].x / 1000, coord[i].y / 1000, coord[i].rad);
 		while(!near_auto_dest());
+		if(0 != coord[i].callback)
+			(coord[i].callback)();
 	}
 }
 

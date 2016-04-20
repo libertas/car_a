@@ -10,7 +10,7 @@
 
 void cmd_param_func(int argc,char *argv[]){
     float param_value;
-    char param_name[PARAM_NAME_LENGTH];
+   // char param_name[PARAM_NAME_LENGTH];
     list_node *p;
     int group;
     if(argc < 2){

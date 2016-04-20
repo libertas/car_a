@@ -5,8 +5,10 @@
 #include "clock.h"
 #include "fan.h"
 #include "interpreter.h"
+#include "magnet.h"
 #include "movement.h"
 #include "mti.h"
+#include "push_rod.h"
 
 bool auto_flag = false;
 float old_pos_x = 0, old_pos_y = 0, old_rad = 0;
@@ -32,6 +34,18 @@ void fan_up_step2(void)
 void fan_up_step3(void)
 {
 	fan_up_auto(0.1f);
+}
+
+void auto_up(void)
+{
+	push_rod(PUSH_ROD_PUSH, 0);
+	move_up();
+	while(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_9)) {
+		
+	}
+	stop_all();
+	delay_ms(1000);
+	mag_in();//·ÅÂÝÐý½°
 }
 
 struct coordinate_t coord[] = {

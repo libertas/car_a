@@ -409,6 +409,11 @@
           <GroupName>USER</GroupName>
           <Files>
             <File>
+              <FileName>automove.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\automove.c</FilePath>
+            </File>
+            <File>
               <FileName>auto_control.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\auto_control.c</FilePath>
@@ -537,11 +542,6 @@
               <FileName>us100.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\us100.c</FilePath>
-            </File>
-            <File>
-              <FileName>automove.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\automove.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -4,8 +4,7 @@
 #include "stm32f4xx.h"
 #include "stdlib.h"
 #include "string.h"
-#include "tftlcd.h"
-#include "main.h"
+#include "usart.h"
 
 
 
@@ -36,7 +35,9 @@ void cmd_param_func(int argc,char *argv[]){
             uprintf(CMD_USARTx,"[P#%s#%4f]",p->data->param_name,p->data->param_value[group]);
             p = p->link;
         }
-    }else{
+		}else if(strcmp(argv[1],"reset") == 0){
+				param_list_reset();
+		}else{
         uprintf(CMD_USARTx,"arg not found");
         return;
     }

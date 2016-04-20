@@ -11,19 +11,7 @@
 
 typedef struct{
     float group;
-    float servo_p;
-    float servo_i;
-    float servo_d;
-    float threshold;
-    float servo_centroid;
-    float servo_p_gain;
-    float servo_d_gain;
-    float servo_p_base;
-    float servo_d_base;
-	float return_right;
-	float return_left;
-	float fturn_right;
-	float fturn_left;
+	  float haha;
 	
 }param_struct;
 

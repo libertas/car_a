@@ -1,6 +1,6 @@
 #include "parameter.h"
 #include "stm32f4xx.h"
-#include "global.h"
+#include "usart.h"
 #include "cmd_func.h"    //命令调用函数声明文件
 #include "stdlib.h"
 
@@ -15,20 +15,8 @@ static int group_now;
 void param_update_all(){
     float param_value_array[PARAM_GROUP_LENGTH];
 
-    PARAM_UPDATE(g_param_list,control_param_array,group);
-    PARAM_UPDATE(g_param_list,control_param_array,servo_p);
-    PARAM_UPDATE(g_param_list,control_param_array,servo_i);
-    PARAM_UPDATE(g_param_list,control_param_array,servo_d);
-    PARAM_UPDATE(g_param_list,control_param_array,threshold);
-    PARAM_UPDATE(g_param_list,control_param_array,servo_centroid);
-    PARAM_UPDATE(g_param_list,control_param_array,servo_p_gain);
-    PARAM_UPDATE(g_param_list,control_param_array,servo_d_gain);
-    PARAM_UPDATE(g_param_list,control_param_array,servo_p_base);
-    PARAM_UPDATE(g_param_list,control_param_array,servo_d_base);
-    PARAM_UPDATE(g_param_list,control_param_array,return_right);
-    PARAM_UPDATE(g_param_list,control_param_array,return_left);
-    PARAM_UPDATE(g_param_list,control_param_array,fturn_left);
-    PARAM_UPDATE(g_param_list,control_param_array,fturn_right);
+		PARAM_UPDATE(g_param_list,control_param_array,group); //这个是组别的参数，不要删
+		PARAM_UPDATE(g_param_list,control_param_array,haha);
 }
 
 void param_init(param_struct **param){

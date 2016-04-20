@@ -31,7 +31,7 @@
 /**************以下是使用代码之前，必须配置的宏****************/
 #define CMD_USARTn 5    //接收命令的串口号
 //自动初始化外设使能,如果使能了，则调用cmd_init()函数之后，即可初始化好串口和中断
-#define CMD_PERIPH_INIT_EN 1
+#define CMD_PERIPH_INIT_EN 0
 
 //如果没有使能自动初始化，则无需配置下面的宏了
 #if CMD_PERIPH_INIT_EN == 1

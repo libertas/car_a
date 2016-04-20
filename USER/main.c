@@ -40,6 +40,7 @@ int main(void)
 	uart_config(115200);
 	cmd_init();
 	param_init(&my_param);
+	uprintf(UART5,"test haha:%f\r\n",my_param->haha);
 	dma_config();
 	spi_config();
 	suart_config();
@@ -53,6 +54,7 @@ int main(void)
 
 	auto_control();
 
+	
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
 		check_cmd();

@@ -5,6 +5,7 @@
 #include "stdlib.h"
 #include "string.h"
 #include "usart.h"
+#include "movement.h"
 
 
 
@@ -37,7 +38,8 @@ void cmd_param_func(int argc,char *argv[]){
         }
 		}else if(strcmp(argv[1],"reset") == 0){
 				param_list_reset();
-		}else{
+		}
+		else{
         uprintf(CMD_USARTx,"arg not found");
         return;
     }
@@ -47,7 +49,9 @@ void cmd_reboot_func(int argc,char *argv[]){
     NVIC_SystemReset();
 }
 
-
+void cmd_stop_func(int argc,char *argv[]){
+		stop_all();
+}
 
 
 

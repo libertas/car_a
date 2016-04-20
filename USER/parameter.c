@@ -16,7 +16,12 @@ void param_update_all(void){
     float param_value_array[PARAM_GROUP_LENGTH];
 
 		PARAM_UPDATE(g_param_list,control_param_array,group); //这个是组别的参数，不要删
-		PARAM_UPDATE(g_param_list,control_param_array,haha);
+		PARAM_UPDATE(g_param_list,control_param_array,kp);
+		PARAM_UPDATE(g_param_list,control_param_array,ki);
+		PARAM_UPDATE(g_param_list,control_param_array,kd);
+		PARAM_UPDATE(g_param_list,control_param_array,kp_r);
+		PARAM_UPDATE(g_param_list,control_param_array,ki_r);
+		PARAM_UPDATE(g_param_list,control_param_array,kd_r);
 }
 
 void param_init(param_struct **param){

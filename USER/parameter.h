@@ -11,7 +11,12 @@
 
 typedef struct{
     float group;
-	  float haha;
+	  float kp;
+		float ki;
+		float kd;
+		float kp_r;
+		float ki_r;
+		float kd_r;
 	
 }param_struct;
 

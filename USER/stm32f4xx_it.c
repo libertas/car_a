@@ -297,7 +297,7 @@ Used for the control of the wheels
 void TIM8_TRG_COM_TIM14_IRQHandler(void)
 {
 	static uint16_t count0 = 0;
-	const uint16_t count_num = 2000;
+	const uint16_t count_num = 500;
 	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
 		TIM_ClearITPendingBit(TIM14, TIM_IT_Update);
 		if(count0 <= count_num / 2) {

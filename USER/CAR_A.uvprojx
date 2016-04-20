@@ -439,14 +439,14 @@
               <FilePath>.\pwm.c</FilePath>
             </File>
             <File>
-              <FileName>movement.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\movement.c</FilePath>
-            </File>
-            <File>
               <FileName>interpreter.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\interpreter.c</FilePath>
+            </File>
+            <File>
+              <FileName>movement.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\movement.c</FilePath>
             </File>
             <File>
               <FileName>three_wheel.c</FileName>

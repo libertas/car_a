@@ -4,6 +4,7 @@
  *            GPIO：USART1，TX PA9 RX PA10
  *                  USART2，TX PA2 RX PA3
  *                  USART3，TX PB10 RX PB11
+ *                  UART5,  TX PC12 RX PD2
  *                  （若需改引脚，请看cmd.c文件中的cmd_init()函数）
  * 使用说明：在使用之前，必须要配置相关的宏（下面有注释需要定义的宏）。代码所需
  * 要的串口是可以选择的，定义宏CMD_USARTn为所需要的串口号即可。代码可以自己配置外
@@ -28,9 +29,9 @@
 
 #include "stm32f4xx.h"
 /**************以下是使用代码之前，必须配置的宏****************/
-#define CMD_USARTn 1     //接收命令的串口号
+#define CMD_USARTn 5    //接收命令的串口号
 //自动初始化外设使能,如果使能了，则调用cmd_init()函数之后，即可初始化好串口和中断
-#define CMD_PERIPH_INIT_EN 1    
+#define CMD_PERIPH_INIT_EN 1
 
 //如果没有使能自动初始化，则无需配置下面的宏了
 #if CMD_PERIPH_INIT_EN == 1
@@ -49,6 +50,8 @@
     #define CMD_USARTx USART2 
 #elif CMD_USARTn == 3
     #define CMD_USARTx USART3
+#elif CMD_USARTn == 5
+    #define CMD_USARTx UART5
 #endif
 
 

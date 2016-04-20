@@ -4,6 +4,8 @@
 #include "string.h"
 #include "stdarg.h"
 #include "cmd_func.h"
+#include "misc.h"
+#include "stm32f4xx_it.h"
 static cmd_struct cmd_tbl[] = {
     /*
      * 若需添加命令，需要在此加上：
@@ -12,13 +14,13 @@ static cmd_struct cmd_tbl[] = {
      */
     CMD_ADD("help","Print all command and usage",cmd_help_func),
     CMD_ADD("param"," ",cmd_param_func),
-    CMD_ADD("hello","just test",cmd_hello_func),
-	CMD_ADD("hello2","just test",cmd_hello2_func)
+    CMD_ADD("reboot"," ",cmd_reboot_func),
 };
 
 static char cmd_line[MAX_CMD_LINE_LENGTH + 1];
 static char *cmd_argv[MAX_ARGC];
 static char *cmd_line_pre[MAX_CMD_LINE_CNT];
+static u8 loopback = 1;    //消息回送标志  1则回送 0不回送
 
 static void uprintf(USART_TypeDef* USARTx, char *fmt, ...)
 {
@@ -46,7 +48,7 @@ static void uprintf(USART_TypeDef* USARTx, char *fmt, ...)
 
 
 void cmd_init(){
-	  int i;
+    int i;
 #if CMD_PERIPH_INIT_EN == 1
     USART_InitTypeDef usart_init_stru;
     NVIC_InitTypeDef nvic_init_stru;
@@ -74,6 +76,15 @@ void cmd_init(){
     GPIO_PinAFConfig(GPIOB, GPIO_PinSource10, GPIO_AF_USART3);   
     GPIO_PinAFConfig(GPIOB, GPIO_PinSource11, GPIO_AF_USART3); 
     nvic_init_stru.NVIC_IRQChannel = USART3_IRQn;
+#elif CMD_USARTn == 5
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART5,ENABLE);
+    GPIO_Configuration(GPIO_Pin_12,GPIO_Mode_AF, GPIO_Speed_100MHz,GPIO_OType_PP,GPIO_PuPd_NOPULL,GPIOC);   //USART5 TX
+    GPIO_Configuration(GPIO_Pin_2,GPIO_Mode_AF, GPIO_Speed_100MHz,GPIO_OType_PP,GPIO_PuPd_NOPULL,GPIOD); //USART5 RX
+    GPIO_PinAFConfig(GPIOC, GPIO_PinSource12, GPIO_AF_UART5);   
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource2, GPIO_AF_UART5); 
+    nvic_init_stru.NVIC_IRQChannel = UART5_IRQn;
 #endif
     usart_init_stru.USART_BaudRate = CMD_USART_BAUD; 	   //设置波特率
 	usart_init_stru.USART_WordLength = USART_WordLength_8b;    //一个帧中传输的数据位数（字长为8位数据格式）
@@ -94,7 +105,7 @@ void cmd_init(){
         cmd_argv[i] = (char *)malloc(MAX_CMD_ARG_LENGTH + 1);
     }
         for(i = 0;i < MAX_CMD_LINE_CNT;i++){   //保存前五个命令
-             cmd_line_pre[i] = (char *)malloc(MAX_CMD_LINE_LENGTH + 1);
+        cmd_line_pre[i] = (char *)malloc(MAX_CMD_LINE_LENGTH + 1);
     }
     uprintf(CMD_USARTx,"\n>>");
 }
@@ -163,19 +174,22 @@ void USART1_IRQHandler(void){
 void USART2_IRQHandler(void){
 #elif CMD_USARTn == 3
 void USART3_IRQHandler(void){
+#elif CMD_USARTn == 5
+void UART5_IRQHandler(void){
 #endif 
     static u32 cmd_line_index = 0,cmd_line_length = 0;
-	static u8 com_flag = 0,dir_flag = 0;   //组合件标志
-	static int cmd_pre_n = 2000;
-	int diif_cnt;
+    static u8 com_flag = 0,dir_flag = 0;   //组合件标志
+    static int cmd_pre_n = 2000;
+    int diif_cnt;
     int cmd_argc,i;
     int erro_n;
     u8 c_recv;
 
     if(USART_GetITStatus(CMD_USARTx,USART_IT_RXNE) != RESET){      
         USART_ClearITPendingBit(CMD_USARTx,USART_IT_RXNE);
-        c_recv = USART_ReceiveData(CMD_USARTx);			  //< = '0x5B'
+        c_recv = USART_ReceiveData(CMD_USARTx);			  //< = '0x5B'  ESC = 0x1B
         if(c_recv == '\r'){  //接受完一次指令
+            loopback = 1;  //一次命令接受完了之后，设置回送为1
             if(cmd_line_index == 0){
                 uprintf(CMD_USARTx,"\n>>");
                 return;
@@ -191,34 +205,34 @@ void USART3_IRQHandler(void){
                 cmd_line_length = 0;
                 memset(cmd_line,0,MAX_CMD_LINE_LENGTH + 1);
                 return;
-            }else if(erro_n == -2){
-            	  uprintf(CMD_USARTx,"\n命令参数长度过长");
-            }else if(erro_n == -1){
-            	  uprintf(CMD_USARTx,"\n命令参数过多");
-            }
-            uprintf(CMD_USARTx,"\n>>");
-            cmd_line_index = 0;
-            cmd_line_length = 0;
-            memset(cmd_line,0,MAX_CMD_LINE_LENGTH + 1);
+                }else if(erro_n == -2){
+                    uprintf(CMD_USARTx,"\n命令参数长度过长");
+                }else if(erro_n == -1){
+                    uprintf(CMD_USARTx,"\n命令参数过多");
+                }
+                uprintf(CMD_USARTx,"\n>>");
+                cmd_line_index = 0;
+                cmd_line_length = 0;
+                memset(cmd_line,0,MAX_CMD_LINE_LENGTH + 1);
                 return;
             }
             erro_n = cmd_exec(cmd_argc,cmd_argv);   //执行命令
             if(erro_n < 0){
                 //打印函数执行错误信息
-            if(erro_n == -2){
-              	  uprintf(CMD_USARTx,"\r\n未找到命令:%s",cmd_argv[0]);
-            }
-            uprintf(CMD_USARTx,"\n>>");
+                if(erro_n == -2){
+                  	  uprintf(CMD_USARTx,"\r\n未找到命令:%s",cmd_argv[0]);
+                }
+                uprintf(CMD_USARTx,"\n>>");
                 cmd_line_index = 0;
-            cmd_line_length = 0;
-            memset(cmd_line,0,MAX_CMD_LINE_LENGTH + 1);
+                cmd_line_length = 0;
+                memset(cmd_line,0,MAX_CMD_LINE_LENGTH + 1);
                 return;
             }
             cmd_line_index = 0;
             cmd_line_length = 0;
             memset(cmd_line,0,MAX_CMD_LINE_LENGTH + 1);
             uprintf(CMD_USARTx,"\n>>");
-        }else if(c_recv == 0x7F){   //如果接收的是退格键
+        }else if(c_recv == 0x7F && loopback == 1){   //如果接收的是退格键
             if(cmd_line_index == 0){
               	  return;
             }
@@ -306,6 +320,8 @@ void USART3_IRQHandler(void){
                  	dir_flag = 0;
                 }
             }		
+        }else if(c_recv == 0x24){  //如果是'$'符号，则不回送信息
+            loopback = 0;
         }else{
             if(cmd_line_index == MAX_CMD_LINE_LENGTH){
                 //打印命令行太长的信息
@@ -313,16 +329,17 @@ void USART3_IRQHandler(void){
                 cmd_line_length = 0;
                 return;
             }
-            
             for(i = 0;i < cmd_line_length - cmd_line_index;i++){
                 cmd_line[cmd_line_length - i] = cmd_line[cmd_line_length - i -1];
             }
             cmd_line[cmd_line_index++] = (char)c_recv;
             cmd_line_length++;
-            uprintf(CMD_USARTx,"\r>>%s",cmd_line);
-            for(i = cmd_line_index;i < cmd_line_length;i++){
-                while (USART_GetFlagStatus(CMD_USARTx, USART_FLAG_TXE) == RESET); 
-                USART_SendData(CMD_USARTx,0x08);   //退格
+            if(loopback == 1){    //如果使能了回送信息
+                uprintf(CMD_USARTx,"\r>>%s",cmd_line);
+                for(i = cmd_line_index;i < cmd_line_length;i++){
+                    while (USART_GetFlagStatus(CMD_USARTx, USART_FLAG_TXE) == RESET); 
+                    USART_SendData(CMD_USARTx,0x08);   //退格
+                }
             }
         }			
     }

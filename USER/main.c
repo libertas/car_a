@@ -25,6 +25,10 @@
 #include "spi.h"
 #include "suart.h"
 #include "watchdog.h"
+#include "cmd.h"
+#include "parameter.h"
+
+param_struct *my_param;
 
 int main(void)
 {
@@ -34,6 +38,8 @@ int main(void)
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	interpreter_config();
 	uart_config(115200);
+	cmd_init();
+	param_init(&my_param);
 	dma_config();
 	spi_config();
 	suart_config();

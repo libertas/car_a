@@ -538,6 +538,11 @@
               <FileType>1</FileType>
               <FilePath>.\us100.c</FilePath>
             </File>
+            <File>
+              <FileName>whiteline.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\whiteline.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

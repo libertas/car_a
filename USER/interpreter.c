@@ -142,7 +142,7 @@ int run_cmd(void)
 			set_wl_value(flbuf, flbuf1);
 
 			#ifdef DEBUG_INTPRT
-			printf("set_wl_value(%f,%f)\n");
+			printf("set_wl_value\n");
 			#endif
 			break;
 

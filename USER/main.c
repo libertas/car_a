@@ -45,12 +45,13 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 
-	//auto_control();
+	automove_config();
+	wl_run();
+	// auto_control();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
 		check_cmd();
-		printf("%f\t%f\n", wl_x, wl_y);
 	}
 
 	return 0;

@@ -289,7 +289,11 @@ void UART5_IRQHandler(void)
 void TIM1_UP_TIM10_IRQHandler(void)
 {
 	if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
-		automove_daemon();
+		if(automove_flag) {
+			automove_daemon();
+		} else {
+			check_cmd();
+		}
 		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
 	}
 }

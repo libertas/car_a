@@ -10,6 +10,7 @@
 #include "mti.h"
 #include "push_rod.h"
 #include "pwm.h"
+#include "whiteline.h"
 
 bool auto_flag = false;
 float old_pos_x = 0, old_pos_y = 0, old_rad = 0;
@@ -55,9 +56,11 @@ void roll_fan_1(void)
 	stop_fan();
 }
 
-void fan_down_1(void)
+void line_1(void)
 {
-	fan_down(10);
+	automove_disable();
+	automove_flag = false;
+	wl_run();
 }
 
 struct coordinate_t coord[] = {
@@ -68,18 +71,14 @@ struct coordinate_t coord[] = {
 	{1361.84, 3647.91, PI/6},\
 	{800, 5090.82, PI/12, fan_up_3},\
 	{700, 6734.66, 0, roll_fan_1},\
-	{700, 9500, 0, fan_down_1},\
-	{1500, 10500, PI},\
-	{4960, 11800, PI},\
-	{5900, 11800, PI - 0.2f},\
-	{6500, 11800, PI - 0.4f},\
-	{7100, 11800, PI - 0.6f},\
+	{700, 7000, 0, line_1},\
 	{0, 0, 0}
 };
 
 void auto_start(void)
 {
 	automove_config();
+	automove_flag = true;
 
 	printf("\nAuto controlling.\n");
 	auto_flag = true;

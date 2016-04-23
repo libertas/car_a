@@ -10,6 +10,9 @@
 #include "mti.h"
 #include "pid.h"
 
+
+bool automove_flag = false;
+
 #ifdef USE_FOUR_WHEEL
 
 void auto_clr_spd(void)
@@ -213,4 +216,9 @@ void tim10_config(void)
 void automove_config(void)
 {
 	tim10_config();
+}
+
+void automove_disable(void)
+{
+	automove_flag = false;
 }

@@ -204,17 +204,55 @@ void USART3_IRQHandler(void)
 	}
 }
 
+#include "mti.h"
 void UART4_IRQHandler(void)
 {
-	if(USART_GetITStatus(UART4, USART_IT_RXNE) != RESET)
-	{
-		USART_SendData(UART5, USART_ReceiveData(UART4));
+	static bool mti_init_flag = false;
+	static uint8_t mti_count = 0;
+
+	if(USART_GetITStatus(UART4, USART_IT_RXNE) != RESET) {
+		if(mti_count >= MTI_BUF_SIZE) {
+			mti_count = 0;
+
+			mti_angle_new = mti();
+			
+			mti_angle += mti_angle_new - mti_angle_old;;
+			
+			if(mti_angle_new < -PI / 2 && mti_angle_old > PI / 2) {
+				mti_angle += 2 * PI;
+			} else if(mti_angle_new > PI / 2 && mti_angle_old < - PI / 2) {
+				mti_angle += -2 * PI;
+			}
+			
+			mti_angle_old = mti_angle_new;
+			
+			if(!mti_init_flag) {
+				mti_angle = 0;
+				mti_init_flag = true;
+			}
+			
+			mti_value_flag = 1;
+			//uprintf(UART5,"angle%f\r\n",mti_angle);//²âÊÔÓÃ
+		}
+		
+		mti_buffer[mti_count] = USART_ReceiveData(UART4);
+		
+		if(mti_count < 4) {
+			if(mti_buffer[mti_count] == mti_flag[mti_count]) {
+				mti_count++;
+			} else {
+				mti_count = 0;
+			}
+		} else {
+			mti_count++;
+		}
 	}
 }
 
 void UART5_IRQHandler(void)
 {
 	char data;
+	char tmp;
 
 	if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET)
 	{
@@ -247,33 +285,40 @@ void UART5_IRQHandler(void)
 	}
 }
 
-#include "fan.h"
-#include "encoder.h"
+#include "automove.h"
 void TIM1_UP_TIM10_IRQHandler(void)
 {
-	static uint16_t count0 = 0;
-	const uint16_t count_num = 2000;
 	if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
-		count0++;
+		automove_daemon();
+		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
+	}
+}
+
+
+/*
+Used for the control of the wheels
+*/
+#include "fan.h"
+#include "encoder.h"
+void TIM8_TRG_COM_TIM14_IRQHandler(void)
+{
+	static uint16_t count0 = 0;
+	const uint16_t count_num = 500;
+	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
+		TIM_ClearITPendingBit(TIM14, TIM_IT_Update);
 		if(count0 <= count_num / 2) {
 			if(0 == count0 % count_num / 10) {
 				if(1 == fan_up_flag) {
-					if(((get_pos_fan() - g_fan_height) > (fan_up_length + FAN_THOLD)) || ((get_pos_fan() - g_fan_height) < (fan_up_length - FAN_THOLD)))
-						((get_pos_fan() - g_fan_height) < fan_up_length) ? fan_up() : fan_down();
+					if(((get_pos_fan() - fan_height) > (fan_up_length + FAN_THOLD)) || ((get_pos_fan() - fan_height) < (fan_up_length - FAN_THOLD)))
+						((get_pos_fan() - fan_height) < fan_up_length) ? fan_up(10) : fan_down(10);
 					else stop_fan_up_down();
 				}
 			}
 		}
 		if(count0 > count_num / 2)
 			stop_fan_up_down();
+		count0++;
 		count0 %= count_num;
-		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
-	}
-}
-
-void TIM8_TRG_COM_TIM14_IRQHandler(void)
-{
-	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
 		TIM_ClearITPendingBit(TIM14, TIM_IT_Update);
 	}
 }
@@ -324,10 +369,6 @@ void DMA1_Stream2_IRQHandler(void)
 		DMA_Cmd(DMA1_Stream2, DISABLE);
 		
 		mti_angle_new = mti();
-		
-		if(0 == mti_angle_new) {
-			while(1);
-		}
 		
 		mti_angle += mti_angle_new - mti_angle_old;;
 		

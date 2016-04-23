@@ -303,7 +303,7 @@ int run_cmd(void)
 			printf("\ncmd\t0x04\n");
 			#endif
 		
-			fan_up();
+			fan_up(10);
 			break;
 		
 		case 0x06:
@@ -312,7 +312,7 @@ int run_cmd(void)
 			printf("\ncmd\t0x06\n");
 			#endif
 		
-			fan_down();
+			fan_down(10);
 			break;
 		
 		case 0x07:

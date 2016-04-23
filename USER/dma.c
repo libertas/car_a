@@ -1,7 +1,5 @@
 #include "dma.h"
-
-uint8_t mti_buffer[MTI_BUF_SIZE] = {'0'};
-uint8_t mti_sendbuffer[MTI_SEND_SIZE] = {0xFA,0x01,0xA4,0x02,0x00,0x04,0x55};
+#include "mti.h"
 
 void dma_config(void)
  { 
@@ -10,7 +8,7 @@ void dma_config(void)
 
 	NVIC_InitStructure.NVIC_IRQChannel = DMA1_Stream2_IRQn;   
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
 	NVIC_InitStructure.NVIC_IRQChannel = DMA1_Stream4_IRQn;   

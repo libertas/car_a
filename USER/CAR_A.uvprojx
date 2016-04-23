@@ -409,6 +409,11 @@
           <GroupName>USER</GroupName>
           <Files>
             <File>
+              <FileName>automove.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\automove.c</FilePath>
+            </File>
+            <File>
               <FileName>auto_control.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\auto_control.c</FilePath>
@@ -434,14 +439,14 @@
               <FilePath>.\pwm.c</FilePath>
             </File>
             <File>
-              <FileName>movement.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\movement.c</FilePath>
-            </File>
-            <File>
               <FileName>interpreter.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\interpreter.c</FilePath>
+            </File>
+            <File>
+              <FileName>movement.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\movement.c</FilePath>
             </File>
             <File>
               <FileName>three_wheel.c</FileName>
@@ -764,6 +769,11 @@
           <GroupName>Headers</GroupName>
           <Files>
             <File>
+              <FileName>mti.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mti.h</FilePath>
+            </File>
+            <File>
               <FileName>multi_processing.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\multi_processing.h</FilePath>
@@ -892,6 +902,16 @@
               <FileName>database.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\database.h</FilePath>
+            </File>
+            <File>
+              <FileName>whiteline.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\whiteline.h</FilePath>
+            </File>
+            <File>
+              <FileName>dma.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\dma.h</FilePath>
             </File>
           </Files>
         </Group>

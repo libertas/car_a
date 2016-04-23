@@ -3,7 +3,7 @@
 
 #include "utils.h"
 
-#define DB_SECTOR ADDR_FLASH_SECTOR_3
+#define DB_SECTOR ADDR_FLASH_SECTOR_5
 #define DB_SECTOR_LEN 16384
 
 extern char_queue db_cmd_queue;

@@ -142,6 +142,7 @@ int run_cmd(void)
 			set_wl_value(flbuf, flbuf1);
 
 			#ifdef DEBUG_INTPRT
+			#include "clock.h"
 			printf("set_wl_value\n");
 			#endif
 			break;
@@ -415,7 +416,7 @@ int run_cmd(void)
 int check_cmd(void)
 {
 	uint32_t fr;
-	uint8_t data_len, cmd;
+	uint8_t data_len, cmd, tmp;
 	uint8_t check_sum = 0;
 	uint16_t i;
 	
@@ -423,11 +424,20 @@ int check_cmd(void)
 		fr = (cmd_queue.front + 1) % cmd_queue.max_size;
 		cmd = cmd_queue.data[fr];
 		data_len = (cmd >> 4);
-		cmd &= 0x0f;
 		
 		#ifdef DEBUG_INTPRT
 		printf("\ndata-len:%x\ncmd:0x%x\n", data_len, cmd);
 		#endif
+		
+		if(0x00 == cmd) {
+			#ifdef DEBUG_INTPRT
+			printf("\n1\n");
+			#endif
+			
+			out_char_queue(&cmd_queue, (char*) &check_sum);  // remove the check_sum byte
+			
+			return 1;
+		}
 		
 		if(cmd_queue.count >= data_len + 2) {
 			for(i = 0; i <= data_len; i++) {
@@ -448,19 +458,37 @@ int check_cmd(void)
 		
 				return 0;
 			} else {
-				
 				#ifdef DEBUG_INTPRT
-				printf("\n-3\n");
+				printf("\ndata:%x\tcheck_sum:%x\n", cmd_queue.data[(fr + i) % cmd_queue.max_size], check_sum);
 				#endif
 				
 				out_char_queue(&cmd_queue, (char*) &check_sum);  //remove the wrong byte
+				
+				#ifdef DEBUG_INTPRT
+				printf("\ndata:%x\tcheck_sum:%x\n", cmd_queue.data[(fr + i) % cmd_queue.max_size], check_sum);
+				printf("-3,\trm %x,\t", check_sum);
+				
+				fr = (cmd_queue.front + 1) % cmd_queue.max_size;
+				
+				for(i = 0; i <= data_len + 2; i++) {
+					printf("%x\t", cmd_queue.data[(fr + i) % cmd_queue.max_size]);
+				}
+				printf("\n");
+				#endif
 				
 				return -3;
 			}
 		} else {
 			
 			#ifdef DEBUG_INTPRT
-			printf("\n-2\n");
+			printf("\n-2,\t");
+			
+			fr = (cmd_queue.front + 1) % cmd_queue.max_size;
+			
+			for(i = 0; i <= data_len + 2; i++) {
+				printf("%x\t", cmd_queue.data[(fr + i) % cmd_queue.max_size]);
+			}
+			printf("\n");
 			#endif
 			
 			return -2;

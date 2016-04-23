@@ -2,13 +2,14 @@
 #include "clock.h"
 #include "debug.h"
 #include "movement.h"
+#include "pid.h"
 #include "whiteline.h"
 
 #define WL_X_MAX 180
 #define WL_X_ERR 10
-#define WL_ERR_SPD 10
-#define WL_MAX_SPD 2000
-#define WL_RUN_SPD 1000
+#define WL_ERR_SPD 100
+#define WL_MAX_SPD 1000
+#define WL_RUN_SPD 800
 
 float wl_x = -1;
 float wl_y = -1;
@@ -21,25 +22,35 @@ void set_wl_value(float x, float y)
 
 void wl_run(void)
 {
-	arg_speeds[0] = VECT_W0 * WL_RUN_SPD;
-	arg_speeds[1] = VECT_W1 * WL_RUN_SPD;
+	/*
+	arg_speeds[0] = -VECT_W0 * WL_RUN_SPD;
+	arg_speeds[1] = -VECT_W1 * WL_RUN_SPD;
 	arg_speeds[2] = VECT_W2 * WL_RUN_SPD;
 	arg_speeds[3] = VECT_W3 * WL_RUN_SPD;
+	*/
+	
+	pid_t pr;
+	pr.kp = 0.01f;
+	pr.kd = 0;
+	pr.ki = 0;
+	float prout;
 
 	while(1) {
-		if(-1 != wl_x && -1 != wl_y) {
-			if(wl_x < WL_X_MAX / 2 - WL_X_ERR) {
-				arg_speeds[0] += VECT_W0 * WL_ERR_SPD;
-				arg_speeds[1] += VECT_W0 * WL_ERR_SPD;
-				arg_speeds[2] += -VECT_W0 * WL_ERR_SPD;
-				arg_speeds[3] += -VECT_W0 * WL_ERR_SPD;
-			}
-			if(wl_x > WL_X_MAX / 2 + WL_X_ERR) {
-				arg_speeds[0] += -VECT_W0 * WL_ERR_SPD;
-				arg_speeds[1] += -VECT_W0 * WL_ERR_SPD;
-				arg_speeds[2] += VECT_W0 * WL_ERR_SPD;
-				arg_speeds[3] += VECT_W0 * WL_ERR_SPD;
-			}
+		if(0 < wl_x && 0 < wl_y) {
+			pr.set_value = 0;
+			pr.actual_value = wl_x - WL_X_MAX / 2;
+			prout = pid_realize(&pr);
+			
+			#ifdef DEBUG_WL
+			printf("prout:%f\n", prout);
+			#endif
+			
+			float spd_r = prout * WL_RUN_SPD;
+
+			arg_speeds[0] = VECT_W0 * spd_r;
+			arg_speeds[1] = VECT_W1 * spd_r;
+			arg_speeds[2] = -VECT_W2 * spd_r;
+			arg_speeds[3] = -VECT_W3 * spd_r;
 			
 			uprintf(USART1, "\rAC10000\rDEC50\r");
 			
@@ -73,7 +84,7 @@ void wl_run(void)
 			printf("\t3:%d\n", arg_speeds[3]);
 			#endif
 			
-			delay_ms(30);
+			delay_ms(100);
 		} else {
 			#ifdef DEBUG_WL
 			printf("wl_x= %f\twl_y= %f\n", wl_x, wl_y);

@@ -186,7 +186,7 @@ void USART2_IRQHandler(void)
 	{
 		data = USART_ReceiveData(USART2);
 		
-		in_char_queue(&cmd_queue, data);
+		// in_char_queue(&cmd_queue, data);
 	}
 }
 
@@ -199,6 +199,8 @@ void USART3_IRQHandler(void)
 		data = USART_ReceiveData(USART3);
 		
 		in_char_queue(&cmd_queue, data);
+		
+		// USART_SendData(UART5, data);
 	}
 }
 

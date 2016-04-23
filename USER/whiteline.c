@@ -6,10 +6,9 @@
 #include "whiteline.h"
 
 #define WL_X_MAX 180
-#define WL_X_ERR 10
-#define WL_ERR_SPD 100
 #define WL_MAX_SPD 1000
 #define WL_RUN_SPD 800
+#define WL_ROTATE_SPD 800
 
 float wl_x = -1;
 float wl_y = -1;
@@ -21,14 +20,7 @@ void set_wl_value(float x, float y)
 }
 
 void wl_run(void)
-{
-	/*
-	arg_speeds[0] = -VECT_W0 * WL_RUN_SPD;
-	arg_speeds[1] = -VECT_W1 * WL_RUN_SPD;
-	arg_speeds[2] = VECT_W2 * WL_RUN_SPD;
-	arg_speeds[3] = VECT_W3 * WL_RUN_SPD;
-	*/
-	
+{	
 	pid_t pr;
 	pr.kp = 0.01f;
 	pr.kd = 0;
@@ -45,7 +37,7 @@ void wl_run(void)
 			printf("prout:%f\n", prout);
 			#endif
 			
-			float spd_r = prout * WL_RUN_SPD;
+			float spd_r = prout * WL_ROTATE_SPD;
 
 			arg_speeds[0] = VECT_W0 * spd_r;
 			arg_speeds[1] = VECT_W1 * spd_r;
@@ -66,6 +58,11 @@ void wl_run(void)
 					}
 				}
 			}
+			
+			arg_speeds[0] += VECT_W0 * WL_RUN_SPD;
+			arg_speeds[1] += VECT_W1 * WL_RUN_SPD;
+			arg_speeds[2] += VECT_W2 * WL_RUN_SPD;
+			arg_speeds[3] += VECT_W3 * WL_RUN_SPD;
 
 			uprintf(USART1,\
 				"\r0V%d\r1V%d\r2V%d\r5V%d\r",\

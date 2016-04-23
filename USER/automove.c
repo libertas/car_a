@@ -196,8 +196,8 @@ void tim10_config(void)
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM10, ENABLE);
 	
-	TIM_TimeBaseInitStructure.TIM_Period = 10000 - 1;
-	TIM_TimeBaseInitStructure.TIM_Prescaler = 1680 - 1;
+	TIM_TimeBaseInitStructure.TIM_Period = 1000 - 1;
+	TIM_TimeBaseInitStructure.TIM_Prescaler = 168 - 1;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	

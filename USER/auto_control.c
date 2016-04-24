@@ -26,8 +26,23 @@ struct coordinate_t {
 void start_fan_1(void)
 {
 	start_fan();
+	
 	delay_ms(2000);
+	
+	automove_flag = false;
+	wl_run();
+	automove_flag = true;
+	
+	set_auto_dest(get_gps_x(), get_gps_y(), get_gps_rad());
+	while(!near_auto_dest());
+	
+	set_auto_dest(get_gps_x(), get_gps_y() - 0.2f, - PI - 0.2f);
+	while(!near_auto_dest());
+	
+	set_auto_dest(7.0f, get_gps_y()- 0.2f, - PI - 0.25f);
+	while(!near_auto_dest());
 }
+
 void fan_up_1(void)
 {
 	fan_up_auto(0.2f);
@@ -59,12 +74,11 @@ void roll_fan_1(void)
 void line_1(void)
 {
 	automove_disable();
-	automove_flag = false;
-	wl_run();
 }
 
 struct coordinate_t coord[] = {
 	{2812.9, 0, 0, start_fan_1},\
+	/*
 	{2812.9, 1072.85, PI/12, fan_up_1},\
 	{2550.44, 2133.29, PI/6},\
 	{2130.4, 2860.83, PI/4, fan_up_2},\
@@ -72,6 +86,7 @@ struct coordinate_t coord[] = {
 	{800, 5090.82, PI/12, fan_up_3},\
 	{700, 6734.66, 0, roll_fan_1},\
 	{700, 7000, 0, line_1},\
+	*/
 	{0, 0, 0}
 };
 

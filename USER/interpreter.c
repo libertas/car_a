@@ -416,7 +416,7 @@ int run_cmd(void)
 int check_cmd(void)
 {
 	uint32_t fr;
-	uint8_t data_len, cmd, tmp;
+	uint8_t data_len, cmd;
 	uint8_t check_sum = 0;
 	uint16_t i;
 	

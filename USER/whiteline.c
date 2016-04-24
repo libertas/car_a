@@ -19,7 +19,7 @@ void set_wl_value(float x, float y)
 	wl_y = y;
 }
 
-void wl_run(void)
+int wl_run(void)
 {	
 	pid_t pr;
 	pr.kp = 0.01f;
@@ -29,7 +29,11 @@ void wl_run(void)
 
 	while(1) {
 		if(0 < wl_x && 0 < wl_y) {
-			pr.set_value = 10;
+			if(get_gps_y() > 7.0f) {
+				pr.set_value = -20;
+			} else {
+				pr.set_value = 10;
+			}
 			pr.actual_value = wl_x - WL_X_MAX / 2;
 			prout = pid_realize(&pr);
 			
@@ -88,6 +92,11 @@ void wl_run(void)
 			#endif
 			
 			stop();
+			return 0;
+		}
+		
+		if(get_gps_rad() < -PI / 2) {
+			return 0;
 		}
 	}
 }

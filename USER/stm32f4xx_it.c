@@ -290,15 +290,13 @@ void TIM1_UP_TIM10_IRQHandler(void)
 {
 	static uint8_t t;
 	if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
-		if(automove_flag) {
-			t++;
-			if(t > 100) {
-				automove_daemon();
-				t = 0;
-			}
-		} else {
-			check_cmd();
+		t++;
+		if(t > 100) {
+			automove_daemon();
+			t = 0;
 		}
+
+		check_cmd();
 		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
 	}
 }

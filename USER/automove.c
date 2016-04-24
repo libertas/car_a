@@ -163,11 +163,13 @@ void automove_daemon(void)
 	gps_y += dy * cosf(rad) + dx * sinf(rad);
 	gps_rad = rad;
 
-	auto_clr_spd();
-	auto_rotate(gps_rad, gps_dest_rad);
-	auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
+	if(automove_flag) {
+		auto_clr_spd();
+		auto_rotate(gps_rad, gps_dest_rad);
+		auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
 
-	auto_send();
+		auto_send();
+	}
 	
 	#ifdef DEBUG_AUTO
 	printf("%f %f\t%f %f\t%f %f\n\n", gps_x, gps_dest_x, gps_y, gps_dest_y, gps_rad, gps_dest_rad);

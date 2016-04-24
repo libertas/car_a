@@ -81,7 +81,7 @@ void wl_run(void)
 			printf("\t3:%d\n", arg_speeds[3]);
 			#endif
 			
-			delay_ms(100);
+			delay_ms(30);
 		} else {
 			#ifdef DEBUG_WL
 			printf("wl_x= %f\twl_y= %f\n", wl_x, wl_y);

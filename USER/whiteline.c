@@ -6,9 +6,9 @@
 #include "whiteline.h"
 
 #define WL_X_MAX 180
-#define WL_MAX_SPD 1000
-#define WL_RUN_SPD 800
-#define WL_ROTATE_SPD 800
+#define WL_MAX_SPD 3000
+#define WL_RUN_SPD 2000
+#define WL_ROTATE_SPD 1000
 
 float wl_x = -1;
 float wl_y = -1;
@@ -29,7 +29,7 @@ void wl_run(void)
 
 	while(1) {
 		if(0 < wl_x && 0 < wl_y) {
-			pr.set_value = 0;
+			pr.set_value = 10;
 			pr.actual_value = wl_x - WL_X_MAX / 2;
 			prout = pid_realize(&pr);
 			

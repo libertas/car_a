@@ -95,7 +95,7 @@ int wl_run(void)
 			return 0;
 		}
 		
-		if(get_gps_rad() < -PI / 2) {
+		if(get_gps_rad() < -PI / 2 && wl_y < 50) {
 			return 0;
 		}
 	}

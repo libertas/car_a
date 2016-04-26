@@ -12,10 +12,32 @@
 
 uint8_t fan_status = 0;
 uint8_t fan_up_flag = 0;
-float fan_height = 0;
-float fan_up_length = 0;
-pid_t fp;
+float fan_distance = 0;//（要走的）距离
+float fan_position = 0;//（现在的）位置
 
+void tim14_config(void)
+{
+	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
+	NVIC_InitTypeDef NVIC_InitStructure;
+	
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM14, ENABLE);
+	
+	TIM_TimeBaseInitStructure.TIM_Period = 1000 - 1;
+	TIM_TimeBaseInitStructure.TIM_Prescaler = 168 - 1;
+	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	
+	TIM_TimeBaseInit(TIM14, &TIM_TimeBaseInitStructure);
+	
+	TIM_ITConfig(TIM14, TIM_IT_Update, ENABLE);
+	TIM_Cmd(TIM14, ENABLE);
+
+	NVIC_InitStructure.NVIC_IRQChannel = TIM8_TRG_COM_TIM14_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+}
 
 void start_fan(void)
 {
@@ -99,16 +121,12 @@ void stop_fan_up_down(void)
 	brake(0);
 }
 
-void fan_up_auto(float pos)
+void fan_up_auto(float dis)
 {
+	tim14_config();
 	fan_up_flag = 1;
-	fan_height = get_pos_fan();
-	fan_up_length = pos;
-	fp.kp = 20;
-	fp.ki = 0;
-	fp.kd = 0;
-	pid_config(&fp);
-	fp.set_value = fan_height + pos;
+	fan_position = get_pos_fan();
+	fan_distance = dis;
 }
 
 void fan_up_stop_auto(void)

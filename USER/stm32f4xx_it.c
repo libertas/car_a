@@ -290,29 +290,26 @@ void TIM1_UP_TIM10_IRQHandler(void)
 
 
 /*
-Used for the control of the wheels
+	Used for the fan_up
 */
 #include "fan.h"
 #include "encoder.h"
 void TIM8_TRG_COM_TIM14_IRQHandler(void)
 {
-	static uint16_t count0 = 0;
-	const uint16_t count_num = 500;
 	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
-		TIM_ClearITPendingBit(TIM14, TIM_IT_Update);
-		if(count0 <= count_num / 2) {
-			if(0 == count0 % count_num / 10) {
+		
+		static uint16_t count0 = 0;
+		count0++;
+			if(30 < count0) {
+				count0 = 0;
 				if(1 == fan_up_flag) {
-					if(((get_pos_fan() - fan_height) > (fan_up_length + FAN_THOLD)) || ((get_pos_fan() - fan_height) < (fan_up_length - FAN_THOLD)))
-						((get_pos_fan() - fan_height) < fan_up_length) ? fan_up(10) : fan_down(10);
+					if(get_pos_fan() < (fan_position + fan_distance - 5 * FAN_THOLD))
+						fan_up(10);
+					else if(get_pos_fan() < fan_position + fan_distance - 2 * FAN_THOLD)
+						fan_up(5);
 					else stop_fan_up_down();
 				}
 			}
-		}
-		if(count0 > count_num / 2)
-			stop_fan_up_down();
-		count0++;
-		count0 %= count_num;
 		TIM_ClearITPendingBit(TIM14, TIM_IT_Update);
 	}
 }

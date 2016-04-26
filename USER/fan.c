@@ -11,9 +11,8 @@
 
 uint8_t fan_status = 0;
 uint8_t fan_up_flag = 0;
-float fan_height = 0;
-float fan_up_length = 0;
-pid_t fp;
+float fan_distance = 0;//（要走的）距离
+float fan_position = 0;//位置
 
 
 void start_fan(void)
@@ -98,16 +97,11 @@ void stop_fan_up_down(void)
 	brake(0);
 }
 
-void fan_up_auto(float pos)
+void fan_up_auto(float dis)
 {
 	fan_up_flag = 1;
-	fan_height = get_pos_fan();
-	fan_up_length = pos;
-	fp.kp = 20;
-	fp.ki = 0;
-	fp.kd = 0;
-	pid_config(&fp);
-	fp.set_value = fan_height + pos;
+	fan_position = get_pos_fan();
+	fan_distance = dis;
 }
 
 void fan_up_stop_auto(void)

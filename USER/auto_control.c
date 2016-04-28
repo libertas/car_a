@@ -39,7 +39,7 @@ void start_fan_1(void)
 	set_auto_dest(get_gps_x(), get_gps_y() - 0.2f, - PI - 0.2f);
 	while(!near_auto_dest());
 	
-	set_auto_dest(7.0f, get_gps_y()- 0.2f, - PI - 0.25f);
+	set_auto_dest(get_gps_x() + 0.3f, get_gps_y()- 0.2f, - PI - 0.25f);
 	while(!near_auto_dest());
 }
 

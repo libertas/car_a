@@ -30,9 +30,9 @@ int wl_run(void)
 	while(1) {
 		if(0 < wl_x && 0 < wl_y) {
 			if(get_gps_y() > 7.0f) {
-				pr.set_value = -20;
+				pr.set_value = -10;
 			} else {
-				pr.set_value = 10;
+				pr.set_value = 0;
 			}
 			pr.actual_value = wl_x - WL_X_MAX / 2;
 			prout = pid_realize(&pr);
@@ -48,7 +48,7 @@ int wl_run(void)
 			arg_speeds[2] = -VECT_W2 * spd_r;
 			arg_speeds[3] = -VECT_W3 * spd_r;
 			
-			uprintf(USART1, "\rAC10000\rDEC50\r");
+			uprintf(USART1, "\rAC10000\rDEC500\r");
 			
 
 			for(uint8_t i = 0; i < 4; i++) {
@@ -92,7 +92,7 @@ int wl_run(void)
 			#endif
 			
 			stop();
-			return 0;
+			// return 0;
 		}
 		
 		if(get_gps_rad() < -PI / 2 && wl_y < 50) {

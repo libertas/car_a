@@ -6,12 +6,12 @@
 
 void mag_in(void)
 {
-	set_duty(MAG_IN_CHANNEL, 0.045);
+	set_duty(MAG_IN_CHANNEL, 0.103);
 }
 
 void mag_out(void)
 {
-	set_duty(MAG_IN_CHANNEL, 0.103);
+	set_duty(MAG_IN_CHANNEL, 0.045);
 }
 
 void mag_near(void)

@@ -10,10 +10,8 @@
 
 
 extern uint8_t fan_up_flag;
-extern float fan_height;
-extern float fan_up_length;
-extern pid_t fp;
-
+extern float fan_distance;
+extern float fan_position;
 
 void start_fan(void);
 void stop_fan(void);

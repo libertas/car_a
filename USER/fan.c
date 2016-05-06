@@ -85,10 +85,10 @@ void fan_up(float speed)
 {
 	brake_release(0);
 	if(speed > 10)
-		set_duty(FAN_UPDOWN_CHANNEL, 0.065);
+		set_duty(FAN_UPDOWN_CHANNEL, 0.069);
 	else if(speed < -10)
-		set_duty(FAN_UPDOWN_CHANNEL, 0.077);
-	else set_duty(FAN_UPDOWN_CHANNEL, 0.071f - 0.0006f * speed);
+		set_duty(FAN_UPDOWN_CHANNEL, 0.081);
+	else set_duty(FAN_UPDOWN_CHANNEL, 0.075f - 0.0006f * speed);
 }
 
 void fan_up_r(void)
@@ -102,10 +102,10 @@ void fan_down(float speed)
 {
 	brake_release(0);
 	if(speed > 10)
-		set_duty(FAN_UPDOWN_CHANNEL, 0.065);
+		set_duty(FAN_UPDOWN_CHANNEL, 0.069);
 	else if(speed < -10)
-		set_duty(FAN_UPDOWN_CHANNEL, 0.077);
-	else set_duty(FAN_UPDOWN_CHANNEL, 0.071f + 0.0006f * speed);
+		set_duty(FAN_UPDOWN_CHANNEL, 0.081);
+	else set_duty(FAN_UPDOWN_CHANNEL, 0.075f + 0.0006f * speed);
 }
 
 void fan_down_r(void)
@@ -117,7 +117,7 @@ void fan_down_r(void)
 
 void stop_fan_up_down(void)
 {
-	set_duty(FAN_UPDOWN_CHANNEL, 0.071);
+	set_duty(FAN_UPDOWN_CHANNEL, 0.075);
 	brake(0);
 }
 

@@ -11,8 +11,10 @@
 #include "math.h"
 
 
-char cmd_buf[CMD_BUF_LEN] = {0};
-char_queue cmd_queue;
+char handler_buf[CMD_BUF_LEN] = {0};
+char wl_buf[CMD_BUF_LEN] = {0};
+char_queue handler_queue;
+char_queue wl_queue;
 
 /*
 format:
@@ -95,7 +97,7 @@ command list:
 	push_rod(uint8_t dir, uint8_t channel_num)
 		(byte) 0x13 (4-bit) dir (4-bit) num
 */
-int run_cmd(void)
+int run_cmd(char_queue cmd_queue)
 {
 	char cmd;
 	out_char_queue(&cmd_queue, &cmd);
@@ -384,7 +386,7 @@ int run_cmd(void)
 	return 0;
 }
 
-int check_cmd(void)
+int check_cmd_1(char_queue cmd_queue)
 {
 	uint32_t fr;
 	uint8_t data_len, cmd;
@@ -411,7 +413,7 @@ int check_cmd(void)
 				printf("\nrun_cmd()\n");
 				#endif
 				
-				run_cmd();
+				run_cmd(cmd_queue);
 				out_char_queue(&cmd_queue, (char*) &check_sum);  // remove the check_sum byte
 				
 				#ifdef DEBUG_INTPRT
@@ -447,8 +449,17 @@ int check_cmd(void)
 	}
 }
 
+uint8_t check_cmd(void)
+{
+	uint8_t result;
+	result = check_cmd_1(handler_queue) << 8;
+	result |= check_cmd_1(wl_queue);
+	return result;
+}
+
 
 void interpreter_config(void)
 {
-	init_char_queue(&cmd_queue, cmd_buf, CMD_BUF_LEN);
+	init_char_queue(&handler_queue, handler_buf, CMD_BUF_LEN);
+	init_char_queue(&wl_queue, wl_buf, CMD_BUF_LEN);
 }

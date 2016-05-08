@@ -194,7 +194,7 @@ void USART3_IRQHandler(void)
 	{
 		data = USART_ReceiveData(USART3);
 		
-		in_char_queue(&cmd_queue, data);
+		in_char_queue(&wl_queue, data);
 	}
 }
 

@@ -25,6 +25,8 @@
 #include "spi.h"
 #include "suart.h"
 #include "watchdog.h"
+#include "cmd.h"
+#include "maxon.h"
 
 int main(void)
 {
@@ -35,6 +37,8 @@ int main(void)
 	interpreter_config();
 	uart_config(115200);
 	uart1_config(9600);
+	//maxon_config();
+	cmd_init();
 	spi_config();
 	suart_config();
 
@@ -45,7 +49,7 @@ int main(void)
 	pwm_config();
 	 watchdog_config();
 
-	auto_control();
+	//auto_control();
 	
 	printf("\n\nEntering main loop\n\n");
 	while(1) {

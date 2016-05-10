@@ -22,3 +22,9 @@ void maxon_stop(void)
 {
 		uprintf(USART1, "s r0x2f 0\r\n\n");
 }
+
+void maxon_current(int rate, int out)
+{
+		uprintf(USART1, "s r0x6a %d\r\n\n", rate);
+		uprintf(USART1, "s r0x02 %d\r\n\n", out);
+}

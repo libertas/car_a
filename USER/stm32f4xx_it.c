@@ -243,41 +243,41 @@ void UART4_IRQHandler(void)
 	}
 }
 
-void UART5_IRQHandler(void)
-{
-	char data;
-	char tmp;
+//void UART5_IRQHandler(void)
+//{
+//	char data;
+//	char tmp;
 
-	if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET)
-	{
-		data = USART_ReceiveData(UART5);
-		USART_SendData(UART5, data);
+//	if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET)
+//	{
+//		data = USART_ReceiveData(UART5);
+//		USART_SendData(UART5, data);
 
-		#ifdef DEBUG_DB_EXEC
-		#include "database.h"
-		
-		static bool db_exec_start = false;
-		switch(data) {
-			case '\n':
-				if(db_exec_start) {
-					db_exec_start = false;
-					in_char_queue(&db_cmd_queue, data);
-					db_queue_exec();
-				} else {
-					while(-1 != out_char_queue(&db_cmd_queue, &tmp));
-				}
-				break;
-			case '#':
-				db_exec_start = true;
-				break;
-			default:
-				if(db_exec_start)
-					in_char_queue(&db_cmd_queue, data);
-				break;
-		}
-		#endif
-	}
-}
+//		#ifdef DEBUG_DB_EXEC
+//		#include "database.h"
+//		
+//		static bool db_exec_start = false;
+//		switch(data) {
+//			case '\n':
+//				if(db_exec_start) {
+//					db_exec_start = false;
+//					in_char_queue(&db_cmd_queue, data);
+//					db_queue_exec();
+//				} else {
+//					while(-1 != out_char_queue(&db_cmd_queue, &tmp));
+//				}
+//				break;
+//			case '#':
+//				db_exec_start = true;
+//				break;
+//			default:
+//				if(db_exec_start)
+//					in_char_queue(&db_cmd_queue, data);
+//				break;
+//		}
+//		#endif
+//	}
+//}
 
 #include "automove.h"
 void TIM1_UP_TIM10_IRQHandler(void)

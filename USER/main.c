@@ -39,6 +39,7 @@ int main(void)
 	uart1_config(9600);
 	//maxon_config();
 	cmd_init();
+	maxon_init();
 	spi_config();
 	suart_config();
 

@@ -6,7 +6,7 @@
 #include "string.h"
 #include "usart.h"
 #include "movement.h"
-
+#include "maxon.h"
 
 
 void cmd_param_func(int argc,char *argv[]){
@@ -51,31 +51,23 @@ void cmd_reboot_func(int argc,char *argv[]){
 
 void cmd_stop_func(int argc,char *argv[]){
 		stop_all();
-		uprintf(USART1, "s r0x2f 0\r\n\n");
+		maxon_stop();
 }
 
 void cmd_maxon_func(int argc,char *argv[]){
 		if(argc < 2){
         uprintf(CMD_USARTx,"param <cmd>");
     }
-		if(strcmp(argv[1], "baud_9600") == 0){
-				uprintf(USART1,"s r0x90 9600\r\n\n");
-				uart1_config(9600);
-		}else if(strcmp(argv[1], "baud_115200") == 0){
-				uprintf(USART1, "s r0x90 115200\r\n\n");
-				uart1_config(115200);
-		}else if(strcmp(argv[1], "up_1") == 0){
-				uprintf(USART1, "s r0x2f 1000000\r\n\n");
-		}else if(strcmp(argv[1], "up_2") == 0){
-				uprintf(USART1, "s r0x2f 1500000\r\n\n");
-		}else if(strcmp(argv[1], "up_3") == 0){
-				uprintf(USART1, "s r0x2f 2000000\r\n\n");
-		}else if(strcmp(argv[1], "down_1") == 0){
-				uprintf(USART1, "s r0x2f -1000000\r\n\n");
-		}else if(strcmp(argv[1], "down_2") == 0){
-				uprintf(USART1, "s r0x2f -1500000\r\n\n");
-		}else if(strcmp(argv[1], "down_3") == 0){
-				uprintf(USART1, "s r0x2f -2000000\r\n\n");
+		if(strcmp(argv[1], "baud") == 0){
+				maxon_baud();
+		}else if(strcmp(argv[1], "up") == 0){
+				maxon_up();
+		}else if(strcmp(argv[1], "down") == 0){
+				maxon_down();
+		}else if(strcmp(argv[1], "current") == 0){
+				maxon_current();
+		}else if(strcmp(argv[1], "config") == 0){
+				maxon_config();
 		}
 }
 

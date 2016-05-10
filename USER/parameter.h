@@ -10,13 +10,14 @@
 #define PARAM_FLASH_ADDR_END 0x080104FC
 
 typedef struct{
-    float group;
-	  float kp;
-		float ki;
-		float kd;
-		float kp_r;
-		float ki_r;
-		float kd_r;
+		float group;
+    float maxon_a_l;
+		float maxon_d_l;
+		float maxon_v;
+		float maxon_c_a;
+		float maxon_c_p;
+		float maxon_c_c;
+		float maxon_b;
 	
 }param_struct;
 

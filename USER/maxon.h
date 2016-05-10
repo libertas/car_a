@@ -6,8 +6,19 @@
 4、maxon_stop目前是发速度为0的方式停止，不是disable
 */
 
+extern int maxon_v_l;
+extern int maxon_a_l;
+extern int maxon_d_l;
+extern int maxon_v;
+extern int maxon_c_p;
+extern int maxon_c_a;
+extern int maxon_c_c;
+extern int maxon_b;
+
 void maxon_config(void);
-void maxon_up(int maxon_v);
-void maxon_down(int maxon_v);
+void maxon_up(void);
+void maxon_down(void);
 void maxon_stop(void);
-void maxon_current(int rate, int out);
+void maxon_current(void);
+void maxon_baud(void);
+void maxon_init(void);

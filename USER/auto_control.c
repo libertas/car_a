@@ -10,6 +10,7 @@
 #include "mti.h"
 #include "push_rod.h"
 #include "pwm.h"
+#include "whiteline.h"
 
 bool auto_flag = false;
 float old_pos_x = 0, old_pos_y = 0, old_rad = 0;
@@ -25,61 +26,23 @@ struct coordinate_t {
 void start_fan_1(void)
 {
 	start_fan();
+	
 	delay_ms(2000);
-}
-void fan_up_1(void)
-{
-	fan_up_auto(0.2f);
-}
-
-void fan_up_2(void)
-{
-	fan_up_auto(0.2f);
-}
-
-void fan_up_3(void)
-{
-	fan_up_auto(0.1f);
-}
-
-void roll_fan_1(void)
-{
-	stop_fan();
-	set_duty(2, 0.05f);
-	fan_up_stop_auto();
-	delay_ms(300);
-	set_duty(FAN_CHANNEL, 0.06);
-	delay_ms(1700);
-	set_duty(FAN_CHANNEL, 0.065);
-	delay_ms(1000);
-	stop_fan();
-}
-
-void fan_down_1(void)
-{
-	fan_down(10);
+	
+	automove_flag = false;
+	wl_run();
+	automove_flag = true;
 }
 
 struct coordinate_t coord[] = {
 	{2812.9, 0, 0, start_fan_1},\
-	{2812.9, 1072.85, PI/12, fan_up_1},\
-	{2550.44, 2133.29, PI/6},\
-	{2130.4, 2860.83, PI/4, fan_up_2},\
-	{1361.84, 3647.91, PI/6},\
-	{800, 5090.82, PI/12, fan_up_3},\
-	{700, 6734.66, 0, roll_fan_1},\
-	{700, 9500, 0, fan_down_1},\
-	{1500, 10500, PI},\
-	{4960, 11800, PI},\
-	{5900, 11800, PI - 0.2f},\
-	{6500, 11800, PI - 0.4f},\
-	{7100, 11800, PI - 0.6f},\
 	{0, 0, 0}
 };
 
 void auto_start(void)
 {
 	automove_config();
+	automove_flag = true;
 
 	printf("\nAuto controlling.\n");
 	auto_flag = true;

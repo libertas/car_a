@@ -10,6 +10,9 @@
 #include "mti.h"
 #include "pid.h"
 
+
+bool automove_flag = false;
+
 #ifdef USE_FOUR_WHEEL
 
 void auto_clr_spd(void)
@@ -160,11 +163,13 @@ void automove_daemon(void)
 	gps_y += dy * cosf(rad) + dx * sinf(rad);
 	gps_rad = rad;
 
-	auto_clr_spd();
-	auto_rotate(gps_rad, gps_dest_rad);
-	auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
+	if(automove_flag) {
+		auto_clr_spd();
+		auto_rotate(gps_rad, gps_dest_rad);
+		auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
 
-	auto_send();
+		auto_send();
+	}
 	
 	#ifdef DEBUG_AUTO
 	printf("%f %f\t%f %f\t%f %f\n\n", gps_x, gps_dest_x, gps_y, gps_dest_y, gps_rad, gps_dest_rad);
@@ -193,8 +198,8 @@ void tim10_config(void)
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM10, ENABLE);
 	
-	TIM_TimeBaseInitStructure.TIM_Period = 10000 - 1;
-	TIM_TimeBaseInitStructure.TIM_Prescaler = 1680 - 1;
+	TIM_TimeBaseInitStructure.TIM_Period = 1000 - 1;
+	TIM_TimeBaseInitStructure.TIM_Prescaler = 168 - 1;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	
@@ -213,4 +218,9 @@ void tim10_config(void)
 void automove_config(void)
 {
 	tim10_config();
+}
+
+void automove_disable(void)
+{
+	automove_flag = false;
 }

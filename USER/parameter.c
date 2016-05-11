@@ -23,6 +23,9 @@ void param_update_all(void){
 		PARAM_UPDATE(g_param_list,control_param_array,maxon_c_p);
 		PARAM_UPDATE(g_param_list,control_param_array,maxon_c_c);
 		PARAM_UPDATE(g_param_list,control_param_array,maxon_b);
+		PARAM_UPDATE(g_param_list,control_param_array,maxon_c_rate);
+		PARAM_UPDATE(g_param_list,control_param_array,maxon_c_out);
+		PARAM_UPDATE(g_param_list,control_param_array,maxon_faststop);
 }
 
 void param_init(param_struct **param){

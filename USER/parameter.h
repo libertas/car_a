@@ -5,9 +5,9 @@
 //或者一次改变的参数不多，则可以单独调用宏PARAM_UPDATE()来更新成员的数据
 
 
-#define PARAM_FLASH_SETOR ((uint16_t)0x0020) //  扇区4
-#define PARAM_FLASH_ADDR_START 0x08010000
-#define PARAM_FLASH_ADDR_END 0x080104FC
+#define PARAM_FLASH_SETOR ((uint16_t)0x0030) //  扇区6
+#define PARAM_FLASH_ADDR_START 0x08040000
+#define PARAM_FLASH_ADDR_END 0x080404FC
 
 typedef struct{
 		float group;
@@ -18,7 +18,9 @@ typedef struct{
 		float maxon_c_p;
 		float maxon_c_c;
 		float maxon_b;
-	
+		float maxon_c_rate;
+		float maxon_c_out;
+		float maxon_faststop;
 }param_struct;
 
 extern link_list g_param_list;    //参数链表

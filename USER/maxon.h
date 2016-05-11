@@ -14,6 +14,10 @@ extern int maxon_c_p;
 extern int maxon_c_a;
 extern int maxon_c_c;
 extern int maxon_b;
+extern int maxon_c_rate;
+extern int maxon_c_out;
+extern int maxon_g;
+extern int maxon_faststop;
 
 void maxon_config(void);
 void maxon_up(void);
@@ -22,3 +26,5 @@ void maxon_stop(void);
 void maxon_current(void);
 void maxon_baud(void);
 void maxon_init(void);
+void maxon_current_move(void);
+void maxon_ask(void);

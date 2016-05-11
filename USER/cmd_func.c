@@ -68,6 +68,10 @@ void cmd_maxon_func(int argc,char *argv[]){
 				maxon_current();
 		}else if(strcmp(argv[1], "config") == 0){
 				maxon_config();
+		}else if(strcmp(argv[1], "cmove") == 0){
+				maxon_current_move();
+		}else if(strcmp(argv[1], "ask") == 0){
+				uprintf(USART1, "g r0x%c%c\r\n\n", argv[2], argv[3]);
 		}
 }
 

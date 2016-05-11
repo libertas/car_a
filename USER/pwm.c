@@ -35,7 +35,7 @@ GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {\
 	0 fan 涵道风扇
 	1 fan_updown 电机
 	2 fan_roll	not_using
-	3 mag_in/out 舵机	0.045(start) - 0.103(end)
+	3 mag_in/out 舵机	0.075(stop) 0.04(push) - 0.1(pull)
 	4 mag_near/far not_using
 */
 uint16_t PWMPins[PWM_CHANNEL_NUM] = {\
@@ -111,7 +111,7 @@ void pwm_config(void)
 #ifdef CAR_A_2
 void pwm_config(void)
 {
-	float duties[PWM_CHANNEL_NUM] = {0.05, 0.075, 0.12, 0.045, 0.09};
+	float duties[PWM_CHANNEL_NUM] = {0.05, 0.075, 0.12, 0.075, 0.09};
 	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 50, 50, 50, 50};
 	
 	uint8_t i;

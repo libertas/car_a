@@ -2,6 +2,7 @@
 
 #include "auto_control.h"
 #include "brake.h"
+#include "car.h"
 #include "clock.h"
 #include "debug.h"
 #include "encoder.h"
@@ -81,6 +82,7 @@ void fan_roll_r(int8_t dir)
 	set_duty(FAN_ROLL_CHANNEL, 0.06F + dir * 0.06F);
 }
 
+#ifdef CAR_A_1
 void fan_up(float speed)
 {
 	brake_release(0);
@@ -89,13 +91,6 @@ void fan_up(float speed)
 	else if(speed < -10)
 		set_duty(FAN_UPDOWN_CHANNEL, 0.081);
 	else set_duty(FAN_UPDOWN_CHANNEL, 0.075f - 0.0006f * speed);
-}
-
-void fan_up_r(void)
-{
-	fan_up(10);
-	delay_ms(50);
-	stop_fan_up_down();
 }
 
 void fan_down(float speed)
@@ -108,17 +103,81 @@ void fan_down(float speed)
 	else set_duty(FAN_UPDOWN_CHANNEL, 0.075f + 0.0006f * speed);
 }
 
+void stop_fan_up_down(void)
+{
+	set_duty(FAN_UPDOWN_CHANNEL, 0.075);
+	brake(0);
+}
+#endif
+
+
+#ifdef CAR_A_2
+/*
+	fan_up control gpio
+	pf1		pf2
+	1		0	up
+	0		1	down
+	0		0	stop
+*/
+void fan_up(float speed)
+{
+	brake_release(0);
+	if(speed > 0) {
+		GPIO_WriteBit(GPIOF, GPIO_Pin_1, Bit_SET);
+		GPIO_WriteBit(GPIOF, GPIO_Pin_2, Bit_RESET);
+		if(speed > 10)
+			set_duty(FAN_UPDOWN_CHANNEL, 0.1);
+		else set_duty(FAN_UPDOWN_CHANNEL, speed / 100);
+	}
+	else {
+		GPIO_WriteBit(GPIOF, GPIO_Pin_1, Bit_RESET);
+		GPIO_WriteBit(GPIOF, GPIO_Pin_2, Bit_SET);
+		if(speed < -10)
+			set_duty(FAN_UPDOWN_CHANNEL, 0.1);
+		else set_duty(FAN_UPDOWN_CHANNEL, speed / 100);
+	}
+}
+
+void fan_down(float speed)
+{
+	brake_release(0);
+	if(speed > 0) {
+		GPIO_WriteBit(GPIOF, GPIO_Pin_1, Bit_RESET);
+		GPIO_WriteBit(GPIOF, GPIO_Pin_2, Bit_SET);
+		if(speed > 10)
+			set_duty(FAN_UPDOWN_CHANNEL, 0.1);
+		else set_duty(FAN_UPDOWN_CHANNEL, speed / 100);
+	}
+	else {
+		GPIO_WriteBit(GPIOF, GPIO_Pin_1, Bit_SET);
+		GPIO_WriteBit(GPIOF, GPIO_Pin_2, Bit_RESET);
+		if(speed < -10)
+			set_duty(FAN_UPDOWN_CHANNEL, 0.1);
+		else set_duty(FAN_UPDOWN_CHANNEL, speed / 100);
+	}
+}
+
+void stop_fan_up_down(void)
+{
+	GPIO_WriteBit(GPIOF, GPIO_Pin_1, Bit_RESET);
+	GPIO_WriteBit(GPIOF, GPIO_Pin_2, Bit_RESET);
+	set_duty(FAN_UPDOWN_CHANNEL, 0);
+	brake(0);
+}
+#endif
+
+void fan_up_r(void)
+{
+	fan_up(10);
+	delay_ms(50);
+	stop_fan_up_down();
+}
+
 void fan_down_r(void)
 {
 	fan_down(10);
 	delay_ms(50);
 	stop_fan_up_down();
-}
-
-void stop_fan_up_down(void)
-{
-	set_duty(FAN_UPDOWN_CHANNEL, 0.075);
-	brake(0);
 }
 
 void fan_up_auto(float dis)

@@ -92,7 +92,7 @@ int wl_run(void)
 			#endif
 			
 			stop();
-			return 0;
+			// return 0;
 		}
 	}
 }

@@ -36,7 +36,7 @@ void start_fan_1(void)
 
 struct coordinate_t coord[] = {
 	{2812.9, 0, 0, start_fan_1},\
-	{0, 0, 0}
+	{0, 0, 0, 0}
 };
 
 void auto_start(void)

@@ -9,6 +9,7 @@
 #include "movement.h"
 #include "push_rod.h"
 #include "math.h"
+#include "whiteline.h"
 
 
 char handler_buf[CMD_BUF_LEN] = {0};
@@ -107,6 +108,7 @@ int run_cmd(char_queue cmd_queue)
 	uint8_t buf = 0, buf1 = 0;
 	uint16_t dbuf = 0;
 	uint32_t qbuf = 0;
+	float flbuf, flbuf1;
 
 	float x, y, rad;
 
@@ -118,6 +120,30 @@ int run_cmd(char_queue cmd_queue)
 			printf("\nUnknown command:%x\n", cmd);
 			#endif
 
+			break;
+		
+		case 0x80:
+
+			qbuf = 0;
+			for(i = 0; i < 4; i++) {
+				out_char_queue(&cmd_queue, (char*) &buf);
+				qbuf |= buf << i * 8;
+			}
+			memcpy(&flbuf, &qbuf, 4);
+
+			qbuf = 0;
+			for(i = 0; i < 4; i++) {
+				out_char_queue(&cmd_queue, (char*) &buf);
+				qbuf |= buf << i * 8;
+			}
+			memcpy(&flbuf1, &qbuf, 4);
+
+			set_wl_value(flbuf, flbuf1);
+
+			#ifdef DEBUG_INTPRT
+			#include "clock.h"
+			printf("wl:%f\t%f\n", flbuf, flbuf1);
+			#endif
 			break;
 		
 		case 0x14:
@@ -397,7 +423,7 @@ int check_cmd_1(char_queue cmd_queue)
 		fr = (cmd_queue.front + 1) % cmd_queue.max_size;
 		cmd = cmd_queue.data[fr];
 		data_len = (cmd >> 4);
-		cmd &= 0x0f;
+		cmd &= 0xff;
 		
 		#ifdef DEBUG_INTPRT
 		printf("\ndata-len:%x\ncmd:0x%x\n", data_len, cmd);

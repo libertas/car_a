@@ -31,7 +31,7 @@ void start_fan_1(void)
 	
 	automove_flag = false;
 	wl_run();
-	automove_flag = true;
+	// automove_flag = true;
 }
 
 struct coordinate_t coord[] = {

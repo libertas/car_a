@@ -133,11 +133,14 @@ bool near_auto_dest(void)
 
 void automove_daemon(void)
 {
+	static uint8_t t;
 	static float old_x = 0, old_y = 0;
 	float dx, dy;
 	float x, y, rad;
 	float tmp;
-
+	
+	t++;
+	
 	rad = get_mti_value();
 
 	// theoretical value
@@ -163,7 +166,7 @@ void automove_daemon(void)
 	gps_y += dy * cosf(rad) + dx * sinf(rad);
 	gps_rad = rad;
 
-	if(automove_flag) {
+	if(automove_flag && t > 100) {
 		auto_clr_spd();
 		auto_rotate(gps_rad, gps_dest_rad);
 		auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);

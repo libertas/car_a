@@ -25,6 +25,7 @@
 #include "spi.h"
 #include "suart.h"
 #include "watchdog.h"
+#include "whiteline.h"
 
 int main(void)
 {
@@ -44,10 +45,11 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 
-	auto_control();
+	//auto_control();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
+		//printf("%f\t%f\n", wl_x, wl_y);
 		check_cmd();
 	}
 

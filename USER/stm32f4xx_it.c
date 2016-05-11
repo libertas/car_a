@@ -282,8 +282,16 @@ void UART5_IRQHandler(void)
 #include "automove.h"
 void TIM1_UP_TIM10_IRQHandler(void)
 {
+	static uint8_t t;
 	if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
-		automove_daemon();
+		t++;
+ 		if(t > 100) {
+ 			automove_daemon();
+ 			t = 0;
+ 		}
+
+ 		check_cmd();
+
 		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
 	}
 }

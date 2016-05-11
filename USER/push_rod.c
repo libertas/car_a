@@ -21,6 +21,7 @@ GPIO_TypeDef *PUSHPorts[2 * PUSH_ROD_CHANNEL_NUM] = {\
 
 
 #ifdef CAR_A_2
+//ËÄ¸öÆø¸×
 uint16_t PUSHPins[2 * PUSH_ROD_CHANNEL_NUM] = {\
 	GPIO_Pin_11, GPIO_Pin_13,\
 	GPIO_Pin_14, GPIO_Pin_15\

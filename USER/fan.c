@@ -113,6 +113,7 @@ void stop_fan_up_down(void)
 
 #ifdef CAR_A_2
 /*
+	*gpio_config in pwm_config
 	fan_up control gpio
 	pa2		pe14
 	1		0	up

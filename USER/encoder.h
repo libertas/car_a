@@ -1,5 +1,7 @@
 #include <stdint.h>
 
+#include "car.h"
+
 
 #define ENCODER_CHANNEL_NUM 5
 
@@ -9,10 +11,19 @@
 #define VECT_EMAGNET (+1)	// encoder for the up and down movements of the magnet at tim1
 #define VECT_ETIM8 (+1)	// encoder for the tim8
 
+#ifdef CAR_A_1
 #define EX_X 0.21f
 #define EX_Y 0.065f
 #define EY_X 0.21f
 #define EY_Y -0.065f
+#endif
+
+#ifdef CAR_A_2
+#define EX_X 0.0435f
+#define EX_Y -0.1655f
+#define EY_X -0.06f
+#define EY_Y -0.1.675f
+#endif
 
 
 extern int32_t g_rotary_x;

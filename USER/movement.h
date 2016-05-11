@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include "car.h"
 #include "usart.h"
 
 /*
@@ -44,8 +45,17 @@ void t_stop(void);
 #ifdef USE_FOUR_WHEEL
 
 #define DEFAULT_ARG_SPEED 4000
+
+#ifdef CAR_A_1
 #define CAR_X_LENGTH 500
 #define CAR_Y_LENGTH 650
+#endif
+
+#ifdef CAR_A_2
+#define CAR_X_LENGTH 610
+#define CAR_Y_LENGTH 610
+#endif
+
 #define VECT_W0 (-1)
 #define VECT_W1 (-1)
 #define VECT_W2 (+1)

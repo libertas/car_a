@@ -5,8 +5,8 @@
 #include "pid.h"
 #include "whiteline.h"
 
-#define WL_X_MAX 180
-#define WL_MAX_SPD 3000
+#define WL_X_MAX 160
+#define WL_MAX_SPD 2000
 #define WL_RUN_SPD 2000
 #define WL_ROTATE_SPD 1000
 
@@ -30,9 +30,9 @@ int wl_run(void)
 	while(1) {
 		if(0 < wl_x && 0 < wl_y) {
 			if(get_gps_y() > 7.0f) {
-				pr.set_value = -10;
+				pr.set_value = -20;
 			} else {
-				pr.set_value = 0;
+				pr.set_value = 20;
 			}
 			pr.actual_value = wl_x - WL_X_MAX / 2;
 			prout = pid_realize(&pr);
@@ -92,10 +92,6 @@ int wl_run(void)
 			#endif
 			
 			stop();
-			// return 0;
-		}
-		
-		if(get_gps_rad() < -PI / 2 && wl_y < 50) {
 			return 0;
 		}
 	}

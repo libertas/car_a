@@ -56,17 +56,9 @@ void push_rod_config(void)
 		GPIO_Init(PUSHPorts[i], &GPIO_InitStructure);
 	}
 
-	#ifdef CAR_A_1
 	for(uint8_t i = 0; i < 2* PUSH_ROD_CHANNEL_NUM; i++) {
 		GPIO_WriteBit(PUSHPorts[i], PUSHPins[i], Bit_RESET);
 	}
-	#endif
-
-	#ifdef CAR_A_2
-	for(uint8_t i = 0; i < 2* PUSH_ROD_CHANNEL_NUM; i++) {
-		GPIO_WriteBit(PUSHPorts[i], PUSHPins[i], Bit_RESET);
-	}
-	#endif
 }
 
 #ifdef CAR_A_1

@@ -1,5 +1,6 @@
 #include <stm32f4xx_gpio.h>
 
+#include "car.h"
 #include "clock.h"
 #include "magnet.h"
 #include "pwm.h"

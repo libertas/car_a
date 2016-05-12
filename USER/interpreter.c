@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "climb.h"
 #include "debug.h"
 #include "fan.h"
 #include "interpreter.h"
@@ -260,7 +261,8 @@ int run_cmd(void)
 			printf("\ncmd\t0x02\n");
 			#endif
 		
-			move_up();
+			//move_up();
+			climb_up();
 			break;
 		case 0x09:
 			
@@ -268,7 +270,8 @@ int run_cmd(void)
 			printf("\ncmd\t0x09\n");
 			#endif
 		
-			move_down();
+			//move_down();
+			climb_down();
 			break;
 		case 0x03:
 			

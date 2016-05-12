@@ -8,6 +8,7 @@
 #include "fan.h"
 #include "movement.h"
 #include "pwm.h"
+#include "push_rod.h"
 #include "utils.h"
 
 uint8_t fan_status = 0;
@@ -79,7 +80,13 @@ void fan_roll(float rad)
 
 void fan_roll_r(int8_t dir)
 {
+	#ifdef CAR_A_1
 	set_duty(FAN_ROLL_CHANNEL, 0.13F + dir * 0.08F);
+	#endif
+	
+	#ifdef CAR_A_2
+	push_rod_c(dir, 0);
+	#endif
 }
 
 
@@ -114,7 +121,7 @@ void stop_fan_up_down(void)
 
 #ifdef CAR_A_2
 /*
-	*gpio_config in pwm_config
+	*fan_up gpio_config in pwm_config
 	fan_up control gpio
 	pa2		pe14
 	1		0	up

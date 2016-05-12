@@ -28,11 +28,13 @@ int wl_run(void)
 	float prout;
 
 	while(1) {
-		if(0 < wl_x && 0 < wl_y) {
-			if(get_gps_y() > 7.0f) {
-				pr.set_value = -20;
+		if(0 < wl_x && 0 <= wl_y) {
+			if(get_gps_x() > 4.0f) {
+				pr.set_value = 0;
+			} else if(get_gps_y() > 7.0f) {
+				pr.set_value = -15;
 			} else {
-				pr.set_value = 20;
+				pr.set_value = 15;
 			}
 			pr.actual_value = wl_x - WL_X_MAX / 2;
 			prout = pid_realize(&pr);

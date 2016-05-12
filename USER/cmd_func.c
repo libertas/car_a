@@ -6,7 +6,7 @@
 #include "string.h"
 #include "usart.h"
 #include "movement.h"
-#include "maxon.h"
+#include "climb.h"
 
 
 void cmd_param_func(int argc,char *argv[]){
@@ -51,27 +51,16 @@ void cmd_reboot_func(int argc,char *argv[]){
 
 void cmd_stop_func(int argc,char *argv[]){
 		stop_all();
-		maxon_stop();
+		climb_stop();
 }
 
-void cmd_maxon_func(int argc,char *argv[]){
+void cmd_climb_func(int argc,char *argv[]){
 		if(argc < 2){
         uprintf(CMD_USARTx,"param <cmd>");
     }
-		if(strcmp(argv[1], "baud") == 0){
-				maxon_baud();
-		}else if(strcmp(argv[1], "up") == 0){
-				maxon_up();
-		}else if(strcmp(argv[1], "down") == 0){
-				maxon_down();
-		}else if(strcmp(argv[1], "current") == 0){
-				maxon_current();
-		}else if(strcmp(argv[1], "config") == 0){
-				maxon_config();
-		}else if(strcmp(argv[1], "cmove") == 0){
-				maxon_current_move();
-		}else if(strcmp(argv[1], "ask") == 0){
-				uprintf(USART1, "g r0x%c%c\r\n\n", argv[2], argv[3]);
+    if(strcmp(argv[1],"up") == 0){
+        climb_up();
+    }else if(strcmp(argv[1],"down") == 0){
+				climb_down();
 		}
 }
-

@@ -26,7 +26,7 @@
 #include "suart.h"
 #include "watchdog.h"
 #include "cmd.h"
-#include "maxon.h"
+#include "climb.h"
 
 int main(void)
 {
@@ -39,7 +39,8 @@ int main(void)
 	uart1_config(9600);
 	//maxon_config();
 	cmd_init();
-	maxon_init();
+	//maxon_init();
+	climb_config();
 	spi_config();
 	suart_config();
 

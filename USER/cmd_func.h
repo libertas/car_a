@@ -8,4 +8,4 @@ void cmd_reboot_func(int argc,char *argv[]);
 void cmd_sensor_func(int argc,char *argv[]);
 void cmd_gyro_func(int argc,char *argv[]);
 void cmd_stop_func(int argc,char *argv[]);
-void cmd_maxon_func(int argc,char *argv[]);
+void cmd_climb_func(int argc,char *argv[]);

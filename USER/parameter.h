@@ -11,16 +11,7 @@
 
 typedef struct{
 		float group;
-    float maxon_a_l;
-		float maxon_d_l;
-		float maxon_v;
-		float maxon_c_a;
-		float maxon_c_p;
-		float maxon_c_c;
-		float maxon_b;
-		float maxon_c_rate;
-		float maxon_c_out;
-		float maxon_faststop;
+		float climb_v;
 }param_struct;
 
 extern link_list g_param_list;    //参数链表

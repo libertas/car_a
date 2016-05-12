@@ -16,16 +16,8 @@ void param_update_all(void){
     float param_value_array[PARAM_GROUP_LENGTH];
 
 		PARAM_UPDATE(g_param_list,control_param_array,group); //这个是组别的参数，不要删
-		PARAM_UPDATE(g_param_list,control_param_array,maxon_a_l);
-		PARAM_UPDATE(g_param_list,control_param_array,maxon_d_l);
-		PARAM_UPDATE(g_param_list,control_param_array,maxon_v);
-		PARAM_UPDATE(g_param_list,control_param_array,maxon_c_a);
-		PARAM_UPDATE(g_param_list,control_param_array,maxon_c_p);
-		PARAM_UPDATE(g_param_list,control_param_array,maxon_c_c);
-		PARAM_UPDATE(g_param_list,control_param_array,maxon_b);
-		PARAM_UPDATE(g_param_list,control_param_array,maxon_c_rate);
-		PARAM_UPDATE(g_param_list,control_param_array,maxon_c_out);
-		PARAM_UPDATE(g_param_list,control_param_array,maxon_faststop);
+		PARAM_UPDATE(g_param_list,control_param_array,climb_v);
+		
 }
 
 void param_init(param_struct **param){

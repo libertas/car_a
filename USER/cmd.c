@@ -16,7 +16,8 @@ static cmd_struct cmd_tbl[] = {
     CMD_ADD("param"," ",cmd_param_func),
     CMD_ADD("reboot"," ",cmd_reboot_func),
 		CMD_ADD("stop"," ",cmd_stop_func),
-		CMD_ADD("maxon"," ",cmd_maxon_func),
+		CMD_ADD("climb"," ",cmd_climb_func),
+	
 };
 
 static char cmd_line[MAX_CMD_LINE_LENGTH + 1];

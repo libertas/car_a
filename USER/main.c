@@ -36,7 +36,7 @@ int main(void)
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	interpreter_config();
 	uart_config(115200);
-	uart1_config(9600);
+	//uart1_config(9600);
 	//maxon_config();
 	cmd_init();
 	//maxon_init();
@@ -56,7 +56,7 @@ int main(void)
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
 		check_cmd();
-	}
+		}
 
 	return 0;
 }

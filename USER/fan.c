@@ -78,6 +78,7 @@ void fan_roll(float rad)
 	#endif
 }
 
+//fan_roll_r(1) at river
 void fan_roll_r(int8_t dir)
 {
 	#ifdef CAR_A_1

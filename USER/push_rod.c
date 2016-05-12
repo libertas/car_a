@@ -21,12 +21,12 @@ GPIO_TypeDef *PUSHPorts[2 * PUSH_ROD_CHANNEL_NUM] = {\
 
 
 #ifdef CAR_A_2
-//ËÄ¸öÆø¸×
+//four gas
 /*
 	0	PG11	FAN_ROLL
-	1	PG13	Ã¨¶ú¶ä
+	1	PG13	cat_ear
 	2	PG14	push_rod
-	3	for ×óÓÒ°ë³¡	not_using
+	3	for left\right	not_using
 */
 uint16_t PUSHPins[2 * PUSH_ROD_CHANNEL_NUM] = {\
 	GPIO_Pin_11, GPIO_Pin_13,\
@@ -38,6 +38,7 @@ GPIO_TypeDef *PUSHPorts[2 * PUSH_ROD_CHANNEL_NUM] = {\
 	GPIOG, GPIOG\
 	};
 #endif
+
 
 void push_rod_config(void)
 {
@@ -54,19 +55,10 @@ void push_rod_config(void)
 		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 		GPIO_Init(PUSHPorts[i], &GPIO_InitStructure);
 	}
-	
-	#ifdef CAR_A_1
-	for(uint8_t i = 0; i < 2* PUSH_ROD_CHANNEL_NUM; i++) {
-		GPIO_WriteBit(PUSHPorts[i], PUSHPins[i], Bit_RESET);
-	}
-	#endif
 
-	#ifdef CAR_A_2
-	//GPIO_WriteBit(PUSHPorts[0], PUSHPins[0], Bit_SET);
 	for(uint8_t i = 0; i < 2* PUSH_ROD_CHANNEL_NUM; i++) {
 		GPIO_WriteBit(PUSHPorts[i], PUSHPins[i], Bit_RESET);
 	}
-	#endif
 }
 
 #ifdef CAR_A_1

@@ -1,6 +1,5 @@
 #include <math.h>
 
-#include "auto_control.h"
 #include "brake.h"
 #include "car.h"
 #include "clock.h"
@@ -9,12 +8,14 @@
 #include "fan.h"
 #include "movement.h"
 #include "pwm.h"
+#include "push_rod.h"
 #include "utils.h"
 
 uint8_t fan_status = 0;
 uint8_t fan_up_flag = 0;
 float fan_distance = 0;//（要走的）距离
 float fan_position = 0;//（现在的）位置
+
 
 void tim14_config(void)
 {
@@ -70,7 +71,7 @@ inline void toggle_fan(void)
 
 void fan_roll(float rad)
 {
-	set_duty(FAN_ROLL_CHANNEL, (float)((float)0.12 - (float)0.05 * rad / ((float)PI / 2)));
+	set_duty(FAN_ROLL_CHANNEL, (float)((float)0.12 - (float)0.06 * rad / ((float)PI / 2)));
 	
 	#ifdef DEBUG
 	printf("\nfan_roll(%f)\n", rad);
@@ -79,8 +80,15 @@ void fan_roll(float rad)
 
 void fan_roll_r(int8_t dir)
 {
-	set_duty(FAN_ROLL_CHANNEL, 0.06F + dir * 0.06F);
+	#ifdef CAR_A_1
+	set_duty(FAN_ROLL_CHANNEL, 0.13F + dir * 0.08F);
+	#endif
+	
+	#ifdef CAR_A_2
+	push_rod_c(dir, 0);
+	#endif
 }
+
 
 #ifdef CAR_A_1
 void fan_up(float speed)
@@ -113,7 +121,7 @@ void stop_fan_up_down(void)
 
 #ifdef CAR_A_2
 /*
-	*gpio_config in pwm_config
+	*fan_up gpio_config in pwm_config
 	fan_up control gpio
 	pa2		pe14
 	1		0	up

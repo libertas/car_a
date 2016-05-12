@@ -1,6 +1,7 @@
 #include <math.h>
 
 #include "brake.h"
+#include "car.h"
 #include "clock.h"
 #include "debug.h"
 #include "encoder.h"
@@ -81,15 +82,91 @@ void fan_roll_r(int8_t dir)
 	set_duty(FAN_ROLL_CHANNEL, 0.13F + dir * 0.08F);
 }
 
+
+#ifdef CAR_A_1
 void fan_up(float speed)
 {
 	brake_release(0);
 	if(speed > 10)
-		set_duty(FAN_UPDOWN_CHANNEL, 0.065);
+		set_duty(FAN_UPDOWN_CHANNEL, 0.069);
 	else if(speed < -10)
-		set_duty(FAN_UPDOWN_CHANNEL, 0.077);
-	else set_duty(FAN_UPDOWN_CHANNEL, 0.071f - 0.0006f * speed);
+		set_duty(FAN_UPDOWN_CHANNEL, 0.081);
+	else set_duty(FAN_UPDOWN_CHANNEL, 0.075f - 0.0006f * speed);
 }
+
+void fan_down(float speed)
+{
+	brake_release(0);
+	if(speed > 10)
+		set_duty(FAN_UPDOWN_CHANNEL, 0.069);
+	else if(speed < -10)
+		set_duty(FAN_UPDOWN_CHANNEL, 0.081);
+	else set_duty(FAN_UPDOWN_CHANNEL, 0.075f + 0.0006f * speed);
+}
+
+void stop_fan_up_down(void)
+{
+	set_duty(FAN_UPDOWN_CHANNEL, 0.075);
+	brake(0);
+}
+#endif
+
+
+#ifdef CAR_A_2
+/*
+	*gpio_config in pwm_config
+	fan_up control gpio
+	pa2		pe14
+	1		0	up
+	0		1	down
+	0		0	stop
+*/
+void fan_up(float speed)
+{
+	brake_release(0);
+	if(speed > 0) {
+		GPIO_WriteBit(GPIOA, GPIO_Pin_2, Bit_SET);
+		GPIO_WriteBit(GPIOE, GPIO_Pin_14, Bit_RESET);
+		if(speed > 10)
+			set_duty(FAN_UPDOWN_CHANNEL, 0.1);
+		else set_duty(FAN_UPDOWN_CHANNEL, speed / 100);
+	}
+	else {
+		GPIO_WriteBit(GPIOA, GPIO_Pin_2, Bit_RESET);
+		GPIO_WriteBit(GPIOE, GPIO_Pin_14, Bit_SET);
+		if(speed < -10)
+			set_duty(FAN_UPDOWN_CHANNEL, 0.1);
+		else set_duty(FAN_UPDOWN_CHANNEL, speed / 100);
+	}
+}
+
+void fan_down(float speed)
+{
+	brake_release(0);
+	if(speed > 0) {
+		GPIO_WriteBit(GPIOA, GPIO_Pin_2, Bit_RESET);
+		GPIO_WriteBit(GPIOE, GPIO_Pin_14, Bit_SET);
+		if(speed > 10)
+			set_duty(FAN_UPDOWN_CHANNEL, 0.1);
+		else set_duty(FAN_UPDOWN_CHANNEL, speed / 100);
+	}
+	else {
+		GPIO_WriteBit(GPIOA, GPIO_Pin_2, Bit_SET);
+		GPIO_WriteBit(GPIOE, GPIO_Pin_14, Bit_RESET);
+		if(speed < -10)
+			set_duty(FAN_UPDOWN_CHANNEL, 0.1);
+		else set_duty(FAN_UPDOWN_CHANNEL, speed / 100);
+	}
+}
+
+void stop_fan_up_down(void)
+{
+	GPIO_WriteBit(GPIOA, GPIO_Pin_2, Bit_RESET);
+	GPIO_WriteBit(GPIOE, GPIO_Pin_14, Bit_RESET);
+	set_duty(FAN_UPDOWN_CHANNEL, 0);
+	brake(0);
+}
+#endif
 
 void fan_up_r(void)
 {
@@ -98,27 +175,11 @@ void fan_up_r(void)
 	stop_fan_up_down();
 }
 
-void fan_down(float speed)
-{
-	brake_release(0);
-	if(speed > 10)
-		set_duty(FAN_UPDOWN_CHANNEL, 0.065);
-	else if(speed < -10)
-		set_duty(FAN_UPDOWN_CHANNEL, 0.077);
-	else set_duty(FAN_UPDOWN_CHANNEL, 0.071f + 0.0006f * speed);
-}
-
 void fan_down_r(void)
 {
 	fan_down(10);
 	delay_ms(50);
 	stop_fan_up_down();
-}
-
-void stop_fan_up_down(void)
-{
-	set_duty(FAN_UPDOWN_CHANNEL, 0.071);
-	brake(0);
 }
 
 void fan_up_auto(float dis)

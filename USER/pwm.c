@@ -4,6 +4,7 @@
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_tim.h"
 
+#include "car.h"
 #include "pwm.h"
 
 #ifndef USE_HPWM
@@ -19,13 +20,31 @@ uint32_t PWMTotal[PWM_CHANNEL_NUM];
 	*无刷0.71stop,0.76/0.65正/反转
 	*舵机0~0.12
 */
+
+#ifdef CAR_A_1
 uint16_t PWMPins[PWM_CHANNEL_NUM] = {\
 	GPIO_Pin_6, GPIO_Pin_5, GPIO_Pin_9,\
 	GPIO_Pin_10, GPIO_Pin_8};
 GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {\
 	GPIOG, GPIOG, GPIOC,\
 	GPIOA, GPIOC};
+#endif
 
+#ifdef CAR_A_2
+/*
+	0 fan 涵道风扇
+	1 fan_updown 电机
+	2 fan_roll	not_using
+	3 mag_in/out 舵机	0.075(stop) 0.04(push) - 0.1(pull)
+	4 mag_near/far not_using
+*/
+uint16_t PWMPins[PWM_CHANNEL_NUM] = {\
+	GPIO_Pin_6, GPIO_Pin_5, GPIO_Pin_9,\
+	GPIO_Pin_10, GPIO_Pin_8};
+GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {\
+	GPIOG, GPIOG, GPIOC,\
+	GPIOA, GPIOC};
+#endif
 
 void rcc_io_config(void)
 {
@@ -34,10 +53,18 @@ void rcc_io_config(void)
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOG, ENABLE);
 }
 
+
 void pwm_config(void)
 {
-	float duties[PWM_CHANNEL_NUM] = {0.05, 0.071, 0.12, 0.045, 0.09};
+	#ifdef CAR_A_1
+	float duties[PWM_CHANNEL_NUM] = {0.05, 0.075, 0.12, 0.045, 0.09};
 	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 50, 50, 50, 50};
+	#endif
+	
+	#ifdef CAR_A_2
+	float duties[PWM_CHANNEL_NUM] = {0.05, 0.075, 0.12, 0.075, 0.09};
+	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 50, 50, 50, 50};
+	#endif
 	
 	uint8_t i;
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -85,8 +112,25 @@ void pwm_config(void)
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
-}
+	
+	#ifdef CAR_A_2
+	//fan_up control gpio
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);
 
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;
+	GPIO_Init(GPIOE, &GPIO_InitStructure);
+	#endif
+}
 
 void set_duty(uint8_t channel, float duty)
 {

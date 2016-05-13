@@ -39,18 +39,18 @@ int wl_run(void)
 
 	while(1) {
 		if(0 < wl_x && 0 <= wl_y) {
-			if(get_gps_x() > 5.5f) {
+			if(get_gps_x() > 5.0f) {
 				pr.set_value = 15;
 				set_threshold(255);
 			} else if(get_gps_x() > 4.0f) {
 				pr.set_value = 0;
-				set_threshold(255);
+				set_threshold(220);
 			} else if(get_gps_y() > 7.0f) {
-				pr.set_value = -15;
-				set_threshold(250);
+				pr.set_value = 0;
+				set_threshold(220);
 			} else {
 				pr.set_value = 15;
-				set_threshold(230);
+				set_threshold(240);
 			}
 			pr.actual_value = wl_x - WL_X_MAX / 2;
 			prout = pid_realize(&pr);

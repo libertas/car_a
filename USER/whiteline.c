@@ -6,9 +6,9 @@
 #include "whiteline.h"
 
 #define WL_X_MAX 160
-#define WL_MAX_SPD 2000
-#define WL_RUN_SPD 2000
-#define WL_ROTATE_SPD 1000
+#define WL_MAX_SPD 3000
+uint16_t WL_RUN_SPD = 3000;
+uint16_t WL_ROTATE_SPD = 1800;
 
 float wl_x = -1;
 float wl_y = -1;

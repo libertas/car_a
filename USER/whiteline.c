@@ -123,5 +123,9 @@ int wl_run(void)
 			stop();
 			// return 0;
 		}
+		if(stop_flag) {
+			stop();
+			return 0;
+		}
 	}
 }

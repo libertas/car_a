@@ -482,6 +482,7 @@ void EXTI3_IRQHandler(void)
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_3)) {
 		/*stop car*/
 		stop_all();
+		stop_flag = true;
 	}
 	EXTI_ClearITPendingBit(EXTI_Line3);
 }

@@ -47,10 +47,7 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 
-	automove_config();
-	automove_disable();
-	wl_run();
-	//auto_control();
+	auto_control();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {

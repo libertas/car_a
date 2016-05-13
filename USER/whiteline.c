@@ -42,9 +42,9 @@ int wl_run(void)
 			
 			if(get_gps_y() > 7.0f) {
 				 if(get_gps_x() > 4.5f) {
-					WL_MAX_SPD = WL_RUN_SPD = 1500;
+					WL_MAX_SPD = WL_RUN_SPD = 1000;
 					WL_ROTATE_SPD = 1000;
-					pr.set_value = 15;
+					pr.set_value = 30;
 					set_threshold(250);
 				} else if(get_gps_x() > 3.0f) {
 					WL_MAX_SPD = WL_RUN_SPD = 3000;

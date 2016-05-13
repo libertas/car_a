@@ -6,8 +6,8 @@
 
 #define DEBUG
 #define DEBUG_WL
-#define DEBUG_AUTO
-#define DEBUG_DB_EXEC
+// #define DEBUG_AUTO
+// #define DEBUG_DB_EXEC
 // #define DEBUG_SPI
 // #define DEBUG_POS_FAN
 // #define DEBUG_BRAKE

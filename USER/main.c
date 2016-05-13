@@ -26,7 +26,9 @@
 #include "suart.h"
 #include "watchdog.h"
 #include "whiteline.h"
-void set_threshold(uint8_t th);
+
+
+
 int main(void)
 {
 	system_clk_set();

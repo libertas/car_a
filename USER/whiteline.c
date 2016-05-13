@@ -15,9 +15,12 @@ float wl_y = -1;
 
 void set_threshold(uint8_t th)
 {
-	USART_SendData(USART3, 0x10);
-	USART_SendData(USART3, th);
-	USART_SendData(USART3, (0x10 + th) & 0xff);
+	uint64_t i;
+	for(i = 0; i < 100; i++) {
+		USART_SendData(USART3, 0x10);
+		USART_SendData(USART3, th);
+		USART_SendData(USART3, (0x10 + th) & 0xff);
+	}
 }
 
 void set_wl_value(float x, float y)
@@ -36,7 +39,10 @@ int wl_run(void)
 
 	while(1) {
 		if(0 < wl_x && 0 <= wl_y) {
-			if(get_gps_x() > 4.0f) {
+			if(get_gps_x() > 5.5f) {
+				pr.set_value = 15;
+				set_threshold(255);
+			} else if(get_gps_x() > 4.0f) {
 				pr.set_value = 0;
 				set_threshold(255);
 			} else if(get_gps_y() > 7.0f) {
@@ -97,7 +103,7 @@ int wl_run(void)
 			printf("\t3:%d\n", arg_speeds[3]);
 			#endif
 			
-			delay_ms(30);
+			// delay_ms(30);
 		} else {
 			#ifdef DEBUG_WL
 			printf("wl_x= %f\twl_y= %f\n", wl_x, wl_y);

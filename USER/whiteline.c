@@ -13,6 +13,13 @@
 float wl_x = -1;
 float wl_y = -1;
 
+void set_threshold(uint8_t th)
+{
+	USART_SendData(USART3, 0x10);
+	USART_SendData(USART3, th);
+	USART_SendData(USART3, (0x10 + th) & 0xff);
+}
+
 void set_wl_value(float x, float y)
 {
 	wl_x = x;
@@ -31,10 +38,13 @@ int wl_run(void)
 		if(0 < wl_x && 0 <= wl_y) {
 			if(get_gps_x() > 4.0f) {
 				pr.set_value = 0;
+				set_threshold(255);
 			} else if(get_gps_y() > 7.0f) {
 				pr.set_value = -15;
+				set_threshold(250);
 			} else {
 				pr.set_value = 15;
+				set_threshold(230);
 			}
 			pr.actual_value = wl_x - WL_X_MAX / 2;
 			prout = pid_realize(&pr);

@@ -6,9 +6,9 @@
 #include "whiteline.h"
 
 #define WL_X_MAX 160
-#define WL_MAX_SPD 3000
-uint16_t WL_RUN_SPD = 3000;
-uint16_t WL_ROTATE_SPD = 1800;
+uint16_t WL_MAX_SPD = 3000;
+uint16_t WL_RUN_SPD = 2000;
+uint16_t WL_ROTATE_SPD = 2000;
 
 float wl_x = -1;
 float wl_y = -1;
@@ -39,16 +39,27 @@ int wl_run(void)
 
 	while(1) {
 		if(0 < wl_x && 0 <= wl_y) {
-			if(get_gps_x() > 5.0f) {
-				pr.set_value = 15;
-				set_threshold(255);
-			} else if(get_gps_x() > 4.0f) {
-				pr.set_value = 0;
-				set_threshold(220);
-			} else if(get_gps_y() > 7.0f) {
-				pr.set_value = 0;
-				set_threshold(220);
+			
+			if(get_gps_y() > 7.0f) {
+				 if(get_gps_x() > 4.5f) {
+					WL_MAX_SPD = WL_RUN_SPD = 1000;
+					WL_ROTATE_SPD = 500;
+					pr.set_value = 15;
+					set_threshold(250);
+				} else if(get_gps_x() > 3.0f) {
+					WL_MAX_SPD = WL_RUN_SPD = 3000;
+					WL_ROTATE_SPD = 2000;
+					pr.set_value = 15;
+					set_threshold(250);
+				} else {
+					WL_MAX_SPD = WL_RUN_SPD = 3000;
+					WL_ROTATE_SPD = 2000;
+					pr.set_value = 0;
+					set_threshold(220);
+				}
 			} else {
+				WL_MAX_SPD = WL_RUN_SPD = 2500;
+				WL_ROTATE_SPD = 2000;
 				pr.set_value = 15;
 				set_threshold(240);
 			}

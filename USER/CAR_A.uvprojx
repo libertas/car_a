@@ -409,11 +409,6 @@
           <GroupName>USER</GroupName>
           <Files>
             <File>
-              <FileName>auto_control.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\auto_control.c</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
@@ -537,6 +532,11 @@
               <FileName>us100.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\us100.c</FilePath>
+            </File>
+            <File>
+              <FileName>climb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\climb.c</FilePath>
             </File>
           </Files>
         </Group>

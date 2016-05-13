@@ -32,6 +32,7 @@
 
 #include "stm32f4xx_it.h"
 
+#include "car.h"
 #include "clock.h"
 #include "debug.h"
 #include "movement.h"

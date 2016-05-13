@@ -261,8 +261,13 @@ int run_cmd(void)
 			printf("\ncmd\t0x02\n");
 			#endif
 		
-			//move_up();
+			#ifdef CAR_A_1
+			move_up();
+			#endif
+		
+			#ifdef CAR_A_2
 			climb_up();
+			#endif
 			break;
 		case 0x09:
 			
@@ -270,8 +275,13 @@ int run_cmd(void)
 			printf("\ncmd\t0x09\n");
 			#endif
 		
-			//move_down();
+			#ifdef CAR_A_1
+			move_down();
+			#endif
+		
+			#ifdef CAR_A_2
 			climb_down();
+			#endif
 			break;
 		case 0x03:
 			
@@ -390,8 +400,13 @@ int run_cmd(void)
 		
 			out_char_queue(&cmd_queue, (char*) &buf);
 		
+			#ifdef CAR_A_1
 			push_rod((buf >> 4) & 0x0f, buf & 0x0f);
+			#endif
 		
+			#ifdef CAR_A_2
+			push_rod_c((buf >> 4) & 0x0f, (buf & 0x0f) + 1);
+			#endif
 			break;
 	}
 	

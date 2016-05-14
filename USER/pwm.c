@@ -39,10 +39,10 @@ GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {\
 	4 mag_near/far not_using
 */
 uint16_t PWMPins[PWM_CHANNEL_NUM] = {\
-	GPIO_Pin_6, GPIO_Pin_5, GPIO_Pin_9,\
+	GPIO_Pin_6, GPIO_Pin_9, GPIO_Pin_5,\
 	GPIO_Pin_10, GPIO_Pin_8};
 GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {\
-	GPIOG, GPIOG, GPIOC,\
+	GPIOG, GPIOC, GPIOG,\
 	GPIOA, GPIOC};
 #endif
 
@@ -111,8 +111,8 @@ void pwm_config(void)
 #ifdef CAR_A_2
 void pwm_config(void)
 {
-	float duties[PWM_CHANNEL_NUM] = {0.05, 0.075, 0.12, 0.075, 0.09};
-	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 50, 50, 50, 50};
+	float duties[PWM_CHANNEL_NUM] = {0.05, 0, 0.12, 0.075, 0.09};
+	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 1000, 50, 50, 50};
 	
 	uint8_t i;
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -165,13 +165,13 @@ void pwm_config(void)
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);
 
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;

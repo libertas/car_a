@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "car.h"
 #include "climb.h"
 #include "debug.h"
 #include "fan.h"
@@ -318,7 +319,13 @@ int run_cmd(void)
 			printf("\ncmd\t0x07\n");
 			#endif
 		
+			#ifdef CAR_A_1
 			fan_up_r();
+			#endif
+		
+			#ifdef CAR_A_2
+			fan_up_auto(0.05f);
+			#endif
 			break;
 		
 		case 0x08:

@@ -258,22 +258,25 @@ void TIM1_UP_TIM10_IRQHandler(void)
 */
 #include "fan.h"
 #include "encoder.h"
-void TIM8_TRG_COM_TIM14_IRQHandler(void)
+void TIM8_TRG_COM_TIM14_IRQHandler(void) //1ms
 {
 	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
 		
 		static uint16_t count0 = 0;
-		count0++;
-			if(30 < count0) {
-				count0 = 0;
-				if(1 == fan_up_flag) {
-					if(get_pos_fan() < (fan_position + fan_distance - 5 * FAN_THOLD))
-						fan_up(10);
-					else if(get_pos_fan() < fan_position + fan_distance - 2 * FAN_THOLD)
-						fan_up(8);
-					else stop_fan_up_down();
-				}
+		static float mov_v;
+		//count0++;
+		if(30 < count0++) {
+			count0 = 0;
+			if(1 == fan_up_flag) {
+				mov_v = 500*(get_pos_fan() - fan_des);
+				fan_up(mov_v);
+//				if(get_pos_fan() < (fan_position + fan_distance - 5 * FAN_THOLD))
+//					fan_up(10);
+//				else if(get_pos_fan() < fan_position + fan_distance - 2 * FAN_THOLD)
+//					fan_up(8);
+//				else stop_fan_up_down();
 			}
+		}
 		TIM_ClearITPendingBit(TIM14, TIM_IT_Update);
 	}
 }

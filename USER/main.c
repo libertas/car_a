@@ -43,6 +43,7 @@ int main(void)
 	switch_config();
 	push_rod_config();
 	pwm_config();
+	tim14_config();
 	watchdog_config();
 
 	printf("\n\nEntering main loop\n\n");

@@ -15,6 +15,7 @@
 uint8_t fan_status = 0;
 uint8_t fan_up_flag = 0;
 float fan_distance = 0;//(要走的)距离
+float fan_des;
 float fan_position = 0;//(现在的)位置
 
 
@@ -193,10 +194,10 @@ void fan_down_r(void)
 
 void fan_up_auto(float dis)
 {
-        tim14_config();
         fan_up_flag = 1;
         fan_position = get_pos_fan();
-        fan_distance = dis;
+	    fan_des = fan_position + dis;
+        //fan_distance = dis;
 }
 
 void fan_up_stop_auto(void)

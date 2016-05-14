@@ -266,7 +266,8 @@ int run_cmd(void)
 			#endif
 		
 			#ifdef CAR_A_2
-			climb_up();
+			move_up();
+			//climb_up();
 			#endif
 			break;
 		case 0x09:
@@ -280,7 +281,8 @@ int run_cmd(void)
 			#endif
 		
 			#ifdef CAR_A_2
-			climb_down();
+			move_down();
+			//climb_down();
 			#endif
 			break;
 		case 0x03:

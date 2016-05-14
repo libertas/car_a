@@ -1,3 +1,4 @@
+#include "car.h"
 #include "clock.h"
 #include "debug.h"
 #include "encoder.h"
@@ -131,7 +132,12 @@ void move_up(void)
 {
 	uprintf(USART1, "\r4V-8000\r");
 	delay_ms(1);
+	#ifdef CAR_A_1
 	uprintf(USART1, "\r3V8000\r");
+	#endif
+	#ifdef CAR_A_2
+	uprintf(USART1, "\r3V-8000\r");
+	#endif
 	delay_ms(1);
 }
 
@@ -139,7 +145,12 @@ void move_down(void)
 {
 	uprintf(USART1, "\r4V1000\r");
 	delay_ms(1);
+	#ifdef CAR_A_1
 	uprintf(USART1, "\r3V-1000\r");
+	#endif
+	#ifdef CAR_A_2
+	uprintf(USART1, "\r3V1000\r");
+	#endif
 	delay_ms(1);
 }
 

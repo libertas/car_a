@@ -45,7 +45,7 @@ int wl_run(void)
 			if(fan_roll_flag && get_gps_y() > 6.5f) {
 				fan_roll_flag = false;
 				fan_roll_r(1);
-				set_auto_dest(get_gps_x(), get_gps_y(), get_gps_rad());
+				set_auto_dest(get_gps_x(), 6.7f, 0);
 				stop();
 				automove_flag = true;
 				delay_ms(2000);

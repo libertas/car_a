@@ -1,6 +1,7 @@
 #include "automove.h"
 #include "clock.h"
 #include "debug.h"
+#include "fan.h"
 #include "movement.h"
 #include "pid.h"
 #include "whiteline.h"
@@ -44,10 +45,14 @@ int wl_run(void)
 			if(fan_roll_flag && get_gps_y() > 6.5f) {
 				fan_roll_flag = false;
 				fan_roll_r(1);
+				set_auto_dest(get_gps_x(), get_gps_y(), get_gps_rad());
 				stop();
+				automove_flag = true;
 				delay_ms(2000);
 				fan_roll_r(0);
+				automove_flag = false;
 			}
+			
 			if(get_gps_y() > 7.0f) {
 				 if(get_gps_x() > 4.5f) {
 					WL_MAX_SPD = WL_RUN_SPD = 1000;

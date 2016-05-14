@@ -310,7 +310,7 @@ void TIM8_TRG_COM_TIM14_IRQHandler(void)
 					if(get_pos_fan() < (fan_position + fan_distance - 5 * FAN_THOLD))
 						fan_up(10);
 					else if(get_pos_fan() < fan_position + fan_distance - 2 * FAN_THOLD)
-						fan_up(5);
+						fan_up(8);
 					else stop_fan_up_down();
 				}
 			}

@@ -28,7 +28,7 @@ void start_fan_1(void)
 	start_fan();
 	
 	delay_ms(2000);
-	
+
 	automove_flag = false;
 	wl_run();
 	// automove_flag = true;

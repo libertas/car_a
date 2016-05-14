@@ -48,6 +48,7 @@ int main(void)
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
+		printf("%f\n", get_pos_fan());
 		check_cmd();
 	}
 

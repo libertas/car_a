@@ -19,7 +19,6 @@ The world view:
 #define PI 3.141592653589793F
 
 #define W_DIAMETER ((float) 0.05)  // meter
-#define F_DIAMETER ((float) 0.032)  // meter
 
 #define USE_FOUR_WHEEL
 
@@ -49,11 +48,13 @@ void t_stop(void);
 #ifdef CAR_A_1
 #define CAR_X_LENGTH 500
 #define CAR_Y_LENGTH 650
+#define F_DIAMETER ((float) 0.032)  // meter
 #endif
 
 #ifdef CAR_A_2
 #define CAR_X_LENGTH 610
 #define CAR_Y_LENGTH 610
+#define F_DIAMETER ((float) 0.00148)  // meter
 #endif
 
 #define VECT_W0 (-1)

@@ -1,6 +1,7 @@
 #include "automove.h"
 #include "clock.h"
 #include "debug.h"
+#include "encoder.h"
 #include "fan.h"
 #include "movement.h"
 #include "pid.h"
@@ -38,10 +39,22 @@ int wl_run(void)
 	pr.ki = 0;
 	float prout;
 
-	static bool fan_roll_flag = true; 
+	static bool fan_roll_flag = true;
+	static bool fan_up_auto_flag = true;
 	
 	while(1) {
 		if(0 < wl_x && 0 <= wl_y) {
+			if(fan_up_auto_flag) {
+				if(get_gps_y() > 5.0f) {
+					fan_up_auto(0.55f - get_pos_fan());
+					fan_up_auto_flag = false;
+				} else if(get_gps_y() > 2.8f) {
+					fan_up_auto(0.4f - get_pos_fan());
+				} else if(get_gps_y() > 1.0f) {
+					fan_up_auto(0.2f - get_pos_fan());
+				}
+			}
+			
 			if(fan_roll_flag && get_gps_y() > 6.5f) {
 				fan_roll_flag = false;
 				fan_roll_r(1);
@@ -73,7 +86,7 @@ int wl_run(void)
 			} else {
 				WL_MAX_SPD = WL_RUN_SPD = 2500;
 				WL_ROTATE_SPD = 2000;
-				pr.set_value = 20;
+				pr.set_value = 30;
 				set_threshold(240);
 			}
 			pr.actual_value = wl_x - WL_X_MAX / 2;

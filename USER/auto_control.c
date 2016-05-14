@@ -39,7 +39,7 @@ void fan_up_2(void)
 
 void fan_up_3(void)
 {
-	fan_up_auto(0.1f);
+	fan_up_auto(0.15f);
 }
 
 void roll_fan_1(void)

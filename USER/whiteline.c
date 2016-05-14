@@ -37,9 +37,17 @@ int wl_run(void)
 	pr.ki = 0;
 	float prout;
 
+	static bool fan_roll_flag = true; 
+	
 	while(1) {
 		if(0 < wl_x && 0 <= wl_y) {
-			
+			if(fan_roll_flag && get_gps_y() > 6.5f) {
+				fan_roll_flag = false;
+				fan_roll_r(1);
+				stop();
+				delay_ms(2000);
+				fan_roll_r(0);
+			}
 			if(get_gps_y() > 7.0f) {
 				 if(get_gps_x() > 4.5f) {
 					WL_MAX_SPD = WL_RUN_SPD = 1000;

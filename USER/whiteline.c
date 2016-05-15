@@ -45,12 +45,12 @@ int wl_run(void)
 	while(1) {
 		if(0 < wl_x && 0 <= wl_y) {
 			if(fan_up_auto_flag) {
-				if(get_gps_y() > 5.0f) {
+				if(get_gps_y() > 4.7f) {
 					fan_up_auto(0.55f - get_pos_fan());
 					fan_up_auto_flag = false;
-				} else if(get_gps_y() > 2.8f) {
+				} else if(get_gps_y() > 2.5f) {
 					fan_up_auto(0.4f - get_pos_fan());
-				} else if(get_gps_y() > 1.0f) {
+				} else if(get_gps_y() > 0.7f) {
 					fan_up_auto(0.2f - get_pos_fan());
 				}
 			}
@@ -63,6 +63,7 @@ int wl_run(void)
 				automove_flag = true;
 				delay_ms(2000);
 				fan_roll_r(0);
+				stop_fan();
 				automove_flag = false;
 			}
 			

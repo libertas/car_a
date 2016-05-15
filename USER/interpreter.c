@@ -324,7 +324,7 @@ int run_cmd(void)
 			#endif
 		
 			#ifdef CAR_A_2
-			fan_up_auto(0.05f);
+			fan_up_auto(0.03f);
 			#endif
 			break;
 		
@@ -334,7 +334,13 @@ int run_cmd(void)
 			printf("\ncmd\t0x08\n");
 			#endif
 		
+			#ifdef CAR_A_1
 			fan_down_r();
+			#endif
+		
+			#ifdef CAR_A_2
+			fan_up_auto(-0.03f);
+			#endif
 			break;
 		
 		case 0x0a:

@@ -10,7 +10,7 @@
 
 
 extern uint8_t fan_up_flag;
-extern float fan_distance;
+extern float fan_position;
 extern float fan_des;
 
 extern void tim14_config(void);

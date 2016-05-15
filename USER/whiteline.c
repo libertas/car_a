@@ -61,7 +61,7 @@ int wl_run(void)
 				set_auto_dest(get_gps_x(), 6.7f, 0);
 				stop();
 				automove_flag = true;
-				delay_ms(2000);
+				delay_ms(3000);
 				fan_roll_r(0);
 				stop_fan();
 				automove_flag = false;

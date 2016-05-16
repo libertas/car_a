@@ -125,7 +125,7 @@ void stop_fan_up_down(void)
 /*
         *fan_up gpio_config in pwm_config
         fan_up control gpio
-        pa2		pe14
+        pg3		pg4
         1		0	up
         0		1	down
         0		0	stop
@@ -134,15 +134,15 @@ void fan_up(float speed)
 {
         brake_release(0);
         if(speed > 0) {
-                GPIO_WriteBit(GPIOA, GPIO_Pin_2, Bit_SET);
-                GPIO_WriteBit(GPIOE, GPIO_Pin_14, Bit_RESET);
+                GPIO_WriteBit(GPIOG, GPIO_Pin_3, Bit_SET);
+                GPIO_WriteBit(GPIOG, GPIO_Pin_4, Bit_RESET);
                 if(speed > 10)
                         set_duty(FAN_UPDOWN_CHANNEL, 1);
                 else set_duty(FAN_UPDOWN_CHANNEL, speed / 10);
         }
         else {
-                GPIO_WriteBit(GPIOA, GPIO_Pin_2, Bit_RESET);
-                GPIO_WriteBit(GPIOE, GPIO_Pin_14, Bit_SET);
+                GPIO_WriteBit(GPIOG, GPIO_Pin_3, Bit_RESET);
+                GPIO_WriteBit(GPIOG, GPIO_Pin_4, Bit_SET);
                 if(speed < -10)
                         set_duty(FAN_UPDOWN_CHANNEL, 0.5);
                 else set_duty(FAN_UPDOWN_CHANNEL, -speed / 20);
@@ -153,15 +153,15 @@ void fan_down(float speed)
 {
         brake_release(0);
         if(speed > 0) {
-                GPIO_WriteBit(GPIOA, GPIO_Pin_2, Bit_RESET);
-                GPIO_WriteBit(GPIOE, GPIO_Pin_14, Bit_SET);
+                GPIO_WriteBit(GPIOG, GPIO_Pin_3, Bit_RESET);
+                GPIO_WriteBit(GPIOG, GPIO_Pin_4, Bit_SET);
                 if(speed > 10)
                         set_duty(FAN_UPDOWN_CHANNEL, 0.5);
                 else set_duty(FAN_UPDOWN_CHANNEL, speed / 20);
         }
         else {
-                GPIO_WriteBit(GPIOA, GPIO_Pin_2, Bit_SET);
-                GPIO_WriteBit(GPIOE, GPIO_Pin_14, Bit_RESET);
+                GPIO_WriteBit(GPIOG, GPIO_Pin_3, Bit_SET);
+                GPIO_WriteBit(GPIOG, GPIO_Pin_4, Bit_RESET);
                 if(speed < -10)
                         set_duty(FAN_UPDOWN_CHANNEL, 1);
                 else set_duty(FAN_UPDOWN_CHANNEL, -speed / 10);
@@ -170,8 +170,8 @@ void fan_down(float speed)
 
 void stop_fan_up_down(void)
 {
-        GPIO_WriteBit(GPIOA, GPIO_Pin_2, Bit_RESET);
-        GPIO_WriteBit(GPIOE, GPIO_Pin_14, Bit_RESET);
+        GPIO_WriteBit(GPIOG, GPIO_Pin_3, Bit_RESET);
+        GPIO_WriteBit(GPIOG, GPIO_Pin_4, Bit_RESET);
         set_duty(FAN_UPDOWN_CHANNEL, 0);
         brake(0);
 }

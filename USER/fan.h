@@ -24,6 +24,7 @@ void stop_fan_up_down(void);
 void fan_up_auto(float pos);
 void fan_up_stop_auto(void);
 
+void tim14_config(void);
 
 void fan_roll(float rad);
 void fan_roll_r(int8_t dir);  // +1 or -1

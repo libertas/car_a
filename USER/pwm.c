@@ -5,6 +5,7 @@
 #include "stm32f4xx_tim.h"
 
 #include "car.h"
+#include "fan.h"
 #include "pwm.h"
 
 #ifndef USE_HPWM
@@ -163,6 +164,10 @@ void pwm_config(void)
 	
 	//fan_up control gpio
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOG, ENABLE);
+	
+	GPIO_WriteBit(GPIOG, GPIO_Pin_3, Bit_RESET);
+	GPIO_WriteBit(GPIOG, GPIO_Pin_4, Bit_RESET);
+	
 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
@@ -175,6 +180,8 @@ void pwm_config(void)
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
 	GPIO_Init(GPIOG, &GPIO_InitStructure);
+	
+	tim14_config();
 }
 #endif
 

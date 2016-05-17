@@ -246,7 +246,6 @@ void UART4_IRQHandler(void)
 void UART5_IRQHandler(void)
 {
 	char data;
-	char tmp;
 
 	if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET)
 	{
@@ -478,12 +477,15 @@ void EXTI15_10_IRQHandler(void)
 #include "push_rod.h"
 void EXTI3_IRQHandler(void)
 {
+	static bool flag = true;
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_3)) {
-		/*stop car*/
-		stop_all();
-		stop_flag = true;
-		push_rod_c(PUSH_ROD_PUSH, 1);
-		push_rod_c(PUSH_ROD_PUSH, 2);
+		if(flag) {
+			/*stop car*/
+			flag = false;
+			stop_all();
+			push_rod_c(PUSH_ROD_PUSH, 1);
+			push_rod_c(PUSH_ROD_PUSH, 2);
+		}
 	}
 	EXTI_ClearITPendingBit(EXTI_Line3);
 }

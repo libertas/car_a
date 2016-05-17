@@ -109,6 +109,8 @@ void pwm_config(void)
 #endif
 
 #ifdef CAR_A_2
+void tim14_config(void);
+
 void pwm_config(void)
 {
 	float duties[PWM_CHANNEL_NUM] = {0.04, 0, 0.12, 0.075, 0.09};
@@ -178,6 +180,8 @@ void pwm_config(void)
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
 	GPIO_Init(GPIOG, &GPIO_InitStructure);
+	
+	tim14_config();
 }
 #endif
 

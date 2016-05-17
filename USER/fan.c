@@ -194,8 +194,7 @@ void fan_down_r(void)
 void fan_up_auto(float dis)
 {
         fan_up_flag = 1;
-        fan_position = get_pos_fan();
-	    fan_des = fan_position + dis;
+	    fan_des = get_pos_fan() + dis;
 }
 
 void fan_up_stop_auto(void)

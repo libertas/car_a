@@ -272,7 +272,7 @@ void TIM8_TRG_COM_TIM14_IRQHandler(void) //1ms
 				mov_v = 500*(fan_des - get_pos_fan());
 				fan_up(mov_v);
 				if(abs(fan_des - get_pos_fan()) < 0.01){
-					if(brake_delay++ > 40){
+					if(brake_delay++ > 20){
 						stop_fan_up_down();
 						fan_up_flag = 0;
 						brake_delay = 0;

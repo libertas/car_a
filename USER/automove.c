@@ -9,6 +9,7 @@
 #include "movement.h"
 #include "mti.h"
 #include "pid.h"
+#include "vega.h"
 
 #ifdef USE_FOUR_WHEEL
 
@@ -130,13 +131,22 @@ bool near_auto_dest(void)
 
 void automove_daemon(void)
 {
+
+	#ifdef USE_VEGA
+	gps_rad = vega_rad * 2 * PI / 360;
+	#else
 	static float old_x = 0, old_y = 0;
 	float dx, dy;
 	float x, y, rad;
 	float tmp;
 
 	rad = get_mti_value();
+	#endif
 
+	#ifdef USE_VEGA
+	gps_x = vega_x / VEGA_DIV;
+	gps_y = vega_y / VEGA_DIV;
+	#else
 	// theoretical value
 	// tmp = (cosf(fabsf(rad)) - 1) * fabsf(EX_X) + rad * fabsf(EX_Y);
 	// measured value
@@ -159,6 +169,7 @@ void automove_daemon(void)
 	gps_x += -dy * sinf(rad) + dx * cosf(rad);
 	gps_y += dy * cosf(rad) + dx * sinf(rad);
 	gps_rad = rad;
+	#endif
 
 	auto_clr_spd();
 	auto_rotate(gps_rad, gps_dest_rad);

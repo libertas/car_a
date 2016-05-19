@@ -17,7 +17,7 @@
 
 #define VEGA_CAN_ID 0x11   //vega数据包的标识符
 
-#define VEGA_DIV (1.0f)
+#define VEGA_DIV (10000.0f)
 
 extern int vega_x, vega_y;
 extern float vega_rad;

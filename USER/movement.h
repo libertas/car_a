@@ -52,9 +52,13 @@ void t_stop(void);
 #endif
 
 #ifdef CAR_A_2
+
+#define USE_VEGA
+
 #define CAR_X_LENGTH 610
 #define CAR_Y_LENGTH 610
 #define F_DIAMETER ((float) 0.00148)  // meter
+
 #endif
 
 #define VECT_W0 (-1)

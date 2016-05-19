@@ -24,6 +24,7 @@
 #include "push_rod.h"
 #include "spi.h"
 #include "suart.h"
+#include "vega.h"
 #include "watchdog.h"
 
 int main(void)
@@ -37,6 +38,9 @@ int main(void)
 	spi_config();
 	suart_config();
 
+	#ifdef USE_VEGA
+	vega_init(&vega_x, &vega_y, &vega_rad);
+	#endif
 	brake_config();
 	encoder_config();
 	switch_config();

@@ -22,7 +22,7 @@
 #define EX_X 0.0435f
 #define EX_Y -0.1655f
 #define EY_X -0.06f
-#define EY_Y -0.1.675f
+#define EY_Y -0.1675f
 #endif
 
 

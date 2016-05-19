@@ -181,6 +181,24 @@ void pwm_config(void)
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
 	GPIO_Init(GPIOG, &GPIO_InitStructure);
 	
+	//mag_in control gpio
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+	
+	GPIO_WriteBit(GPIOA, GPIO_Pin_10, Bit_RESET);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_11, Bit_RESET);
+
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	
 	tim14_config();
 }
 #endif

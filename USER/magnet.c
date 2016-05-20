@@ -18,14 +18,36 @@ void mag_out(void)
 #endif
 
 #ifdef CAR_A_2
+/*
+        *mag_in gpio_config in pwm_config
+        mag_in control gpio
+        pa10		pa10
+        1		0	in
+        0		1	out
+        0		0	stop
+*/
 void mag_in(void)
 {
-	//wait for dianji
+	GPIO_WriteBit(GPIOA, GPIO_Pin_10, Bit_SET);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_11, Bit_RESET);
+	set_duty(MAG_IN_CHANNEL, 0.9);
+	delay_ms(50);
+	//STOP
+	GPIO_WriteBit(GPIOA, GPIO_Pin_10, Bit_RESET);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_11, Bit_RESET);
+	set_duty(MAG_IN_CHANNEL, 0);
 }
 
 void mag_out(void)
 {
-	//wait for dianji
+	GPIO_WriteBit(GPIOA, GPIO_Pin_10, Bit_RESET);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_11, Bit_SET);
+	set_duty(MAG_IN_CHANNEL, 0.9);
+	delay_ms(50);
+	//STOP
+	GPIO_WriteBit(GPIOA, GPIO_Pin_10, Bit_RESET);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_11, Bit_RESET);
+	set_duty(MAG_IN_CHANNEL, 0);
 }
 #endif
 

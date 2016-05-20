@@ -144,7 +144,7 @@ void automove_daemon(void)
 	#endif
 
 	#ifdef USE_VEGA
-	gps_x = vega_x / VEGA_DIV;
+	gps_x = -vega_x / VEGA_DIV;
 	gps_y = vega_y / VEGA_DIV;
 	#else
 	// theoretical value

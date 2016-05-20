@@ -34,8 +34,10 @@ void start_fan_1(void)
 	// automove_flag = true;
 
 	delay_ms(500);
-	while(1)
+	while(move_up_flag) {
 		move_up();
+		delay_ms(10);
+	}
 }
 
 struct coordinate_t coord[] = {

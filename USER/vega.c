@@ -7,6 +7,9 @@
 static int *g_vega_pos_x,*g_vega_pos_y;
 static float *g_vega_angle;
 
+int vega_x = 0, vega_y = 0;
+float vega_rad = 0;
+
 /* 函数名：int vega_init()
  * 功能：初始化vega
  * 参数：int *p_pos_x,存储x坐标的变量的指针

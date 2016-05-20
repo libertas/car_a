@@ -548,6 +548,16 @@
               <FileType>1</FileType>
               <FilePath>.\whiteline.c</FilePath>
             </File>
+            <File>
+              <FileName>can.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\can.c</FilePath>
+            </File>
+            <File>
+              <FileName>vega.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\vega.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -917,6 +927,16 @@
               <FileName>car.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\car.h</FilePath>
+            </File>
+            <File>
+              <FileName>can.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\can.h</FilePath>
+            </File>
+            <File>
+              <FileName>vega.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\vega.h</FilePath>
             </File>
           </Files>
         </Group>

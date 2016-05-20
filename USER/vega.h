@@ -17,6 +17,10 @@
 
 #define VEGA_CAN_ID 0x11   //vega数据包的标识符
 
+#define VEGA_DIV (10000.0f * 3.6f / 2.9f)
+
+extern int vega_x, vega_y;
+extern float vega_rad;
 
 typedef union{
     u8 u8_form[4];

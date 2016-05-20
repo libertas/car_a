@@ -9,6 +9,7 @@
 #include "movement.h"
 #include "mti.h"
 #include "pid.h"
+#include "vega.h"
 
 
 bool automove_flag = false;
@@ -133,6 +134,9 @@ bool near_auto_dest(void)
 
 void automove_daemon(void)
 {
+	#ifdef USE_VEGA
+	gps_rad = -vega_rad * 2 * PI / 360;
+	#else
 	static uint8_t t;
 	static float old_x = 0, old_y = 0;
 	float dx, dy;
@@ -140,7 +144,24 @@ void automove_daemon(void)
 	float tmp;
 	
 	rad = get_mti_value();
+	#endif
 
+	#ifdef USE_VEGA
+	gps_x = -vega_x / VEGA_DIV;
+	gps_y = vega_y / VEGA_DIV;
+	
+	if(automove_flag) {
+		auto_clr_spd();
+		auto_rotate(gps_rad, gps_dest_rad);
+		auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
+
+		auto_send();
+		
+		#ifdef DEBUG_AUTO
+		printf("%f %f\t%f %f\t%f %f\n\n", gps_x, gps_dest_x, gps_y, gps_dest_y, gps_rad, gps_dest_rad);
+		#endif
+	}
+	#else
 	// theoretical value
 	// tmp = (cosf(fabsf(rad)) - 1) * fabsf(EX_X) + rad * fabsf(EX_Y);
 	// measured value
@@ -179,6 +200,7 @@ void automove_daemon(void)
 		printf("%f %f\t%f %f\t%f %f\n\n", gps_x, gps_dest_x, gps_y, gps_dest_y, gps_rad, gps_dest_rad);
 		#endif
 	}
+	#endif
 }
 
 float get_gps_x(void)

@@ -134,10 +134,11 @@ bool near_auto_dest(void)
 
 void automove_daemon(void)
 {
+	static uint8_t t;
+
 	#ifdef USE_VEGA
 	gps_rad = -vega_rad * 2 * PI / 360;
 	#else
-	static uint8_t t;
 	static float old_x = 0, old_y = 0;
 	float dx, dy;
 	float x, y, rad;
@@ -149,18 +150,6 @@ void automove_daemon(void)
 	#ifdef USE_VEGA
 	gps_x = -vega_x / VEGA_DIV;
 	gps_y = vega_y / VEGA_DIV;
-	
-	if(automove_flag) {
-		auto_clr_spd();
-		auto_rotate(gps_rad, gps_dest_rad);
-		auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
-
-		auto_send();
-		
-		#ifdef DEBUG_AUTO
-		printf("%f %f\t%f %f\t%f %f\n\n", gps_x, gps_dest_x, gps_y, gps_dest_y, gps_rad, gps_dest_rad);
-		#endif
-	}
 	#else
 	// theoretical value
 	// tmp = (cosf(fabsf(rad)) - 1) * fabsf(EX_X) + rad * fabsf(EX_Y);
@@ -184,6 +173,7 @@ void automove_daemon(void)
 	gps_x += -dy * sinf(rad) + dx * cosf(rad);
 	gps_y += dy * cosf(rad) + dx * sinf(rad);
 	gps_rad = rad;
+	#endif
 
 	t++;
 
@@ -200,7 +190,6 @@ void automove_daemon(void)
 		printf("%f %f\t%f %f\t%f %f\n\n", gps_x, gps_dest_x, gps_y, gps_dest_y, gps_rad, gps_dest_rad);
 		#endif
 	}
-	#endif
 }
 
 float get_gps_x(void)

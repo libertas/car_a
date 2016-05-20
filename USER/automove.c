@@ -133,7 +133,7 @@ void automove_daemon(void)
 {
 
 	#ifdef USE_VEGA
-	gps_rad = vega_rad * 2 * PI / 360;
+	gps_rad = -vega_rad * 2 * PI / 360;
 	#else
 	static float old_x = 0, old_y = 0;
 	float dx, dy;

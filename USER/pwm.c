@@ -35,15 +35,15 @@ GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {\
 	0 fan 涵道风扇
 	1 fan_updown 电机
 	2 fan_roll	not_using
-	3 mag_in/out 舵机	0.075(stop) 0.04(push) - 0.1(pull)
+	3 mag_in/out 电机
 	4 mag_near/far not_using
 */
 uint16_t PWMPins[PWM_CHANNEL_NUM] = {\
 	GPIO_Pin_6, GPIO_Pin_9, GPIO_Pin_5,\
-	GPIO_Pin_10, GPIO_Pin_8};
+	GPIO_Pin_8, GPIO_Pin_2};
 GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {\
 	GPIOG, GPIOC, GPIOG,\
-	GPIOA, GPIOC};
+	GPIOC, GPIOA};
 #endif
 
 void rcc_io_config(void)
@@ -113,8 +113,8 @@ void tim14_config(void);
 
 void pwm_config(void)
 {
-	float duties[PWM_CHANNEL_NUM] = {0.04, 0, 0.12, 0.075, 0.09};
-	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 1000, 50, 50, 50};
+	float duties[PWM_CHANNEL_NUM] = {0.04, 0, 0.12, 0, 0.09};
+	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 1000, 50, 1000, 50};
 	
 	uint8_t i;
 	GPIO_InitTypeDef GPIO_InitStructure;

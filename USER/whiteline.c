@@ -43,6 +43,10 @@ int wl_run(void)
 	static bool fan_up_auto_flag = true;
 	
 	while(1) {
+		if(stop_flag) {
+			stop();
+			return 0;
+		}
 		if(0 < wl_x && 0 <= wl_y) {
 			if(fan_up_auto_flag) {
 				if(get_gps_y() > 4.7f) {
@@ -68,14 +72,14 @@ int wl_run(void)
 			}
 			
 			if(get_gps_y() > 6.8f) {
-				 if(get_gps_x() > 3.0f) {
+				 if(get_gps_x() > 2.8f) {
 					WL_MAX_SPD = WL_RUN_SPD = 1000;
 					WL_ROTATE_SPD = 1000;
 					pr.set_value = 30;
 					set_threshold(250);
 				} else {
 					WL_MAX_SPD = WL_RUN_SPD = 3000;
-					WL_ROTATE_SPD = 2000;
+					WL_ROTATE_SPD = 1800;
 					pr.set_value = 0;
 					set_threshold(220);
 				}
@@ -144,10 +148,6 @@ int wl_run(void)
 			
 			stop();
 			// return 0;
-		}
-		if(stop_flag) {
-			stop();
-			return 0;
 		}
 	}
 }

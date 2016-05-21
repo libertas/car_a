@@ -49,17 +49,17 @@ int wl_run(void)
 		}
 		if(0 < wl_x && 0 <= wl_y) {
 			if(fan_up_auto_flag) {
-				if(get_gps_y() > 4.7f) {
+				if(get_gps_y() > 4.3f) {
 					fan_up_auto(0.55f - get_pos_fan());
 					fan_up_auto_flag = false;
-				} else if(get_gps_y() > 2.5f) {
-					fan_up_auto(0.4f - get_pos_fan());
-				} else if(get_gps_y() > 0.7f) {
-					fan_up_auto(0.2f - get_pos_fan());
+				} else if(get_gps_y() > 2.2f) {
+					fan_up_auto(0.45f - get_pos_fan());
+				} else{
+					fan_up_auto(0.25f - get_pos_fan());
 				}
 			}
 			
-			if(fan_roll_flag && get_gps_y() > 6.5f) {
+			if(fan_roll_flag && get_gps_y() > 6.3f) {
 				fan_roll_flag = false;
 				fan_roll_r(1);
 				set_auto_dest(get_gps_x(), 6.7f, 0);
@@ -84,10 +84,17 @@ int wl_run(void)
 					set_threshold(220);
 				}
 			} else {
-				WL_MAX_SPD = WL_RUN_SPD = 2500;
-				WL_ROTATE_SPD = 2000;
-				pr.set_value = 30;
-				set_threshold(240);
+				if(get_gps_y() > 2.0f) {
+					WL_MAX_SPD = WL_RUN_SPD = 3000;
+					WL_ROTATE_SPD = 2500;
+					pr.set_value = 30;
+					set_threshold(240);
+				} else {
+					WL_MAX_SPD = WL_RUN_SPD = 1500;
+					WL_ROTATE_SPD = 1000;
+					pr.set_value = 20;
+					set_threshold(240);
+				}
 			}
 			pr.actual_value = wl_x - WL_X_MAX / 2;
 			prout = pid_realize(&pr);

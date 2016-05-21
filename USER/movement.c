@@ -133,7 +133,7 @@ void move_up(void)
 {
 	uprintf(USART1, "\r4V-30000\r");
 	delay_ms(1);
-	uprintf(USART1, "\r3V30000\r");
+	uprintf(USART1, "\r3V-30000\r");
 	delay_ms(1);
 }
 
@@ -141,7 +141,7 @@ void move_down(void)
 {
 	uprintf(USART1, "\r4V1000\r");
 	delay_ms(1);
-	uprintf(USART1, "\r3V-1000\r");
+	uprintf(USART1, "\r3V1000\r");
 	delay_ms(1);
 }
 

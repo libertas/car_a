@@ -27,21 +27,21 @@ void start_fan_1(void)
 {
 	start_fan();
 	
-	delay_ms(2000);
+	delay_ms(500);
 
 	automove_flag = false;
 	wl_run();
 
-	set_auto_dest(get_gps_x(), get_gps_y(), -PI / 2);
+	set_auto_dest(get_gps_x() + 0.2f, get_gps_y(), -PI / 2);
 	stop();
 	automove_flag = true;
 
-	delay_ms(2000);
+	delay_ms(1000);
 	automove_flag = false;
 	stop();
 
-	push_rod_c(PUSH_ROD_PUSH, 1);
 	push_rod_c(PUSH_ROD_PUSH, 2);
+	delay_ms(1000);
 
 	while(move_up_flag) {
 		move_up();
@@ -50,7 +50,7 @@ void start_fan_1(void)
 }
 
 struct coordinate_t coord[] = {
-	{2812.9, 0, 0, start_fan_1},\
+	{3000, 0, 0, start_fan_1},\
 	{0, 0, 0, 0}
 };
 

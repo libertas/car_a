@@ -484,6 +484,7 @@ void EXTI3_IRQHandler(void)
 			flag = false;
 			stop_flag = true;
 			stop_all();
+			push_rod_c(PUSH_ROD_PUSH, 1);
 		}
 	}
 	EXTI_ClearITPendingBit(EXTI_Line3);

@@ -32,7 +32,7 @@ void start_fan_1(void)
 	automove_flag = false;
 	wl_run();
 
-	set_auto_dest(get_gps_x() + 0.2f, get_gps_y(), -PI / 2);
+	set_auto_dest(get_gps_x() + 0.1f, get_gps_y(), -PI / 2);
 	stop();
 	automove_flag = true;
 

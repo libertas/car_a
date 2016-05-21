@@ -48,8 +48,8 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 
-	delay_ms(3000);
-	auto_control();
+	//delay_ms(3000);
+	//auto_control();
 
 
 	printf("\n\nEntering main loop\n\n");

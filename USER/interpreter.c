@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "auto_control.h"
 #include "car.h"
 #include "climb.h"
 #include "debug.h"
@@ -71,6 +72,9 @@ command list:
 	
 	toggle_fan()
 		(byte) 0x0a
+		
+	manual_to_auto()
+		(byte) 0x0b
 	
 	mag_in()
 		(byte) 0x14 (byte) 0x01
@@ -297,6 +301,14 @@ int run_cmd(char_queue *cmd_queue)
 			move_up();
 			//climb_up();
 			#endif
+			break;
+		case 0x0b:
+			
+			#ifdef DEBUG_INTPRT
+			printf("\ncmd\t0x0b\n");
+			#endif
+		
+			manual_to_auto();
 			break;
 		case 0x09:
 			

@@ -280,11 +280,11 @@ void UART5_IRQHandler(void)
 	}
 }
 
-//#include "automove.h"
+#include "automove.h"
 void TIM1_UP_TIM10_IRQHandler(void)
 {
 	if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
-		//automove_daemon();
+		automove_daemon();
 		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
 	}
 }
@@ -447,10 +447,11 @@ void TIM8_UP_TIM13_IRQHandler(void)
 }
 
 /*
-	exti8 exti11 exti3
-	switch 0\1\2
-	fan_down_stop\fan_up_stop\light_electricity
+	exti8 exti11 exti3 exti4
+	switch 0\1\2\3
+	fan_down_stop\fan_up_stop\light_electricity(enter_pole)\light_e(move_up)
 */
+#include "magnet.h"
 #include "switch.h"
 void EXTI9_5_IRQHandler(void)
 {
@@ -465,6 +466,14 @@ void EXTI9_5_IRQHandler(void)
 		EXTI_ClearITPendingBit(EXTI_Line8);
 	}
 	if(SET == EXTI_GetITStatus(EXTI_Line9)) {
+		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_9)) {
+			#ifdef DEBUG
+			printf("\nstop_move_up\n");
+			#endif
+			
+			stop_all();
+			mag_in();
+		}
 		EXTI_ClearITPendingBit(EXTI_Line9);
 	}
 }

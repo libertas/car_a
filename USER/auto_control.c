@@ -25,10 +25,14 @@ struct coordinate_t {
 
 void enter_pole(void)
 {
+	//fan_up_auto(0.55f);
 	stop_all();
 	push_rod_c(PUSH_ROD_PUSH, 2);//push_rod
-	delay_ms(2000);
-	move_up();
+	delay_ms(1000);
+	while(move_up_flag) {
+		move_up();
+		delay_ms(10);
+	}
 }
 
 void manual_to_auto(void)

@@ -67,6 +67,7 @@ void t_stop(void);
 #define VECT_W3 (+1)
 
 extern int16_t arg_speeds[4];
+extern bool move_up_flag;
 
 void f_run_c(int8_t spd_x, int8_t spd_y, int8_t spd_c);
 void f_move_arc(float y, float rad);

@@ -6,6 +6,7 @@
 #include "movement.h"
 #include "mti.h"
 
+bool move_up_flag = true;
 
 int16_t get_speed(uint8_t wheel)
 {

@@ -2,6 +2,9 @@
 #include "mti.h"
 #include "usart.h"
 
+uint8_t mti_buffer[MTI_BUF_SIZE] = {'0'};
+uint8_t mti_sendbuffer[MTI_SEND_SIZE] = {0xFA,0x01,0xA4,0x02,0x00,0x04,0x55};
+
 const uint8_t mti_flag[4] = {0xFA,0xFF,0x32,0x0E};
 float mti_roll = 0;
 float mti_pitch = 0;

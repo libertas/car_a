@@ -543,6 +543,16 @@
               <FileType>1</FileType>
               <FilePath>.\us100.c</FilePath>
             </File>
+            <File>
+              <FileName>vega.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\vega.c</FilePath>
+            </File>
+            <File>
+              <FileName>can.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\can.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -899,9 +909,19 @@
               <FilePath>.\database.h</FilePath>
             </File>
             <File>
-              <FileName>whiteline.h</FileName>
+              <FileName>dma.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\whiteline.h</FilePath>
+              <FilePath>.\dma.h</FilePath>
+            </File>
+            <File>
+              <FileName>vega.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\vega.h</FilePath>
+            </File>
+            <File>
+              <FileName>can.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\can.h</FilePath>
             </File>
             <File>
               <FileName>dma.h</FileName>

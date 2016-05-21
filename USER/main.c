@@ -24,6 +24,7 @@
 #include "push_rod.h"
 #include "spi.h"
 #include "suart.h"
+#include "vega.h"
 #include "watchdog.h"
 
 int main(void)
@@ -34,16 +35,22 @@ int main(void)
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	interpreter_config();
 	uart_config(115200);
-	dma_config();
 	spi_config();
 	suart_config();
 
+	#ifdef USE_VEGA
+	vega_init(&vega_x, &vega_y, &vega_rad);
+	#endif
 	brake_config();
 	encoder_config();
 	switch_config();
 	push_rod_config();
 	pwm_config();
-	watchdog_config();
+	// watchdog_config();
+
+	delay_ms(3000);
+	auto_control();
+
 
 	printf("\n\nEntering main loop\n\n");
 	

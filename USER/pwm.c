@@ -109,10 +109,13 @@ void pwm_config(void)
 }
 #endif
 
+
 #ifdef CAR_A_2
+void tim14_config(void);
+
 void pwm_config(void)
 {
-	float duties[PWM_CHANNEL_NUM] = {0.05, 0, 0.12, 0, 0.09};
+	float duties[PWM_CHANNEL_NUM] = {0.04, 0, 0.12, 0, 0.09};
 	unsigned long freqs[PWM_CHANNEL_NUM] = {50, 1000, 50, 1000, 50};
 	
 	uint8_t i;
@@ -167,7 +170,6 @@ void pwm_config(void)
 	
 	GPIO_WriteBit(GPIOG, GPIO_Pin_3, Bit_RESET);
 	GPIO_WriteBit(GPIOG, GPIO_Pin_4, Bit_RESET);
-	
 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
@@ -186,7 +188,6 @@ void pwm_config(void)
 	
 	GPIO_WriteBit(GPIOA, GPIO_Pin_10, Bit_RESET);
 	GPIO_WriteBit(GPIOA, GPIO_Pin_11, Bit_RESET);
-	
 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;

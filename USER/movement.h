@@ -47,6 +47,7 @@ void t_stop(void);
 #define DEFAULT_MANUAL_ARG_SPEED 2000
 #define DEFAULT_MANUAL_ROTATE_ARG_SPEED 1000
 
+
 #ifdef CAR_A_1
 #define CAR_X_LENGTH 500
 #define CAR_Y_LENGTH 650
@@ -57,6 +58,7 @@ void t_stop(void);
 #define CAR_X_LENGTH 610
 #define CAR_Y_LENGTH 610
 #define F_DIAMETER ((float) 0.001482)  // meter
+#define USE_VEGA
 #endif
 
 #define VECT_W0 (-1)

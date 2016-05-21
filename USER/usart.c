@@ -129,6 +129,7 @@ void uart4_config(uint32_t baud)
 {
 	GPIO_InitTypeDef GPIO_InitStructure; 
 	USART_InitTypeDef USART_InitStructure;
+	NVIC_InitTypeDef NVIC_InitStructure;
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
 
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART4, ENABLE);
@@ -153,7 +154,16 @@ void uart4_config(uint32_t baud)
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
 	USART_Init(UART4, &USART_InitStructure);
+	
 	USART_Cmd(UART4, ENABLE);
+	
+	USART_ITConfig(UART4, USART_IT_RXNE, ENABLE);
+
+	NVIC_InitStructure.NVIC_IRQChannel = UART4_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
 }
 
 void uart5_config(uint32_t baud)

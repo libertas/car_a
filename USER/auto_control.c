@@ -31,9 +31,18 @@ void start_fan_1(void)
 
 	automove_flag = false;
 	wl_run();
-	// automove_flag = true;
 
-	delay_ms(500);
+	set_auto_dest(get_gps_x(), get_gps_y(), -PI / 2);
+	stop();
+	automove_flag = true;
+
+	delay_ms(2000);
+	automove_flag = false;
+	stop();
+
+	push_rod_c(PUSH_ROD_PUSH, 1);
+	push_rod_c(PUSH_ROD_PUSH, 2);
+
 	while(move_up_flag) {
 		move_up();
 		delay_ms(10);

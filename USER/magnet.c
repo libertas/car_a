@@ -31,7 +31,7 @@ void mag_in(void)
 	GPIO_WriteBit(GPIOA, GPIO_Pin_10, Bit_SET);
 	GPIO_WriteBit(GPIOA, GPIO_Pin_11, Bit_RESET);
 	set_duty(MAG_IN_CHANNEL, 0.9);
-	delay_ms(50);
+	delay_ms(500);
 	//STOP
 	GPIO_WriteBit(GPIOA, GPIO_Pin_10, Bit_RESET);
 	GPIO_WriteBit(GPIOA, GPIO_Pin_11, Bit_RESET);
@@ -43,7 +43,7 @@ void mag_out(void)
 	GPIO_WriteBit(GPIOA, GPIO_Pin_10, Bit_RESET);
 	GPIO_WriteBit(GPIOA, GPIO_Pin_11, Bit_SET);
 	set_duty(MAG_IN_CHANNEL, 0.9);
-	delay_ms(50);
+	delay_ms(500);
 	//STOP
 	GPIO_WriteBit(GPIOA, GPIO_Pin_10, Bit_RESET);
 	GPIO_WriteBit(GPIOA, GPIO_Pin_11, Bit_RESET);

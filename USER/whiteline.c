@@ -53,7 +53,7 @@ int wl_run(void)
 					fan_up_auto(0.55f - get_pos_fan());
 					fan_up_auto_flag = false;
 				} else if(get_gps_y() > 2.2f) {
-					fan_up_auto(0.35f - get_pos_fan());
+					fan_up_auto(0.45f - get_pos_fan());
 				} else{
 					fan_up_auto(0.15f - get_pos_fan());
 				}
@@ -89,6 +89,11 @@ int wl_run(void)
 					WL_ROTATE_SPD = 1000;
 					pr.set_value = 0;
 					set_threshold(220);
+				} else if(get_gps_y() > 2.9f && get_gps_y() < 3.5f) {
+					WL_MAX_SPD = WL_RUN_SPD = 500;
+					WL_ROTATE_SPD = 500;
+					pr.set_value = 0;
+					set_threshold(240);
 				} else if(get_gps_y() > 2.0f) {
 					WL_MAX_SPD = WL_RUN_SPD = 1500;
 					WL_ROTATE_SPD = 1000;
@@ -99,17 +104,6 @@ int wl_run(void)
 					WL_ROTATE_SPD = 1000;
 					pr.set_value = 10;
 					set_threshold(240);
-				}
-				
-				#include "pwm.h"
-				#include "fan.h"
-				if(fan_up_auto_flag) {
-					float tmp_y = get_gps_y();
-					if(tmp_y > 5.2f && tmp_y < 6.3f) {
-						set_duty(FAN_CHANNEL, 0.058f);
-					} else if(tmp_y < 6.8f){
-						set_duty(FAN_CHANNEL, 0.063f);
-					}
 				}
 			}
 			pr.actual_value = wl_x - WL_X_MAX / 2;

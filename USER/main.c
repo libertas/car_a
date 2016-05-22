@@ -48,6 +48,8 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 
+	//move_xy_c(50,0);
+	uprintf(USART1,"\rV1000\r");
 	printf("\n\nEntering main loop\n\n");
 	
 	while(1) {

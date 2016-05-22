@@ -49,8 +49,8 @@ void t_stop(void);
 
 
 #ifdef CAR_A_1
-#define CAR_X_LENGTH 500
-#define CAR_Y_LENGTH 650
+#define CAR_X_LENGTH 650
+#define CAR_Y_LENGTH 500
 #define F_DIAMETER ((float) 0.032)  // meter
 #endif
 

@@ -4,10 +4,15 @@ Auto control will use:
 */
 
 #include <stdbool.h>
+#include <stdint.h>
 
 #define MAX_ROTATE_SPD 1000
 #define MAX_XY_SPD 2000
 #define AUTO_NEAR_DIST 0.1f
+
+extern bool automove_flag;
+extern uint16_t ROTATE_DEFAULT_SPD;
+extern uint16_t XY_DEFAULT_SPD;
 
 void automove_config(void);
 void automove_daemon(void);

@@ -45,14 +45,8 @@ void fan_up_3(void)
 void roll_fan_1(void)
 {
 	stop_fan();
-	set_duty(2, 0.05f);
-	fan_up_stop_auto();
-	delay_ms(300);
-	set_duty(FAN_CHANNEL, 0.06);
-	delay_ms(1700);
-	set_duty(FAN_CHANNEL, 0.065);
-	delay_ms(1000);
-	stop_fan();
+	ROTATE_DEFAULT_SPD = 500;
+	XY_DEFAULT_SPD = 3000;
 }
 
 void fan_down_1(void)
@@ -68,8 +62,8 @@ struct coordinate_t coord[] = {
 	{1361.84, 3647.91, PI/6},\
 	{600, 5090.82, PI/12, fan_up_3},\
 	{300, 6734.66, 0, roll_fan_1},\
-	{450, 12800, 0, fan_down_1},\
-	{450, 12800, -PI/2},\
+	{550, 11800, 0, fan_down_1},\
+	{550, 11800, -PI/2},\
 	{5400, 12800, -PI/2},\
 	{0, 0, 0}
 };
@@ -83,10 +77,15 @@ void auto_start(void)
 
 	for(int i = 0; 0 != coord[i].x || 0 != coord[i].y || 0 != coord[i].rad || 0 != coord[i].callback; i++) {
 		set_auto_dest(coord[i].x / 1000, coord[i].y / 1000, coord[i].rad);
-		while(!near_auto_dest());
-		if(0 != coord[i].callback)
+		while(!near_auto_dest() && automove_flag);
+		if(0 != coord[i].callback && automove_flag)
 			(coord[i].callback)();
 	}
+	
+	push_rod(PUSH_ROD_PUSH, 0);
+	push_rod(PUSH_ROD_PUSH, 1);
+	delay_ms(1000);
+	move_up();
 }
 
 void auto_stop(void)

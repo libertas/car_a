@@ -65,8 +65,8 @@
 #endif
 
 int can_init(void *msg_rcv_callback_func);
-void can_rcc_config();
-void can_gpio_config();
-void can_nvic_config();
+void can_rcc_config(void);
+void can_gpio_config(void);
+void can_nvic_config(void);
 int can_send_msg(u8 can_id,u8 *msg,u8 len);  //发送邮箱
-int can_rcv_msg();   //接收信息
+int can_rcv_msg(void);   //接收信息

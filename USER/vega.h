@@ -17,7 +17,13 @@
 
 #define VEGA_CAN_ID 0x11   //vega数据包的标识符
 #define CMD_CAN_ID 0X12
+#define COMM_B_ID 0x09
+#define COMM_A_ID 0x10
 
+#define VEGA_DIV (10000.0f * 3.6f / 2.9f)
+
+extern int vega_x, vega_y;
+extern float vega_rad;
 
 typedef union{
     u8 u8_form[4];
@@ -27,4 +33,5 @@ typedef union{
 
 int vega_init(int *p_pos_x,int *p_pos_y,float *angle);
 int vega_set_angle(float angle);
-int vega_reset();
+int vega_reset(void);
+int comm_send(void);

@@ -2,10 +2,13 @@
 #include "vega.h"
 #include "string.h"
 #include "stm32f4xx_can.h"
-
+#include "usart.h"
 
 static int *g_vega_pos_x,*g_vega_pos_y;
 static float *g_vega_angle;
+
+int vega_x = 0, vega_y = 0;
+float vega_rad = 0;
 
 void vega_msg_rcv_callback(CanRxMsg *can_rx_msg);
 /* 函数名：int vega_init()
@@ -36,6 +39,7 @@ int vega_init(int *p_pos_x,int *p_pos_y,float *p_angle){
 void vega_msg_rcv_callback(CanRxMsg *can_rx_msg){
     data_convert temp;
     if(can_rx_msg->StdId == VEGA_CAN_ID){   //如果是VEGA的包
+			printf("vega\r\n");
         if(can_rx_msg->DLC == 8){
             temp.u8_form[0] = can_rx_msg->Data[0];
             temp.u8_form[1] = can_rx_msg->Data[1];
@@ -54,7 +58,18 @@ void vega_msg_rcv_callback(CanRxMsg *can_rx_msg){
             temp.u8_form[3] = can_rx_msg->Data[3];
             memcpy((void*)g_vega_angle,&temp.float_form,4);
         }
-    } 
+    }
+		else
+			if(can_rx_msg->StdId == COMM_B_ID){
+				uint8_t length;
+				char data;
+				length = can_rx_msg->DLC;
+				for(int i = 0; i <length; i++){
+						temp.u8_form[i] = can_rx_msg->Data[i];
+						data = can_rx_msg->Data[i];
+						//printf("canok%d\r\n",data);
+				}
+			}
 }
 
 
@@ -103,4 +118,10 @@ int vega_reset(){
     send_data[0] = 0x55;
     send_data[1] = 0xff;
     return can_send_msg(CMD_CAN_ID,send_data,2);
+}
+
+int comm_send(void)
+{
+		u8 send_data[5] = {0,1,2,3,4};
+		return can_send_msg(COMM_B_ID, send_data,5);
 }

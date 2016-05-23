@@ -25,6 +25,7 @@
  *          个中断函数里面调用的，也即函数msg_rcv_func()的执行过程就是中断处理过
  *          成，在中断里停留太久，很容易使得工程出现一些意想不到的问题。中断的优
  *          先级可以通过宏CAN_NVIC_IRQPP、CAN_NVIC_IRQSP来配置。
+ *16年5月22号更新:can_send_msg()函数增加了标识符参数
  *          
  */
 #include "stm32f4xx.h"
@@ -64,8 +65,8 @@
 #endif
 
 int can_init(void *msg_rcv_callback_func);
-void can_rcc_config(void);
-void can_gpio_config(void);
-void can_nvic_config(void);
-int can_send_msg(u8 *msg,u8 len);  //发送邮箱
-int can_rcv_msg(void);   //接收信息
+void can_rcc_config();
+void can_gpio_config();
+void can_nvic_config();
+int can_send_msg(u8 can_id,u8 *msg,u8 len);  //发送邮箱
+int can_rcv_msg();   //接收信息

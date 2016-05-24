@@ -182,18 +182,20 @@ void automove_daemon(void)
 	gps_rad = rad;
 	#endif
 
-	auto_clr_spd();
-	auto_rotate(gps_rad, gps_dest_rad);
-	if(auto_continous_flag) {
-		arg_speeds[0] += VECT_W0 * XY_DEFAULT_SPD;
-		arg_speeds[1] += VECT_W1 * XY_DEFAULT_SPD;
-		arg_speeds[2] += VECT_W2 * XY_DEFAULT_SPD;
-		arg_speeds[3] += VECT_W3 * XY_DEFAULT_SPD;
-	} else {
-		auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
-	}
+	if(automove_flag) {
+		auto_clr_spd();
+		auto_rotate(gps_rad, gps_dest_rad);
+		if(auto_continous_flag) {
+			arg_speeds[0] += VECT_W0 * XY_DEFAULT_SPD;
+			arg_speeds[1] += VECT_W1 * XY_DEFAULT_SPD;
+			arg_speeds[2] += VECT_W2 * XY_DEFAULT_SPD;
+			arg_speeds[3] += VECT_W3 * XY_DEFAULT_SPD;
+		} else {
+			auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
+		}
 
-	auto_send();
+		auto_send();
+	}
 	
 	#ifdef DEBUG_AUTO
 	printf("%f %f\t%f %f\t%f %f\n\n", gps_x, gps_dest_x, gps_y, gps_dest_y, gps_rad, gps_dest_rad);

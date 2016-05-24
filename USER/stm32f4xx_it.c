@@ -473,10 +473,13 @@ void EXTI15_10_IRQHandler(void)
 #include "movement.h"
 void EXTI3_IRQHandler(void)
 {
+	static bool en_flag = true;
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_3)) {
-		/*stop car*/
-		automove_flag = false;
-		stop_all();
+		if(en_flag) {
+			en_flag = false;
+			/*stop the car*/
+			automove_flag = false;
+		}
 	}
 	EXTI_ClearITPendingBit(EXTI_Line3);
 }

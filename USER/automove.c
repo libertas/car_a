@@ -14,6 +14,7 @@
 #ifdef USE_FOUR_WHEEL
 
 bool automove_flag = true;
+bool auto_continous_flag = false;
 
 void auto_clr_spd(void)
 {
@@ -122,12 +123,20 @@ void set_auto_dest(float x, float y, float rad)
 
 bool near_auto_dest(void)
 {
-	if(fabsf(gps_dest_x - gps_x) <= AUTO_NEAR_DIST\
-		&& fabsf(gps_dest_y - gps_y) <= AUTO_NEAR_DIST\
-		&& fabsf(gps_dest_rad - gps_rad) <= AUTO_NEAR_DIST) {
-		return true;
+	if(auto_continous_flag) {
+		if(fabsf(gps_dest_y -gps_y) <= AUTO_NEAR_DIST) {
+			return true;
+		} else {
+			return false;
+		}
 	} else {
-		return false;
+		if(fabsf(gps_dest_x - gps_x) <= AUTO_NEAR_DIST\
+			&& fabsf(gps_dest_y - gps_y) <= AUTO_NEAR_DIST\
+			&& fabsf(gps_dest_rad - gps_rad) <= AUTO_NEAR_DIST) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 
@@ -175,7 +184,14 @@ void automove_daemon(void)
 
 	auto_clr_spd();
 	auto_rotate(gps_rad, gps_dest_rad);
-	auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
+	if(auto_continous_flag) {
+		arg_speeds[0] += VECT_W0 * XY_DEFAULT_SPD;
+		arg_speeds[1] += VECT_W1 * XY_DEFAULT_SPD;
+		arg_speeds[2] += VECT_W2 * XY_DEFAULT_SPD;
+		arg_speeds[3] += VECT_W3 * XY_DEFAULT_SPD;
+	} else {
+		auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
+	}
 
 	auto_send();
 	

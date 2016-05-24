@@ -26,6 +26,9 @@ void start_fan_1(void)
 {
 	start_fan();
 	delay_ms(2000);
+	XY_DEFAULT_SPD = 2000;
+	ROTATE_DEFAULT_SPD = 1000;
+	auto_continous_flag = true;
 }
 void fan_up_1(void)
 {
@@ -44,9 +47,10 @@ void fan_up_3(void)
 
 void roll_fan_1(void)
 {
+	auto_continous_flag = false;
+	delay_ms(3000);
 	stop_fan();
-	ROTATE_DEFAULT_SPD = 500;
-	XY_DEFAULT_SPD = 3000;
+	auto_continous_flag = true;
 }
 
 void fan_down_1(void)
@@ -54,17 +58,37 @@ void fan_down_1(void)
 	fan_down(10);
 }
 
+void adjust_1(void)
+{
+	ROTATE_DEFAULT_SPD = 350;
+	XY_DEFAULT_SPD = 2500;
+}
+
+void adjust_2(void)
+{
+	ROTATE_DEFAULT_SPD = 350;
+	XY_DEFAULT_SPD = 2500;
+}
+
+void adjust_3(void)
+{
+	auto_continous_flag = false;
+	ROTATE_DEFAULT_SPD = 1000;
+	XY_DEFAULT_SPD = 2000;
+}
+
 struct coordinate_t coord[] = {
 	{2812.9, 0, 0, start_fan_1},\
 	{2812.9, 1072.85, PI/12, fan_up_1},\
-	{2550.44, 2133.29, PI/6},\
-	{2130.4, 2860.83, PI/4, fan_up_2},\
-	{1361.84, 3647.91, PI/6},\
-	{600, 5090.82, PI/12, fan_up_3},\
-	{300, 6734.66, 0, roll_fan_1},\
-	{550, 11800, 0, fan_down_1},\
-	{550, 11800, -PI/2},\
-	{5400, 12800, -PI/2},\
+	{2900, 2133.29, PI/6},\
+	{2200, 2860.83, PI/4, fan_up_2},\
+	{1200, 3647.91, PI/6},\
+	{550, 5090.82, PI/12, fan_up_3},\
+	{200, 6700, 0, roll_fan_1},\
+	{300, 9000, 0, adjust_1},\
+	{2500, 12400, -PI * 2 / 5, adjust_2},\
+	{2600, 12500, -PI/2, adjust_3},\
+	{5200, 13000, -PI/2},\
 	{0, 0, 0}
 };
 
@@ -82,14 +106,19 @@ void auto_start(void)
 			(coord[i].callback)();
 	}
 	
+	automove_flag = false;
 	push_rod(PUSH_ROD_PUSH, 0);
 	push_rod(PUSH_ROD_PUSH, 1);
 	delay_ms(1000);
-	move_up();
+	while(1) {
+		move_up();
+		delay_ms(100);
+	}
 }
 
 void auto_stop(void)
 {
+	automove_flag = false;
 	stop_all();
 	stop_fan();
 

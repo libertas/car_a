@@ -11,6 +11,7 @@ Auto control will use:
 #define AUTO_NEAR_DIST 0.1f
 
 extern bool automove_flag;
+extern bool auto_continous_flag;
 extern uint16_t ROTATE_DEFAULT_SPD;
 extern uint16_t XY_DEFAULT_SPD;
 

@@ -94,7 +94,7 @@ struct coordinate_t coord[] = {
 	{200, 9000, 0, adjust_1},\
 	{2500, 12400, -PI * 2 / 5, adjust_2},\
 	{2600, 12600, -PI/2, adjust_3},\
-	{5300, 13100, -PI/2},\
+	{5000, 13100, -PI/2},\
 	{0, 0, 0, 0}
 };
 
@@ -112,6 +112,7 @@ void auto_start(void)
 			(coord[i].callback)();
 	}
 	
+	automove_flag = false;
 	set_auto_dest(get_gps_x() + 0.1f, get_gps_y(), -PI / 2);
 	ROTATE_DEFAULT_SPD = 2500;
 	XY_DEFAULT_SPD = 2500;
@@ -120,11 +121,15 @@ void auto_start(void)
 	delay_ms(2000);
 	automove_flag = false;
 	stop();
+	
 	push_rod(PUSH_ROD_PUSH, 0);
 	push_rod(PUSH_ROD_PUSH, 1);
 	stop();
+	
 	delay_ms(500);
+	
 	stop();
+	
 	while(1) {
 		move_up();
 		delay_ms(100);

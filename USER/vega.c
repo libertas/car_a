@@ -64,23 +64,7 @@ void vega_msg_rcv_callback(CanRxMsg *can_rx_msg){
             for(int i = 0;i < 5;i++){
                 data = can_rx_msg->Data[i];
                 in_char_queue(&wl_queue, data);
-                //printf("can %c\r\n",data);
-                
-            }
-            if(can_rx_msg->Data[0] == 0x08){
-                temp.u8_form[0] = can_rx_msg->Data[1];
-                temp.u8_form[1] = can_rx_msg->Data[2];
-                temp.u8_form[2] = can_rx_msg->Data[3];
-                temp.u8_form[3] = can_rx_msg->Data[4];
-                printf("x-%f\r\n",temp.float_form);
-            }else{
-                temp.u8_form[0] = can_rx_msg->Data[0];
-                temp.u8_form[1] = can_rx_msg->Data[1];
-                temp.u8_form[2] = can_rx_msg->Data[2];
-                temp.u8_form[3] = can_rx_msg->Data[3];
-                printf("y-%f\r\n",temp.float_form);
-            }
-            
+            }            
     }
 }
 

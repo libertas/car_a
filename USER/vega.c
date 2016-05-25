@@ -3,6 +3,7 @@
 #include "string.h"
 #include "stm32f4xx_can.h"
 #include "usart.h"
+#include "interpreter.h"
 
 static int *g_vega_pos_x,*g_vega_pos_y;
 static float *g_vega_angle;
@@ -58,18 +59,15 @@ void vega_msg_rcv_callback(CanRxMsg *can_rx_msg){
             temp.u8_form[3] = can_rx_msg->Data[3];
             memcpy((void*)g_vega_angle,&temp.float_form,4);
         }
+    }else if(can_rx_msg->StdId == COMM_B_ID){
+            char data;
+            for(int i = 0;i < 4;i++){
+                data = can_rx_msg->Data[i];
+                in_char_queue(&wl_queue, data);
+                printf("can %c\r\n",data);
+            }
+            
     }
-		else
-			if(can_rx_msg->StdId == COMM_B_ID){
-				uint8_t length;
-				char data;
-				length = can_rx_msg->DLC;
-				for(int i = 0; i <length; i++){
-						temp.u8_form[i] = can_rx_msg->Data[i];
-						data = can_rx_msg->Data[i];
-						//printf("canok%d\r\n",data);
-				}
-			}
 }
 
 

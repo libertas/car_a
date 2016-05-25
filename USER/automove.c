@@ -51,7 +51,7 @@ void auto_rotate(float now_rad, float dest_rad)
 	arg_speeds[3] += -VECT_W3 * spd_r;
 }
 
-uint16_t XY_DEFAULT_SPD = 2500;
+uint16_t XY_DEFAULT_SPD = 4500;
 void auto_move_xy(float x, float y, float dest_x, float dest_y, float now_rad)
 {
 	float coe_x = CAR_Y_LENGTH / (sqrtf(powf(CAR_X_LENGTH, 2) + powf(CAR_Y_LENGTH, 2)));

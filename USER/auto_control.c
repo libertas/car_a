@@ -24,8 +24,6 @@ struct coordinate_t {
 
 void start_fan_1(void)
 {
-	start_fan();
-	delay_ms(2000);
 	XY_DEFAULT_SPD = 2000;
 	ROTATE_DEFAULT_SPD = 2000;
 	auto_continous_flag = true;
@@ -51,6 +49,8 @@ void fan_up_3(void)
 
 void roll_fan_1(void)
 {
+	fan_roll_r(1);
+	
 	auto_continous_flag = false;
 	delay_ms(3000);
 	stop_fan();
@@ -84,7 +84,7 @@ void adjust_3(void)
 }
 
 struct coordinate_t coord[] = {
-	{2900, 0, 0, start_fan_1},\
+	{2600, 0, 0, start_fan_1},\
 	{2900, 1072.85, PI/12, fan_up_1},\
 	{2900, 2133.29, PI/6},\
 	{2300, 2860.83, PI/4, fan_up_2},\
@@ -104,6 +104,8 @@ void auto_start(void)
 
 	printf("\nAuto controlling.\n");
 	auto_flag = true;
+	
+	start_fan();
 
 	for(int i = 0; 0 != coord[i].x || 0 != coord[i].y || 0 != coord[i].rad || 0 != coord[i].callback; i++) {
 		set_auto_dest(coord[i].x / 1000, coord[i].y / 1000, coord[i].rad);

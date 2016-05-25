@@ -55,7 +55,7 @@ void roll_fan_1(void)
 	auto_continous_flag = false;
 	for(uint8_t i = 0; i < 20; i++) {
 		set_duty(FAN_CHANNEL, 0.055f + i * 0.001f);
-		delay_ms(50);
+		delay_ms(100);
 	}
 	delay_ms(1000);
 	stop_fan();
@@ -91,10 +91,10 @@ struct coordinate_t coord[] = {
 	{1100, 3647.91, PI/6},\
 	{450, 5090.82, PI/12, fan_up_3},\
 	{200, 6700, 0, roll_fan_1},\
-	{200, 9000, 0, adjust_1},\
+	{150, 9000, 0, adjust_1},\
 	{2500, 12400, -PI * 2 / 5, adjust_2},\
 	{2600, 12600, -PI/2, adjust_3},\
-	{4500, 13100, -PI/2},\
+	{4000, 13150, -PI/2},\
 	{0, 0, 0, 0}
 };
 

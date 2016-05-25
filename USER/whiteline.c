@@ -32,80 +32,45 @@ void set_wl_value(float x, float y)
 }
 
 int wl_run(void)
-{	
+{
+	static uint16_t err_count;
+
 	pid_t pr;
 	pr.kp = 0.01f;
 	pr.kd = 0;
 	pr.ki = 0;
 	float prout;
-
-	static bool fan_roll_flag = true;
-	static bool fan_up_auto_flag = true;
+	float spd_r;
 	
 	while(1) {
 		if(stop_flag) {
+			while(fabsf(get_gps_rad() - (-PI / 2)) > 0.1f) {
+				spd_r = 1000 * (get_gps_rad() - (-PI / 2)) / fabsf(get_gps_rad() - (-PI / 2));
+				arg_speeds[0] = VECT_W0 * spd_r;
+				arg_speeds[1] = VECT_W1 * spd_r;
+				arg_speeds[2] = -VECT_W2 * spd_r;
+				arg_speeds[3] = -VECT_W3 * spd_r;
+				
+				uprintf(USART1,\
+					"\r0V%d\r1V%d\r2V%d\r5V%d\r",\
+					arg_speeds[0],\
+					arg_speeds[1],\
+					arg_speeds[2],\
+					arg_speeds[3]\
+					);
+				
+				#ifdef DEBUG_WL
+				printf("%f\n", get_gps_rad());
+				#endif
+			}
 			stop();
 			return 0;
-		}
-		if(0 < wl_x && 0 <= wl_y) {
-			if(fan_up_auto_flag) {
-				if(get_gps_y() > 4.0f) {
-					fan_up_auto(0.55f - get_pos_fan());
-					fan_up_auto_flag = false;
-				} else if(get_gps_y() > 2.2f) {
-					fan_up_auto(0.45f - get_pos_fan());
-				} else{
-					fan_up_auto(0.15f - get_pos_fan());
-				}
-			}
+		} else if(0 < wl_x && 0 <= wl_y) {
+			WL_MAX_SPD = WL_RUN_SPD = 1000;
+			WL_ROTATE_SPD = 500;
+			pr.set_value = 20;
+			set_threshold(255);
 			
-			if(fan_roll_flag && get_gps_y() > 6.8f) {
-				fan_roll_flag = false;
-				fan_roll_r(1);
-				set_auto_dest(get_gps_x(), 6.7f, 0);
-				stop();
-				automove_flag = true;
-				delay_ms(3000);
-				fan_roll_r(0);
-				stop_fan();
-				automove_flag = false;
-			}
-					
-			if(get_gps_y() > 7.1f) {
-				if(get_gps_x() > 2.8f) {
-					WL_MAX_SPD = WL_RUN_SPD = 1000;
-					WL_ROTATE_SPD = 1000;
-					pr.set_value = 30;
-					set_threshold(250);
-				} else {
-					WL_MAX_SPD = WL_RUN_SPD = 3000;
-					WL_ROTATE_SPD = 1800;
-					pr.set_value = 0;
-					set_threshold(220);
-				}
-			} else {
-				if(get_gps_y() > 6.8f && get_gps_y() < 7.1f) {
-					WL_MAX_SPD = WL_RUN_SPD = 1500;
-					WL_ROTATE_SPD = 1000;
-					pr.set_value = 0;
-					set_threshold(220);
-				} else if(get_gps_y() > 2.9f && get_gps_y() < 3.5f) {
-					WL_MAX_SPD = WL_RUN_SPD = 500;
-					WL_ROTATE_SPD = 500;
-					pr.set_value = 0;
-					set_threshold(240);
-				} else if(get_gps_y() > 2.0f) {
-					WL_MAX_SPD = WL_RUN_SPD = 1500;
-					WL_ROTATE_SPD = 1000;
-					pr.set_value = 0;
-					set_threshold(240);
-				} else {
-					WL_MAX_SPD = WL_RUN_SPD = 1500;
-					WL_ROTATE_SPD = 1000;
-					pr.set_value = 10;
-					set_threshold(240);
-				}
-			}
 			pr.actual_value = wl_x - WL_X_MAX / 2;
 			prout = pid_realize(&pr);
 			
@@ -113,12 +78,12 @@ int wl_run(void)
 			printf("prout:%f\n", prout);
 			#endif
 			
-			float spd_r = prout * WL_ROTATE_SPD;
+			spd_r = prout * WL_ROTATE_SPD;
 
-			arg_speeds[0] = VECT_W0 * spd_r;
+			arg_speeds[0] = -VECT_W0 * spd_r;
 			arg_speeds[1] = VECT_W1 * spd_r;
 			arg_speeds[2] = -VECT_W2 * spd_r;
-			arg_speeds[3] = -VECT_W3 * spd_r;
+			arg_speeds[3] = VECT_W3 * spd_r;
 			
 			uprintf(USART1, "\rAC10000\rDEC500\r");
 			
@@ -148,6 +113,8 @@ int wl_run(void)
 				arg_speeds[3]\
 				);
 			
+			err_count = 0;
+			
 			#ifdef DEBUG_WL
 			printf("wl_x= %f\twl_y= %f\n", wl_x, wl_y);
 			printf("arg_speeds:\n");
@@ -163,7 +130,11 @@ int wl_run(void)
 			printf("wl_x= %f\twl_y= %f\n", wl_x, wl_y);
 			#endif
 			
-			stop();
+			if(err_count >= 10) {
+				stop();
+			} else {
+				err_count++;
+			}
 			// return 0;
 		}
 	}

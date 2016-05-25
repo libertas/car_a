@@ -53,7 +53,11 @@ void roll_fan_1(void)
 	fan_roll_r(1);
 	
 	auto_continous_flag = false;
-	delay_ms(3000);
+	for(uint8_t i = 0; i < 20; i++) {
+		set_duty(FAN_CHANNEL, 0.055f + i * 0.001f);
+		delay_ms(50);
+	}
+	delay_ms(1000);
 	stop_fan();
 	XY_DEFAULT_SPD = 2000;
 	ROTATE_DEFAULT_SPD = 500;

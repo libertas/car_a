@@ -50,13 +50,13 @@ int main(void)
 	push_rod_config();
 	pwm_config();
 	// watchdog_config();
-
+    GPIO_WriteBit(GPIOG,GPIO_Pin_15,Bit_SET);
 	delay_ms(3000);
 	auto_control();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
-		check_cmd();
+		//check_cmd();
 	}
 
 	return 0;

@@ -17,8 +17,7 @@
 
 #define VEGA_CAN_ID 0x11   //vega数据包的标识符
 #define CMD_CAN_ID 0X12
-#define COMM_B_ID 0x09
-#define COMM_A_ID 0x10
+
 
 #define VEGA_DIV (10000.0f * 3.6f / 2.9f)
 

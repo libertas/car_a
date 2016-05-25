@@ -35,6 +35,8 @@
 
 #define CAN1_ID 0x12     //stm的CAN总线的标识符
 #define CAN2_ID 0x12
+#define COMM_B_ID 0x09
+#define COMM_A_ID 0x10
 
 #define CAN_MODE_X CAN_Mode_Normal  //模式
 //CAN总线时序和速率配置(此时配为1Mbps)

@@ -11,6 +11,7 @@
 #include "pid.h"
 #include "vega.h"
 
+
 #ifdef USE_FOUR_WHEEL
 
 bool automove_flag = true;
@@ -142,6 +143,7 @@ bool near_auto_dest(void)
 
 void automove_daemon(void)
 {
+	static uint8_t t;
 
 	#ifdef USE_VEGA
 	gps_rad = -vega_rad * 2 * PI / 360;
@@ -150,7 +152,7 @@ void automove_daemon(void)
 	float dx, dy;
 	float x, y, rad;
 	float tmp;
-
+	
 	rad = get_mti_value();
 	#endif
 
@@ -182,19 +184,24 @@ void automove_daemon(void)
 	gps_rad = rad;
 	#endif
 
-	if(automove_flag) {
-		auto_clr_spd();
-		auto_rotate(gps_rad, gps_dest_rad);
-		if(auto_continous_flag) {
-			arg_speeds[0] += VECT_W0 * XY_DEFAULT_SPD;
-			arg_speeds[1] += VECT_W1 * XY_DEFAULT_SPD;
-			arg_speeds[2] += VECT_W2 * XY_DEFAULT_SPD;
-			arg_speeds[3] += VECT_W3 * XY_DEFAULT_SPD;
-		} else {
-			auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
-		}
+	t++;
 
-		auto_send();
+	if(automove_flag && t > 30) {
+		t = 0;
+		if(automove_flag) {
+			auto_clr_spd();
+			auto_rotate(gps_rad, gps_dest_rad);
+			if(auto_continous_flag) {
+				arg_speeds[0] += VECT_W0 * XY_DEFAULT_SPD;
+				arg_speeds[1] += VECT_W1 * XY_DEFAULT_SPD;
+				arg_speeds[2] += VECT_W2 * XY_DEFAULT_SPD;
+				arg_speeds[3] += VECT_W3 * XY_DEFAULT_SPD;
+			} else {
+				auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
+			}
+
+			auto_send();
+		}
 	}
 	
 	#ifdef DEBUG_AUTO
@@ -224,8 +231,8 @@ void tim10_config(void)
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM10, ENABLE);
 	
-	TIM_TimeBaseInitStructure.TIM_Period = 10000 - 1;
-	TIM_TimeBaseInitStructure.TIM_Prescaler = 1680 - 1;
+	TIM_TimeBaseInitStructure.TIM_Period = 1000 - 1;
+	TIM_TimeBaseInitStructure.TIM_Prescaler = 168 - 1;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	
@@ -244,4 +251,9 @@ void tim10_config(void)
 void automove_config(void)
 {
 	tim10_config();
+}
+
+void automove_disable(void)
+{
+	automove_flag = false;
 }

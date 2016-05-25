@@ -10,6 +10,7 @@
 #include "mti.h"
 #include "push_rod.h"
 #include "pwm.h"
+#include "whiteline.h"
 
 bool auto_flag = false;
 float old_pos_x = 0, old_pos_y = 0, old_rad = 0;
@@ -59,11 +60,6 @@ void roll_fan_1(void)
 	auto_continous_flag = true;
 }
 
-void fan_down_1(void)
-{
-	fan_down(10);
-}
-
 void adjust_1(void)
 {
 	ROTATE_DEFAULT_SPD = 500;
@@ -94,13 +90,14 @@ struct coordinate_t coord[] = {
 	{200, 9000, 0, adjust_1},\
 	{2500, 12400, -PI * 2 / 5, adjust_2},\
 	{2600, 12600, -PI/2, adjust_3},\
-	{5000, 13100, -PI/2},\
+	{4500, 13100, -PI/2},\
 	{0, 0, 0, 0}
 };
 
 void auto_start(void)
 {
 	automove_config();
+	automove_flag = true;
 
 	printf("\nAuto controlling.\n");
 	auto_flag = true;
@@ -113,21 +110,10 @@ void auto_start(void)
 	}
 	
 	automove_flag = false;
-	set_auto_dest(get_gps_x() + 0.1f, get_gps_y(), -PI / 2);
-	ROTATE_DEFAULT_SPD = 2500;
-	XY_DEFAULT_SPD = 2500;
-	auto_continous_flag = false;
-	automove_flag = true;
-	delay_ms(2000);
-	automove_flag = false;
-	stop();
+	wl_run();
 	
 	push_rod(PUSH_ROD_PUSH, 0);
 	push_rod(PUSH_ROD_PUSH, 1);
-	stop();
-	
-	delay_ms(500);
-	
 	stop();
 	
 	while(1) {

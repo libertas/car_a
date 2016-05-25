@@ -17,9 +17,12 @@ extern uint16_t XY_DEFAULT_SPD;
 
 void automove_config(void);
 void automove_daemon(void);
+void automove_disable(void);
 bool near_auto_dest(void);
 
 float get_gps_x(void);
 float get_gps_y(void);
 float get_gps_rad(void);
 void set_auto_dest(float x, float y, float rad);
+
+extern bool automove_flag;

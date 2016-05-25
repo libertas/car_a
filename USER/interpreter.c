@@ -9,6 +9,7 @@
 #include "movement.h"
 #include "push_rod.h"
 #include "math.h"
+#include "whiteline.h"
 
 
 char handler_buf[CMD_BUF_LEN] = {0};
@@ -137,7 +138,7 @@ int run_cmd(char_queue *cmd_queue)
 			}
 			memcpy(&flbuf1, &qbuf, 4);
 
-			// set_wl_value(flbuf, flbuf1);
+			set_wl_value(flbuf, flbuf1);
 
 			#ifdef DEBUG_INTPRT
 			#include "clock.h"

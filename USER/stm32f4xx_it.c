@@ -246,7 +246,6 @@ void UART4_IRQHandler(void)
 void UART5_IRQHandler(void)
 {
 	char data;
-	char tmp;
 
 	if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET)
 	{
@@ -282,8 +281,12 @@ void UART5_IRQHandler(void)
 #include "automove.h"
 void TIM1_UP_TIM10_IRQHandler(void)
 {
+	
 	if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
-		automove_daemon();
+ 		automove_daemon();
+
+ 		check_cmd();
+
 		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
 	}
 }
@@ -471,14 +474,17 @@ void EXTI15_10_IRQHandler(void)
 	}
 }
 #include "movement.h"
+#include "push_rod.h"
 void EXTI3_IRQHandler(void)
 {
-	static bool en_flag = true;
+	static bool flag = true;
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_3)) {
-		if(en_flag) {
-			en_flag = false;
-			/*stop the car*/
-			automove_flag = false;
+		if(flag) {
+			/*stop car*/
+			flag = false;
+			stop_flag = true;
+			stop_all();
+			push_rod_c(PUSH_ROD_PUSH, 1);
 		}
 	}
 	EXTI_ClearITPendingBit(EXTI_Line3);

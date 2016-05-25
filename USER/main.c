@@ -26,6 +26,9 @@
 #include "suart.h"
 #include "vega.h"
 #include "watchdog.h"
+#include "whiteline.h"
+
+
 
 int main(void)
 {

@@ -50,7 +50,7 @@ void start_fan(void)
 
 inline void stop_fan(void)
 {
-        set_duty(FAN_CHANNEL, 0.05);
+        set_duty(FAN_CHANNEL, 0.04);
         fan_status = 0;
 }
 

@@ -82,8 +82,8 @@ void switch_nvic_config(void)
 	uint8_t i;
 	NVIC_InitTypeDef  NVIC_InitStructure;
 
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 4;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 4;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	for(i = 0; i < SWITCH_CHANNEL_NUM; i++) {
 		NVIC_InitStructure.NVIC_IRQChannel = SwitchNVICPins[i];

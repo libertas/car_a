@@ -117,6 +117,7 @@ void auto_start(void)
 	
 	automove_flag = false;
 	wl_run();
+	stop();
 	
 	push_rod_c(PUSH_ROD_PUSH, 1);
 	push_rod_c(PUSH_ROD_PUSH, 2);

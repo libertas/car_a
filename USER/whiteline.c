@@ -130,7 +130,7 @@ int wl_run(void)
 			printf("wl_x= %f\twl_y= %f\n", wl_x, wl_y);
 			#endif
 			
-			if(err_count >= 10) {
+			if(err_count >= 1000) {
 				stop();
 			} else {
 				err_count++;

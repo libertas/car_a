@@ -6,6 +6,7 @@
 #include "movement.h"
 #include "pid.h"
 #include "whiteline.h"
+#include "can.h"
 
 #define WL_X_MAX 160
 uint16_t WL_MAX_SPD = 3000;
@@ -14,15 +15,20 @@ uint16_t WL_ROTATE_SPD = 2000;
 
 float wl_x = -1;
 float wl_y = -1;
+u8 send_array[8];
 
 void set_threshold(uint8_t th)
 {
 	uint64_t i;
-	for(i = 0; i < 100; i++) {
-		USART_SendData(USART3, 0x10);
-		USART_SendData(USART3, th);
-		USART_SendData(USART3, (0x10 + th) & 0xff);
-	}
+    for(i = 0; i < 100; i++){      
+        u8 check_byte = 0x10;
+        send_array[0] = check_byte;
+        send_array[1] = th;
+        check_byte = (check_byte + th) & 0xff;
+        send_array[2] = check_byte;
+        can_send_msg(COMM_A_ID, send_array, 3);
+    }
+    
 }
 
 void set_wl_value(float x, float y)

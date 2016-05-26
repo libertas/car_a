@@ -94,7 +94,7 @@ struct coordinate_t coord[] = {
 	{150, 9000, 0, adjust_1},\
 	{2500, 12400, -PI * 2 / 5, adjust_2},\
 	{2600, 12600, -PI/2, adjust_3},\
-	{4000, 13150, -PI/2},\
+	{4900, 13200, -PI/2},\
 	{0, 0, 0, 0}
 };
 
@@ -110,13 +110,18 @@ void auto_start(void)
 
 	for(int i = 0; 0 != coord[i].x || 0 != coord[i].y || 0 != coord[i].rad || 0 != coord[i].callback; i++) {
 		set_auto_dest(coord[i].x / 1000, coord[i].y / 1000, coord[i].rad);
-		while(!near_auto_dest() && automove_flag);
-		if(0 != coord[i].callback && automove_flag)
+		while(!near_auto_dest()) {
+			if(stop_flag) {
+				goto end_loop;
+			}
+		}
+		if(0 != coord[i].callback && !stop_flag)
 			(coord[i].callback)();
 	}
 	
+	end_loop:
+	
 	automove_flag = false;
-	wl_run();
 	stop();
 	
 	push_rod_c(PUSH_ROD_PUSH, 1);

@@ -6,6 +6,7 @@
 #include "movement.h"
 #include "pid.h"
 #include "whiteline.h"
+#include "switch.h"
 
 #define WL_X_MAX 160
 uint16_t WL_MAX_SPD = 3000;
@@ -66,6 +67,7 @@ int wl_run(void)
 			stop();
 			return 0;
 		} else if(0 < wl_x && 0 <= wl_y) {
+            switch_config();
 			WL_MAX_SPD = WL_RUN_SPD = 1000;
 			WL_ROTATE_SPD = 500;
 			pr.set_value = 20;

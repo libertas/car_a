@@ -499,6 +499,15 @@ void EXTI3_IRQHandler(void)
 		NVIC_Init(&NVIC_InitStructure);
 			
 		printf("\nexti3 diasabled\n");
+		
+		push_rod_c(PUSH_ROD_PUSH, 2);
+		stop();
+		
+		while(1) {
+			printf("moving up\n");
+			move_up();
+			delay_ms(100);
+		}
 	}
 	EXTI_ClearITPendingBit(EXTI_Line3);
 }

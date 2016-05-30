@@ -8,7 +8,7 @@
 #include "whiteline.h"
 #include "switch.h"
 
-#define WL_X_MAX 160
+#define WL_X_MAX 100
 uint16_t WL_MAX_SPD = 3000;
 uint16_t WL_RUN_SPD = 2000;
 uint16_t WL_ROTATE_SPD = 2000;
@@ -70,7 +70,7 @@ int wl_run(void)
             switch_config();
 			WL_MAX_SPD = WL_RUN_SPD = 1000;
 			WL_ROTATE_SPD = 500;
-			pr.set_value = 20;
+			pr.set_value = 10;
 			set_threshold(255);
 			
 			pr.actual_value = wl_x - WL_X_MAX / 2;

@@ -144,6 +144,7 @@ void auto_start(void)
 	stop();
 	
 	while(1) {
+		printf("moving up\n");
 		move_up();
 		delay_ms(100);
 	}

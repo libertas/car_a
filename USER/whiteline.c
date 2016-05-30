@@ -60,6 +60,7 @@ int wl_run(void)
 	while(1) {
 		if(stop_flag) {
 			stop();
+			printf("\ngetting out of wl_run\n");
 			return 0;
 		} else if(0 < wl_x && 0 <= wl_y) {
 			WL_MAX_SPD = WL_RUN_SPD = 500;

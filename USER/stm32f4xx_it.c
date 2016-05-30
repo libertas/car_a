@@ -63,6 +63,7 @@
   */
 void NMI_Handler(void)
 {
+	printf("\nNMI_Handler\n");
 }
 
 /**
@@ -75,6 +76,7 @@ void HardFault_Handler(void)
   /* Go to infinite loop when Hard Fault exception occurs */
   while (1)
   {
+	  printf("HardFault_Handler\n");
   }
 }
 
@@ -88,6 +90,7 @@ void MemManage_Handler(void)
   /* Go to infinite loop when Memory Manage exception occurs */
   while (1)
   {
+	  printf("MemManage_Handler\n");
   }
 }
 
@@ -101,6 +104,7 @@ void BusFault_Handler(void)
   /* Go to infinite loop when Bus Fault exception occurs */
   while (1)
   {
+	  printf("BusFault_Handler\n");
   }
 }
 
@@ -114,6 +118,7 @@ void UsageFault_Handler(void)
   /* Go to infinite loop when Usage Fault exception occurs */
   while (1)
   {
+	  printf("UsageFault_Handler\n");
   }
 }
 
@@ -124,6 +129,7 @@ void UsageFault_Handler(void)
   */
 void SVC_Handler(void)
 {
+	printf("\nSVC_Handler\n");
 }
 
 /**

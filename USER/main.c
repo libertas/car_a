@@ -50,14 +50,13 @@ int main(void)
 	push_rod_config();
 	pwm_config();
 	// watchdog_config();
-
-	wl_run();
-	//delay_ms(3000);
-	//auto_control();
+	
+	delay_ms(3000);
+	auto_control();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
-		check_cmd();
+		//check_cmd();
 	}
 
 	return 0;

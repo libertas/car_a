@@ -1,4 +1,5 @@
 #include "automove.h"
+#include "can.h"
 #include "clock.h"
 #include "debug.h"
 #include "encoder.h"
@@ -12,7 +13,8 @@
 #define WL_X_MAX 100
 uint16_t WL_MAX_SPD = 3000;
 uint16_t WL_RUN_SPD = 2000;
-uint16_t WL_ROTATE_SPD = 2000;
+uint16_t WL_X_SPD = 2000;
+uint16_t WL_ROTATE_SPD = 500;
 
 float wl_x = -1;
 float wl_y = -1;
@@ -42,11 +44,17 @@ int wl_run(void)
 {
 	static uint16_t err_count;
 
+	pid_t px;
+	px.kp = 0.01f;
+	px.kd = 0;
+	px.ki = 0;
+	
 	pid_t pr;
 	pr.kp = 0.01f;
 	pr.kd = 0;
 	pr.ki = 0;
-	float prout;
+	
+	float pxout, prout;
 	float spd_r;
 	
 	while(1) {
@@ -54,25 +62,38 @@ int wl_run(void)
 			stop();
 			return 0;
 		} else if(0 < wl_x && 0 <= wl_y) {
-			WL_MAX_SPD = WL_RUN_SPD = 1000;
-			WL_ROTATE_SPD = 500;
+			WL_MAX_SPD = WL_RUN_SPD = 500;
+			WL_X_SPD = 500;
+			WL_ROTATE_SPD = 1000;
+			
+			pr.set_value = - PI / 2;
+			pr.actual_value = get_gps_rad();
+			
+			prout = pid_realize(&pr);
 
-			pr.set_value = 10;
+			px.set_value = 10;
 			set_threshold(255);
 			
-			pr.actual_value = wl_x - WL_X_MAX / 2;
-			prout = pid_realize(&pr);
+			px.actual_value = wl_x - WL_X_MAX / 2;
+			pxout = pid_realize(&px);
 			
 			#ifdef DEBUG_WL
-			printf("prout:%f\n", prout);
+			printf("pxout:%f\n", pxout);
 			#endif
 			
-			spd_r = prout * WL_ROTATE_SPD;
+			spd_r = pxout * WL_X_SPD;
 
 			arg_speeds[0] = -VECT_W0 * spd_r;
 			arg_speeds[1] = VECT_W1 * spd_r;
 			arg_speeds[2] = -VECT_W2 * spd_r;
 			arg_speeds[3] = VECT_W3 * spd_r;
+			
+			spd_r = prout * WL_ROTATE_SPD;
+			
+			arg_speeds[0] += VECT_W0 * spd_r;
+			arg_speeds[1] += VECT_W1 * spd_r;
+			arg_speeds[2] += -VECT_W2 * spd_r;
+			arg_speeds[3] += -VECT_W3 * spd_r;
 			
 			uprintf(USART1, "\rAC10000\rDEC500\r");
 			

@@ -10,6 +10,7 @@
 #include "mti.h"
 #include "push_rod.h"
 #include "pwm.h"
+#include "switch.h"
 #include "whiteline.h"
 
 bool auto_flag = false;
@@ -132,7 +133,10 @@ void auto_start(void)
 	}
 	
 	automove_flag = false;
+	EXTI_ClearITPendingBit(EXTI_Line3);
+	switch_config();
 	wl_run();
+	printf("out\n");
 	stop();
 	
 	push_rod_c(PUSH_ROD_PUSH, 1);

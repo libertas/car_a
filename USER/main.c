@@ -49,7 +49,6 @@ int main(void)
 	//switch_config();
 	push_rod_config();
 	pwm_config();
-	switch_config();
 	// watchdog_config();
 	
 	delay_ms(3000);

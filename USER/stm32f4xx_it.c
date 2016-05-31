@@ -499,6 +499,8 @@ void EXTI3_IRQHandler(void)
 		push_rod_c(PUSH_ROD_PUSH, 2);
 		stop();
 		
+		switch_config(3);
+		
 		while(1) {
 			printf("moving up\n");
 			move_up();

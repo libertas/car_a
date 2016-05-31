@@ -134,6 +134,7 @@ void auto_start(void)
 	
 	automove_flag = false;
 	EXTI_ClearITPendingBit(EXTI_Line3);
+	switch_config(2);
 	switch_nvic_enable(2);
 	wl_run();
 	printf("out\n");

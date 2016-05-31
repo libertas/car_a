@@ -2,16 +2,19 @@
 
 #include "stm32f4xx.h"
 
+#include "automove.h"
 #include "auto_control.h"
 #include "brake.h"
 #include "clock.h"
 #include "database.h"
+#include "dma.h"
 #include "encoder.h"
 #include "fan.h"
 #include "flash.h"
 #include "interpreter.h"
 #include "magnet.h"
 #include "movement.h"
+#include "mti.h"
 #include "multi_processing.h"
 #include "pwm.h"
 #include "switch.h"
@@ -21,33 +24,39 @@
 #include "push_rod.h"
 #include "spi.h"
 #include "suart.h"
+#include "vega.h"
 #include "watchdog.h"
+#include "whiteline.h"
+
+
 
 int main(void)
 {
 	system_clk_set();
 	systick_config();
-	db_init();
 
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	interpreter_config();
 	uart_config(115200);
 	spi_config();
 	suart_config();
 
+	#ifdef USE_VEGA
+	vega_init(&vega_x, &vega_y, &vega_rad);
+	#endif
 	brake_config();
 	encoder_config();
-	switch_config();
+	//switch_config();
 	push_rod_config();
 	pwm_config();
 	// watchdog_config();
-
-
+	
+	delay_ms(3000);
 	auto_control();
 
 	printf("\n\nEntering main loop\n\n");
-	while(1)
-	{
-		check_cmd();
+	while(1) {
+		//check_cmd();
 	}
 
 	return 0;

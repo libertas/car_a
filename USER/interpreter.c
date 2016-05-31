@@ -9,10 +9,13 @@
 #include "movement.h"
 #include "push_rod.h"
 #include "math.h"
+#include "whiteline.h"
 
 
-char cmd_buf[CMD_BUF_LEN] = {0};
-char_queue cmd_queue;
+char handler_buf[CMD_BUF_LEN] = {0};
+char wl_buf[CMD_BUF_LEN] = {0};
+char_queue handler_queue;
+char_queue wl_queue;
 
 /*
 format:
@@ -92,19 +95,20 @@ command list:
 	fan_kowtow_r(int8_t dir)
 		(byte) 0x12 (int8_t) dir
 	
-	push_rod(uint8_t dir)
-		(byte) 0x13 (uint8_t) dir
+	push_rod(uint8_t dir, uint8_t channel_num)
+		(byte) 0x13 (4-bit) dir (4-bit) num
 */
-int run_cmd(void)
+int run_cmd(char_queue *cmd_queue)
 {
 	char cmd;
-	out_char_queue(&cmd_queue, &cmd);
+	out_char_queue(cmd_queue, &cmd);
 
 	uint8_t i;
 
 	uint8_t buf = 0, buf1 = 0;
 	uint16_t dbuf = 0;
 	uint32_t qbuf = 0;
+	float flbuf, flbuf1;
 
 	float x, y, rad;
 
@@ -118,13 +122,37 @@ int run_cmd(void)
 
 			break;
 		
+		case 0x80:
+
+			qbuf = 0;
+			for(i = 0; i < 4; i++) {
+				out_char_queue(cmd_queue, (char*) &buf);
+				qbuf |= buf << i * 8;
+			}
+			memcpy(&flbuf, &qbuf, 4);
+
+			qbuf = 0;
+			for(i = 0; i < 4; i++) {
+				out_char_queue(cmd_queue, (char*) &buf);
+				qbuf |= buf << i * 8;
+			}
+			memcpy(&flbuf1, &qbuf, 4);
+
+			set_wl_value(flbuf, flbuf1);
+
+			#ifdef DEBUG_INTPRT
+			#include "clock.h"
+			printf("wl:%f\t%f\n", flbuf, flbuf1);
+			#endif
+			break;
+		
 		case 0x14:
 			
 			#ifdef DEBUG_INTPRT
 			printf("\ncmd\t0x14\n");
 			#endif
 		
-			out_char_queue(&cmd_queue, (char*) &buf);
+			out_char_queue(cmd_queue, (char*) &buf);
 			switch (buf) {
 				default:
 					break;
@@ -149,10 +177,10 @@ int run_cmd(void)
 			printf("\ncmd\t0x20\n");
 			#endif
 
-			out_char_queue(&cmd_queue, (char*) &buf);
+			out_char_queue(cmd_queue, (char*) &buf);
 			dbuf = buf;
 			dbuf = dbuf << 8;
-			out_char_queue(&cmd_queue, (char*) &buf);
+			out_char_queue(cmd_queue, (char*) &buf);
 			dbuf |= buf;
 
 			move_y_c(dbuf);
@@ -164,10 +192,10 @@ int run_cmd(void)
 			printf("\ncmd\t0x21\n");
 			#endif
 
-			out_char_queue(&cmd_queue, (char*) &buf);
+			out_char_queue(cmd_queue, (char*) &buf);
 			dbuf = buf;
 			dbuf = dbuf << 8;
-			out_char_queue(&cmd_queue, (char*) &buf);
+			out_char_queue(cmd_queue, (char*) &buf);
 			dbuf |= buf;
 
 			move_x_c(dbuf);
@@ -180,7 +208,7 @@ int run_cmd(void)
 			#endif
 
 			for(i = 0; i < 4; i++) {
-				out_char_queue(&cmd_queue, (char*) &buf);
+				out_char_queue(cmd_queue, (char*) &buf);
 				qbuf = qbuf << 8;
 				qbuf |= buf;
 			}
@@ -195,7 +223,7 @@ int run_cmd(void)
 			#endif
 
 			for(i = 0; i < 4; i++) {
-				out_char_queue(&cmd_queue, (char*) &buf);
+				out_char_queue(cmd_queue, (char*) &buf);
 				qbuf = qbuf << 8;
 				qbuf |= buf;
 			}
@@ -209,8 +237,8 @@ int run_cmd(void)
 			printf("\ncmd\t0x22\n");
 			#endif
 
-			out_char_queue(&cmd_queue, (char*) &buf);
-			out_char_queue(&cmd_queue, (char*) &buf1);
+			out_char_queue(cmd_queue, (char*) &buf);
+			out_char_queue(cmd_queue, (char*) &buf1);
 			move_xy_c(buf, buf1);
 
 			break;
@@ -221,7 +249,7 @@ int run_cmd(void)
 			printf("\ncmd\t0x10\n");
 			#endif
 
-			out_char_queue(&cmd_queue, (char*) &buf);
+			out_char_queue(cmd_queue, (char*) &buf);
 
 			rotate_c(buf);
 
@@ -274,7 +302,7 @@ int run_cmd(void)
 			printf("\ncmd\t0x04\n");
 			#endif
 		
-			fan_up();
+			fan_up(10);
 			break;
 		
 		case 0x06:
@@ -283,7 +311,7 @@ int run_cmd(void)
 			printf("\ncmd\t0x06\n");
 			#endif
 		
-			fan_down();
+			fan_down(10);
 			break;
 		
 		case 0x07:
@@ -320,7 +348,7 @@ int run_cmd(void)
 			#endif
 		
 			for(i = 0; i < 4; i++) {
-				out_char_queue(&cmd_queue, (char*) &buf);
+				out_char_queue(cmd_queue, (char*) &buf);
 				qbuf |= buf << i * 8;
 			}
 			memcpy(&rad, &qbuf, 4);
@@ -335,7 +363,7 @@ int run_cmd(void)
 			#endif
 		
 			for(i = 0; i < 4; i++) {
-				out_char_queue(&cmd_queue, (char*) &buf);
+				out_char_queue(cmd_queue, (char*) &buf);
 				qbuf |= buf << i * 8;
 			}
 			memcpy(&rad, &qbuf, 4);
@@ -350,7 +378,7 @@ int run_cmd(void)
 			printf("\ncmd\t0x11\n");
 			#endif
 
-			out_char_queue(&cmd_queue, (char*) &buf);
+			out_char_queue(cmd_queue, (char*) &buf);
 		
 			fan_roll_r(buf);
 			
@@ -362,7 +390,7 @@ int run_cmd(void)
 			printf("\ncmd\t0x12\n");
 			#endif
 
-			out_char_queue(&cmd_queue, (char*) &buf);
+			out_char_queue(cmd_queue, (char*) &buf);
 		
 			//fan_kowtow_r(buf);
 			
@@ -374,10 +402,9 @@ int run_cmd(void)
 			printf("\ncmd\t0x13\n");
 			#endif
 		
-			out_char_queue(&cmd_queue, (char*) &buf);
+			out_char_queue(cmd_queue, (char*) &buf);
 		
-			push_rod(buf, 0);
-			push_rod(buf, 1);
+			push_rod((buf >> 4) & 0x0f, buf & 0x0f);
 		
 			break;
 	}
@@ -385,35 +412,35 @@ int run_cmd(void)
 	return 0;
 }
 
-int check_cmd(void)
+int check_cmd_1(char_queue *cmd_queue)
 {
 	uint32_t fr;
 	uint8_t data_len, cmd;
 	uint8_t check_sum = 0;
 	uint16_t i;
 	
-	if(cmd_queue.count > 0) {
-		fr = (cmd_queue.front + 1) % cmd_queue.max_size;
-		cmd = cmd_queue.data[fr];
+	if(cmd_queue->count > 0) {
+		fr = (cmd_queue->front + 1) % cmd_queue->max_size;
+		cmd = cmd_queue->data[fr];
 		data_len = (cmd >> 4);
-		cmd &= 0x0f;
+		cmd &= 0xff;
 		
 		#ifdef DEBUG_INTPRT
 		printf("\ndata-len:%x\ncmd:0x%x\n", data_len, cmd);
 		#endif
 		
-		if(cmd_queue.count >= data_len + 2) {
+		if(cmd_queue->count >= data_len + 2) {
 			for(i = 0; i <= data_len; i++) {
-				check_sum += cmd_queue.data[(fr + i) % cmd_queue.max_size];
+				check_sum += cmd_queue->data[(fr + i) % cmd_queue->max_size];
 			}
-			if(cmd_queue.data[(fr + i) % cmd_queue.max_size] == check_sum) {
+			if(cmd_queue->data[(fr + i) % cmd_queue->max_size] == check_sum) {
 				
 				#ifdef DEBUG_INTPRT
 				printf("\nrun_cmd()\n");
 				#endif
 				
-				run_cmd();
-				out_char_queue(&cmd_queue, (char*) &check_sum);  // remove the check_sum byte
+				run_cmd(cmd_queue);
+				out_char_queue(cmd_queue, (char*) &check_sum);  // remove the check_sum byte
 				
 				#ifdef DEBUG_INTPRT
 				printf("\n0\n");
@@ -426,7 +453,7 @@ int check_cmd(void)
 				printf("\n-3\n");
 				#endif
 				
-				out_char_queue(&cmd_queue, (char*) &check_sum);  //remove the wrong byte
+				out_char_queue(cmd_queue, (char*) &check_sum);  //remove the wrong byte
 				
 				return -3;
 			}
@@ -448,8 +475,17 @@ int check_cmd(void)
 	}
 }
 
+uint8_t check_cmd(void)
+{
+	uint8_t result;
+	result = check_cmd_1(&handler_queue) << 8;
+	result |= check_cmd_1(&wl_queue);
+	return result;
+}
+
 
 void interpreter_config(void)
 {
-	init_char_queue(&cmd_queue, cmd_buf, CMD_BUF_LEN);
+	init_char_queue(&handler_queue, handler_buf, CMD_BUF_LEN);
+	init_char_queue(&wl_queue, wl_buf, CMD_BUF_LEN);
 }

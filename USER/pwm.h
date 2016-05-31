@@ -4,7 +4,7 @@
 
 // #define USE_HPWM
 
-#define PWM_PRESCALE (84 - 1)
+#define PWM_PRESCALE (42 - 1)
 
 #ifdef USE_HPWM
 #include "hpwm.h"

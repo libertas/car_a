@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include "car.h"
 #include "usart.h"
 
 /*
@@ -14,10 +15,10 @@ The world view:
 	down = -z
 */
 
-#define ZERO ((float) (1E-3))
+#define ZERO ((float) (1E-1))
 #define PI 3.141592653589793F
 
-#define W_DIAMETER ((float) 0.12)  // meter
+#define W_DIAMETER ((float) 0.05)  // meter
 
 #define USE_FOUR_WHEEL
 
@@ -42,19 +43,38 @@ void t_stop(void);
 
 #ifdef USE_FOUR_WHEEL
 
-#define DEFAULT_ARG_SPEED 2000
+#define DEFAULT_ARG_SPEED 4000
+
+#ifdef CAR_A_1
 #define CAR_X_LENGTH 500
 #define CAR_Y_LENGTH 650
+#define F_DIAMETER ((float) 0.032)  // meter
+#endif
+
+#ifdef CAR_A_2
+
+#define USE_VEGA
+
+#define CAR_X_LENGTH 610
+#define CAR_Y_LENGTH 610
+#define F_DIAMETER ((float) 0.00148)  // meter
+
+#endif
+
 #define VECT_W0 (-1)
 #define VECT_W1 (-1)
 #define VECT_W2 (+1)
 #define VECT_W3 (+1)
 
 extern int16_t arg_speeds[4];
+extern bool stop_flag;
+extern bool move_up_flag;
 
 void f_move_arc(float y, float rad);
+void f_move_xy(float x, float y);
 void f_move_xy_c(int8_t spd_x, int8_t spd_y);
-void f_rotate_c(int8_t spd);
+void f_rotate_r(float rad);
+void f_rotate_r_c(int8_t spd);
 void f_stop(void);
 
 #endif
@@ -66,8 +86,11 @@ void move_x(float x);
 void move_x_c(int16_t arg_spd);
 void move_y(float y);
 void move_y_c(int16_t arg_spd);
+void move_xy(float x, float y);
 void move_xy_c(int8_t spd_x, int8_t spd_y);
 
+void rotate(float rad);
+void rotate_r(float rad);
 void rotate_c(int8_t arg_spd);
 
 void stop(void);

@@ -97,7 +97,7 @@ void adjust_2(void)
 void adjust_3(void)
 {
 	auto_continous_flag = false;
-	fan_up_auto(0.35f);
+	fan_up_auto(0.32f);
 	ROTATE_DEFAULT_SPD = 750;
 	XY_DEFAULT_SPD = 1500;
 }
@@ -121,6 +121,7 @@ struct coordinate_t coord[] = {
 
 void auto_start(void)
 {
+	push_rod(1, 3);
 	automove_config();
 	automove_flag = true;
 

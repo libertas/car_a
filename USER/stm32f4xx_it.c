@@ -479,6 +479,8 @@ void EXTI15_10_IRQHandler(void)
 		EXTI_ClearITPendingBit(EXTI_Line11);
 	}
 }
+
+#include "magnet.h"
 #include "movement.h"
 #include "push_rod.h"
 void EXTI3_IRQHandler(void)
@@ -512,7 +514,10 @@ void EXTI3_IRQHandler(void)
 						stop_all();
 					}
 					
-					delay_ms(2000);
+					delay_ms(1000);
+					push_rod(0, 3);
+					mag_in();
+					delay_ms(4000);
 					break;
 				}
 			}

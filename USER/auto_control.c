@@ -81,7 +81,9 @@ void adjust_0(void)
 
 void adjust_1(void)
 {
-	fan_up_auto(-0.15f);
+	fan_up_flag = 0;
+	fan_des = 0;
+	fan_down(10);
 	ROTATE_DEFAULT_SPD = 500;
 	XY_DEFAULT_SPD = 2500;
 }
@@ -95,6 +97,7 @@ void adjust_2(void)
 void adjust_3(void)
 {
 	auto_continous_flag = false;
+	fan_up_auto(0.35f);
 	ROTATE_DEFAULT_SPD = 750;
 	XY_DEFAULT_SPD = 1500;
 }

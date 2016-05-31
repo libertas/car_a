@@ -77,23 +77,30 @@ void switch_exti_config(void)
 	}
 }
 
-void switch_nvic_config(void)
+void switch_nvic_enable(uint8_t i)
 {
-	uint8_t i;
 	NVIC_InitTypeDef  NVIC_InitStructure;
 
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	for(i = 0; i < SWITCH_CHANNEL_NUM; i++) {
-		NVIC_InitStructure.NVIC_IRQChannel = SwitchNVICPins[i];
-		NVIC_Init(&NVIC_InitStructure);
-	}
-
+	NVIC_InitStructure.NVIC_IRQChannel = SwitchNVICPins[i];
+	NVIC_Init(&NVIC_InitStructure);
 }
+
+void switch_nvic_disable(uint8_t i)
+{
+	NVIC_InitTypeDef  NVIC_InitStructure;
+
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = DISABLE;
+	NVIC_InitStructure.NVIC_IRQChannel = SwitchNVICPins[i];
+	NVIC_Init(&NVIC_InitStructure);
+}
+
 void switch_config(void)
 {
 	switch_gpio_config();
 	switch_exti_config();
-	switch_nvic_config();
 }

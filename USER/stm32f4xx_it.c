@@ -483,6 +483,8 @@ void EXTI15_10_IRQHandler(void)
 #include "push_rod.h"
 void EXTI3_IRQHandler(void)
 {
+	uint32_t i;
+
 	printf("\nentering exti3\n");
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_3)) {
 		/*stop car*/
@@ -490,14 +492,8 @@ void EXTI3_IRQHandler(void)
 		stop_flag = true;
 		push_rod_c(PUSH_ROD_PUSH, 1);
 
-		NVIC_InitTypeDef  NVIC_InitStructure;
-
-		NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;
-		NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
-		NVIC_InitStructure.NVIC_IRQChannelCmd = DISABLE;	
-		NVIC_InitStructure.NVIC_IRQChannel = EXTI3_IRQn;
-		NVIC_Init(&NVIC_InitStructure);
-			
+		switch_nvic_disable(2);
+		
 		printf("\nexti3 diasabled\n");
 		
 		push_rod_c(PUSH_ROD_PUSH, 2);
@@ -507,6 +503,21 @@ void EXTI3_IRQHandler(void)
 			printf("moving up\n");
 			move_up();
 			delay_ms(100);
+			if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_9)) {
+				delay_ms(100);
+				if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_9)) {
+					for(i = 0; i < 100; i++) {
+						stop_all();
+					}
+					
+					delay_ms(2000);
+					break;
+				}
+			}
+		}
+		
+		while(1) {
+			move_down();
 		}
 	}
 	EXTI_ClearITPendingBit(EXTI_Line3);

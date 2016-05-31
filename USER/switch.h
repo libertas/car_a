@@ -6,3 +6,6 @@ void switch_config(void);
 	2 PF3  light_electricity(12V)
 	3 PF9  move_up_stop//light_electricity(12V)
 */
+
+void switch_nvic_enable(uint8_t i);
+void switch_nvic_disable(uint8_t i);

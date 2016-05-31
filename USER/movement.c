@@ -15,7 +15,7 @@ int16_t get_speed(uint8_t wheel)
 
 void stop_all(void)
 {
-	uprintf(USART1, "V0\r");
+	uprintf(USART1, "\rDEC10000\rV0\r");
 	delay_ms(10);
 }
 

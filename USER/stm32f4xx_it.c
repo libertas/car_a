@@ -515,7 +515,7 @@ void EXTI3_IRQHandler(void)
 					}
 					
 					delay_ms(1000);
-					push_rod(0, 3);
+					push_rod_c(0, 3);
 					mag_in();
 					delay_ms(4000);
 					break;

@@ -121,7 +121,7 @@ struct coordinate_t coord[] = {
 
 void auto_start(void)
 {
-	push_rod(1, 3);
+	push_rod_c(1, 3);
 	automove_config();
 	automove_flag = true;
 

@@ -82,7 +82,7 @@ int wl_run(void)
 			printf("pxout:%f\n", pxout);
 			#endif
 			
-			spd_x = pxout * WL_X_SPD * VFIELD;
+			spd_x = pxout * WL_X_SPD;
 
 			arg_speeds[0] = -VECT_W0 * spd_x;
 			arg_speeds[1] = VECT_W1 * spd_x;

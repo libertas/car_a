@@ -77,7 +77,7 @@ void auto_move_xy(float x, float y, float dest_x, float dest_y, float now_rad)
 	py.actual_value = y;
 	pyout = pid_realize(&py);
 
-	float spd_x = coe_x * pxout * XY_DEFAULT_SPD;
+	float spd_x = coe_x * pxout * XY_DEFAULT_SPD * VFIELD;
 	float spd_y = coe_y * pyout * XY_DEFAULT_SPD;
 	if(spd_x > MAX_XY_SPD)
 		spd_x = MAX_XY_SPD * VFIELD;

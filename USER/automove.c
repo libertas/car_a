@@ -4,6 +4,7 @@
 #include <stm32f4xx_tim.h>
 
 #include "automove.h"
+#include "car.h"
 #include "debug.h"
 #include "encoder.h"
 #include "movement.h"
@@ -46,10 +47,10 @@ void auto_rotate(float now_rad, float dest_rad)
 	if(spd_r > MAX_ROTATE_SPD)
 		spd_r = MAX_ROTATE_SPD;
 
-	arg_speeds[0] += VECT_W0 * spd_r;
-	arg_speeds[1] += VECT_W1 * spd_r;
-	arg_speeds[2] += -VECT_W2 * spd_r;
-	arg_speeds[3] += -VECT_W3 * spd_r;
+	arg_speeds[0] += VECT_W0 * spd_r * VFIELD;
+	arg_speeds[1] += VECT_W1 * spd_r * VFIELD;
+	arg_speeds[2] += -VECT_W2 * spd_r * VFIELD;
+	arg_speeds[3] += -VECT_W3 * spd_r * VFIELD;
 }
 
 uint16_t XY_DEFAULT_SPD = 4500;
@@ -79,7 +80,7 @@ void auto_move_xy(float x, float y, float dest_x, float dest_y, float now_rad)
 	float spd_x = coe_x * pxout * XY_DEFAULT_SPD;
 	float spd_y = coe_y * pyout * XY_DEFAULT_SPD;
 	if(spd_x > MAX_XY_SPD)
-		spd_x = MAX_XY_SPD;
+		spd_x = MAX_XY_SPD * VFIELD;
 	if(spd_y > MAX_XY_SPD)
 		spd_y = MAX_XY_SPD;
 
@@ -153,11 +154,11 @@ void automove_daemon(void)
 	float x, y, rad;
 	float tmp;
 	
-	rad = get_mti_value();
+	rad = get_mti_value() * VFIELD;
 	#endif
 
 	#ifdef USE_VEGA
-	gps_x = -vega_x / VEGA_DIV;
+	gps_x = -vega_x / VEGA_DIV * VFIELD;
 	gps_y = vega_y / VEGA_DIV;
 	#else
 	// theoretical value

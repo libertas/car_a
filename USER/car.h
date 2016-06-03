@@ -3,6 +3,13 @@
 
 #define USE_LEFT_FIELD
 
-#ifndef USE_LEFT_FIELD
+#ifdef USE_LEFT_FIELD
+
+#define VFIELD (+1)
+
+#else
+
 #define USE_RIGHT_FIELD
+#define VFIELD (-1)
+
 #endif

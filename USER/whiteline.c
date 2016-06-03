@@ -82,14 +82,14 @@ int wl_run(void)
 			printf("pxout:%f\n", pxout);
 			#endif
 			
-			spd_r = pxout * WL_X_SPD;
+			spd_r = pxout * WL_X_SPD * VFIELD;
 
 			arg_speeds[0] = -VECT_W0 * spd_r;
 			arg_speeds[1] = VECT_W1 * spd_r;
 			arg_speeds[2] = -VECT_W2 * spd_r;
 			arg_speeds[3] = VECT_W3 * spd_r;
 			
-			spd_r = prout * WL_ROTATE_SPD;
+			spd_r = prout * WL_ROTATE_SPD * VFIELD;
 			
 			arg_speeds[0] += VECT_W0 * spd_r;
 			arg_speeds[1] += VECT_W1 * spd_r;

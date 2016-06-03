@@ -147,14 +147,14 @@ void automove_daemon(void)
 	static uint8_t t;
 
 	#ifdef USE_VEGA
-	gps_rad = -vega_rad * 2 * PI / 360;
+	gps_rad = -vega_rad * 2 * PI / 360  * VFIELD;
 	#else
 	static float old_x = 0, old_y = 0;
 	float dx, dy;
 	float x, y, rad;
 	float tmp;
 	
-	rad = get_mti_value() * VFIELD;
+	rad = get_mti_value();
 	#endif
 
 	#ifdef USE_VEGA

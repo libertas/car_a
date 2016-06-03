@@ -55,7 +55,7 @@ int wl_run(void)
 	pr.ki = 0;
 	
 	float pxout, prout;
-	float spd_r;
+	float spd_x, spd_r;
 	
 	while(1) {
 		if(stop_flag) {
@@ -82,12 +82,12 @@ int wl_run(void)
 			printf("pxout:%f\n", pxout);
 			#endif
 			
-			spd_r = pxout * WL_X_SPD * VFIELD;
+			spd_x = pxout * WL_X_SPD * VFIELD;
 
-			arg_speeds[0] = -VECT_W0 * spd_r;
-			arg_speeds[1] = VECT_W1 * spd_r;
-			arg_speeds[2] = -VECT_W2 * spd_r;
-			arg_speeds[3] = VECT_W3 * spd_r;
+			arg_speeds[0] = -VECT_W0 * spd_x;
+			arg_speeds[1] = VECT_W1 * spd_x;
+			arg_speeds[2] = -VECT_W2 * spd_x;
+			arg_speeds[3] = VECT_W3 * spd_x;
 			
 			spd_r = prout * WL_ROTATE_SPD * VFIELD;
 			

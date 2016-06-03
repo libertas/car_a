@@ -89,7 +89,7 @@ int wl_run(void)
 			arg_speeds[2] = -VECT_W2 * spd_x;
 			arg_speeds[3] = VECT_W3 * spd_x;
 			
-			spd_r = prout * WL_ROTATE_SPD * VFIELD;
+			spd_r = prout * WL_ROTATE_SPD;
 			
 			arg_speeds[0] += VECT_W0 * spd_r;
 			arg_speeds[1] += VECT_W1 * spd_r;

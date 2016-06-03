@@ -102,6 +102,7 @@ void adjust_3(void)
 	XY_DEFAULT_SPD = 1500;
 }
 
+#ifdef USE_LEFT_FIELD
 struct coordinate_t coord[] = {
 	{2600, 0, 0, start_1},\
 	{2600, 900, 0, start_2},\
@@ -118,6 +119,24 @@ struct coordinate_t coord[] = {
 	{4000, 13150, -PI/2},\
 	{0, 0, 0, 0}
 };
+#else
+struct coordinate_t coord[] = {
+	{2800, 0, 0, start_1},\
+	{2800, 900, 0, start_2},\
+	{2900, 1072.85, PI/12, fan_up_1},\
+	{2900, 2133.29, PI/6},\
+	{2300, 2860.83, PI/4, fan_up_2},\
+	{1100, 3647.91, PI/6},\
+	{3500, 5090.82, PI/12, fan_up_3},\
+	{500, 6700, 0, roll_fan_1},\
+	{500, 7700, 0, adjust_0},\
+	{500, 9000, 0, adjust_1},\
+	{2500, 12400, -PI * 2 / 5, adjust_2},\
+	{2600, 12600, -PI/2, adjust_3},\
+	{4000, 13150, -PI/2},\
+	{0, 0, 0, 0}
+};
+#endif
 
 void auto_start(void)
 {

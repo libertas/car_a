@@ -47,7 +47,7 @@ void fan_up_2(void)
 {
 	fan_up_auto(0.2f);
 	XY_DEFAULT_SPD = 2000;
-	ROTATE_DEFAULT_SPD = 400;
+	ROTATE_DEFAULT_SPD = 800;
 }
 
 void fan_up_3(void)
@@ -111,9 +111,9 @@ struct coordinate_t coord[] = {
 	{2300, 2860.83, PI/4, fan_up_2},\
 	{1100, 3647.91, PI/6},\
 	{3500, 5090.82, PI/12, fan_up_3},\
-	{100, 6700, 0, roll_fan_1},\
-	{100, 7700, 0, adjust_0},\
-	{100, 9000, 0, adjust_1},\
+	{200, 6700, 0, roll_fan_1},\
+	{200, 7700, 0, adjust_0},\
+	{200, 8800, 0, adjust_1},\
 	{2500, 12400, -PI * 2 / 5, adjust_2},\
 	{2600, 12600, -PI/2, adjust_3},\
 	{4000, 13150, -PI/2},\

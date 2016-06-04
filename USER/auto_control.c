@@ -47,7 +47,7 @@ void fan_up_2(void)
 {
 	fan_up_auto(0.2f);
 	XY_DEFAULT_SPD = 2000;
-	ROTATE_DEFAULT_SPD = 800;
+	ROTATE_DEFAULT_SPD = 500;
 }
 
 void fan_up_3(void)

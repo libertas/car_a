@@ -63,9 +63,9 @@ int wl_run(void)
 			printf("\ngetting out of wl_run\n");
 			return 0;
 		} else if(0 < wl_x && 0 <= wl_y) {
-			WL_MAX_SPD = WL_RUN_SPD = 500;
-			WL_X_SPD = 500;
-			WL_ROTATE_SPD = 1000;
+			WL_MAX_SPD = WL_RUN_SPD = 1000;
+			WL_X_SPD = 1000;
+			WL_ROTATE_SPD = 2000;
 			
 			pr.set_value = - PI / 2;
 			pr.actual_value = get_gps_rad();

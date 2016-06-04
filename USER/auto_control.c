@@ -84,22 +84,22 @@ void adjust_1(void)
 	fan_up_flag = 0;
 	fan_des = 0;
 	fan_down(10);
-	ROTATE_DEFAULT_SPD = 500;
-	XY_DEFAULT_SPD = 2500;
+	ROTATE_DEFAULT_SPD = 1000;
+	XY_DEFAULT_SPD = 3500;
 }
 
 void adjust_2(void)
 {
-	ROTATE_DEFAULT_SPD = 500;
-	XY_DEFAULT_SPD = 2500;
+	ROTATE_DEFAULT_SPD = 700;
+	XY_DEFAULT_SPD = 3000;
 }
 
 void adjust_3(void)
 {
 	auto_continous_flag = false;
 	fan_up_auto(0.32f);
-	ROTATE_DEFAULT_SPD = 750;
-	XY_DEFAULT_SPD = 1500;
+	ROTATE_DEFAULT_SPD = 1500;
+	XY_DEFAULT_SPD = 2500;
 }
 
 #ifdef USE_LEFT_FIELD

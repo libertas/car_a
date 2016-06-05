@@ -34,7 +34,7 @@ void start_1(void)
 void start_2(void)
 {
 	XY_DEFAULT_SPD = 1500;
-	ROTATE_DEFAULT_SPD = 1500;
+	ROTATE_DEFAULT_SPD = 2000;
 	auto_continous_flag = true;
 }
 
@@ -47,14 +47,14 @@ void fan_up_2(void)
 {
 	fan_up_auto(0.2f);
 	XY_DEFAULT_SPD = 2000;
-	ROTATE_DEFAULT_SPD = 500;
+	ROTATE_DEFAULT_SPD = 300;
 }
 
 void fan_up_3(void)
 {
 	fan_up_auto(0.15f);
 	XY_DEFAULT_SPD = 1000;
-	ROTATE_DEFAULT_SPD = 400;
+	ROTATE_DEFAULT_SPD = 300;
 }
 
 void roll_fan_1(void)
@@ -104,13 +104,13 @@ void adjust_3(void)
 
 #ifdef USE_LEFT_FIELD
 struct coordinate_t coord[] = {
-	{2600, 0, 0, start_1},\
-	{2600, 900, 0, start_2},\
-	{2900, 1072.85, PI/12, fan_up_1},\
-	{2900, 2133.29, PI/6},\
-	{2300, 2860.83, PI/4, fan_up_2},\
-	{1100, 3647.91, PI/6},\
-	{3500, 5090.82, PI/12, fan_up_3},\
+	{2700, 0, 0, start_1},\
+	{2700, 900, 0, start_2},\
+	{2400, 1072.85, PI/12, fan_up_1},\
+	{2200, 2133.29, PI/6},\
+	{1200, 2860.83, PI/4, fan_up_2},\
+	{300, 3647.91, PI/6},\
+	{200, 5090.82, PI/12, fan_up_3},\
 	{200, 6700, 0, roll_fan_1},\
 	{200, 7700, 0, adjust_0},\
 	{200, 8800, 0, adjust_1},\

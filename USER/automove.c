@@ -11,7 +11,11 @@
 #include "pid.h"
 #include "vega.h"
 
+
 #ifdef USE_FOUR_WHEEL
+
+bool automove_flag = true;
+bool auto_continous_flag = false;
 
 void auto_clr_spd(void)
 {
@@ -20,14 +24,14 @@ void auto_clr_spd(void)
 	}
 }
 
-#define ROTATE_DEFAULT_SPD 1000
+uint16_t ROTATE_DEFAULT_SPD  = 2500;
 void auto_rotate(float now_rad, float dest_rad)
 {
 	float drad = dest_rad - now_rad;
 
 	static pid_t pr;
 	pr.kp = 1;
-	pr.kd = 0.1f;
+	pr.kd = 0;
 	pr.ki = 0;
 	pr.set_value = dest_rad;
 	pr.actual_value = now_rad;
@@ -48,7 +52,7 @@ void auto_rotate(float now_rad, float dest_rad)
 	arg_speeds[3] += -VECT_W3 * spd_r;
 }
 
-#define XY_DEFAULT_SPD 1000
+uint16_t XY_DEFAULT_SPD = 4500;
 void auto_move_xy(float x, float y, float dest_x, float dest_y, float now_rad)
 {
 	float coe_x = CAR_Y_LENGTH / (sqrtf(powf(CAR_X_LENGTH, 2) + powf(CAR_Y_LENGTH, 2)));
@@ -58,15 +62,15 @@ void auto_move_xy(float x, float y, float dest_x, float dest_y, float now_rad)
 	static pid_t px, py;
 	float pxout, pyout;
 
-	px.kp = 3;
-	px.kd = 0.1f;
+	px.kp = 1;
+	px.kd = 0;
 	px.ki = 0;
 	px.set_value = dest_x;
 	px.actual_value = x;
 	pxout = pid_realize(&px);
 
-	py.kp = 3;
-	py.kd = 0.1f;
+	py.kp = 1;
+	py.kd = 0;
 	py.ki = 0;
 	py.set_value = dest_y;
 	py.actual_value = y;
@@ -120,17 +124,26 @@ void set_auto_dest(float x, float y, float rad)
 
 bool near_auto_dest(void)
 {
-	if(fabsf(gps_dest_x - gps_x) <= AUTO_NEAR_DIST\
-		&& fabsf(gps_dest_y - gps_y) <= AUTO_NEAR_DIST\
-		&& fabsf(gps_dest_rad - gps_rad) <= AUTO_NEAR_DIST) {
-		return true;
+	if(auto_continous_flag) {
+		if(fabsf(gps_dest_y -gps_y) <= AUTO_NEAR_DIST) {
+			return true;
+		} else {
+			return false;
+		}
 	} else {
-		return false;
+		if(fabsf(gps_dest_x - gps_x) <= AUTO_NEAR_DIST\
+			&& fabsf(gps_dest_y - gps_y) <= AUTO_NEAR_DIST\
+			&& fabsf(gps_dest_rad - gps_rad) <= AUTO_NEAR_DIST) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 
 void automove_daemon(void)
 {
+	static uint8_t t;
 
 	#ifdef USE_VEGA
 	gps_rad = -vega_rad * 2 * PI / 360;
@@ -139,7 +152,7 @@ void automove_daemon(void)
 	float dx, dy;
 	float x, y, rad;
 	float tmp;
-
+	
 	rad = get_mti_value();
 	#endif
 
@@ -171,11 +184,25 @@ void automove_daemon(void)
 	gps_rad = rad;
 	#endif
 
-	auto_clr_spd();
-	auto_rotate(gps_rad, gps_dest_rad);
-	auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
+	t++;
 
-	auto_send();
+	if(automove_flag && t > 30) {
+		t = 0;
+		if(automove_flag) {
+			auto_clr_spd();
+			auto_rotate(gps_rad, gps_dest_rad);
+			if(auto_continous_flag) {
+				arg_speeds[0] += VECT_W0 * XY_DEFAULT_SPD;
+				arg_speeds[1] += VECT_W1 * XY_DEFAULT_SPD;
+				arg_speeds[2] += VECT_W2 * XY_DEFAULT_SPD;
+				arg_speeds[3] += VECT_W3 * XY_DEFAULT_SPD;
+			} else {
+				auto_move_xy(gps_x, gps_y, gps_dest_x, gps_dest_y, gps_rad);
+			}
+
+			auto_send();
+		}
+	}
 	
 	#ifdef DEBUG_AUTO
 	printf("%f %f\t%f %f\t%f %f\n\n", gps_x, gps_dest_x, gps_y, gps_dest_y, gps_rad, gps_dest_rad);
@@ -204,8 +231,8 @@ void tim10_config(void)
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM10, ENABLE);
 	
-	TIM_TimeBaseInitStructure.TIM_Period = 10000 - 1;
-	TIM_TimeBaseInitStructure.TIM_Prescaler = 1680 - 1;
+	TIM_TimeBaseInitStructure.TIM_Period = 1000 - 1;
+	TIM_TimeBaseInitStructure.TIM_Prescaler = 168 - 1;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	
@@ -224,4 +251,9 @@ void tim10_config(void)
 void automove_config(void)
 {
 	tim10_config();
+}
+
+void automove_disable(void)
+{
+	automove_flag = false;
 }

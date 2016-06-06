@@ -26,6 +26,9 @@
 #include "suart.h"
 #include "vega.h"
 #include "watchdog.h"
+#include "whiteline.h"
+
+
 
 int main(void)
 {
@@ -43,10 +46,11 @@ int main(void)
 	#endif
 	brake_config();
 	encoder_config();
-	switch_config();
+	//switch_config();
 	push_rod_config();
 	pwm_config();
 	// watchdog_config();
+
 
 	printf("\n\nEntering main loop\n\n");
 	

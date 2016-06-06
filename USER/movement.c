@@ -6,6 +6,8 @@
 #include "movement.h"
 #include "mti.h"
 
+
+bool stop_flag = false;
 bool move_up_flag = true;
 
 int16_t get_speed(uint8_t wheel)
@@ -15,7 +17,7 @@ int16_t get_speed(uint8_t wheel)
 
 void stop_all(void)
 {
-	uprintf(USART1, "V0\r");
+	uprintf(USART1, "\rDEC10000\rV0\r");
 	delay_ms(10);
 }
 
@@ -131,7 +133,8 @@ void stop(void)
 
 void move_up(void)
 {
-	uprintf(USART1, "\r4V-8000\r");
+	uprintf(USART1, "\rSP30000\r");
+	uprintf(USART1, "\r4V-30000\r");
 	delay_ms(1);
 	#ifdef CAR_A_1
 	uprintf(USART1, "\r3V8000\r");
@@ -146,6 +149,7 @@ void move_down(void)
 {
 	uprintf(USART1, "\r4V1000\r");
 	delay_ms(1);
+
 	#ifdef CAR_A_1
 	uprintf(USART1, "\r3V-1000\r");
 	#endif

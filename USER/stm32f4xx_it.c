@@ -64,6 +64,7 @@
   */
 void NMI_Handler(void)
 {
+	printf("\nNMI_Handler\n");
 }
 
 /**
@@ -76,6 +77,7 @@ void HardFault_Handler(void)
   /* Go to infinite loop when Hard Fault exception occurs */
   while (1)
   {
+	  printf("HardFault_Handler\n");
   }
 }
 
@@ -89,6 +91,7 @@ void MemManage_Handler(void)
   /* Go to infinite loop when Memory Manage exception occurs */
   while (1)
   {
+	  printf("MemManage_Handler\n");
   }
 }
 
@@ -102,6 +105,7 @@ void BusFault_Handler(void)
   /* Go to infinite loop when Bus Fault exception occurs */
   while (1)
   {
+	  printf("BusFault_Handler\n");
   }
 }
 
@@ -115,6 +119,7 @@ void UsageFault_Handler(void)
   /* Go to infinite loop when Usage Fault exception occurs */
   while (1)
   {
+	  printf("UsageFault_Handler\n");
   }
 }
 
@@ -125,6 +130,7 @@ void UsageFault_Handler(void)
   */
 void SVC_Handler(void)
 {
+	printf("\nSVC_Handler\n");
 }
 
 /**
@@ -247,7 +253,6 @@ void UART4_IRQHandler(void)
 void UART5_IRQHandler(void)
 {
 	char data;
-	char tmp;
 
 	if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET)
 	{
@@ -283,8 +288,12 @@ void UART5_IRQHandler(void)
 #include "automove.h"
 void TIM1_UP_TIM10_IRQHandler(void)
 {
+	
 	if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
-		automove_daemon();
+ 		automove_daemon();
+
+ 		check_cmd();
+
 		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
 	}
 }
@@ -492,12 +501,53 @@ void EXTI15_10_IRQHandler(void)
 		EXTI_ClearITPendingBit(EXTI_Line11);
 	}
 }
+
+#include "magnet.h"
 #include "movement.h"
+#include "push_rod.h"
 void EXTI3_IRQHandler(void)
 {
+	uint32_t i;
+
+	printf("\nentering exti3\n");
 	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_3)) {
 		/*stop car*/
-		stop_all();
+		stop();
+		stop_flag = true;
+		push_rod_c(PUSH_ROD_PUSH, 1);
+
+		switch_nvic_disable(2);
+		
+		printf("\nexti3 diasabled\n");
+		
+		push_rod_c(PUSH_ROD_PUSH, 2);
+		stop();
+		
+		switch_config(3);
+		
+		while(1) {
+			printf("moving up\n");
+			move_up();
+			delay_ms(100);
+			if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_9)) {
+				delay_ms(100);
+				if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_9)) {
+					for(i = 0; i < 100; i++) {
+						stop_all();
+					}
+					
+					delay_ms(1000);
+					push_rod_c(0, 3);
+					mag_in();
+					delay_ms(4000);
+					break;
+				}
+			}
+		}
+		
+		while(1) {
+			move_down();
+		}
 	}
 	EXTI_ClearITPendingBit(EXTI_Line3);
 }

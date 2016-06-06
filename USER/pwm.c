@@ -40,8 +40,8 @@ GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {\
 	4 mag_near/far not_using
 */
 uint16_t PWMPins[PWM_CHANNEL_NUM] = {\
-	GPIO_Pin_6, GPIO_Pin_9, GPIO_Pin_5,\
-	GPIO_Pin_8, GPIO_Pin_2};
+	GPIO_Pin_6, GPIO_Pin_8, GPIO_Pin_5,\
+	GPIO_Pin_9, GPIO_Pin_2};
 GPIO_TypeDef *PWMPorts[PWM_CHANNEL_NUM] = {\
 	GPIOG, GPIOC, GPIOG,\
 	GPIOC, GPIOA};
@@ -186,19 +186,19 @@ void pwm_config(void)
 	//mag_in control gpio
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 	
-	GPIO_WriteBit(GPIOA, GPIO_Pin_10, Bit_RESET);
-	GPIO_WriteBit(GPIOA, GPIO_Pin_11, Bit_RESET);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_8, Bit_RESET);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_9, Bit_RESET);
 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
 	tim14_config();

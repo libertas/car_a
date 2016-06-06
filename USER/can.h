@@ -25,6 +25,7 @@
  *          个中断函数里面调用的，也即函数msg_rcv_func()的执行过程就是中断处理过
  *          成，在中断里停留太久，很容易使得工程出现一些意想不到的问题。中断的优
  *          先级可以通过宏CAN_NVIC_IRQPP、CAN_NVIC_IRQSP来配置。
+ *16年5月22号更新:can_send_msg()函数增加了标识符参数
  *          
  */
 #include "stm32f4xx.h"
@@ -34,6 +35,8 @@
 
 #define CAN1_ID 0x12     //stm的CAN总线的标识符
 #define CAN2_ID 0x12
+#define COMM_B_ID 0x09
+#define COMM_A_ID 0x10
 
 #define CAN_MODE_X CAN_Mode_Normal  //模式
 //CAN总线时序和速率配置(此时配为1Mbps)
@@ -67,5 +70,5 @@ int can_init(void *msg_rcv_callback_func);
 void can_rcc_config(void);
 void can_gpio_config(void);
 void can_nvic_config(void);
-int can_send_msg(u8 *msg,u8 len);  //发送邮箱
+int can_send_msg(u8 can_id,u8 *msg,u8 len);  //发送邮箱
 int can_rcv_msg(void);   //接收信息

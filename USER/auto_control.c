@@ -10,6 +10,8 @@
 #include "mti.h"
 #include "push_rod.h"
 #include "pwm.h"
+#include "switch.h"
+#include "whiteline.h"
 
 bool auto_flag = false;
 bool manual_auto_flag = false;
@@ -22,6 +24,7 @@ struct coordinate_t {
 	float rad;
 	void (*callback)(void);
 };
+
 
 void enter_pole(void)
 {
@@ -47,21 +50,44 @@ struct coordinate_t coord[] = {
 
 void auto_start(void)
 {
+	push_rod_c(1, 3);
 	automove_config();
+	automove_flag = true;
 
 	printf("\nAuto controlling.\n");
 	auto_flag = true;
+	
+	start_fan();
 
 	for(int i = 0; 0 != coord[i].x || 0 != coord[i].y || 0 != coord[i].rad || 0 != coord[i].callback; i++) {
 		set_auto_dest(coord[i].x / 1000, coord[i].y / 1000, coord[i].rad);
-		while(!near_auto_dest());
-		if(0 != coord[i].callback)
+		while(!near_auto_dest() && automove_flag);
+		if(0 != coord[i].callback && automove_flag)
 			(coord[i].callback)();
+	}
+	
+	automove_flag = false;
+	EXTI_ClearITPendingBit(EXTI_Line3);
+	switch_config(2);
+	switch_nvic_enable(2);
+	wl_run();
+	printf("out\n");
+	stop();
+	
+	push_rod_c(PUSH_ROD_PUSH, 1);
+	push_rod_c(PUSH_ROD_PUSH, 2);
+	stop();
+	
+	while(1) {
+		printf("moving up\n");
+		move_up();
+		delay_ms(100);
 	}
 }
 
 void auto_stop(void)
 {
+	automove_flag = false;
 	stop_all();
 	stop_fan();
 	TIM_Cmd(TIM10, DISABLE);

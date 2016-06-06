@@ -39,61 +39,58 @@ const enum IRQn SwitchNVICPins[SWITCH_CHANNEL_NUM] = {\
 				};
 
 
-void switch_gpio_config(void)
+void switch_gpio_config(uint8_t i)
 {
-	uint8_t i;
 	GPIO_InitTypeDef  GPIO_InitStructure;
-
-	for(i = 0; i < SWITCH_CHANNEL_NUM; i++) {
-		RCC_AHB1PeriphClockCmd(SwitchAHBPorts[i], ENABLE);
-	}
+	
+	RCC_AHB1PeriphClockCmd(SwitchAHBPorts[i], ENABLE);
 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	for(i = 0; i < SWITCH_CHANNEL_NUM; i++) {
-		GPIO_InitStructure.GPIO_Pin = SwitchPins[i];
-		GPIO_Init(SwitchPorts[i], &GPIO_InitStructure);
-	}
+	GPIO_InitStructure.GPIO_Pin = SwitchPins[i];
+	GPIO_Init(SwitchPorts[i], &GPIO_InitStructure);
 }
 
-void switch_exti_config(void)
+void switch_exti_config(uint8_t i)
 {
-	uint8_t i;
 	EXTI_InitTypeDef  EXTI_InitStructure;
 
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 
-	for(i = 0; i < SWITCH_CHANNEL_NUM; i++) {
-		SYSCFG_EXTILineConfig(SwitchEXTIPorts[i],  SwitchEXTIPinsources[i]);
-	}
+	SYSCFG_EXTILineConfig(SwitchEXTIPorts[i],  SwitchEXTIPinsources[i]);
 
 	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
 	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising_Falling;
 	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-	for(i = 0; i < SWITCH_CHANNEL_NUM; i++) {
-		EXTI_InitStructure.EXTI_Line = SwitchEXTILines[i];
-		EXTI_Init(&EXTI_InitStructure);
-	}
+	EXTI_InitStructure.EXTI_Line = SwitchEXTILines[i];
+	EXTI_Init(&EXTI_InitStructure);
 }
 
-void switch_nvic_config(void)
+void switch_nvic_enable(uint8_t i)
 {
-	uint8_t i;
 	NVIC_InitTypeDef  NVIC_InitStructure;
 
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 4;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 4;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	for(i = 0; i < SWITCH_CHANNEL_NUM; i++) {
-		NVIC_InitStructure.NVIC_IRQChannel = SwitchNVICPins[i];
-		NVIC_Init(&NVIC_InitStructure);
-	}
-
+	NVIC_InitStructure.NVIC_IRQChannel = SwitchNVICPins[i];
+	NVIC_Init(&NVIC_InitStructure);
 }
-void switch_config(void)
+
+void switch_nvic_disable(uint8_t i)
 {
-	switch_gpio_config();
-	switch_exti_config();
-	switch_nvic_config();
+	NVIC_InitTypeDef  NVIC_InitStructure;
+
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = DISABLE;
+	NVIC_InitStructure.NVIC_IRQChannel = SwitchNVICPins[i];
+	NVIC_Init(&NVIC_InitStructure);
+}
+
+void switch_config(uint8_t i)
+{
+	switch_gpio_config(i);
+	switch_exti_config(i);
 }

@@ -44,13 +44,13 @@ void tim14_config(void)
 
 void start_fan(void)
 {
-        set_duty(FAN_CHANNEL, 0.065);
+        set_duty(FAN_CHANNEL, 0.068);
         fan_status = 1;
 }
 
 inline void stop_fan(void)
 {
-        set_duty(FAN_CHANNEL, 0.05);
+        set_duty(FAN_CHANNEL, 0.04);
         fan_status = 0;
 }
 

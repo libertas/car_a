@@ -9,8 +9,6 @@
 int32_t g_rotary_x = 0;
 int32_t g_rotary_y = 0;
 int32_t g_rotary_fan = 0;
-int32_t g_rotary_magnet = 0;
-int32_t g_rotary_tim8 = 0;
 
 
 const uint32_t EncoderAPB1TIMs[ENCODER_CHANNEL_NUM] = {\
@@ -18,46 +16,36 @@ const uint32_t EncoderAPB1TIMs[ENCODER_CHANNEL_NUM] = {\
 				RCC_APB1Periph_TIM4, RCC_APB1Periph_TIM5\
 				};
 const uint32_t EncoderAHBPorts[ENCODER_CHANNEL_NUM] = {\
-				RCC_AHB1Periph_GPIOA, RCC_AHB1Periph_GPIOC,\
-				RCC_AHB1Periph_GPIOD, RCC_AHB1Periph_GPIOE\
+				RCC_AHB1Periph_GPIOA, RCC_AHB1Periph_GPIOD\
 				};
 GPIO_TypeDef * EncoderPorts[2 * ENCODER_CHANNEL_NUM] = {\
 				GPIOA, GPIOA,\
-				GPIOA, GPIOA,\
 				GPIOD, GPIOD,\
-				GPIOA, GPIOA,\
-				GPIOC, GPIOC\
+				GPIOA, GPIOA\
 				};
 const uint16_t EncoderPinsources[2 * ENCODER_CHANNEL_NUM] = {\
-				GPIO_PinSource8, GPIO_PinSource9,\
 				GPIO_PinSource6, GPIO_PinSource7,\
 				GPIO_PinSource12, GPIO_PinSource13,\
-				GPIO_PinSource0, GPIO_PinSource1,\
-				GPIO_PinSource6, GPIO_PinSource7\
+				GPIO_PinSource0, GPIO_PinSource1\
 				};
 const uint8_t EncoderAFTIMs[2 * ENCODER_CHANNEL_NUM] = {\
-				GPIO_AF_TIM1, GPIO_AF_TIM1,\
 				GPIO_AF_TIM3, GPIO_AF_TIM3,\
 				GPIO_AF_TIM4, GPIO_AF_TIM4,\
-				GPIO_AF_TIM5, GPIO_AF_TIM5,\
-				GPIO_AF_TIM8, GPIO_AF_TIM8\
+				GPIO_AF_TIM5, GPIO_AF_TIM5\
 				};
 const uint16_t EncoderPins[2 * ENCODER_CHANNEL_NUM] = {\
-				GPIO_Pin_8, GPIO_Pin_9,\
 				GPIO_Pin_6, GPIO_Pin_7,\
 				GPIO_Pin_12, GPIO_Pin_13,\
-				GPIO_Pin_0, GPIO_Pin_1,\
-				GPIO_Pin_6, GPIO_Pin_7\
+				GPIO_Pin_0, GPIO_Pin_1\
 				};
 TIM_TypeDef * EncoderTIMs[ENCODER_CHANNEL_NUM] = {\
-				TIM1, TIM3,\
-				TIM4, TIM5, TIM8\
+				TIM3, TIM4, TIM5\
 				};
 
 
 void encoder_test(void)
 {
-	printf("\r\n%d	%d	%d	%d	%d\n", g_rotary_magnet, g_rotary_fan, g_rotary_x, g_rotary_y, g_rotary_tim8);
+	printf("\r\n%d	%d	%d\n", g_rotary_fan, g_rotary_x, g_rotary_y);
 }
 
 /*
@@ -84,21 +72,7 @@ float get_pos_fan(void)
 	return (float)((double)g_rotary_fan / 2000 * F_DIAMETER * PI * VECT_EFAN);
 }
 
-/*
-	meter
-*/
-float get_pos_magnet(void)
-{
-	return (float)((double)g_rotary_magnet / 2000 *  W_DIAMETER * PI * VECT_EMAGNET);
-}
 
-/*
-	meter
-*/
-float get_pos_tim8(void)
-{
-	return (float)((double)g_rotary_tim8 / 2000 *  W_DIAMETER * PI * VECT_ETIM8);
-}
 
 void timer7_config(void)
 {

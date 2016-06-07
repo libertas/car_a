@@ -38,8 +38,8 @@ int main(void)
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	interpreter_config();
 	uart_config(115200);
-	spi_config();
-	suart_config();
+	//spi_config();
+	//suart_config();
 
 	#ifdef USE_VEGA
 	vega_init(&vega_x, &vega_y, &vega_rad);

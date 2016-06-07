@@ -31,7 +31,7 @@
 #include "stm32f4xx.h"
 #include "stm32f4xx_can.h"
 
-#define CAN_SELECT 2    //1 则使用CAN1 2则使用CAN2 
+#define CAN_SELECT 1   //1 则使用CAN1 2则使用CAN2 
 
 #define CAN1_ID 0x12     //stm的CAN总线的标识符
 #define CAN2_ID 0x12

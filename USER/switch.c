@@ -6,7 +6,7 @@
 	0 PE8  fan_down_stop
 	1 PF11 fan_up_stop
 	2 PF3  enter_role//light_electricity(12V)
-	3 PF9  move_up_stop//light_electricity(12V)
+	3 PF5  move_up_stop//light_electricity(12V)
 */
 
 const uint32_t SwitchAHBPorts[SWITCH_CHANNEL_NUM] = {\
@@ -15,7 +15,7 @@ const uint32_t SwitchAHBPorts[SWITCH_CHANNEL_NUM] = {\
 				};
 const uint16_t SwitchPins[SWITCH_CHANNEL_NUM] = {\
 				GPIO_Pin_8, GPIO_Pin_11,\
-				GPIO_Pin_3, GPIO_Pin_9\
+				GPIO_Pin_3, GPIO_Pin_5\
 				};
 GPIO_TypeDef *SwitchPorts[SWITCH_CHANNEL_NUM] = {\
 				GPIOE, GPIOF,\
@@ -27,11 +27,11 @@ const uint8_t SwitchEXTIPorts[SWITCH_CHANNEL_NUM] = {\
 				};
 const uint8_t SwitchEXTIPinsources[SWITCH_CHANNEL_NUM] = {\
 				EXTI_PinSource8, EXTI_PinSource11,\
-				EXTI_PinSource3, EXTI_PinSource9\
+				EXTI_PinSource3, EXTI_PinSource5\
 				};
 const uint32_t SwitchEXTILines[SWITCH_CHANNEL_NUM] = {\
 				EXTI_Line8, EXTI_Line11,\
-				EXTI_Line3, EXTI_Line9\
+				EXTI_Line3, EXTI_Line5\
 				};
 const enum IRQn SwitchNVICPins[SWITCH_CHANNEL_NUM] = {\
 				EXTI9_5_IRQn, EXTI15_10_IRQn,\

@@ -197,10 +197,19 @@ void automove_daemon(void)
 			auto_rotate(gps_rad, gps_dest_rad);
 			if(auto_continous_flag) {
 				if(switch_read(SWITCH_NEAR) == 0) {
+					#ifdef USE_LEFT_FIELD
 					arg_speeds[0] += -VECT_W0 * MAX_NEAR_XY_SPD;
 					arg_speeds[1] += VECT_W1 * MAX_NEAR_XY_SPD;
 					arg_speeds[2] += -VECT_W2 * MAX_NEAR_XY_SPD;
 					arg_speeds[3] += VECT_W3 * MAX_NEAR_XY_SPD;
+					#endif
+					
+					#ifdef USE_RIGHT_FIELD
+					arg_speeds[0] += VECT_W0 * MAX_NEAR_XY_SPD;
+					arg_speeds[1] += -VECT_W1 * MAX_NEAR_XY_SPD;
+					arg_speeds[2] += VECT_W2 * MAX_NEAR_XY_SPD;
+					arg_speeds[3] += -VECT_W3 * MAX_NEAR_XY_SPD;
+					#endif
 				}
 				
 				{

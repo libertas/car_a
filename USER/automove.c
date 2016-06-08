@@ -10,6 +10,7 @@
 #include "movement.h"
 #include "mti.h"
 #include "pid.h"
+#include "switch.h"
 #include "vega.h"
 
 
@@ -47,10 +48,26 @@ void auto_rotate(float now_rad, float dest_rad)
 	if(spd_r > MAX_ROTATE_SPD)
 		spd_r = MAX_ROTATE_SPD;
 
-	arg_speeds[0] += VECT_W0 * spd_r;
-	arg_speeds[1] += VECT_W1 * spd_r;
-	arg_speeds[2] += -VECT_W2 * spd_r;
-	arg_speeds[3] += -VECT_W3 * spd_r;
+	if(switch_read(SWITCH_NEAR)) {
+		#ifdef USE_LEFT_FIELD
+		arg_speeds[0] += VECT_W0  * MAX_XY_SPD;
+		arg_speeds[1] += VECT_W1  * MAX_XY_SPD;
+		arg_speeds[2] += -VECT_W2  * MAX_XY_SPD;
+		arg_speeds[3] += -VECT_W3  * MAX_XY_SPD;
+		#endif
+		
+		#ifdef USE_RIGHT_FIELD
+		arg_speeds[0] += -VECT_W0  * MAX_XY_SPD;
+		arg_speeds[1] += -VECT_W1  * MAX_XY_SPD;
+		arg_speeds[2] += VECT_W2  * MAX_XY_SPD;
+		arg_speeds[3] += VECT_W3  * MAX_XY_SPD;
+		#endif
+	} else {
+		arg_speeds[0] += VECT_W0 * spd_r;
+		arg_speeds[1] += VECT_W1 * spd_r;
+		arg_speeds[2] += -VECT_W2 * spd_r;
+		arg_speeds[3] += -VECT_W3 * spd_r;
+	}
 }
 
 uint16_t XY_DEFAULT_SPD = 4500;

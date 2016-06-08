@@ -6,6 +6,7 @@ Auto control will use:
 #include <stdbool.h>
 #include <stdint.h>
 
+#define MAX_NEAR_SPD 2000
 #define MAX_ROTATE_SPD 1000
 #define MAX_XY_SPD 2000
 #define AUTO_NEAR_DIST 0.1f

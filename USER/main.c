@@ -52,11 +52,14 @@ int main(void)
 	// watchdog_config();
 	
 	delay_ms(3000);
-	auto_control();
+	//auto_control();
+	//switch_config(SWITCH_NEAR);
+	switch_config(SWITCH_STOP);
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
 		//check_cmd();
+		printf("%d\t%d\t\n", switch_read(SWITCH_NEAR), switch_read(SWITCH_STOP));
 	}
 
 	return 0;

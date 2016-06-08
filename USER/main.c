@@ -51,15 +51,14 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 	
+	switch_config(SWITCH_NEAR);
+	
 	delay_ms(3000);
-	//auto_control();
-	//switch_config(SWITCH_NEAR);
-	switch_config(SWITCH_STOP);
+	auto_control();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
 		//check_cmd();
-		printf("%d\t%d\t\n", switch_read(SWITCH_NEAR), switch_read(SWITCH_STOP));
 	}
 
 	return 0;

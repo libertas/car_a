@@ -94,3 +94,8 @@ void switch_config(uint8_t i)
 	switch_gpio_config(i);
 	switch_exti_config(i);
 }
+
+bool switch_read(uint8_t i)
+{
+	return GPIO_ReadInputDataBit(SwitchPorts[i], SwitchPins[i]);
+}

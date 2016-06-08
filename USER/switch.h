@@ -1,6 +1,10 @@
+#include <stdbool.h>
+
 #define SWITCH_CHANNEL_NUM 4
 
 #define SWITCH_NEAR 0
+#define SWITCH_ENTER 2
+#define SWITCH_STOP 3
 
 /*
 	0 PF9  switch_too_near(12V)
@@ -12,3 +16,4 @@
 void switch_config(uint8_t i);
 void switch_nvic_enable(uint8_t i);
 void switch_nvic_disable(uint8_t i);
+bool switch_read(uint8_t i);

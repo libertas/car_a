@@ -482,7 +482,7 @@ void EXTI3_IRQHandler(void)
 	uint32_t i;
 
 	printf("\nentering exti3\n");
-	if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_3)) {
+	if(0 == switch_read(SWITCH_ENTER)) {
 		/*stop car*/
 		stop();
 		stop_flag = true;
@@ -501,9 +501,9 @@ void EXTI3_IRQHandler(void)
 			printf("moving up\n");
 			move_up();
 			delay_ms(100);
-			if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_9)) {
+			if(0 == switch_read(SWITCH_STOP)) {
 				delay_ms(100);
-				if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_9)) {
+				if(0 == switch_read(SWITCH_STOP)) {
 					for(i = 0; i < 100; i++) {
 						stop_all();
 					}

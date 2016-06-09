@@ -55,6 +55,7 @@ void fan_up_3(void)
 	fan_up_auto(0.15f);
 	XY_DEFAULT_SPD = 1000;
 	ROTATE_DEFAULT_SPD = 300;
+	set_duty(FAN_CHANNEL, 0.06f);
 }
 
 void roll_fan_1(void)

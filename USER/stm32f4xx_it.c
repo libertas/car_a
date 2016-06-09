@@ -488,14 +488,14 @@ void EXTI3_IRQHandler(void)
 		stop_flag = true;
 		push_rod_c(PUSH_ROD_PUSH, 1);
 
-		switch_nvic_disable(2);
+		switch_nvic_disable(SWITCH_ENTER);
 		
 		printf("\nexti3 diasabled\n");
 		
 		push_rod_c(PUSH_ROD_PUSH, 2);
 		stop();
 		
-		switch_config(3);
+		switch_config(SWITCH_STOP);
 		
 		while(1) {
 			printf("moving up\n");
@@ -509,7 +509,7 @@ void EXTI3_IRQHandler(void)
 					}
 					
 					delay_ms(1000);
-					push_rod_c(0, 3);
+					push_rod_c(PUSH_ROD_STOP, 3);
 					mag_in();
 					delay_ms(4000);
 					break;

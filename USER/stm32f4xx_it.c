@@ -303,18 +303,27 @@ void TIM1_UP_TIM10_IRQHandler(void)
 */
 #include "fan.h"
 #include "encoder.h"
-void TIM8_TRG_COM_TIM14_IRQHandler(void)
+#include "stdlib.h"
+void TIM8_TRG_COM_TIM14_IRQHandler(void) //1ms
 {
 	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
 		static uint16_t count0 = 0;
+		static float mov_v;
+		static u32 brake_delay;
 		if(30 < count0++) {
 			count0 = 0;
 			if(1 == fan_up_flag) {
-				if(get_pos_fan() < (fan_des - 5 * FAN_THOLD))
-					fan_up(10);
-				else if(get_pos_fan() < fan_des - 2 * FAN_THOLD)
-					fan_up(8);
-				else stop_fan_up_down();
+				mov_v = 500*(fan_des - get_pos_fan());
+				fan_up(mov_v);
+				if(abs(fan_des - get_pos_fan()) < 0.01){
+					if(brake_delay++ > 20){
+						stop_fan_up_down();
+						fan_up_flag = 0;
+						brake_delay = 0;
+					}
+				}
+			}else{
+				brake_delay = 0;
 			}
 		}
 		TIM_ClearITPendingBit(TIM14, TIM_IT_Update);

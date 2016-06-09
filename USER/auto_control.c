@@ -97,7 +97,7 @@ void adjust_2(void)
 void adjust_3(void)
 {
 	auto_continous_flag = false;
-	fan_up_auto(0.32f);
+	fan_up_auto(0.1f);
 	ROTATE_DEFAULT_SPD = 1000;
 	XY_DEFAULT_SPD = 2500;
 }

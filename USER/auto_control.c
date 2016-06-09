@@ -26,8 +26,8 @@ struct coordinate_t {
 
 void start_1(void)
 {
-	XY_DEFAULT_SPD = 1000;
-	ROTATE_DEFAULT_SPD = 800;
+	XY_DEFAULT_SPD = 800;
+	ROTATE_DEFAULT_SPD = 600;
 	auto_continous_flag = true;
 }
 
@@ -75,7 +75,7 @@ void roll_fan_1(void)
 
 void adjust_0(void)
 {
-	ROTATE_DEFAULT_SPD = 300;
+	ROTATE_DEFAULT_SPD = 500;
 	XY_DEFAULT_SPD = 2500;
 }
 
@@ -84,13 +84,13 @@ void adjust_1(void)
 	fan_up_flag = 0;
 	fan_des = 0;
 	fan_down(10);
-	ROTATE_DEFAULT_SPD = 200;
+	ROTATE_DEFAULT_SPD = 2500;
 	XY_DEFAULT_SPD = 2500;
 }
 
 void adjust_2(void)
 {
-	ROTATE_DEFAULT_SPD = 800;
+	ROTATE_DEFAULT_SPD = 2500;
 	XY_DEFAULT_SPD = 2500;
 }
 
@@ -107,16 +107,16 @@ struct coordinate_t coord[] = {
 	{2600, 0, 0, start_1},\
 	{2600, 900, 0, start_2},\
 	{2500, 1072.85, PI/12, fan_up_1},\
-	{2300, 2133.29, PI/6},\
+	{2500, 2133.29, PI/6},\
 	{1400, 2860.83, PI/4, fan_up_2},\
 	{300, 3647.91, PI/6},\
 	{200, 5090.82, PI/12, fan_up_3},\
 	{200, 6700, 0, roll_fan_1},\
 	{200, 8000, 0, adjust_0},\
-	{200, 9000, 0, adjust_1},\
-	{2500, 12400, -PI * 2 / 5, adjust_2},\
-	{2600, 12600, -PI/2, adjust_3},\
-	{4000, 13150, -PI/2},\
+	{200, 10500, 0, adjust_1},\
+	{1400, 12000, -PI * 2 / 5, adjust_2},\
+	{2000, 12600, -PI/2, adjust_3},\
+	{4700, 13100, -PI/2},\
 	{0, 0, 0, 0}
 };
 #else

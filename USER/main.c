@@ -17,6 +17,7 @@
 #include "mti.h"
 #include "multi_processing.h"
 #include "pwm.h"
+#include "reset.h"
 #include "switch.h"
 #include "usart.h"
 #include "us100.h"
@@ -51,10 +52,11 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 	
-	switch_config(SWITCH_NEAR);
+    //switch_config(SWITCH_NEAR);
 	
 	delay_ms(3000);
-	auto_control();
+	//auto_control();
+	reset1();
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {

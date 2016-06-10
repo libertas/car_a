@@ -1,6 +1,7 @@
 #include "automove.h"
 #include "clock.h"
 #include "fan.h"
+#include "movement.h"
 #include "push_rod.h"
 #include "switch.h"
 #include "whiteline.h"
@@ -14,7 +15,9 @@ void reset1(void)//river
 	start_fan();
 	delay_ms(2000);
 	stop_fan();
+	automove_config();
 	wl_run();
+	printf("wlend %d\r\n",stop_flag);
 }
 
 void reset2(void)//N2

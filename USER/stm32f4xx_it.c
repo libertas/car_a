@@ -495,6 +495,10 @@ void EXTI3_IRQHandler(void)
 		push_rod_c(PUSH_ROD_PUSH, 2);
 		stop();
 		
+		delay_ms(3000);
+		
+		fan_up_auto(0.32f - get_pos_fan());
+		
 		switch_config(SWITCH_STOP);
 		
 		while(1) {
@@ -508,10 +512,10 @@ void EXTI3_IRQHandler(void)
 						stop_all();
 					}
 					
-					delay_ms(1000);
+					delay_ms(500);
 					push_rod_c(PUSH_ROD_STOP, 3);
 					mag_in();
-					delay_ms(4000);
+					delay_ms(1500);
 					break;
 				}
 			}

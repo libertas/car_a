@@ -15,6 +15,7 @@ extern bool automove_flag;
 extern bool auto_continous_flag;
 extern uint16_t ROTATE_DEFAULT_SPD;
 extern uint16_t XY_DEFAULT_SPD;
+extern float gps_x, gps_y, gps_rad;
 
 void automove_config(void);
 void automove_daemon(void);

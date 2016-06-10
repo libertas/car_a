@@ -10,10 +10,10 @@
 #include "switch.h"
 #include "vega.h"
 
-#define WL_X_MAX 100
-uint16_t WL_MAX_SPD = 3000;
-uint16_t WL_RUN_SPD = 2000;
-uint16_t WL_X_SPD = 2000;
+#define WL_X_MAX 500
+uint16_t WL_MAX_SPD = 500;
+uint16_t WL_RUN_SPD = 500;
+uint16_t WL_X_SPD = 500;
 uint16_t WL_ROTATE_SPD = 500;
 
 float wl_x = -1;
@@ -63,9 +63,10 @@ int wl_run(void)
 			printf("\ngetting out of wl_run\n");
 			return 0;
 		} else if(0 < wl_x && 0 <= wl_y) {
-			WL_MAX_SPD = WL_RUN_SPD = 1000;
-			WL_X_SPD = 1000;
-			WL_ROTATE_SPD = 2000;
+			printf("stopflag %d\r\n",stop_flag);
+			WL_MAX_SPD = WL_RUN_SPD = 500;
+			WL_X_SPD = 500;
+			WL_ROTATE_SPD = 500;
 			
 			pr.set_value = - PI / 2;
 			pr.actual_value = get_gps_rad();
@@ -96,7 +97,7 @@ int wl_run(void)
 			arg_speeds[2] += -VECT_W2 * spd_r;
 			arg_speeds[3] += -VECT_W3 * spd_r;
 			
-			uprintf(USART1, "\rAC10000\rDEC500\r");
+			uprintf(USART1, "\rAC10000\rDEC100\r");
 			
 
 			for(uint8_t i = 0; i < 4; i++) {

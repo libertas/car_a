@@ -45,8 +45,8 @@ void auto_rotate(float now_rad, float dest_rad)
 	#endif
 
 	float spd_r = prout * ROTATE_DEFAULT_SPD;
-	if(spd_r > MAX_ROTATE_SPD)
-		spd_r = MAX_ROTATE_SPD;
+	if(fabsf(spd_r) > MAX_ROTATE_SPD)
+		spd_r = spd_r / fabsf(spd_r) * MAX_ROTATE_SPD;
 
 	{
 		arg_speeds[0] += VECT_W0 * spd_r;

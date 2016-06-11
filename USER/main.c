@@ -52,6 +52,7 @@ int main(void)
 	// watchdog_config();
 	
 	switch_config(SWITCH_NEAR);
+	push_rod_c(1, 3);
 	
 	delay_ms(3000);
 	auto_control();

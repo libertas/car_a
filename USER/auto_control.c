@@ -122,7 +122,7 @@ void adjust_1(void)
 	#endif
 	
 	#ifdef USE_RIGHT_FIELD
-	ROTATE_DEFAULT_SPD = 500;
+	ROTATE_DEFAULT_SPD = 400;
 	#endif
 	
 	XY_DEFAULT_SPD = 2500;
@@ -135,7 +135,7 @@ void adjust_2(void)
 	#endif
 	
 	#ifdef USE_RIGHT_FIELD
-	ROTATE_DEFAULT_SPD = 500;
+	ROTATE_DEFAULT_SPD = 400;
 	#endif
 	
 	XY_DEFAULT_SPD = 2500;
@@ -151,7 +151,7 @@ void adjust_3(void)
 	#endif
 	
 	#ifdef USE_RIGHT_FIELD
-	ROTATE_DEFAULT_SPD = 500;
+	ROTATE_DEFAULT_SPD = 1000;
 	#endif
 	
 	XY_DEFAULT_SPD = 2500;
@@ -188,8 +188,8 @@ struct coordinate_t coord[] = {
 	{-300, 6700, 0, roll_fan_1},\
 	{-600, 7000, PI / 12, adjust_0},\
 	{-600, 8000, PI / 6, adjust_1},\
-	{-2500, 12000, PI * 2 / 5, adjust_2},\
-	{-3500, 12600, PI/2, adjust_3},\
+	{-1400, 12000, PI * 2 / 5, adjust_2},\
+	{-2000, 12600, PI/2, adjust_3},\
 	{-4700, 13100, PI/2},\
 	{0, 0, 0, 0}
 };

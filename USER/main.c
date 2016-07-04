@@ -7,9 +7,12 @@
 
 int main(void)
 {
+	system_clk_set();
 	systick_config();
-	usart1_config(115200);
 	
+	uart_config(115200);
+	
+	uprintf(UART5,"BUPT");
 	while(1)
 	{
 	}

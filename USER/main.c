@@ -52,12 +52,9 @@ int main(void)
 	pwm_config();
 	// watchdog_config();
 	
-<<<<<<< HEAD
-    //switch_config(SWITCH_NEAR);
-=======
+
 	switch_config(SWITCH_NEAR);
 	push_rod_c(1, 3);
->>>>>>> fe9946d85eee63c5d6bc81b392ed1b98c89f890a
 	
 	delay_ms(3000);
 	//auto_control();

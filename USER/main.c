@@ -55,9 +55,6 @@ int main(void)
 	printf("\n\nEntering main loop\n\n");
 	
 	while(1) {
-		if(manual_auto_flag) {
-			auto_control();
-		}
 		check_cmd();
 	}
 	

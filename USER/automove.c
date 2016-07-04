@@ -40,13 +40,13 @@ void auto_rotate(float now_rad, float dest_rad)
 
 	float prout = pid_realize(&pr);
 
-	#ifdef DEBUG_AUTO
-	printf("pr:%f\n", prout);
-	#endif
-
 	float spd_r = prout * ROTATE_DEFAULT_SPD;
-	if(spd_r > MAX_ROTATE_SPD)
-		spd_r = MAX_ROTATE_SPD;
+	if(fabsf(spd_r) > MAX_ROTATE_SPD)
+		spd_r = spd_r / fabsf(spd_r) * MAX_ROTATE_SPD;
+	
+	#ifdef DEBUG_AUTO
+	printf("pr:%f\tspd_r:%f\n", prout, spd_r);
+	#endif
 
 	{
 		arg_speeds[0] += VECT_W0 * spd_r;

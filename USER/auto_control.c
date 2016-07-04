@@ -86,7 +86,15 @@ void roll_fan_1(void)
 	delay_ms(1000);
 	stop_fan();
 	XY_DEFAULT_SPD = 1000;
+	
+	#ifdef USE_LEFT_FIELD
 	ROTATE_DEFAULT_SPD = 300;
+	#endif
+	
+	#ifdef USE_RIGHT_FIELD
+	ROTATE_DEFAULT_SPD = 1000;
+	#endif
+	
 	auto_continous_flag = true;
 }
 
@@ -96,8 +104,8 @@ void adjust_0(void)
 	ROTATE_DEFAULT_SPD = 500;
 	#endif
 	
-	#ifdef USE_LEFT_FIELD
-	ROTATE_DEFAULT_SPD = 1000;
+	#ifdef USE_RIGHT_FIELD
+	ROTATE_DEFAULT_SPD = 500;
 	#endif
 	
 	XY_DEFAULT_SPD = 2500;
@@ -108,13 +116,28 @@ void adjust_1(void)
 	fan_up_flag = 0;
 	fan_des = 0;
 	fan_down(10);
+	
+	#ifdef USE_LEFT_FIELD
 	ROTATE_DEFAULT_SPD = 2500;
+	#endif
+	
+	#ifdef USE_RIGHT_FIELD
+	ROTATE_DEFAULT_SPD = 400;
+	#endif
+	
 	XY_DEFAULT_SPD = 2500;
 }
 
 void adjust_2(void)
 {
+	#ifdef USE_LEFT_FIELD
 	ROTATE_DEFAULT_SPD = 2000;
+	#endif
+	
+	#ifdef USE_RIGHT_FIELD
+	ROTATE_DEFAULT_SPD = 400;
+	#endif
+	
 	XY_DEFAULT_SPD = 2500;
 	fan_up_auto(0.1f);
 }
@@ -122,7 +145,15 @@ void adjust_2(void)
 void adjust_3(void)
 {
 	auto_continous_flag = false;
+	
+	#ifdef USE_LEFT_FIELD
 	ROTATE_DEFAULT_SPD = 1000;
+	#endif
+	
+	#ifdef USE_RIGHT_FIELD
+	ROTATE_DEFAULT_SPD = 1000;
+	#endif
+	
 	XY_DEFAULT_SPD = 2500;
 }
 
@@ -147,19 +178,19 @@ struct coordinate_t coord[] = {
 
 #ifdef USE_RIGHT_FIELD
 struct coordinate_t coord[] = {
-	{-2800, 0, 0, start_1},\
-	{-2800, 900, 0, start_2},\
-	{-2800, 1072.85, -PI/12, fan_up_1},\
-	{-2800, 2133.29, -PI/6},\
-	{-2800, 2860.83, -PI/4, fan_up_2},\
-	{-2800, 3647.91, -PI/6},\
-	{-1500, 5090.82, -PI/12, fan_up_3},\
-	{-350, 6700, 0, roll_fan_1},\
-	{-600, 8000, 0, adjust_0},\
-	{-1200, 10500, 0, adjust_1},\
-	{-1600, 12000, PI * 2 / 5, adjust_2},\
+	{-2600, 0, 0, start_1},\
+	{-2600, 900, 0, start_2},\
+	{-2500, 1072.85, -PI/12, fan_up_1},\
+	{-2500, 2133.29, -PI/6},\
+	{-1400, 2860.83, -PI/4, fan_up_2},\
+	{-800, 3647.91, -PI/6},\
+	{-600, 5090.82, -PI/12, fan_up_3},\
+	{-300, 6700, 0, roll_fan_1},\
+	{-600, 7000, PI / 12, adjust_0},\
+	{-600, 8000, PI / 6, adjust_1},\
+	{-1400, 12000, PI * 2 / 5, adjust_2},\
 	{-2000, 12600, PI/2, adjust_3},\
-	{-4800, 13100, PI/2},\
+	{-4700, 13100, PI/2},\
 	{0, 0, 0, 0}
 };
 #endif

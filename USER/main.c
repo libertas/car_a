@@ -12,7 +12,7 @@ int main(void)
 	
 	uart_config(115200);
 	
-	uprintf(UART5,"BUPT");
+	//uprintf(UART5,"BUPT");
 	while(1)
 	{
 	}

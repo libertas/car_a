@@ -2,22 +2,16 @@
 
 #include "stm32f4xx.h"
 
-#include "automove.h"
-#include "auto_control.h"
-#include "brake.h"
 #include "clock.h"
 #include "database.h"
 #include "dma.h"
 #include "encoder.h"
-#include "fan.h"
 #include "flash.h"
 #include "interpreter.h"
-#include "magnet.h"
 #include "movement.h"
 #include "mti.h"
 #include "multi_processing.h"
 #include "pwm.h"
-#include "reset.h"
 #include "switch.h"
 #include "usart.h"
 #include "us100.h"
@@ -27,7 +21,6 @@
 #include "suart.h"
 #include "vega.h"
 #include "watchdog.h"
-#include "whiteline.h"
 
 
 
@@ -50,14 +43,11 @@ int main(void)
 	push_rod_config();
 	pwm_config();
 	// watchdog_config();
-	
-
-	//switch_config(SWITCH_NEAR);
 
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
-		uprintf(UART5,"test for delete\r\n");
+		//uprintf(UART5,"test for delete\r\n");
 		//check_cmd();
 	}
 

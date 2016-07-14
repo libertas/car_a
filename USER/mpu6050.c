@@ -1,7 +1,5 @@
 #include "mpu6050.h"
-//#include "stm32f4xx.h"
 #include "stm32f4xx_dma.h"
-//#include "global.h"
 
 
 static u8 mpu6050_orig_data[14];   //存储mpu6050的原始数据(刚从模块上读取的数据),最大14个字节

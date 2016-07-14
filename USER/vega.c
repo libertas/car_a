@@ -63,7 +63,6 @@ void vega_msg_rcv_callback(CanRxMsg *can_rx_msg){
             char data;
             for(int i = 0;i < 5;i++){
                 data = can_rx_msg->Data[i];
-                in_char_queue(&wl_queue, data);
             }
     }
 }

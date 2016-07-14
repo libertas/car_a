@@ -5,20 +5,6 @@
 #include "clock.h"
 #include "push_rod.h"
 
-#ifdef CAR_A_1
-// 0 PG14/15 靠近核心板
-// 1 PG11/13 板子少的一边
-uint16_t PUSHPins[2 * PUSH_ROD_CHANNEL_NUM] = {\
-	GPIO_Pin_1, GPIO_Pin_0,\
-	GPIO_Pin_13, GPIO_Pin_11\
-	};
-
-GPIO_TypeDef *PUSHPorts[2 * PUSH_ROD_CHANNEL_NUM] = {\
-	GPIOE, GPIOE,\
-	GPIOG, GPIOG\
-	};
-#endif
-
 
 #ifdef CAR_A_2
 //four gas

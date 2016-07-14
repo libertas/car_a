@@ -1,9 +1,7 @@
-#include "automove.h"
 #include "can.h"
 #include "clock.h"
 #include "debug.h"
 #include "encoder.h"
-#include "fan.h"
 #include "movement.h"
 #include "pid.h"
 #include "whiteline.h"
@@ -69,7 +67,7 @@ int wl_run(void)
 			WL_ROTATE_SPD = 500;
 			
 			pr.set_value = - PI / 2;
-			pr.actual_value = get_gps_rad();
+			//pr.actual_value = get_gps_rad();
 			
 			prout = pid_realize(&pr);
 

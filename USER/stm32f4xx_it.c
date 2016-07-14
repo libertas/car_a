@@ -284,39 +284,25 @@ void UART5_IRQHandler(void)
 	}
 }
 
-#include "automove.h"
+//auto/manual cmd example
 void TIM1_UP_TIM10_IRQHandler(void)
 {
 	
 	if(TIM_GetITStatus(TIM10, TIM_IT_Update) != RESET) {
- 		automove_daemon();
-
+		
  		check_cmd();
-
+		
 		TIM_ClearITPendingBit(TIM10, TIM_IT_Update);
 	}
 }
 
 
-/*
-	Used for the fan_up
-*/
-#include "fan.h"
+
 #include "encoder.h"
 void TIM8_TRG_COM_TIM14_IRQHandler(void)
 {
 	if(TIM_GetITStatus(TIM14, TIM_IT_Update) != RESET) {
-		static uint16_t count0 = 0;
-		if(30 < count0++) {
-			count0 = 0;
-			if(1 == fan_up_flag) {
-				if(get_pos_fan() < (fan_des - 5 * FAN_THOLD))
-					fan_up(10);
-				else if(get_pos_fan() < fan_des - 2 * FAN_THOLD)
-					fan_up(8);
-				else stop_fan_up_down();
-			}
-		}
+		
 		TIM_ClearITPendingBit(TIM14, TIM_IT_Update);
 	}
 }
@@ -401,14 +387,14 @@ void DMA1_Stream4_IRQHandler(void)
 }
 
 
-#include "fan.h"
+//read encoder
 #include "encoder.h"
 void TIM7_IRQHandler(void)
 {
 	if(TIM_GetITStatus(TIM7, TIM_IT_Update) != RESET) {
 		TIM_ClearITPendingBit(TIM7, TIM_FLAG_Update);
 		
-		g_rotary_fan += (TIM_GetCounter(TIM3)-4000);
+		g_rotary_z += (TIM_GetCounter(TIM3)-4000);
 		TIM3->CNT = 4000;
 		
 		g_rotary_x += (TIM_GetCounter(TIM4)-4000);
@@ -439,91 +425,30 @@ void TIM8_UP_TIM13_IRQHandler(void)
 	}
 }
 
-/*
-	exti8 exti11 exti3
-	switch 0\1\2
-	fan_down_stop\fan_up_stop\light_electricity
-*/
-#include "switch.h"
+//exti8 for example
 void EXTI9_5_IRQHandler(void)
 {
 	delay_ms(10);
 	if(SET == EXTI_GetITStatus(EXTI_Line8)){
 		if(0 == GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_8)) {
-			if(get_pos_fan() > get_pos_fan()) stop_fan_up_down();
-			#ifdef DEBUG
-			printf("\nstop_fan_up_down()\n");
-			#endif
+			
 		}
 		EXTI_ClearITPendingBit(EXTI_Line8);
 	}
 }
 
-void EXTI15_10_IRQHandler(void)
-{
-	delay_ms(10);
-	if(SET == EXTI_GetITStatus(EXTI_Line11)){
-		if(0 == GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_11)) {
-			stop_fan_up_down();
-			fan_up_stop_auto();
-			#ifdef DEBUG
-			printf("\nstop_fan_up_down()\n");
-			#endif
-		}
-		EXTI_ClearITPendingBit(EXTI_Line11);
-	}
-}
 
-#include "magnet.h"
-#include "movement.h"
-#include "push_rod.h"
+//exti3 for example
+#include "switch.h"
 void EXTI3_IRQHandler(void)
 {
-	uint32_t i;
-
 	printf("\nentering exti3\n");
 	if(0 == switch_read(SWITCH_ENTER)) {
-		/*stop car*/
-		stop();
-		stop_flag = true;
-		push_rod_c(PUSH_ROD_PUSH, 1);
 
 		switch_nvic_disable(SWITCH_ENTER);
-		
-		printf("\nexti3 diasabled\n");
-		
-		push_rod_c(PUSH_ROD_PUSH, 2);
-		stop();
-		
-		delay_ms(3000);
-		
-		fan_up_auto(0.32f - get_pos_fan());
-		
+
 		switch_config(SWITCH_STOP);
-		
-		while(1) {
-			printf("moving up\n");
-			move_up();
-			delay_ms(100);
-			if(0 == switch_read(SWITCH_STOP)) {
-				delay_ms(100);
-				if(0 == switch_read(SWITCH_STOP)) {
-					for(i = 0; i < 100; i++) {
-						stop_all();
-					}
-					
-					delay_ms(500);
-					push_rod_c(PUSH_ROD_STOP, 3);
-					mag_in();
-					delay_ms(1500);
-					break;
-				}
-			}
-		}
-		
-		while(1) {
-			move_down();
-		}
+
 	}
 	EXTI_ClearITPendingBit(EXTI_Line3);
 }

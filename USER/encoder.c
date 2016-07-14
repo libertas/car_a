@@ -8,7 +8,7 @@
 
 int32_t g_rotary_x = 0;
 int32_t g_rotary_y = 0;
-int32_t g_rotary_fan = 0;
+int32_t g_rotary_z = 0;
 
 
 const uint32_t EncoderAPB1TIMs[ENCODER_CHANNEL_NUM] = {\
@@ -45,7 +45,7 @@ TIM_TypeDef * EncoderTIMs[ENCODER_CHANNEL_NUM] = {\
 
 void encoder_test(void)
 {
-	printf("\r\n%d	%d	%d\n", g_rotary_fan, g_rotary_x, g_rotary_y);
+	printf("\r\n%d	%d	%d\n", g_rotary_z, g_rotary_x, g_rotary_y);
 }
 
 /*
@@ -67,9 +67,9 @@ float get_pos_y(void)
 /*
 	meter
 */
-float get_pos_fan(void)
+float get_pos_z(void)
 {
-	return (float)((double)g_rotary_fan / 2000 * F_DIAMETER * PI * VECT_EFAN);
+	return (float)((double)g_rotary_z / 2000 * F_DIAMETER * PI * VECT_EZ);
 }
 
 

@@ -45,7 +45,6 @@ int main(void)
 	#ifdef USE_VEGA
 	vega_init(&vega_x, &vega_y, &vega_rad);
 	#endif
-	brake_config();
 	encoder_config();
 	//switch_config();
 	push_rod_config();
@@ -53,15 +52,12 @@ int main(void)
 	// watchdog_config();
 	
 
-	switch_config(SWITCH_NEAR);
-	push_rod_c(1, 3);
-	
-	delay_ms(3000);
-	//auto_control();
-	reset1();
+	//switch_config(SWITCH_NEAR);
+
 
 	printf("\n\nEntering main loop\n\n");
 	while(1) {
+		uprintf(UART5,"test for delete\r\n");
 		//check_cmd();
 	}
 

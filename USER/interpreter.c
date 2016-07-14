@@ -3,7 +3,6 @@
 #include <string.h>
 
 #include "debug.h"
-#include "fan.h"
 #include "interpreter.h"
 #include "magnet.h"
 #include "movement.h"
@@ -41,9 +40,6 @@ command list:
 	rotate_c(int8_t r_spd)
 		(byte) 0x10 (byte) r_spd
 
-	stop()
-		(byte) 0x05
-
 	stop_all()
 		(byte) 0x01
 
@@ -53,50 +49,6 @@ command list:
 	move_down()
 		(byte) 0x09
 
-	stop_move_up()
-		(byte) 0x03
-	
-	fan_up()
-		(byte) 0x04
-	
-	fan_down()
-		(byte) 0x06
-	
-	fan_up_r()
-		(byte) 0x07
-		
-	fan_down_r()
-		(byte) 0x08
-	
-	toggle_fan()
-		(byte) 0x0a
-	
-	mag_in()
-		(byte) 0x14 (byte) 0x01
-	
-	mag_out()
-		(byte) 0x14 (byte) 0x02
-	
-	mag_near()
-		(byte) 0x14 (byte) 0x03
-	
-	mag_far()
-		(byte) 0x14 (byte) 0x04
-	
-	fan_roll(float rad)
-		(byte) 0x42	(float) [rad]
-	
-	fan_kowtow(float rad)
-		(byte) 0x43 (float) [rad]
-	
-	fan_roll_r(int8_t dir)
-		(byte) 0x11 (int8_t) dir
-	
-	fan_kowtow_r(int8_t dir)
-		(byte) 0x12 (int8_t) dir
-	
-	push_rod(uint8_t dir, uint8_t channel_num)
-		(byte) 0x13 (4-bit) dir (4-bit) num
 */
 int run_cmd(char_queue *cmd_queue)
 {
@@ -145,32 +97,7 @@ int run_cmd(char_queue *cmd_queue)
 			printf("wl:%f\t%f\n", flbuf, flbuf1);
 			#endif
 			break;
-		
-		case 0x14:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x14\n");
-			#endif
-		
-			out_char_queue(cmd_queue, (char*) &buf);
-			switch (buf) {
-				default:
-					break;
-				case 0x00:
-					mag_far();
-					break;
-				case 0x01:
-					mag_in();
-					break;
-				case 0x02:
-					mag_out();
-					break;
-				case 0x03:
-					mag_near();
-					break;
-			}
-			break;
-		
+
 		case 0x20:
 
 			#ifdef DEBUG_INTPRT
@@ -254,15 +181,7 @@ int run_cmd(char_queue *cmd_queue)
 			rotate_c(buf);
 
 			break;
-		
-		case 0x05:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x00\n");
-			#endif
-		
-			stop();
-			break;
+
 		case 0x01:
 			
 			#ifdef DEBUG_INTPRT
@@ -271,142 +190,7 @@ int run_cmd(char_queue *cmd_queue)
 		
 			stop_all();
 			break;
-		case 0x02:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x02\n");
-			#endif
-		
-			move_up();
-			break;
-		case 0x09:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x09\n");
-			#endif
-		
-			move_down();
-			break;
-		case 0x03:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x03\n");
-			#endif
-		
-			stop_move_up();
-			break;
-		
-		case 0x04:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x04\n");
-			#endif
-		
-			fan_up(10);
-			break;
-		
-		case 0x06:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x06\n");
-			#endif
-		
-			fan_down(10);
-			break;
-		
-		case 0x07:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x06\n");
-			#endif
-		
-			fan_up_r();
-			break;
-		
-		case 0x08:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x06\n");
-			#endif
-		
-			fan_down_r();
-			break;
-		
-		case 0x0a:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x06\n");
-			#endif
-		
-			toggle_fan();
-			break;
-		
-		case 0x42:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x42\n");
-			#endif
-		
-			for(i = 0; i < 4; i++) {
-				out_char_queue(cmd_queue, (char*) &buf);
-				qbuf |= buf << i * 8;
-			}
-			memcpy(&rad, &qbuf, 4);
-			fan_roll(rad);
-		
-			break;
-		
-		case 0x43:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x43\n");
-			#endif
-		
-			for(i = 0; i < 4; i++) {
-				out_char_queue(cmd_queue, (char*) &buf);
-				qbuf |= buf << i * 8;
-			}
-			memcpy(&rad, &qbuf, 4);
-			printf("fan_kowtow(%f)\n", rad);
-			//fan_kowtow(rad);
-		
-			break;
-		
-		case 0x11:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x11\n");
-			#endif
 
-			out_char_queue(cmd_queue, (char*) &buf);
-		
-			fan_roll_r(buf);
-			
-			break;
-		
-		case 0x12:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x12\n");
-			#endif
-
-			out_char_queue(cmd_queue, (char*) &buf);
-		
-			//fan_kowtow_r(buf);
-			
-			break;
-		
-		case 0x13:
-			
-			#ifdef DEBUG_INTPRT
-			printf("\ncmd\t0x13\n");
-			#endif
-		
-			out_char_queue(cmd_queue, (char*) &buf);
-		
-			push_rod((buf >> 4) & 0x0f, buf & 0x0f);
-		
-			break;
 	}
 	
 	return 0;
